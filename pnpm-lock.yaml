@@ -182,8 +182,8 @@ importers:
         specifier: 1.6.0
         version: 1.6.0
       unicode-segmenter:
-        specifier: 0.17.1
-        version: 0.17.1
+        specifier: 0.17.3
+        version: 0.17.3
 
   packages/markdown:
     dependencies:
@@ -1942,8 +1942,8 @@ packages:
   undici-types@7.18.2:
     resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
 
-  unicode-segmenter@0.17.1:
-    resolution: {integrity: sha512-imwm2Aty0hfnY/3LqBWiyhuxxGso7qwhLXDp0BjOpmtYdjYgWJvT9JXthbu3MmEITwgjbYWaRJ0b2yRfgYnD5Q==}
+  unicode-segmenter@0.17.3:
+    resolution: {integrity: sha512-hKZwqBjJDmqNrq1+LjDxck1qLzJFcLLJM2Xq92ORRHOuau6GSHeELmn+uyk6zNH1CK9mogrUJGP9WJCJUQXMAw==}
 
   unist-util-stringify-position@4.0.0:
     resolution: {integrity: sha512-0ASV06AAoKCDkS2+xw5RXJywruurpbC4JZSm7nr7MOt1ojAzvyyaO+UxZf18j8FCF6kmzCZKcAgN/yu2gm2XgQ==}
@@ -3589,7 +3589,7 @@ snapshots:
 
   undici-types@7.18.2: {}
 
-  unicode-segmenter@0.17.1: {}
+  unicode-segmenter@0.17.3: {}
 
   unist-util-stringify-position@4.0.0:
     dependencies:

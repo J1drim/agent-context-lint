@@ -25,6 +25,6 @@
     "@agent-context/rules": "workspace:*",
     "@agent-context/standards": "workspace:*",
     "get-east-asian-width": "1.6.0",
-    "unicode-segmenter": "0.17.1"
+    "unicode-segmenter": "0.17.3"
   }
 }
