@@ -1,0 +1,156 @@
+{
+  "recordKind": "profile-conformance-fixture",
+  "fixtureFormatVersion": "0.1.0",
+  "id": "cursor-cli-cross-format-order-unknown",
+  "title": "Cursor Agent CLI recognizes root AGENTS and MDC while their order remains unknown",
+  "profile": {
+    "profileId": "cursor-agent",
+    "surfaceId": "cursor-agent/cli",
+    "specSnapshotId": "cursor/2026-08-01",
+    "clientVersion": "2026.05.24-dda726e",
+    "versionStatus": "observed-metadata-only"
+  },
+  "provenance": {
+    "researchRecordIds": ["cursor/2026-08-01"],
+    "derivation": "synthetic-edge-case",
+    "assumptions": [
+      "The supplied directory is the CLI workspace root and has no user or team rules."
+    ],
+    "observationIds": ["d16-cursor-cli-no-safe-signal"],
+    "sources": [
+      {
+        "id": "cursor-cli-rules",
+        "url": "https://cursor.com/docs/cli/using",
+        "retrievedAt": "2026-08-02",
+        "immutability": "retrieved-living-doc",
+        "mutableSourceReason": "The CLI page lists both rule families but does not define their relative context order."
+      },
+      {
+        "id": "cursor-cli-metadata",
+        "url": "https://cursor.com/docs/cli/installation",
+        "retrievedAt": "2026-08-02",
+        "immutability": "observation-artifact",
+        "artifactPath": "docs/profiles/cursor/observations/2026-08-02-local-metadata.md"
+      }
+    ]
+  },
+  "repository": {
+    "root": ".",
+    "directories": [".cursor/", ".cursor/rules/", "src/"],
+    "files": [
+      { "path": "AGENTS.md", "formatId": "agents-markdown", "content": "Root guidance." },
+      {
+        "path": ".cursor/rules/always.mdc",
+        "formatId": "cursor-mdc",
+        "content": "---\ndescription:\nglobs:\nalwaysApply: true\n---\nAlways guidance."
+      },
+      { "path": "src/main.ts", "formatId": null, "content": "export {};" }
+    ],
+    "symlinks": []
+  },
+  "externalContext": { "mode": "unavailable", "entries": [] },
+  "invocation": {
+    "launchCwd": ".",
+    "workspaceRoots": ["."],
+    "settings": {},
+    "trustState": "trusted",
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "runtimeMode": "local-terminal"
+  },
+  "targets": [
+    { "id": "target-main", "path": "src/main.ts", "purpose": "resolve-effective-context" }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "sequence": 0,
+      "kind": "launch",
+      "path": ".",
+      "targetId": "target-main"
+    }
+  ],
+  "expectedGraph": {
+    "analysisStatus": "partial",
+    "ambiguities": [
+      {
+        "id": "ambiguity-cross-format-order",
+        "kind": "undocumented-client-order",
+        "reason": "Current Cursor documentation says both rule systems are applied but publishes no relative injection order.",
+        "alternatives": [
+          { "id": "agents-first", "description": "AGENTS.md precedes the Always MDC rule." },
+          { "id": "mdc-first", "description": "The Always MDC rule precedes AGENTS.md." }
+        ],
+        "evidenceRefs": ["CURSOR-SURFACE-05", "CURSOR-SURFACE-06", "cursor-cli-rules"]
+      }
+    ],
+    "nodes": [
+      {
+        "id": "doc-agents",
+        "kind": "document",
+        "path": "AGENTS.md",
+        "formatId": "agents-markdown",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CURSOR-SURFACE-06"]
+      },
+      {
+        "id": "doc-always",
+        "kind": "document",
+        "path": ".cursor/rules/always.mdc",
+        "formatId": "cursor-mdc",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CURSOR-MODE-01"]
+      },
+      {
+        "id": "target-main-node",
+        "kind": "target",
+        "path": "src/main.ts",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CURSOR-CLI"]
+      }
+    ],
+    "edges": [
+      {
+        "id": "agents-activates",
+        "from": "doc-agents",
+        "to": "target-main-node",
+        "relation": "activates",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CURSOR-SURFACE-06"]
+      },
+      {
+        "id": "always-activates",
+        "from": "doc-always",
+        "to": "target-main-node",
+        "relation": "activates",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CURSOR-MODE-01"]
+      },
+      {
+        "id": "cross-format-order",
+        "from": "doc-agents",
+        "to": "doc-always",
+        "relation": "precedes",
+        "resolutionStatus": "unknown",
+        "ambiguityId": "ambiguity-cross-format-order",
+        "evidenceRefs": ["CURSOR-SURFACE-05", "CURSOR-SURFACE-06"]
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "id": "assert-both-active",
+      "predicate": "documents-are-active",
+      "expected": ["AGENTS.md", ".cursor/rules/always.mdc"],
+      "evidenceStatus": "documented",
+      "evidenceRefs": ["CURSOR-MODE-01", "CURSOR-SURFACE-06"]
+    },
+    {
+      "id": "assert-order-unknown",
+      "predicate": "cross-format-order",
+      "expected": ["agents-first", "mdc-first"],
+      "evidenceStatus": "unknown",
+      "ambiguityId": "ambiguity-cross-format-order",
+      "evidenceRefs": ["CURSOR-SURFACE-05", "CURSOR-SURFACE-06"]
+    }
+  ]
+}

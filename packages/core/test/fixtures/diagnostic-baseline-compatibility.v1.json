@@ -1,0 +1,38 @@
+{
+  "recordKind": "agent-context-baseline-compatibility-fixtures",
+  "fixtureVersion": "1.0.0",
+  "cases": [
+    {
+      "id": "v1-exact-identity",
+      "schemaVersion": "1.0.0",
+      "expectedStatus": "matched",
+      "expectedReason": "exact-match"
+    },
+    {
+      "id": "v1-expired-entry",
+      "schemaVersion": "1.0.0",
+      "expectedStatus": "expired",
+      "expectedReason": "baseline-expired"
+    },
+    {
+      "id": "future-major-fails-closed",
+      "schemaVersion": "2.0.0",
+      "expectedOperation": "invalid-baseline"
+    },
+    {
+      "id": "legacy-scaffold-requires-regeneration",
+      "schemaVersion": "1.0.0",
+      "omittedIdentityFields": [
+        "engineVersion",
+        "fingerprintMethods",
+        "entry.ruleVersion",
+        "entry.severity",
+        "entry.provenanceFingerprint",
+        "entry.profileIds",
+        "entry.surfaceIds",
+        "entry.specSnapshotIds"
+      ],
+      "expectedOperation": "invalid-baseline"
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "behavioralClaimsChanged": false,
+  "contractVersion": "0.1.0",
+  "entries": [
+    {
+      "behavioralState": "previously-observed-matching-fixture",
+      "clientPin": {
+        "artifactSha256": "ae1d3ffe6d48aec6a4dc3f50e7eb8e0d11962485a6a9406c5a7012139383da02",
+        "publishedAt": "2026-07-29T01:42:51Z",
+        "retrievedAt": "2026-08-02",
+        "sourceKind": "local-metadata",
+        "sourceRevision": "rust-v0.146.0",
+        "sourceUrl": "https://github.com/openai/codex/releases/tag/rust-v0.146.0",
+        "version": "0.146.0"
+      },
+      "fixtureDisposition": "existing-matching",
+      "fixtureVersionRelation": "exact",
+      "fixtures": [
+        {
+          "path": "conformance/fixtures/v0/codex-root-order.fixture.json",
+          "sha256": "ccff0548b7beed539d67f93da4353af24cd0d5cf0b313ba3857f3655c15f3ca9"
+        }
+      ],
+      "id": "codex-cli/codex-cli/local-cli-single-cwd",
+      "mismatches": [],
+      "observationScope": "version-metadata-only",
+      "plan": {
+        "path": "conformance/observations/v0/d16/codex-cli-current-version.plan.json",
+        "sha256": "be17e2cbc236ba9a3d019d5c57016b3d76efd2c86d92acc554bbed1a57bf1241"
+      },
+      "profileId": "codex-cli",
+      "releaseClass": "ga-required",
+      "safetyReview": {
+        "credentialsRead": false,
+        "externalNetworkDuringObservation": false,
+        "externalRepositoryMutation": false,
+        "modelRequested": false,
+        "repositoryCommandExecuted": false,
+        "repositoryWriteAttempted": false,
+        "transcriptReviewed": true,
+        "userConfigurationRead": false
+      },
+      "supportingEvidence": [
+        {
+          "path": "docs/profiles/observations/codex-cli-0.146.0-macos-arm64.md",
+          "sha256": "e36bf2c76e90b354dd7e346d653bd3121bdedaab4ea1231d416a4d8bafeb06e5"
+        }
+      ],
+      "surfaceId": "codex-cli/local-cli-single-cwd",
+      "transcript": {
+        "path": "conformance/observations/v0/d16/codex-cli-current-version.transcript.json",
+        "sha256": "794e93d1763d02f8b319314aab6603f672e9835cd9143dc3f6605806ffc14341"
+      },
+      "unknownReason": "D15 reconfirmed only the exact binary version; the already reviewed D02 observation remains the behavioral evidence for this fixture.",
+      "unresolvedClaimIds": []
+    },
+    {
+      "behavioralState": "explicit-unknown",
+      "clientPin": {
+        "artifactSha256": "1c895d3d7a97cc1ebd457a2f64ba20212476de82468e4a3fc142beeee270e55e",
+        "publishedAt": "2026-07-25T01:35:55Z",
+        "retrievedAt": "2026-08-02",
+        "sourceKind": "official-release-metadata",
+        "sourceRevision": "v2.1.220",
+        "sourceUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.220",
+        "version": "2.1.220"
+      },
+      "fixtureDisposition": "existing-explicit-unknown",
+      "fixtureVersionRelation": "minimum-compatible",
+      "fixtures": [
+        {
+          "path": "conformance/fixtures/v0/claude-launch-read-rules.fixture.json",
+          "sha256": "20c430662bcd0ce033869f8f48c1d6f55ce9436d74fe5aa64079786d44a6de33"
+        }
+      ],
+      "id": "claude-code/claude-code/local-session",
+      "mismatches": [
+        {
+          "explanation": "Current 2.1.220 is newer than the fixture's 2.1.217 bounded-brace safety boundary; the resolver already treats later releases as that branch, while behavioral ordering remains unobserved.",
+          "id": "claude-fixture-version-drift",
+          "kind": "fixture-version-drift",
+          "resolution": "retain-compatible-version-boundary"
+        }
+      ],
+      "observationScope": "blocked-no-execution",
+      "plan": {
+        "path": "conformance/observations/v0/d16/claude-code-no-safe-signal.plan.json",
+        "sha256": "84c99f08aa5c404bfd3bf6747b1e3f9ccef5e2602320e64701824b594ad35092"
+      },
+      "profileId": "claude-code",
+      "releaseClass": "ga-required",
+      "safetyReview": {
+        "credentialsRead": false,
+        "externalNetworkDuringObservation": false,
+        "externalRepositoryMutation": false,
+        "modelRequested": false,
+        "repositoryCommandExecuted": false,
+        "repositoryWriteAttempted": false,
+        "transcriptReviewed": true,
+        "userConfigurationRead": false
+      },
+      "supportingEvidence": [
+        {
+          "path": "docs/profiles/claude-code/compatibility.md",
+          "sha256": "82d93e0c21acc04a1a268cade7a4de72a32653902b2f8a0e6d6b31317ec5440d"
+        }
+      ],
+      "surfaceId": "claude-code/local-session",
+      "transcript": {
+        "path": "conformance/observations/v0/d16/claude-code-no-safe-signal.transcript.json",
+        "sha256": "7f2424dc8a32cade5c5f186d86408f570987b7c1fec0fa225121af0bfa9c6516"
+      },
+      "unknownReason": "No installed guaranteed no-model instruction-list signal was available; opening an interactive client could authenticate or consume quota.",
+      "unresolvedClaimIds": ["claude-client-only-observation", "claude-simultaneous-source-order"]
+    },
+    {
+      "behavioralState": "explicit-unknown",
+      "clientPin": {
+        "artifactSha256": "3ab9366cd96c06e4d90c6e77d7a9ffa06e2502aa1196ba20c555306c0d7a9592",
+        "publishedAt": "2026-07-30T23:36:02Z",
+        "retrievedAt": "2026-08-02",
+        "sourceKind": "official-release-metadata",
+        "sourceRevision": "v1.0.77",
+        "sourceUrl": "https://github.com/github/copilot-cli/releases/tag/v1.0.77",
+        "version": "1.0.77"
+      },
+      "fixtureDisposition": "added-explicit-unknown",
+      "fixtureVersionRelation": "exact",
+      "fixtures": [
+        {
+          "path": "conformance/fixtures/v0/copilot-cli-order-unknown.fixture.json",
+          "sha256": "c9266665c324d72cef7f894f601a626ded1deb8adfe94097cdf3e2e19a12e0cf"
+        }
+      ],
+      "id": "copilot-cli/copilot-cli/local-terminal",
+      "mismatches": [],
+      "observationScope": "blocked-no-execution",
+      "plan": {
+        "path": "conformance/observations/v0/d16/copilot-cli-no-safe-signal.plan.json",
+        "sha256": "ace4ba234a973b41dcc997a2e34f097cd25508d100813996e5504656840266da"
+      },
+      "profileId": "copilot-cli",
+      "releaseClass": "ga-required",
+      "safetyReview": {
+        "credentialsRead": false,
+        "externalNetworkDuringObservation": false,
+        "externalRepositoryMutation": false,
+        "modelRequested": false,
+        "repositoryCommandExecuted": false,
+        "repositoryWriteAttempted": false,
+        "transcriptReviewed": true,
+        "userConfigurationRead": false
+      },
+      "supportingEvidence": [
+        {
+          "path": "docs/profiles/copilot-surface-support.md",
+          "sha256": "f14c9de2c0833e9cc80ae5f52a70054f32a62e002c305bd2594051d3c4ee75ec"
+        }
+      ],
+      "surfaceId": "copilot-cli/local-terminal",
+      "transcript": {
+        "path": "conformance/observations/v0/d16/copilot-cli-no-safe-signal.transcript.json",
+        "sha256": "9c6a930b0f1b350558f1cd1a215b2444882bddd85c2d34dc6af699707df2681d"
+      },
+      "unknownReason": "No installed local client or documented non-interactive instruction-list command was available without authentication or entitlement use.",
+      "unresolvedClaimIds": ["ambiguity-cross-family-order"]
+    },
+    {
+      "behavioralState": "explicit-unknown",
+      "clientPin": {
+        "artifactSha256": "797dc8779ea3c4fa7ca470f40bc26f448a9d4d175cebe49cacfdf9872dfd9c1e",
+        "publishedAt": "2026-04-07T11:32:46Z",
+        "retrievedAt": "2026-08-02",
+        "sourceKind": "official-release-metadata",
+        "sourceRevision": "v0.43.0",
+        "sourceUrl": "https://github.com/microsoft/vscode-copilot-chat/releases/tag/v0.43.0",
+        "version": "0.43.0"
+      },
+      "fixtureDisposition": "existing-explicit-unknown",
+      "fixtureVersionRelation": "unpinned",
+      "fixtures": [
+        {
+          "path": "conformance/fixtures/v0/copilot-vscode-description-ambiguity.fixture.json",
+          "sha256": "750d523600d5c950e81e378302cb8e19c5e6cdf7339631630c7c9e70d30e277a"
+        }
+      ],
+      "id": "copilot-vscode/copilot-vscode/local-chat",
+      "mismatches": [
+        {
+          "explanation": "The living-doc fixture has no editor/extension version, and an official release artifact pin does not prove which Marketplace build or behavior is deployed.",
+          "id": "copilot-vscode-fixture-unpinned",
+          "kind": "fixture-version-unpinned",
+          "resolution": "preserve-explicit-unknown"
+        }
+      ],
+      "observationScope": "blocked-no-execution",
+      "plan": {
+        "path": "conformance/observations/v0/d16/copilot-vscode-manual-review.plan.json",
+        "sha256": "f70f322887623405f096b4906670db91623eb6b0cf8e9d7abf0cb1e2141adf46"
+      },
+      "profileId": "copilot-vscode",
+      "releaseClass": "ga-required",
+      "safetyReview": {
+        "credentialsRead": false,
+        "externalNetworkDuringObservation": false,
+        "externalRepositoryMutation": false,
+        "modelRequested": false,
+        "repositoryCommandExecuted": false,
+        "repositoryWriteAttempted": false,
+        "transcriptReviewed": true,
+        "userConfigurationRead": false
+      },
+      "supportingEvidence": [
+        {
+          "path": "docs/profiles/copilot-surface-support.md",
+          "sha256": "f14c9de2c0833e9cc80ae5f52a70054f32a62e002c305bd2594051d3c4ee75ec"
+        }
+      ],
+      "surfaceId": "copilot-vscode/local-chat",
+      "transcript": {
+        "path": "conformance/observations/v0/d16/copilot-vscode-manual-review.transcript.json",
+        "sha256": "7559631b02eebbd599df5dd7d58bc8aa8213ac216c5a6384fc86b77726f89856"
+      },
+      "unknownReason": "Instruction applicability is an IDE-only signal requiring a reviewed manual observation; no chat request or account-backed session was opened.",
+      "unresolvedClaimIds": ["ambiguity-description-only"]
+    },
+    {
+      "behavioralState": "explicit-unknown",
+      "clientPin": {
+        "artifactSha256": "aba03c7a466eed114d13f9307d7653d83f9391e43fdbf72e80b32f90fd05d8f1",
+        "publishedAt": "2026-07-31T21:34:30Z",
+        "retrievedAt": "2026-08-02",
+        "sourceKind": "official-release-metadata",
+        "sourceRevision": "v0.53.1",
+        "sourceUrl": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.53.1",
+        "version": "0.53.1"
+      },
+      "fixtureDisposition": "existing-explicit-unknown",
+      "fixtureVersionRelation": "exact",
+      "fixtures": [
+        {
+          "path": "conformance/fixtures/v0/gemini-hierarchy-jit.fixture.json",
+          "sha256": "4d1426b3fc53952005fe6d7d37e00b314ea5675304c3f9e66366514e1ae2ae1e"
+        },
+        {
+          "path": "conformance/fixtures/v0/gemini-ignore-memory-ambiguity.fixture.json",
+          "sha256": "9958add986e367ccfdf4e8c1fe230c4d41189fb43be029eefee6b949cd57854d"
+        },
+        {
+          "path": "conformance/fixtures/v0/gemini-import-modes.fixture.json",
+          "sha256": "6130327bd8ca91996752e5904d230007ebf958f1437b1bc051c296a46820cc54"
+        }
+      ],
+      "id": "gemini-cli/gemini-cli/local-terminal",
+      "mismatches": [],
+      "observationScope": "blocked-no-execution",
+      "plan": {
+        "path": "conformance/observations/v0/gemini-no-safe-signal.plan.json",
+        "sha256": "2e0c6ad47d418284724c9c1f56983484977f662fa2919b5dfcdd7110dfc2c314"
+      },
+      "profileId": "gemini-cli",
+      "releaseClass": "ga-required",
+      "safetyReview": {
+        "credentialsRead": false,
+        "externalNetworkDuringObservation": false,
+        "externalRepositoryMutation": false,
+        "modelRequested": false,
+        "repositoryCommandExecuted": false,
+        "repositoryWriteAttempted": false,
+        "transcriptReviewed": true,
+        "userConfigurationRead": false
+      },
+      "supportingEvidence": [
+        {
+          "path": "docs/profiles/gemini-cli/observations/2026-08-01-local-metadata.md",
+          "sha256": "7bb2a2cb573aa0a6b5b47772a63480222a57024cf90603969a59567c4b9745fb"
+        },
+        {
+          "path": "docs/profiles/gemini-cli/observations/2026-08-02-source-equivalence.md",
+          "sha256": "c85caf4be6dac619d88dd86cee009a4d7391d1ae68df31b84f6ad28bee6e709a"
+        }
+      ],
+      "surfaceId": "gemini-cli/local-terminal",
+      "transcript": {
+        "path": "conformance/observations/v0/d16/gemini-no-safe-signal.transcript.json",
+        "sha256": "e610abf0f71739c1fc555b9296601f8a9b1fa0df5effdc8f89c7a2ede5a8c566"
+      },
+      "unknownReason": "The current client exposes memory inspection only through an interactive surface that may authenticate or issue model-backed work.",
+      "unresolvedClaimIds": [
+        "flat-depth-contract",
+        "gemini-runtime-memory-signal",
+        "ignore-memory-scope"
+      ]
+    },
+    {
+      "behavioralState": "explicit-unknown",
+      "clientPin": {
+        "artifactSha256": "de63d7265e20da15329ee70250c8596851e39d08cfdc814d5f73c00b8c7962a1",
+        "publishedAt": null,
+        "retrievedAt": "2026-08-02",
+        "sourceKind": "local-metadata",
+        "sourceRevision": "63a2996a10d9e476b6c28e951dd7691d9c0cf480",
+        "sourceUrl": "https://cursor.com/docs/rules",
+        "version": "3.12.30"
+      },
+      "fixtureDisposition": "added-explicit-unknown",
+      "fixtureVersionRelation": "exact",
+      "fixtures": [
+        {
+          "path": "conformance/fixtures/v0/cursor-ide-model-selection-unknown.fixture.json",
+          "sha256": "6db408e82c0d1e5db50958d238b1332376bee49dfa5d1766a4251e66c96be197"
+        }
+      ],
+      "id": "cursor-agent/cursor-agent/ide",
+      "mismatches": [],
+      "observationScope": "blocked-no-execution",
+      "plan": {
+        "path": "conformance/observations/v0/d16/cursor-ide-manual-review.plan.json",
+        "sha256": "7769fd36158dd2851827852bc080dc661483b4bcf76aca6fb023e3c063d2f3f6"
+      },
+      "profileId": "cursor-agent",
+      "releaseClass": "ga-required",
+      "safetyReview": {
+        "credentialsRead": false,
+        "externalNetworkDuringObservation": false,
+        "externalRepositoryMutation": false,
+        "modelRequested": false,
+        "repositoryCommandExecuted": false,
+        "repositoryWriteAttempted": false,
+        "transcriptReviewed": true,
+        "userConfigurationRead": false
+      },
+      "supportingEvidence": [
+        {
+          "path": "docs/profiles/cursor/observations/2026-08-02-local-metadata.md",
+          "sha256": "869284c07d97fc8448d5a9240668c082be0bc6cfe298eb3749aa31e021a974bd"
+        }
+      ],
+      "surfaceId": "cursor-agent/ide",
+      "transcript": {
+        "path": "conformance/observations/v0/d16/cursor-ide-manual-review.transcript.json",
+        "sha256": "74e9d17477cbce9336e8afaecd0e2dbaef551b3f13f4774ebc6a43d08cfe6a89"
+      },
+      "unknownReason": "IDE rule selection requires a reviewed manual or model-backed surface; version output cannot expose activation.",
+      "unresolvedClaimIds": ["ambiguity-model-selection"]
+    },
+    {
+      "behavioralState": "explicit-unknown",
+      "clientPin": {
+        "artifactSha256": "b7babf47d8b1eee28ac27a74affa02a559bb38103a6e71fbb1f120805d51fedf",
+        "publishedAt": null,
+        "retrievedAt": "2026-08-02",
+        "sourceKind": "local-metadata",
+        "sourceRevision": "dda726e",
+        "sourceUrl": "https://cursor.com/docs/cli/installation",
+        "version": "2026.05.24-dda726e"
+      },
+      "fixtureDisposition": "added-explicit-unknown",
+      "fixtureVersionRelation": "exact",
+      "fixtures": [
+        {
+          "path": "conformance/fixtures/v0/cursor-cli-cross-format-order-unknown.fixture.json",
+          "sha256": "626c7daac26ec9a54845507f52fe8b3fb2ad4b2400d8e82f2026a5b69c72cd1d"
+        }
+      ],
+      "id": "cursor-agent/cursor-agent/cli",
+      "mismatches": [],
+      "observationScope": "blocked-no-execution",
+      "plan": {
+        "path": "conformance/observations/v0/d16/cursor-cli-no-safe-signal.plan.json",
+        "sha256": "5e8d3147db84caef3cd3948824802cf5c11b8da25d27986b3010981d59ef1514"
+      },
+      "profileId": "cursor-agent",
+      "releaseClass": "ga-required",
+      "safetyReview": {
+        "credentialsRead": false,
+        "externalNetworkDuringObservation": false,
+        "externalRepositoryMutation": false,
+        "modelRequested": false,
+        "repositoryCommandExecuted": false,
+        "repositoryWriteAttempted": false,
+        "transcriptReviewed": true,
+        "userConfigurationRead": false
+      },
+      "supportingEvidence": [
+        {
+          "path": "docs/profiles/cursor/observations/2026-08-02-local-metadata.md",
+          "sha256": "869284c07d97fc8448d5a9240668c082be0bc6cfe298eb3749aa31e021a974bd"
+        }
+      ],
+      "surfaceId": "cursor-agent/cli",
+      "transcript": {
+        "path": "conformance/observations/v0/d16/cursor-cli-no-safe-signal.transcript.json",
+        "sha256": "480b4b237c3318a22a26eef884cc39476d482bd873a07a9a0a263f6e465131be"
+      },
+      "unknownReason": "The installed launcher is under user state and requires child process execution denied by the D15 sandbox; no direct safe behavior signal exists.",
+      "unresolvedClaimIds": ["ambiguity-cross-format-order"]
+    }
+  ],
+  "inventory": {
+    "path": "conformance/contracts/profile-surface-map.v0.json",
+    "sha256": "184298429e3002cddc541b58a2313c22569a31a8f75ef7c71d0bba68672618bc"
+  },
+  "recordKind": "ga-profile-observation-review",
+  "reviewedAt": "2026-08-02T20:18:08Z"
+}

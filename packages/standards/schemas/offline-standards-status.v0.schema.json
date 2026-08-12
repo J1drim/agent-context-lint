@@ -1,0 +1,131 @@
+{
+  "$id": "https://schemas.agent-context.dev/offline-standards-status.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "age": {
+      "additionalProperties": false,
+      "properties": {
+        "ageDays": { "minimum": 0, "type": "integer" },
+        "maximumAgeDays": { "maximum": 365, "minimum": 1, "type": "integer" },
+        "origin": { "enum": ["bundled", "locked"] },
+        "publishedAt": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+          "type": "string"
+        },
+        "status": { "enum": ["current", "stale"] }
+      },
+      "required": ["ageDays", "maximumAgeDays", "origin", "publishedAt", "status"],
+      "type": "object"
+    },
+    "artifact": {
+      "additionalProperties": false,
+      "properties": {
+        "channel": { "enum": ["preview", "stable"] },
+        "digest": { "pattern": "^[a-f0-9]{64}$", "type": "string" },
+        "retrievedAt": {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.000Z$",
+          "type": "string"
+        },
+        "version": { "minLength": 1, "type": "string" }
+      },
+      "required": ["channel", "digest", "retrievedAt", "version"],
+      "type": "object"
+    },
+    "issue": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "cached-channel-mismatch",
+            "cached-engine-incompatible",
+            "cached-from-future",
+            "cached-latest-invalid",
+            "invalid-clock",
+            "invalid-input",
+            "invalid-lockfile",
+            "lock-channel-mismatch",
+            "lock-authority-unauthenticated",
+            "lock-engine-incompatible",
+            "lock-from-future",
+            "selected-pack-stale",
+            "unauthenticated-bundle",
+            "unexpected-failure"
+          ]
+        },
+        "message": { "minLength": 1, "type": "string" },
+        "path": { "minLength": 1, "type": "string" },
+        "source": { "enum": ["cached-latest", "lockfile", "status"] }
+      },
+      "required": ["code", "message", "path", "source"],
+      "type": "object"
+    },
+    "output": {
+      "additionalProperties": false,
+      "properties": {
+        "activation": { "enum": ["bundled", "locked"] },
+        "bundled": { "$ref": "#/$defs/artifact" },
+        "cachedLatest": {
+          "oneOf": [{ "$ref": "#/$defs/artifact" }, { "type": "null" }]
+        },
+        "channel": { "enum": ["preview", "stable"] },
+        "freshness": { "enum": ["current", "offline-unknown", "update-available"] },
+        "locked": { "oneOf": [{ "$ref": "#/$defs/artifact" }, { "type": "null" }] },
+        "mode": { "const": "status" },
+        "problems": {
+          "items": { "minLength": 1, "type": "string" },
+          "maxItems": 16,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "recordKind": { "const": "agent-context-standards-output" },
+        "schemaVersion": { "const": "1.0.0" }
+      },
+      "required": [
+        "activation",
+        "bundled",
+        "cachedLatest",
+        "channel",
+        "freshness",
+        "locked",
+        "mode",
+        "problems",
+        "recordKind",
+        "schemaVersion"
+      ],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "age": {
+      "additionalProperties": false,
+      "properties": {
+        "bundled": { "$ref": "#/$defs/age" },
+        "locked": { "oneOf": [{ "$ref": "#/$defs/age" }, { "type": "null" }] },
+        "policySelection": { "enum": ["bundled", "locked"] }
+      },
+      "required": ["bundled", "locked", "policySelection"],
+      "type": "object"
+    },
+    "asOf": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$",
+      "type": "string"
+    },
+    "contractVersion": { "const": "0.1.0" },
+    "issues": { "items": { "$ref": "#/$defs/issue" }, "maxItems": 16, "type": "array" },
+    "lastCheckedAt": {
+      "oneOf": [
+        {
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$",
+          "type": "string"
+        },
+        { "type": "null" }
+      ]
+    },
+    "output": { "$ref": "#/$defs/output" },
+    "recordKind": { "const": "agent-context-offline-standards-status" }
+  },
+  "required": ["age", "asOf", "contractVersion", "issues", "lastCheckedAt", "output", "recordKind"],
+  "title": "Agent Context Offline Standards Status v0",
+  "type": "object"
+}

@@ -1,0 +1,248 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/metadata-calibration-candidates.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidates": {
+      "items": { "$ref": "#/$defs/repository" },
+      "maxItems": 250,
+      "minItems": 50,
+      "type": "array"
+    },
+    "contractVersion": { "const": "0.1.0" },
+    "recordKind": { "const": "agent-context-metadata-calibration-candidates" },
+    "retrieval": { "$ref": "#/$defs/retrieval" },
+    "sourcePolicy": { "$ref": "#/$defs/sourcePolicy" }
+  },
+  "required": ["candidates", "contractVersion", "recordKind", "retrieval", "sourcePolicy"],
+  "type": "object",
+  "$defs": {
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "blobSha": { "$ref": "#/$defs/sha" },
+        "format": { "$ref": "#/$defs/format" },
+        "metadataUrl": { "$ref": "#/$defs/httpsUrl" },
+        "path": { "$ref": "#/$defs/repositoryPath" }
+      },
+      "required": ["blobSha", "format", "metadataUrl", "path"],
+      "type": "object"
+    },
+    "format": { "enum": ["agents-md", "claude", "copilot", "cursor", "gemini"] },
+    "httpsUrl": { "format": "uri", "maxLength": 2048, "pattern": "^https://", "type": "string" },
+    "license": {
+      "additionalProperties": false,
+      "properties": {
+        "metadataUrl": { "$ref": "#/$defs/httpsUrl" },
+        "spdxId": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9.+-]+$",
+          "type": "string"
+        }
+      },
+      "required": ["metadataUrl", "spdxId"],
+      "type": "object"
+    },
+    "query": {
+      "additionalProperties": false,
+      "properties": {
+        "format": { "$ref": "#/$defs/format" },
+        "incompleteResults": { "type": "boolean" },
+        "query": { "maxLength": 256, "minLength": 1, "type": "string" },
+        "repositoryResultCount": { "maximum": 100, "minimum": 0, "type": "integer" },
+        "totalCount": { "minimum": 0, "type": "integer" }
+      },
+      "required": ["format", "incompleteResults", "query", "repositoryResultCount", "totalCount"],
+      "type": "object"
+    },
+    "repository": {
+      "additionalProperties": false,
+      "properties": {
+        "apiUrl": { "$ref": "#/$defs/httpsUrl" },
+        "archived": { "const": false },
+        "defaultBranch": { "maxLength": 255, "minLength": 1, "type": "string" },
+        "diskUsageKiB": { "maximum": 2097152, "minimum": 10, "type": "integer" },
+        "fork": { "const": false },
+        "fullName": {
+          "maxLength": 201,
+          "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$",
+          "type": "string"
+        },
+        "instructionEvidence": {
+          "items": { "$ref": "#/$defs/evidence" },
+          "maxItems": 4096,
+          "minItems": 1,
+          "type": "array"
+        },
+        "license": { "$ref": "#/$defs/license" },
+        "monorepoEvidencePaths": {
+          "items": { "$ref": "#/$defs/repositoryPath" },
+          "maxItems": 8,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "pinnedCommitSha": { "$ref": "#/$defs/sha" },
+        "pinnedTreeSha": { "$ref": "#/$defs/sha" },
+        "primaryLanguage": {
+          "oneOf": [{ "maxLength": 128, "minLength": 1, "type": "string" }, { "type": "null" }]
+        },
+        "publicSourceEvidence": {
+          "additionalProperties": false,
+          "properties": {
+            "basis": { "const": "public-github-repository" },
+            "observedAt": { "format": "date-time", "type": "string" },
+            "url": { "$ref": "#/$defs/httpsUrl" }
+          },
+          "required": ["basis", "observedAt", "url"],
+          "type": "object"
+        },
+        "pushedAt": { "format": "date-time", "type": "string" },
+        "repositoryId": { "pattern": "^[1-9][0-9]{0,19}$", "type": "string" },
+        "repositoryUrl": { "$ref": "#/$defs/httpsUrl" },
+        "strata": {
+          "items": { "$ref": "#/$defs/format" },
+          "maxItems": 5,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "traits": {
+          "additionalProperties": false,
+          "properties": {
+            "monorepository": { "type": "boolean" },
+            "multipleInstructionFormats": { "type": "boolean" }
+          },
+          "required": ["monorepository", "multipleInstructionFormats"],
+          "type": "object"
+        }
+      },
+      "required": [
+        "apiUrl",
+        "archived",
+        "defaultBranch",
+        "diskUsageKiB",
+        "fork",
+        "fullName",
+        "instructionEvidence",
+        "license",
+        "monorepoEvidencePaths",
+        "pinnedCommitSha",
+        "pinnedTreeSha",
+        "primaryLanguage",
+        "publicSourceEvidence",
+        "pushedAt",
+        "repositoryId",
+        "repositoryUrl",
+        "strata",
+        "traits"
+      ],
+      "type": "object"
+    },
+    "repositoryPath": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)[.][.](?:/|$))(?!.*\\\\)(?!.*\\u0000).+$",
+      "type": "string"
+    },
+    "retrieval": {
+      "additionalProperties": false,
+      "properties": {
+        "apiBaseUrl": { "const": "https://api.github.com" },
+        "apiVersion": { "const": "2022-11-28" },
+        "authentication": { "enum": ["authenticated-public-read", "unauthenticated-public-read"] },
+        "documentation": {
+          "items": { "$ref": "#/$defs/httpsUrl" },
+          "maxItems": 8,
+          "minItems": 3,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "queries": {
+          "items": { "$ref": "#/$defs/query" },
+          "maxItems": 5,
+          "minItems": 5,
+          "type": "array"
+        },
+        "retrievedAt": { "format": "date-time", "type": "string" },
+        "samplingFrame": {
+          "additionalProperties": false,
+          "properties": {
+            "codeSearchMaximumAccessibleResults": { "const": 1000 },
+            "excludedUnknownLicenseCount": { "minimum": 0, "type": "integer" },
+            "excludedTruncatedTreeCount": { "minimum": 0, "type": "integer" },
+            "excludedOversizedTreeCount": { "minimum": 0, "type": "integer" },
+            "firstPageRepositoriesOnly": { "const": true },
+            "pageSize": { "const": 100 },
+            "searchIndexSnapshotNotCompletePopulation": { "const": true },
+            "unknownLicensePolicy": { "const": "excluded-and-counted" }
+          },
+          "required": [
+            "codeSearchMaximumAccessibleResults",
+            "excludedUnknownLicenseCount",
+            "excludedTruncatedTreeCount",
+            "excludedOversizedTreeCount",
+            "firstPageRepositoriesOnly",
+            "pageSize",
+            "searchIndexSnapshotNotCompletePopulation",
+            "unknownLicensePolicy"
+          ],
+          "type": "object"
+        },
+        "transport": {
+          "additionalProperties": false,
+          "properties": {
+            "httpMethods": {
+              "items": { "const": "GET" },
+              "maxItems": 1,
+              "minItems": 1,
+              "type": "array"
+            },
+            "maximumResponseBytes": { "const": 7340032 },
+            "maximumRequests": { "const": 1024 },
+            "redirects": { "const": "error" },
+            "requestConcurrency": { "const": 1 },
+            "timeoutMilliseconds": { "const": 15000 }
+          },
+          "required": [
+            "httpMethods",
+            "maximumResponseBytes",
+            "maximumRequests",
+            "redirects",
+            "requestConcurrency",
+            "timeoutMilliseconds"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "apiBaseUrl",
+        "apiVersion",
+        "authentication",
+        "documentation",
+        "queries",
+        "retrievedAt",
+        "samplingFrame",
+        "transport"
+      ],
+      "type": "object"
+    },
+    "sha": { "pattern": "^[0-9a-f]{40}$", "type": "string" },
+    "sourcePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnosticOutputInspectedBeforeSelection": { "const": false },
+        "externalMutation": { "const": false },
+        "repositoryContentRetrieved": { "const": false },
+        "repositorySourceRedistributed": { "const": false }
+      },
+      "required": [
+        "diagnosticOutputInspectedBeforeSelection",
+        "externalMutation",
+        "repositoryContentRetrieved",
+        "repositorySourceRedistributed"
+      ],
+      "type": "object"
+    }
+  }
+}

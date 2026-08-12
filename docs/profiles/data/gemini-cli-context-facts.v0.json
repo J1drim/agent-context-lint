@@ -1,0 +1,409 @@
+{
+  "recordKind": "research-truth-table",
+  "contract": false,
+  "recordVersion": "gemini-cli/2026-08-02.0",
+  "retrievedAt": "2026-08-02",
+  "description": "Schema-neutral D09 research evidence. This file is not a parser, profile, or fixture contract.",
+  "provenance": {
+    "stablePackage": "@google/gemini-cli@0.53.1",
+    "stableSourceTag": "v0.53.1",
+    "stableSourceSha": "19a68016bdc9cd4177a155846dd51f282c3c1c59",
+    "stablePackageIntegrity": "sha512-xBGdD/tl05gsTpD2oV1Bq0NCb4BBeTnjSbKxHtwOB7nt1QMaqWYJ9WsOEsQQhQ2P1v0UJth1F17SAXvdZ5mASw==",
+    "currentSourceSha": "f47d6c6f7a1308d81f9f57acf7d279f0928c5249",
+    "currentSourcePackageVersion": "0.55.0-nightly.20260802.gf47d6c6f7",
+    "relevantFilesIdenticalAcrossPinnedSources": true,
+    "sourceEquivalenceArtifact": "docs/profiles/gemini-cli/observations/2026-08-02-source-equivalence.md",
+    "sourceFileDigests": {
+      "GEM-DOC-MEMORY": "d00eeaef22453de4756a9862d8467750f772e239c4ee9b6f755709429b47c2cf",
+      "GEM-DOC-CONFIG": "e96c6ebd5870b733c65e0624bce50064e7c75456fdfc4d6bb702a76f26244d15",
+      "GEM-DOC-IMPORT": "eb2737b49776e97e5b967114c50150d42d7c45606c0fbccc24b9bc8d8ab6da11",
+      "GEM-DOC-IGNORE": "21cf247e9066355a3ec1130097e3aaa6ec7065a95d1b52c623e7e46d975253cc",
+      "GEM-SRC-DISCOVERY": "f7c1123381d9326a7ce04ce54f3e0980140e791ba2fe5c2f22602a8f67ef23a5",
+      "GEM-SRC-NAMES": "af2a33a1b846ac491d159d17682083192aff31137973b7ed5fc9d999f4e645ef",
+      "GEM-SRC-MANAGER": "3c35df1ce05149179abc7f25e38449666cf37365544ffdd137da64103d4dd2c7",
+      "GEM-SRC-JIT": "28c2f714855350bf52e6d067b7e5c4e971a611b853406f43baf95b46f1c02493",
+      "GEM-SRC-IMPORT": "27d10c72f71f22beff20c6886fcc75943f01ac5808920095488f3a6d5247f525",
+      "GEM-SRC-CONFIG": "5100bcd48f798d04b9463bd72680af7202f331de566321b1c29f5f8710c2c44c",
+      "GEM-SRC-SETTINGS": "31b771bc8b7960f0cb6f9aa347378af6973a1054665caa0fabf7b3836940bba3",
+      "GEM-SRC-SCHEMA": "df5e1939dd6313ffbe0e1e182af83efbf9e55bca99482e0223faf9b5bbe93e6d",
+      "GEM-SRC-FILTER": "86703523ed91f076eedb3e42f5be39dad599eb251b71ec65d4c8576a13d6486a",
+      "GEM-SRC-IGNORE": "6eef334ec294a673bc16a7e046b35c20bdb0af6287fc43b70e25377b42c4d26b",
+      "GEM-SRC-COMMAND": "bdb664ab7224e830fb85f3586cec4b1f4bbf7dc1ed454301deb087e738b7d729"
+    }
+  },
+  "stateVocabulary": {
+    "documented": "Affirmatively stated by current first-party documentation.",
+    "source-derived": "Established by the pinned official implementation or tests but not promised by documentation.",
+    "observed": "Produced by a pinned executable in an isolated local probe.",
+    "conditional": "Depends on trust, roots, settings, event, or mode.",
+    "contradiction": "Current first-party documentation and pinned source disagree.",
+    "unknown": "Not defined precisely enough for a deterministic compatibility claim.",
+    "blocked-paid-observation": "No guaranteed local-only inspection path exists and testing may require an authenticated or model-backed session."
+  },
+  "sources": [
+    {
+      "id": "GEM-DOC-MEMORY",
+      "kind": "official-documentation",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/docs/cli/gemini-md.md"
+    },
+    {
+      "id": "GEM-DOC-CONFIG",
+      "kind": "official-documentation",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/docs/reference/configuration.md"
+    },
+    {
+      "id": "GEM-DOC-IMPORT",
+      "kind": "official-documentation",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/docs/reference/memport.md"
+    },
+    {
+      "id": "GEM-DOC-IGNORE",
+      "kind": "official-documentation",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/docs/cli/gemini-ignore.md"
+    },
+    {
+      "id": "GEM-SRC-DISCOVERY",
+      "kind": "official-source",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/utils/memoryDiscovery.ts"
+    },
+    {
+      "id": "GEM-SRC-MANAGER",
+      "kind": "official-source",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/context/memoryContextManager.ts"
+    },
+    {
+      "id": "GEM-SRC-NAMES",
+      "kind": "official-source",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/tools/memoryTool.ts"
+    },
+    {
+      "id": "GEM-SRC-JIT",
+      "kind": "official-source",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/tools/jit-context.ts"
+    },
+    {
+      "id": "GEM-SRC-IMPORT",
+      "kind": "official-source",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/utils/memoryImportProcessor.ts"
+    },
+    {
+      "id": "GEM-SRC-CONFIG",
+      "kind": "official-source",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/cli/src/config/config.ts"
+    },
+    {
+      "id": "GEM-SRC-SETTINGS",
+      "kind": "official-source",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/cli/src/config/settings.ts"
+    },
+    {
+      "id": "GEM-SRC-SCHEMA",
+      "kind": "official-source",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/cli/src/config/settingsSchema.ts"
+    },
+    {
+      "id": "GEM-SRC-FILTER",
+      "kind": "official-source",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/services/fileDiscoveryService.ts"
+    },
+    {
+      "id": "GEM-SRC-IGNORE",
+      "kind": "official-source",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/utils/ignoreFileParser.ts"
+    },
+    {
+      "id": "GEM-SRC-COMMAND",
+      "kind": "official-source",
+      "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/commands/memory.ts"
+    },
+    {
+      "id": "GEM-PKG-STABLE",
+      "kind": "official-release",
+      "url": "https://github.com/google-gemini/gemini-cli/tree/19a68016bdc9cd4177a155846dd51f282c3c1c59"
+    },
+    {
+      "id": "GEM-PKG-NPM",
+      "kind": "official-package-registry",
+      "url": "https://registry.npmjs.org/@google%2fgemini-cli/0.53.1"
+    },
+    {
+      "id": "GEM-HIST-SETTINGS",
+      "kind": "official-historical-issue",
+      "url": "https://github.com/google-gemini/gemini-cli/issues/6709"
+    },
+    {
+      "id": "GEM-OBS-METADATA",
+      "kind": "local-observation-artifact",
+      "artifactPath": "docs/profiles/gemini-cli/observations/2026-08-01-local-metadata.md"
+    },
+    {
+      "id": "GEM-OBS-EQUIVALENCE",
+      "kind": "local-observation-artifact",
+      "artifactPath": "docs/profiles/gemini-cli/observations/2026-08-02-source-equivalence.md"
+    }
+  ],
+  "facts": [
+    {
+      "id": "GEM-LOC-001",
+      "topic": "global-discovery",
+      "state": "documented",
+      "claim": "The default global context file is GEMINI.md under the user Gemini directory and global context precedes workspace context.",
+      "sources": ["GEM-DOC-MEMORY", "GEM-SRC-DISCOVERY"]
+    },
+    {
+      "id": "GEM-LOC-002",
+      "topic": "ancestor-discovery",
+      "state": "source-derived",
+      "claim": "For each trusted root, startup discovery walks upward to the nearest configured boundary marker, includes the marker directory, and stops there; without a marker it stops at the trusted root.",
+      "sources": ["GEM-SRC-DISCOVERY"]
+    },
+    {
+      "id": "GEM-LOC-003",
+      "topic": "boundary-empty",
+      "state": "documented",
+      "claim": "An empty memoryBoundaryMarkers array disables parent traversal.",
+      "sources": ["GEM-SRC-SCHEMA", "GEM-SRC-DISCOVERY"]
+    },
+    {
+      "id": "GEM-LOC-004",
+      "topic": "project-order",
+      "state": "source-derived",
+      "claim": "Project candidates across roots are deduplicated by followed file identity and finally sorted lexicographically by absolute path.",
+      "sources": ["GEM-SRC-DISCOVERY"]
+    },
+    {
+      "id": "GEM-LOC-005",
+      "topic": "trust",
+      "state": "conditional",
+      "claim": "Untrusted workspaces suppress workspace and JIT memory, and their workspace settings are excluded from the persistent settings merge.",
+      "sources": ["GEM-SRC-MANAGER", "GEM-SRC-SETTINGS"]
+    },
+    {
+      "id": "GEM-LOC-006",
+      "topic": "descendant-startup",
+      "state": "contradiction",
+      "claim": "Pinned source does not eagerly recurse below workspace roots, while the current configuration reference describes eager descendant scanning capped at 200 directories.",
+      "sources": ["GEM-SRC-DISCOVERY", "GEM-DOC-CONFIG"]
+    },
+    {
+      "id": "GEM-JIT-001",
+      "topic": "jit-trigger",
+      "state": "documented",
+      "claim": "A high-intent file or directory tool access triggers descendant-context discovery.",
+      "sources": ["GEM-DOC-MEMORY", "GEM-SRC-JIT"]
+    },
+    {
+      "id": "GEM-JIT-002",
+      "topic": "jit-roots",
+      "state": "source-derived",
+      "claim": "JIT selects the deepest trusted root containing the target and returns no context for a target outside every trusted root.",
+      "sources": ["GEM-SRC-DISCOVERY"]
+    },
+    {
+      "id": "GEM-JIT-003",
+      "topic": "jit-order",
+      "state": "source-derived",
+      "claim": "JIT context is ordered from boundary ceiling to target directory and excludes file identities already loaded in the session.",
+      "sources": ["GEM-SRC-DISCOVERY", "GEM-SRC-MANAGER"]
+    },
+    {
+      "id": "GEM-JIT-004",
+      "topic": "jit-failure",
+      "state": "source-derived",
+      "claim": "JIT discovery errors are swallowed and do not fail the primary tool operation.",
+      "sources": ["GEM-SRC-JIT"]
+    },
+    {
+      "id": "GEM-NAME-001",
+      "topic": "fileName",
+      "state": "documented",
+      "claim": "context.fileName accepts a string or string list; the default context filename is GEMINI.md.",
+      "sources": ["GEM-DOC-MEMORY", "GEM-SRC-SCHEMA"]
+    },
+    {
+      "id": "GEM-NAME-002",
+      "topic": "fileName-order",
+      "state": "source-derived",
+      "claim": "Configured non-empty normalized names are prepended in first-occurrence order and the existing default is retained unless duplicated.",
+      "sources": ["GEM-SRC-NAMES"]
+    },
+    {
+      "id": "GEM-NAME-003",
+      "topic": "fileName-malformed",
+      "state": "unknown",
+      "claim": "Wrong types generate validation warnings but malformed expanded settings are still returned; downstream coercion is not a compatibility promise.",
+      "sources": ["GEM-SRC-SETTINGS"]
+    },
+    {
+      "id": "GEM-NAME-004",
+      "topic": "fileName-path-boundary",
+      "state": "unknown",
+      "claim": "Documentation describes a filename but source does not expose a clear containment contract for separator, absolute, or traversal-like values.",
+      "sources": ["GEM-DOC-MEMORY", "GEM-SRC-NAMES"]
+    },
+    {
+      "id": "GEM-SET-001",
+      "topic": "settings-precedence",
+      "state": "source-derived",
+      "claim": "Persistent scalar settings precedence is schema defaults, system defaults, user, trusted workspace, then system override.",
+      "sources": ["GEM-SRC-SETTINGS"]
+    },
+    {
+      "id": "GEM-SET-002",
+      "topic": "include-directories",
+      "state": "source-derived",
+      "claim": "includeDirectories concatenates across settings layers, is resolved relative to cwd, and is followed by CLI include-directory arguments.",
+      "sources": ["GEM-SRC-SCHEMA", "GEM-SRC-CONFIG"]
+    },
+    {
+      "id": "GEM-SET-003",
+      "topic": "loadMemoryFromIncludeDirectories",
+      "state": "contradiction",
+      "claim": "Documentation says the flag controls roots scanned by memory reload, while manager refresh scans initialized workspace roots and the flag gates refresh after dynamic directory addition.",
+      "sources": ["GEM-SRC-SCHEMA", "GEM-SRC-MANAGER", "GEM-SRC-CONFIG"]
+    },
+    {
+      "id": "GEM-SET-004",
+      "topic": "discoveryMaxDirs",
+      "state": "contradiction",
+      "claim": "discoveryMaxDirs defaults to 200 but has no effect in the reviewed ancestor/JIT source path; older current documentation assigns it an eager descendant-scan limit.",
+      "sources": ["GEM-SRC-SCHEMA", "GEM-SRC-DISCOVERY", "GEM-DOC-CONFIG"]
+    },
+    {
+      "id": "GEM-SET-005",
+      "topic": "include-directory-setting-spelling",
+      "state": "source-derived",
+      "claim": "The historical proposed spelling context.loadFromIncludeDirectories is absent from the pinned schema, documentation, and implementation and is not a current alias for context.loadMemoryFromIncludeDirectories.",
+      "sources": ["GEM-HIST-SETTINGS", "GEM-SRC-SCHEMA", "GEM-SRC-CONFIG"]
+    },
+    {
+      "id": "GEM-SET-006",
+      "topic": "environment-interpolation",
+      "state": "conditional",
+      "claim": "Gemini settings permit environment-variable interpolation, but normal linter analysis must preserve placeholders as inert untrusted text and must not inspect or expand ambient environment values.",
+      "sources": ["GEM-DOC-CONFIG", "GEM-SRC-SETTINGS"]
+    },
+    {
+      "id": "GEM-IGN-001",
+      "topic": "ignore-syntax",
+      "state": "documented",
+      "claim": ".geminiignore supports gitignore-like blank lines, comments, globs, directory suffixes, root anchors, and negation; changes require restart.",
+      "sources": ["GEM-DOC-IGNORE"]
+    },
+    {
+      "id": "GEM-IGN-002",
+      "topic": "ignore-precedence",
+      "state": "source-derived",
+      "claim": "With all families active, precedence is .gitignore then .geminiignore then custom; earlier custom files have higher priority than later custom files.",
+      "sources": ["GEM-SRC-FILTER", "GEM-SRC-IGNORE", "GEM-SRC-SCHEMA"]
+    },
+    {
+      "id": "GEM-IGN-003",
+      "topic": "ignore-scope",
+      "state": "contradiction",
+      "claim": "Ignore filters apply to supporting file tools, but pinned ancestor/JIT memory discovery does not consult them despite documentation linking ignores to context.",
+      "sources": ["GEM-DOC-IGNORE", "GEM-DOC-MEMORY", "GEM-SRC-DISCOVERY", "GEM-SRC-FILTER"]
+    },
+    {
+      "id": "GEM-IMP-001",
+      "topic": "import-grammar",
+      "state": "source-derived",
+      "claim": "An import begins with @ at content start or after whitespace, ends at whitespace, and its path begins with dot, slash, or an ASCII letter.",
+      "sources": ["GEM-SRC-IMPORT"]
+    },
+    {
+      "id": "GEM-IMP-002",
+      "topic": "import-base",
+      "state": "documented",
+      "claim": "Relative imports resolve from the importing file and nested imports use the nested file directory as their base.",
+      "sources": ["GEM-DOC-IMPORT", "GEM-SRC-IMPORT"]
+    },
+    {
+      "id": "GEM-IMP-003",
+      "topic": "import-boundary",
+      "state": "source-derived",
+      "claim": "Canonical targets must stay within the nearest configured boundary root, or the importing file directory when no marker exists; URLs are rejected.",
+      "sources": ["GEM-SRC-IMPORT"]
+    },
+    {
+      "id": "GEM-IMP-004",
+      "topic": "import-code-regions",
+      "state": "contradiction",
+      "claim": "Documentation says marked detects code regions, while source uses matched backtick runs and does not recognize tilde fences.",
+      "sources": ["GEM-DOC-IMPORT", "GEM-SRC-IMPORT"]
+    },
+    {
+      "id": "GEM-IMP-005",
+      "topic": "import-cycle",
+      "state": "source-derived",
+      "claim": "Tree mode deduplicates within each import chain but can repeat a file across sibling branches; flat mode deduplicates globally and terminates cycles.",
+      "sources": ["GEM-SRC-IMPORT"]
+    },
+    {
+      "id": "GEM-IMP-006",
+      "topic": "import-depth",
+      "state": "contradiction",
+      "claim": "Tree mode defaults to depth 5; flat recursive processing does not enforce that limit, and no reviewed user setting exposes the documented configurable depth.",
+      "sources": ["GEM-DOC-IMPORT", "GEM-SRC-IMPORT", "GEM-SRC-SCHEMA"]
+    },
+    {
+      "id": "GEM-IMP-007",
+      "topic": "import-missing",
+      "state": "contradiction",
+      "claim": "Tree mode emits an error comment for missing files; flat mode omits the target from its file list and only logs in debug despite general documentation promising an error comment.",
+      "sources": ["GEM-DOC-IMPORT", "GEM-SRC-IMPORT"]
+    },
+    {
+      "id": "GEM-EVT-001",
+      "topic": "memory-show",
+      "state": "contradiction",
+      "claim": "/memory show renders static memory buckets, while its count includes JIT-loaded paths whose text was only injected into tool output.",
+      "sources": ["GEM-DOC-MEMORY", "GEM-SRC-COMMAND", "GEM-SRC-MANAGER"]
+    },
+    {
+      "id": "GEM-EVT-002",
+      "topic": "memory-reload",
+      "state": "source-derived",
+      "claim": "/memory reload clears loaded identities, re-discovers static memory, emits a memory-changed event, and updates the initialized system instruction; refresh is an alias.",
+      "sources": ["GEM-SRC-COMMAND", "GEM-SRC-MANAGER"]
+    },
+    {
+      "id": "GEM-EVT-003",
+      "topic": "restart",
+      "state": "documented",
+      "claim": "Context content edits require memory reload for guaranteed activation; ignore-file edits require CLI restart.",
+      "sources": ["GEM-DOC-MEMORY", "GEM-DOC-IGNORE"]
+    },
+    {
+      "id": "GEM-OBS-001",
+      "topic": "local-metadata",
+      "state": "observed",
+      "claim": "An isolated official package printed version 0.53.1 and help without authentication or a model request.",
+      "sources": ["GEM-PKG-STABLE", "GEM-PKG-NPM", "GEM-OBS-METADATA"]
+    },
+    {
+      "id": "GEM-OBS-002",
+      "topic": "behavioral-observation",
+      "state": "blocked-paid-observation",
+      "claim": "The reviewed help exposes no guaranteed local-only command for printing context discovery; interactive /memory testing was not started.",
+      "sources": ["GEM-PKG-STABLE", "GEM-PKG-NPM", "GEM-OBS-METADATA"]
+    },
+    {
+      "id": "GEM-OBS-003",
+      "topic": "source-equivalence",
+      "state": "observed",
+      "claim": "The 15 reviewed context, settings, ignore, import, and memory files are byte-identical between stable v0.53.1 and current f47d6c6; their SHA-256 digests are pinned without executing Gemini CLI or making a model request.",
+      "sources": ["GEM-PKG-STABLE", "GEM-OBS-EQUIVALENCE"]
+    }
+  ],
+  "gaps": [
+    "GEM-GAP-001",
+    "GEM-GAP-002",
+    "GEM-GAP-003",
+    "GEM-GAP-004",
+    "GEM-GAP-005",
+    "GEM-GAP-006",
+    "GEM-GAP-007",
+    "GEM-GAP-008"
+  ]
+}

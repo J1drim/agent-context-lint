@@ -1,0 +1,52 @@
+version: 1
+profiles:
+  claudeCode: false
+  cursorAgent:
+    enabled: true
+    surfaces:
+      cursor-agent/cli: false
+      cursor-agent/ide: true
+rules:
+  ACL001: error
+  ACL123:
+    severity: warning
+    maxTokens: 4000
+ignore:
+  - vendor/**
+  - fixtures/generated/**
+limits:
+  maxDiagnostics: 500
+  maxFileBytes: 2097152
+  maxFiles: 20000
+  maxImportDepth: 12
+  maxImportFanOut: 64
+  maxTotalBytes: 134217728
+  maxTraversalDepth: 96
+commands:
+  packageManager: pnpm
+security:
+  allowAbsolutePaths: false
+  allowNetworkReferences: false
+standards:
+  channel: preview
+  lockfile: config/standards.lock.json
+  maxAgeDays: 14
+  requireCurrentInCI: true
+efficiency:
+  tokenizer: estimate
+  scoreVersion: 1.0.0
+  budgets:
+    alwaysOnTokens: 3000
+    effectiveP95Tokens: 7000
+  gradeThresholds:
+    A: 92
+    B: 82
+    C: 72
+    D: 60
+  componentWeights:
+    budgetFit: 35
+    scopePrecision: 20
+    nonRedundancy: 20
+    reachability: 10
+    instructionDensity: 10
+    crossAgentConsistency: 5

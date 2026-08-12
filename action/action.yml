@@ -1,0 +1,33 @@
+name: Agent Context Linter
+description: Run the deterministic offline linter and emit bounded GitHub annotations
+author: Area Automation
+
+branding:
+  color: purple
+  icon: check-circle
+
+inputs:
+  base:
+    description: Exact 40- or 64-character Git base object ID; required only when changed is true
+    required: false
+    default: ""
+  changed:
+    description: Restrict output to diagnostics proven relevant to the merge-base diff
+    required: false
+    default: "false"
+  fail-on:
+    description: Lowest severity that fails the action (error, warning, or never)
+    required: false
+    default: warning
+  max-annotations:
+    description: Maximum number of inline annotations, from 1 through 50
+    required: false
+    default: "50"
+  working-directory:
+    description: Repository-relative directory to scan
+    required: false
+    default: .
+
+runs:
+  using: node24
+  main: dist/index.js

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-context-lint.dev/schemas/semantic-plugin-configuration.v0.schema.json",
+  "title": "Agent Context Linter semantic plug-in configuration v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contractVersion", "enabled", "pluginId", "recordKind"],
+  "properties": {
+    "contractVersion": { "const": "0.1.0" },
+    "enabled": { "type": "boolean" },
+    "pluginId": {
+      "oneOf": [{ "type": "null" }, { "const": "reference-contradiction-candidate-v1" }]
+    },
+    "recordKind": { "const": "agent-context-semantic-plugin-configuration" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "enabled": { "const": false } } },
+      "then": { "properties": { "pluginId": { "type": "null" } } },
+      "else": {
+        "properties": { "pluginId": { "const": "reference-contradiction-candidate-v1" } }
+      }
+    }
+  ]
+}

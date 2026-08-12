@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "recordKind": "agent-context-codex-cli-agents-fixture",
+  "retrievedAt": "2026-08-02",
+  "provenance": {
+    "client": "OpenAI Codex CLI",
+    "clientVersion": "0.146.0",
+    "sourceRevision": "e363b08c9175ac1cbe5893615dd2cb9ddf95043b",
+    "sourceUrls": [
+      "https://github.com/openai/codex/blob/e363b08c9175ac1cbe5893615dd2cb9ddf95043b/codex-rs/core/src/agents_md.rs",
+      "https://developers.openai.com/codex/guides/agents-md/"
+    ],
+    "retrievalDates": ["2026-08-01", "2026-08-02"],
+    "assumptions": [
+      "Cases model one local CLI launch CWD and an already-authorized repository snapshot.",
+      "Repository paths are case-sensitive for deterministic fixture expectations.",
+      "Global instructions are unavailable unless fixture bytes are explicitly supplied."
+    ],
+    "observedDifferences": [
+      "Pinned source shows an empty selected project file shadows later names while consuming no project byte budget; the guide documents empty-file skipping without that source-level distinction.",
+      "The linter refuses external symlink reads even though the pinned client source can read a resolved filesystem path."
+    ]
+  },
+  "cases": [
+    {
+      "id": "root-to-cwd-merge",
+      "launchCwd": "apps/api",
+      "targetPath": "other/file.ts",
+      "rootMarkerPaths": [".git"],
+      "entries": [
+        { "kind": "file", "path": "AGENTS.md", "content": "root" },
+        { "kind": "file", "path": "apps/AGENTS.md", "content": "apps" },
+        { "kind": "file", "path": "apps/api/AGENTS.override.md", "content": "api" }
+      ],
+      "settings": { "fallbacks": [], "maxBytes": 32768, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": [".", "apps", "apps/api"],
+        "projectText": "root\n\napps\n\napi",
+        "selectedPaths": ["AGENTS.md", "apps/AGENTS.md", "apps/api/AGENTS.override.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "no-marker-cwd-only",
+      "launchCwd": "apps/api",
+      "targetPath": "apps/api/file.ts",
+      "rootMarkerPaths": [],
+      "entries": [
+        { "kind": "file", "path": "AGENTS.md", "content": "root" },
+        { "kind": "file", "path": "apps/api/AGENTS.md", "content": "cwd" }
+      ],
+      "settings": { "fallbacks": [], "maxBytes": 32768, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "root-not-found",
+        "searchedDirectories": ["apps/api"],
+        "projectText": "cwd",
+        "selectedPaths": ["apps/api/AGENTS.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "nearest-custom-marker-wins",
+      "launchCwd": "work/pkg/src",
+      "targetPath": "unrelated/file.ts",
+      "rootMarkerPaths": ["work/.project", "work/pkg/.project"],
+      "entries": [
+        { "kind": "file", "path": "work/AGENTS.md", "content": "outer" },
+        { "kind": "file", "path": "work/pkg/AGENTS.md", "content": "nearest" },
+        { "kind": "file", "path": "work/pkg/src/AGENTS.md", "content": "cwd" }
+      ],
+      "settings": { "fallbacks": [], "maxBytes": 32768, "rootMarkers": [".project"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": ["work/pkg", "work/pkg/src"],
+        "projectText": "nearest\n\ncwd",
+        "selectedPaths": ["work/pkg/AGENTS.md", "work/pkg/src/AGENTS.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "empty-markers-disable-traversal",
+      "launchCwd": "apps/api",
+      "targetPath": "AGENTS.md",
+      "rootMarkerPaths": [".git"],
+      "entries": [
+        { "kind": "file", "path": "AGENTS.md", "content": "root" },
+        { "kind": "file", "path": "apps/api/AGENTS.md", "content": "cwd" }
+      ],
+      "settings": { "fallbacks": [], "maxBytes": 32768, "rootMarkers": [] },
+      "expected": {
+        "rootState": "traversal-disabled",
+        "searchedDirectories": ["apps/api"],
+        "projectText": "cwd",
+        "selectedPaths": ["apps/api/AGENTS.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "override-shadows-base",
+      "launchCwd": ".",
+      "targetPath": "src/file.ts",
+      "rootMarkerPaths": [".git"],
+      "entries": [
+        { "kind": "file", "path": "AGENTS.override.md", "content": "override" },
+        { "kind": "file", "path": "AGENTS.md", "content": "base" }
+      ],
+      "settings": { "fallbacks": [], "maxBytes": 32768, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": ["."],
+        "projectText": "override",
+        "selectedPaths": ["AGENTS.override.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "first-fallback-wins",
+      "launchCwd": ".",
+      "targetPath": "README.md",
+      "rootMarkerPaths": [".git"],
+      "entries": [
+        { "kind": "file", "path": "TEAM.md", "content": "team" },
+        { "kind": "file", "path": "LEGACY.md", "content": "legacy" }
+      ],
+      "settings": {
+        "fallbacks": ["", "AGENTS.md", "TEAM.md", "TEAM.md", "LEGACY.md"],
+        "maxBytes": 32768,
+        "rootMarkers": [".git"]
+      },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": ["."],
+        "projectText": "team",
+        "selectedPaths": ["TEAM.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "empty-override-still-shadows",
+      "launchCwd": ".",
+      "targetPath": "src/file.ts",
+      "rootMarkerPaths": [".git"],
+      "entries": [
+        { "kind": "file", "path": "AGENTS.override.md", "content": " \n" },
+        { "kind": "file", "path": "AGENTS.md", "content": "base" }
+      ],
+      "settings": { "fallbacks": [], "maxBytes": 32768, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": ["."],
+        "projectText": "",
+        "selectedPaths": ["AGENTS.override.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "aggregate-byte-prefix",
+      "launchCwd": "pkg",
+      "targetPath": "pkg/file.ts",
+      "rootMarkerPaths": [".git"],
+      "entries": [
+        { "kind": "file", "path": "AGENTS.md", "content": "1234" },
+        { "kind": "file", "path": "pkg/AGENTS.md", "content": "abcdef" }
+      ],
+      "settings": { "fallbacks": [], "maxBytes": 7, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": [".", "pkg"],
+        "projectText": "1234\n\nabc",
+        "selectedPaths": ["AGENTS.md", "pkg/AGENTS.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "zero-budget-disables-content",
+      "launchCwd": ".",
+      "targetPath": ".",
+      "rootMarkerPaths": [".git"],
+      "entries": [{ "kind": "file", "path": "AGENTS.md", "content": "content" }],
+      "settings": { "fallbacks": [], "maxBytes": 0, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": ["."],
+        "projectText": "",
+        "selectedPaths": ["AGENTS.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "blank-bounded-prefix-does-not-spend-budget",
+      "launchCwd": "child",
+      "targetPath": "child/file.ts",
+      "rootMarkerPaths": [".git"],
+      "entries": [
+        { "kind": "file", "path": "AGENTS.md", "content": "   root" },
+        { "kind": "file", "path": "child/AGENTS.md", "content": "child" }
+      ],
+      "settings": { "fallbacks": [], "maxBytes": 3, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": [".", "child"],
+        "projectText": "chi",
+        "selectedPaths": ["AGENTS.md", "child/AGENTS.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "internal-symlink-keeps-provenance",
+      "launchCwd": ".",
+      "targetPath": "src/file.ts",
+      "rootMarkerPaths": [".git"],
+      "entries": [
+        {
+          "kind": "internal-symlink",
+          "path": "AGENTS.md",
+          "content": "linked",
+          "resolvedTarget": "docs/instructions.md"
+        }
+      ],
+      "settings": { "fallbacks": [], "maxBytes": 32768, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": ["."],
+        "projectText": "linked",
+        "selectedPaths": ["AGENTS.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "external-symlink-is-not-followed",
+      "launchCwd": ".",
+      "targetPath": "src/file.ts",
+      "rootMarkerPaths": [".git"],
+      "entries": [{ "kind": "external-symlink", "path": "AGENTS.md" }],
+      "settings": { "fallbacks": [], "maxBytes": 32768, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": ["."],
+        "projectText": "",
+        "selectedPaths": ["AGENTS.md"],
+        "issueCodes": ["external-symlink-target"]
+      }
+    },
+    {
+      "id": "broken-link-skips-to-base",
+      "launchCwd": ".",
+      "targetPath": "src/file.ts",
+      "rootMarkerPaths": [".git"],
+      "entries": [
+        { "kind": "broken-symlink", "path": "AGENTS.override.md" },
+        { "kind": "file", "path": "AGENTS.md", "content": "base" }
+      ],
+      "settings": { "fallbacks": [], "maxBytes": 32768, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": ["."],
+        "projectText": "base",
+        "selectedPaths": ["AGENTS.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "directory-skips-to-fallback",
+      "launchCwd": ".",
+      "targetPath": "src/file.ts",
+      "rootMarkerPaths": [".git"],
+      "entries": [
+        { "kind": "directory", "path": "AGENTS.override.md" },
+        { "kind": "file", "path": "AGENTS.md", "content": "base" }
+      ],
+      "settings": { "fallbacks": [], "maxBytes": 32768, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": ["."],
+        "projectText": "base",
+        "selectedPaths": ["AGENTS.md"],
+        "issueCodes": []
+      }
+    },
+    {
+      "id": "unreadable-selection-is-incomplete",
+      "launchCwd": ".",
+      "targetPath": "src/file.ts",
+      "rootMarkerPaths": [".git"],
+      "entries": [{ "kind": "unreadable-file", "path": "AGENTS.md", "errorCode": "EACCES" }],
+      "settings": { "fallbacks": [], "maxBytes": 32768, "rootMarkers": [".git"] },
+      "expected": {
+        "rootState": "found",
+        "searchedDirectories": ["."],
+        "projectText": "",
+        "selectedPaths": ["AGENTS.md"],
+        "issueCodes": ["instruction-read-error"]
+      }
+    }
+  ]
+}

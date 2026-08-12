@@ -1,0 +1,29 @@
+{
+  "recordKind": "effective-context-conformance-golden",
+  "schemaVersion": "0.1.0",
+  "cases": {
+    "claude-launch-read-rules": {
+      "documentPaths": [".claude/rules/other-typescript.md", "CLAUDE.md", "other/CLAUDE.md"],
+      "targetPath": "other/src/api.ts"
+    },
+    "codex-root-order": {
+      "assemblyText": "ROOT_MARKER\n\nAPP_MARKER",
+      "documentPaths": ["AGENTS.md", "app/AGENTS.md"],
+      "ordering": "total",
+      "targetPath": "app/main.ts"
+    },
+    "copilot-vscode-description-ambiguity": {
+      "activation": "indeterminate",
+      "documentPaths": [".github/instructions/api.instructions.md"],
+      "targetPath": "src/api.ts"
+    },
+    "cursor-stateful-profile": {
+      "caseCount": 7
+    },
+    "gemini-hierarchy-jit": {
+      "documentPaths": ["GEMINI.md", "packages/api/GEMINI.md"],
+      "ordering": "total",
+      "targetPath": "packages/api/main.ts"
+    }
+  }
+}

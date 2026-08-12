@@ -1,0 +1,1826 @@
+{
+  "commands": [
+    {
+      "completion": "directory",
+      "description": "Report instruction-context efficiency.",
+      "implementationTicket": "G09",
+      "maximumOperands": 1,
+      "minimumOperands": 0,
+      "name": "efficiency",
+      "options": [
+        {
+          "completion": "none",
+          "description": "Show command help.",
+          "names": [
+            "-h",
+            "--help"
+          ],
+          "valueName": null,
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Select an exact client profile.",
+          "names": [
+            "--agent"
+          ],
+          "valueName": "profile",
+          "values": [
+            "claude-code",
+            "codex-cli",
+            "copilot-cli",
+            "copilot-cloud-agent",
+            "copilot-code-review",
+            "copilot-vscode",
+            "cursor-agent",
+            "gemini-cli"
+          ]
+        },
+        {
+          "completion": "none",
+          "description": "Select deterministic terminal or JSON output.",
+          "names": [
+            "--format"
+          ],
+          "valueName": "format",
+          "values": [
+            "terminal",
+            "json"
+          ]
+        },
+        {
+          "completion": "directory",
+          "description": "Compare against an independently resolved repository source.",
+          "names": [
+            "--compare"
+          ],
+          "valueName": "repository",
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Render terminal output without ANSI color.",
+          "names": [
+            "--no-color"
+          ],
+          "valueName": null,
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Set terminal width from 40 through 240 columns.",
+          "names": [
+            "--width"
+          ],
+          "valueName": "columns",
+          "values": []
+        }
+      ],
+      "usage": "efficiency [repository] [--agent <profile>] [--format terminal|json] [--compare <repository>] [--no-color] [--width <columns>]",
+      "validFirstOperands": []
+    },
+    {
+      "completion": "file",
+      "description": "Explain effective instructions for a target path.",
+      "implementationTicket": "I03",
+      "maximumOperands": 1,
+      "minimumOperands": 1,
+      "name": "explain",
+      "options": [
+        {
+          "completion": "none",
+          "description": "Show command help.",
+          "names": [
+            "-h",
+            "--help"
+          ],
+          "valueName": null,
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Select an exact client profile.",
+          "names": [
+            "--agent"
+          ],
+          "valueName": "profile",
+          "values": [
+            "claude-code",
+            "codex-cli",
+            "copilot-cli",
+            "copilot-cloud-agent",
+            "copilot-code-review",
+            "copilot-vscode",
+            "cursor-agent",
+            "gemini-cli"
+          ]
+        },
+        {
+          "completion": "file",
+          "description": "Load a repository-contained resolution-event trace.",
+          "names": [
+            "--trace"
+          ],
+          "valueName": "file",
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Select an exact surface for a multi-surface client profile.",
+          "names": [
+            "--surface"
+          ],
+          "valueName": "surface",
+          "values": [
+            "cursor-agent/cli",
+            "cursor-agent/ide"
+          ]
+        },
+        {
+          "completion": "none",
+          "description": "Select deterministic terminal or JSON output.",
+          "names": [
+            "--format"
+          ],
+          "valueName": "format",
+          "values": [
+            "terminal",
+            "json"
+          ]
+        }
+      ],
+      "usage": "explain <target> [--agent <profile>] [--surface <surface>] [--trace <file>] [--format terminal|json]",
+      "validFirstOperands": []
+    },
+    {
+      "completion": "directory",
+      "description": "Create a starter repository configuration.",
+      "implementationTicket": "I03",
+      "maximumOperands": 1,
+      "minimumOperands": 0,
+      "name": "init",
+      "options": [
+        {
+          "completion": "none",
+          "description": "Show command help.",
+          "names": [
+            "-h",
+            "--help"
+          ],
+          "valueName": null,
+          "values": []
+        }
+      ],
+      "usage": "init [repository]",
+      "validFirstOperands": []
+    },
+    {
+      "completion": "directory",
+      "description": "List discovered instruction surfaces.",
+      "implementationTicket": "I03",
+      "maximumOperands": 1,
+      "minimumOperands": 0,
+      "name": "list",
+      "options": [
+        {
+          "completion": "none",
+          "description": "Show command help.",
+          "names": [
+            "-h",
+            "--help"
+          ],
+          "valueName": null,
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Select deterministic terminal or JSON output.",
+          "names": [
+            "--format"
+          ],
+          "valueName": "format",
+          "values": [
+            "terminal",
+            "json"
+          ]
+        }
+      ],
+      "usage": "list [repository] [--format terminal|json]",
+      "validFirstOperands": []
+    },
+    {
+      "completion": "none",
+      "description": "List installed lint rules.",
+      "implementationTicket": "I03",
+      "maximumOperands": 0,
+      "minimumOperands": 0,
+      "name": "rules",
+      "options": [
+        {
+          "completion": "none",
+          "description": "Show command help.",
+          "names": [
+            "-h",
+            "--help"
+          ],
+          "valueName": null,
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Select deterministic terminal or JSON output.",
+          "names": [
+            "--format"
+          ],
+          "valueName": "format",
+          "values": [
+            "terminal",
+            "json"
+          ]
+        }
+      ],
+      "usage": "rules [--format terminal|json]",
+      "validFirstOperands": []
+    },
+    {
+      "completion": "directory",
+      "description": "Lint repository agent instruction files.",
+      "implementationTicket": "I02",
+      "maximumOperands": 1,
+      "minimumOperands": 0,
+      "name": "scan",
+      "options": [
+        {
+          "completion": "none",
+          "description": "Show command help.",
+          "names": [
+            "-h",
+            "--help"
+          ],
+          "valueName": null,
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Select stylish, JSON, or SARIF output.",
+          "names": [
+            "--format"
+          ],
+          "valueName": "format",
+          "values": [
+            "stylish",
+            "json",
+            "sarif"
+          ]
+        },
+        {
+          "completion": "none",
+          "description": "Run only a registered rule; repeat to select more.",
+          "names": [
+            "--rule"
+          ],
+          "valueName": "rule",
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Override one rule severity as ACLNNN=severity; repeatable.",
+          "names": [
+            "--severity"
+          ],
+          "valueName": "override",
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Choose the diagnostic failure threshold.",
+          "names": [
+            "--fail-on"
+          ],
+          "valueName": "threshold",
+          "values": [
+            "error",
+            "warning",
+            "never"
+          ]
+        },
+        {
+          "completion": "none",
+          "description": "Bound rule-family worker concurrency from 1 through 10.",
+          "names": [
+            "--maximum-concurrency"
+          ],
+          "valueName": "workers",
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Select a client profile; repeat to select more.",
+          "names": [
+            "--profile"
+          ],
+          "valueName": "profile",
+          "values": [
+            "claude-code",
+            "codex-cli",
+            "copilot-cli",
+            "copilot-cloud-agent",
+            "copilot-code-review",
+            "copilot-vscode",
+            "cursor-agent",
+            "gemini-cli"
+          ]
+        },
+        {
+          "completion": "none",
+          "description": "Select a client surface; repeat to select more.",
+          "names": [
+            "--surface"
+          ],
+          "valueName": "surface",
+          "values": [
+            "claude-code/local-session",
+            "codex-cli/local-cli-single-cwd",
+            "copilot-cli/local-terminal",
+            "copilot-cloud-agent/github-hosted",
+            "copilot-code-review/github-hosted",
+            "copilot-vscode/local-chat",
+            "cursor-agent/cli",
+            "cursor-agent/ide",
+            "gemini-cli/local-terminal"
+          ]
+        },
+        {
+          "completion": "none",
+          "description": "Select diagnostics changed from one explicit Git base reference.",
+          "names": [
+            "--changed"
+          ],
+          "valueName": null,
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Resolve the exact Git base reference for --changed mode.",
+          "names": [
+            "--base"
+          ],
+          "valueName": "ref",
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Preview selected mechanical fixes without writing.",
+          "names": [
+            "--fix-dry-run"
+          ],
+          "valueName": null,
+          "values": []
+        }
+      ],
+      "usage": "scan [repository] [--format stylish|json|sarif] [--rule ACLNNN] [--severity <override>] [--fail-on error|warning|never] [--maximum-concurrency 1..10] [--profile profile] [--surface surface] [--changed --base ref] [--fix-dry-run]",
+      "validFirstOperands": []
+    },
+    {
+      "completion": "none",
+      "description": "Inspect, verify, or update standards knowledge.",
+      "implementationTicket": "H06/H08/H09",
+      "maximumOperands": 1,
+      "minimumOperands": 1,
+      "name": "standards",
+      "options": [
+        {
+          "completion": "none",
+          "description": "Show command help.",
+          "names": [
+            "-h",
+            "--help"
+          ],
+          "valueName": null,
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Select deterministic terminal or JSON output.",
+          "names": [
+            "--format"
+          ],
+          "valueName": "format",
+          "values": [
+            "terminal",
+            "json"
+          ]
+        },
+        {
+          "completion": "directory",
+          "description": "Use an explicit private cache root for update activation.",
+          "names": [
+            "--cache"
+          ],
+          "valueName": "directory",
+          "values": []
+        },
+        {
+          "completion": "none",
+          "description": "Preview a signed update without writing cache or lockfile state.",
+          "names": [
+            "--dry-run"
+          ],
+          "valueName": null,
+          "values": []
+        }
+      ],
+      "usage": "standards <status|check|update> [--format terminal|json] [--dry-run] [--cache <directory>]",
+      "validFirstOperands": [
+        "check",
+        "status",
+        "update"
+      ]
+    }
+  ],
+  "configuration": {
+    "fileName": ".agent-context-lint.yml",
+    "schema": {
+      "$comment": "JSON Schema describes portable decoded JSON shape. The runtime additionally enforces aggregate UTF-8 byte/value limits and rejects JavaScript-only non-JSON authority such as accessors, proxies, cycles, exotic prototypes, sparse arrays, symbols, non-finite numbers, and negative zero.",
+      "$defs": {
+        "claudeCodeProfile": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "surfaces": {
+                  "additionalProperties": false,
+                  "default": {},
+                  "properties": {
+                    "claude-code/local-session": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          ]
+        },
+        "codexCliProfile": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "surfaces": {
+                  "additionalProperties": false,
+                  "default": {},
+                  "properties": {
+                    "codex-cli/local-cli-single-cwd": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          ]
+        },
+        "commands": {
+          "additionalProperties": false,
+          "default": {},
+          "description": "Repository command evidence settings; configuration never executes commands.",
+          "properties": {
+            "packageManager": {
+              "default": "auto",
+              "enum": [
+                "auto",
+                "npm",
+                "pnpm",
+                "yarn",
+                "bun"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "copilotCliProfile": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "surfaces": {
+                  "additionalProperties": false,
+                  "default": {},
+                  "properties": {
+                    "copilot-cli/local-terminal": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          ]
+        },
+        "copilotCloudAgentProfile": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "surfaces": {
+                  "additionalProperties": false,
+                  "default": {},
+                  "properties": {
+                    "copilot-cloud-agent/github-hosted": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          ]
+        },
+        "copilotCodeReviewProfile": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "surfaces": {
+                  "additionalProperties": false,
+                  "default": {},
+                  "properties": {
+                    "copilot-code-review/github-hosted": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          ]
+        },
+        "copilotVscodeProfile": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "surfaces": {
+                  "additionalProperties": false,
+                  "default": {},
+                  "properties": {
+                    "copilot-vscode/local-chat": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          ]
+        },
+        "cursorAgentProfile": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "surfaces": {
+                  "additionalProperties": false,
+                  "default": {},
+                  "properties": {
+                    "cursor-agent/cli": {
+                      "default": true,
+                      "type": "boolean"
+                    },
+                    "cursor-agent/ide": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          ]
+        },
+        "efficiency": {
+          "additionalProperties": false,
+          "default": {},
+          "description": "Static token accounting inputs. B06 defines shape and defaults; G06 owns score formula semantics.",
+          "properties": {
+            "budgets": {
+              "additionalProperties": false,
+              "default": {},
+              "properties": {
+                "alwaysOnTokens": {
+                  "default": 2500,
+                  "maximum": 10000000,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "effectiveP95Tokens": {
+                  "default": 5000,
+                  "maximum": 10000000,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "componentWeights": {
+              "additionalProperties": false,
+              "default": {},
+              "description": "Integer percentage weights. Runtime validation additionally requires their sum to equal 100.",
+              "properties": {
+                "budgetFit": {
+                  "default": 30,
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "crossAgentConsistency": {
+                  "default": 5,
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "instructionDensity": {
+                  "default": 10,
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "nonRedundancy": {
+                  "default": 20,
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "reachability": {
+                  "default": 10,
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "scopePrecision": {
+                  "default": 25,
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "gradeThresholds": {
+              "additionalProperties": false,
+              "default": {},
+              "description": "Inclusive grade floors. Runtime validation additionally requires A > B > C > D.",
+              "properties": {
+                "A": {
+                  "default": 90,
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "B": {
+                  "default": 80,
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "C": {
+                  "default": 70,
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "D": {
+                  "default": 55,
+                  "maximum": 100,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "scoreVersion": {
+              "default": "1.0.0",
+              "enum": [
+                "1.0.0"
+              ]
+            },
+            "tokenizer": {
+              "default": "estimate",
+              "enum": [
+                "estimate"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "geminiCliProfile": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "default": true,
+                  "type": "boolean"
+                },
+                "surfaces": {
+                  "additionalProperties": false,
+                  "default": {},
+                  "properties": {
+                    "gemini-cli/local-terminal": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          ]
+        },
+        "limits": {
+          "additionalProperties": false,
+          "default": {},
+          "description": "Hard upper bounds consumed by later discovery, parsing, import, and diagnostic stages.",
+          "properties": {
+            "maxDiagnostics": {
+              "default": 10000,
+              "maximum": 100000,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "maxFileBytes": {
+              "default": 1048576,
+              "maximum": 16777216,
+              "minimum": 1024,
+              "type": "integer"
+            },
+            "maxFiles": {
+              "default": 100000,
+              "maximum": 1000000,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "maxImportDepth": {
+              "default": 16,
+              "maximum": 64,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "maxImportFanOut": {
+              "default": 128,
+              "maximum": 4096,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "maxTotalBytes": {
+              "default": 67108864,
+              "maximum": 1073741824,
+              "minimum": 1024,
+              "type": "integer"
+            },
+            "maxTraversalDepth": {
+              "default": 128,
+              "maximum": 1024,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "ruleSetting": {
+          "oneOf": [
+            {
+              "enum": [
+                "error",
+                "warning",
+                "info",
+                "off"
+              ]
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "maxTokens": {
+                  "maximum": 10000000,
+                  "minimum": 1,
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "severity": {
+                  "enum": [
+                    "error",
+                    "warning",
+                    "info",
+                    "off"
+                  ]
+                }
+              },
+              "required": [
+                "severity"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "security": {
+          "additionalProperties": false,
+          "default": {},
+          "description": "Conservative policy inputs for later rules. These flags never grant filesystem or network capability.",
+          "properties": {
+            "allowAbsolutePaths": {
+              "default": false,
+              "type": "boolean"
+            },
+            "allowNetworkReferences": {
+              "default": false,
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "standards": {
+          "additionalProperties": false,
+          "default": {},
+          "description": "Local standards selection. Network access remains an explicit standards-command concern.",
+          "properties": {
+            "channel": {
+              "default": "stable",
+              "enum": [
+                "stable",
+                "preview"
+              ]
+            },
+            "lockfile": {
+              "default": "agent-context-standards.lock.json",
+              "maxLength": 1024,
+              "minLength": 1,
+              "pattern": "^(?=(?:[^\\uD800-\\uDFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF])+$)(?!\\.?$)(?!/)(?![A-Za-z]:)(?!.*[\\u0000-\\u001f\\u007f])(?!.*\\\\)(?!.*//)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*\\/$).+$",
+              "type": "string"
+            },
+            "maxAgeDays": {
+              "default": 30,
+              "maximum": 365,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "requireCurrentInCI": {
+              "default": false,
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "$id": "https://agent-context-lint.dev/schemas/agent-context-lint-config.v1.schema.json",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Closed schema for .agent-context-lint.yml after safe YAML decoding. Unknown structural keys are rejected.",
+      "properties": {
+        "commands": {
+          "$ref": "#/$defs/commands"
+        },
+        "efficiency": {
+          "$ref": "#/$defs/efficiency"
+        },
+        "ignore": {
+          "default": [],
+          "description": "Ordered, unique, root-relative POSIX glob patterns. Backslashes and absolute patterns are rejected.",
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "pattern": "^(?=(?:[^\\uD800-\\uDFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF])+$)(?!/)(?!.*[\\u0000-\\u001f\\u007f])(?!.*\\\\)(?!.*//)(?!.*(?:^|/)\\.{1,2}(?:/|$)).+$",
+            "type": "string"
+          },
+          "maxItems": 256,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "limits": {
+          "$ref": "#/$defs/limits"
+        },
+        "profiles": {
+          "additionalProperties": false,
+          "default": {},
+          "description": "Per-client and per-surface enablement. Omitted profiles and surfaces are enabled.",
+          "properties": {
+            "claudeCode": {
+              "$ref": "#/$defs/claudeCodeProfile"
+            },
+            "codexCli": {
+              "$ref": "#/$defs/codexCliProfile"
+            },
+            "copilotCli": {
+              "$ref": "#/$defs/copilotCliProfile"
+            },
+            "copilotCloudAgent": {
+              "$ref": "#/$defs/copilotCloudAgentProfile"
+            },
+            "copilotCodeReview": {
+              "$ref": "#/$defs/copilotCodeReviewProfile"
+            },
+            "copilotVscode": {
+              "$ref": "#/$defs/copilotVscodeProfile"
+            },
+            "cursorAgent": {
+              "$ref": "#/$defs/cursorAgentProfile"
+            },
+            "geminiCli": {
+              "$ref": "#/$defs/geminiCliProfile"
+            }
+          },
+          "type": "object"
+        },
+        "rules": {
+          "additionalProperties": {
+            "$ref": "#/$defs/ruleSetting"
+          },
+          "default": {},
+          "description": "Rule severity overrides and the version-1 maxTokens option. Rule IDs must use ACL followed by three digits.",
+          "maxProperties": 512,
+          "propertyNames": {
+            "pattern": "^ACL[0-9]{3}$"
+          },
+          "type": "object"
+        },
+        "security": {
+          "$ref": "#/$defs/security"
+        },
+        "standards": {
+          "$ref": "#/$defs/standards"
+        },
+        "version": {
+          "const": 1,
+          "description": "Configuration document version."
+        }
+      },
+      "required": [
+        "version"
+      ],
+      "title": "Agent Context Linter repository configuration v1",
+      "type": "object"
+    },
+    "schemaId": "https://agent-context-lint.dev/schemas/agent-context-lint-config.v1.schema.json",
+    "schemaSha256": "e0c81452933f197f815b2d55a05f2297a43d2a718b15309770116db24e63056c"
+  },
+  "globalOptions": [
+    {
+      "completion": "none",
+      "description": "Show deterministic help.",
+      "names": [
+        "-h",
+        "--help"
+      ],
+      "valueName": null,
+      "values": []
+    },
+    {
+      "completion": "none",
+      "description": "Show the package version.",
+      "names": [
+        "-V",
+        "--version"
+      ],
+      "valueName": null,
+      "values": []
+    }
+  ],
+  "product": {
+    "cliName": "agent-context-lint",
+    "cliVersion": "1.0.0",
+    "commandRegistryVersion": "1.0.0"
+  },
+  "rules": {
+    "contractVersion": "0.1.0",
+    "entries": [
+      {
+        "category": "syntax-structure",
+        "defaultSeverity": "error",
+        "description": "Invalid YAML/MDC frontmatter",
+        "docsUrl": "docs/rules/catalog.md#acl100",
+        "fixSafety": "none",
+        "id": "ACL100",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Malformed frontmatter prevents a client from interpreting declared instruction metadata reliably."
+      },
+      {
+        "category": "syntax-structure",
+        "defaultSeverity": "error",
+        "description": "Frontmatter field has the wrong type",
+        "docsUrl": "docs/rules/catalog.md#acl101",
+        "fixSafety": "none",
+        "id": "ACL101",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "A type mismatch can silently change or disable client-specific behavior."
+      },
+      {
+        "category": "syntax-structure",
+        "defaultSeverity": "warning",
+        "description": "Unknown frontmatter field, with vendor-aware suggestions",
+        "docsUrl": "docs/rules/catalog.md#acl102",
+        "fixSafety": "none",
+        "id": "ACL102",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Misspelled or unsupported fields create a false expectation that policy is active."
+      },
+      {
+        "category": "syntax-structure",
+        "defaultSeverity": "error",
+        "description": "Invalid glob syntax",
+        "docsUrl": "docs/rules/catalog.md#acl103",
+        "fixSafety": "none",
+        "id": "ACL103",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "An invalid pattern cannot define a trustworthy activation set."
+      },
+      {
+        "category": "syntax-structure",
+        "defaultSeverity": "warning",
+        "description": "Empty instruction document",
+        "docsUrl": "docs/rules/catalog.md#acl104",
+        "fixSafety": "none",
+        "id": "ACL104",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "An empty discovered document adds ambiguity without contributing instructions."
+      },
+      {
+        "category": "syntax-structure",
+        "defaultSeverity": "warning",
+        "description": "Instruction file is stored in a location unsupported by the selected agent",
+        "docsUrl": "docs/rules/catalog.md#acl105",
+        "fixSafety": "none",
+        "id": "ACL105",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "A recognized document in an unsupported location is unlikely to affect the intended client."
+      },
+      {
+        "category": "syntax-structure",
+        "defaultSeverity": "warning",
+        "description": "Deprecated or legacy instruction format",
+        "docsUrl": "docs/rules/catalog.md#acl106",
+        "fixSafety": "none",
+        "id": "ACL106",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Legacy formats can lose support or behave differently from current documented formats."
+      },
+      {
+        "category": "syntax-structure",
+        "defaultSeverity": "warning",
+        "description": "Duplicate frontmatter key",
+        "docsUrl": "docs/rules/catalog.md#acl107",
+        "fixSafety": "none",
+        "id": "ACL107",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Duplicate keys have parser-dependent winner semantics and can broaden or narrow scope unexpectedly."
+      },
+      {
+        "category": "syntax-structure",
+        "defaultSeverity": "warning",
+        "description": "Invalid suppression directive",
+        "docsUrl": "docs/rules/catalog.md#acl108",
+        "fixSafety": "none",
+        "id": "ACL108",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "A malformed directive may fail to suppress the intended finding or conceal reviewer intent."
+      },
+      {
+        "category": "syntax-structure",
+        "defaultSeverity": "warning",
+        "description": "Unused suppression directive",
+        "docsUrl": "docs/rules/catalog.md#acl109",
+        "fixSafety": "mechanical",
+        "id": "ACL109",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "A stale directive adds policy debt and may unexpectedly match a future finding."
+      },
+      {
+        "category": "references-imports",
+        "defaultSeverity": "error",
+        "description": "Referenced repository file does not exist",
+        "docsUrl": "docs/rules/catalog.md#acl150",
+        "fixSafety": "none",
+        "id": "ACL150",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "A missing local reference leaves required context unavailable."
+      },
+      {
+        "category": "references-imports",
+        "defaultSeverity": "error",
+        "description": "Import cycle",
+        "docsUrl": "docs/rules/catalog.md#acl151",
+        "fixSafety": "none",
+        "id": "ACL151",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Cycles make instruction loading incomplete or client-dependent."
+      },
+      {
+        "category": "references-imports",
+        "defaultSeverity": "error",
+        "description": "Reference escapes repository boundary",
+        "docsUrl": "docs/rules/catalog.md#acl152",
+        "fixSafety": "none",
+        "id": "ACL152",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Repository analysis must not claim or read context outside its authorized root."
+      },
+      {
+        "category": "references-imports",
+        "defaultSeverity": "warning",
+        "description": "Absolute local path reduces portability",
+        "docsUrl": "docs/rules/catalog.md#acl153",
+        "fixSafety": "none",
+        "id": "ACL153",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Machine-specific paths do not transfer reliably across contributors or CI runners."
+      },
+      {
+        "category": "references-imports",
+        "defaultSeverity": "warning",
+        "description": "Remote reference is used where the client does not load remote content",
+        "docsUrl": "docs/rules/catalog.md#acl154",
+        "fixSafety": "none",
+        "id": "ACL154",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "A remote link can look like imported policy even when the selected client never loads it."
+      },
+      {
+        "category": "references-imports",
+        "defaultSeverity": "warning",
+        "description": "Reference syntax is unsupported by the target agent",
+        "docsUrl": "docs/rules/catalog.md#acl155",
+        "fixSafety": "none",
+        "id": "ACL155",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Unsupported reference syntax cannot supply the intended context."
+      },
+      {
+        "category": "references-imports",
+        "defaultSeverity": "warning",
+        "description": "Case mismatch in a path, which can fail on case-sensitive systems",
+        "docsUrl": "docs/rules/catalog.md#acl156",
+        "fixSafety": "none",
+        "id": "ACL156",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Case-only path mistakes can pass locally and fail on another supported platform."
+      },
+      {
+        "category": "scope-activation",
+        "defaultSeverity": "error",
+        "description": "Scope pattern matches no repository files",
+        "docsUrl": "docs/rules/catalog.md#acl200",
+        "fixSafety": "none",
+        "id": "ACL200",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "A provably empty scope makes the instruction unreachable."
+      },
+      {
+        "category": "scope-activation",
+        "defaultSeverity": "warning",
+        "description": "Rule is unintentionally always-on because scope metadata is missing",
+        "docsUrl": "docs/rules/catalog.md#acl201",
+        "fixSafety": "none",
+        "id": "ACL201",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Missing scope metadata can add specialized context to every target."
+      },
+      {
+        "category": "scope-activation",
+        "defaultSeverity": "warning",
+        "description": "Scope is broader than the directory containing the rule suggests",
+        "docsUrl": "docs/rules/catalog.md#acl202",
+        "fixSafety": "none",
+        "id": "ACL202",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "An unexpectedly broad scope increases conflicts and irrelevant context."
+      },
+      {
+        "category": "scope-activation",
+        "defaultSeverity": "warning",
+        "description": "Scope is completely shadowed or unreachable",
+        "docsUrl": "docs/rules/catalog.md#acl203",
+        "fixSafety": "none",
+        "id": "ACL203",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "A fully shadowed rule cannot influence any resolved target."
+      },
+      {
+        "category": "scope-activation",
+        "defaultSeverity": "warning",
+        "description": "Different agents resolve the same file to materially different scopes",
+        "docsUrl": "docs/rules/catalog.md#acl204",
+        "fixSafety": "none",
+        "id": "ACL204",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Cross-client scope divergence undermines a shared repository policy."
+      },
+      {
+        "category": "scope-activation",
+        "defaultSeverity": "warning",
+        "description": "Nested instruction behavior is ambiguous for a selected client",
+        "docsUrl": "docs/rules/catalog.md#acl205",
+        "fixSafety": "none",
+        "id": "ACL205",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Unresolved nesting semantics prevent a definitive effective-context claim."
+      },
+      {
+        "category": "scope-activation",
+        "defaultSeverity": "info",
+        "description": "Instruction affects generated, vendored, or dependency files",
+        "docsUrl": "docs/rules/catalog.md#acl206",
+        "fixSafety": "none",
+        "id": "ACL206",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Applying repository policy to derived content may waste context or encourage unsafe edits."
+      },
+      {
+        "category": "conflicts-duplication",
+        "defaultSeverity": "error",
+        "description": "Mutually exclusive package-manager commands apply to the same target",
+        "docsUrl": "docs/rules/catalog.md#acl250",
+        "fixSafety": "none",
+        "id": "ACL250",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Conflicting package-manager requirements cannot both be followed safely."
+      },
+      {
+        "category": "conflicts-duplication",
+        "defaultSeverity": "error",
+        "description": "Mutually exclusive required/prohibited action",
+        "docsUrl": "docs/rules/catalog.md#acl251",
+        "fixSafety": "none",
+        "id": "ACL251",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "The same action cannot be both mandatory and forbidden for one target."
+      },
+      {
+        "category": "conflicts-duplication",
+        "defaultSeverity": "warning",
+        "description": "Conflicting test, build, formatting, or commit instructions",
+        "docsUrl": "docs/rules/catalog.md#acl252",
+        "fixSafety": "none",
+        "id": "ACL252",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Conflicting workflow requirements make successful task completion indeterminate."
+      },
+      {
+        "category": "conflicts-duplication",
+        "defaultSeverity": "warning",
+        "description": "Near-duplicate instruction appears in multiple effective files",
+        "docsUrl": "docs/rules/catalog.md#acl253",
+        "fixSafety": "none",
+        "id": "ACL253",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Repeated effective policy consumes context and increases drift risk."
+      },
+      {
+        "category": "conflicts-duplication",
+        "defaultSeverity": "warning",
+        "description": "Vendor-specific instruction diverges from canonical `AGENTS.md` policy",
+        "docsUrl": "docs/rules/catalog.md#acl254",
+        "fixSafety": "none",
+        "id": "ACL254",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Vendor divergence can produce materially different outcomes across supported agents."
+      },
+      {
+        "category": "conflicts-duplication",
+        "defaultSeverity": "info",
+        "description": "A more specific rule repeats an inherited instruction unchanged",
+        "docsUrl": "docs/rules/catalog.md#acl255",
+        "fixSafety": "none",
+        "id": "ACL255",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Redundant inherited content adds context without changing effective policy."
+      },
+      {
+        "category": "repository-drift",
+        "defaultSeverity": "error",
+        "description": "Referenced script or task does not exist",
+        "docsUrl": "docs/rules/catalog.md#acl300",
+        "fixSafety": "none",
+        "id": "ACL300",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "planned",
+        "rationale": "An instruction that invokes a missing task cannot be completed as written."
+      },
+      {
+        "category": "repository-drift",
+        "defaultSeverity": "warning",
+        "description": "Command uses a package manager inconsistent with lockfiles/configuration",
+        "docsUrl": "docs/rules/catalog.md#acl301",
+        "fixSafety": "none",
+        "id": "ACL301",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "planned",
+        "rationale": "A mismatched package manager can change dependency resolution or corrupt lock state."
+      },
+      {
+        "category": "repository-drift",
+        "defaultSeverity": "warning",
+        "description": "Mentioned directory, config file, or executable does not exist",
+        "docsUrl": "docs/rules/catalog.md#acl302",
+        "fixSafety": "none",
+        "id": "ACL302",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "planned",
+        "rationale": "A missing repository resource makes the instruction stale or incomplete."
+      },
+      {
+        "category": "repository-drift",
+        "defaultSeverity": "warning",
+        "description": "Instruction names a tool absent from project configuration",
+        "docsUrl": "docs/rules/catalog.md#acl303",
+        "fixSafety": "none",
+        "id": "ACL303",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "planned",
+        "rationale": "An undeclared tool may not exist in clean development or CI environments."
+      },
+      {
+        "category": "repository-drift",
+        "defaultSeverity": "warning",
+        "description": "Documented runtime version conflicts with repository configuration",
+        "docsUrl": "docs/rules/catalog.md#acl304",
+        "fixSafety": "none",
+        "id": "ACL304",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "planned",
+        "rationale": "Runtime drift can make documented commands fail or behave differently."
+      },
+      {
+        "category": "repository-drift",
+        "defaultSeverity": "info",
+        "description": "Instruction duplicates a policy already enforced mechanically by a linter/formatter",
+        "docsUrl": "docs/rules/catalog.md#acl305",
+        "fixSafety": "none",
+        "id": "ACL305",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "planned",
+        "rationale": "Mechanically enforced policy need not consume repeated agent context."
+      },
+      {
+        "category": "context-quality-cost",
+        "defaultSeverity": "warning",
+        "description": "Always-on context exceeds configured token budget",
+        "docsUrl": "docs/rules/catalog.md#acl350",
+        "fixSafety": "none",
+        "id": "ACL350",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Oversized individual documents consume scarce context for every applicable request."
+      },
+      {
+        "category": "context-quality-cost",
+        "defaultSeverity": "info",
+        "description": "Document contains a large code block better referenced from another file",
+        "docsUrl": "docs/rules/catalog.md#acl351",
+        "fixSafety": "none",
+        "id": "ACL351",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Duplicated code blocks are costly and can drift from their source."
+      },
+      {
+        "category": "context-quality-cost",
+        "defaultSeverity": "info",
+        "description": "Instruction is vague or not actionable",
+        "docsUrl": "docs/rules/catalog.md#acl352",
+        "fixSafety": "none",
+        "id": "ACL352",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Non-actionable prose consumes context without giving an agent a verifiable requirement."
+      },
+      {
+        "category": "context-quality-cost",
+        "defaultSeverity": "info",
+        "description": "Very long instruction combines multiple independent requirements",
+        "docsUrl": "docs/rules/catalog.md#acl353",
+        "fixSafety": "none",
+        "id": "ACL353",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Separating independent requirements improves reviewability and targeting."
+      },
+      {
+        "category": "context-quality-cost",
+        "defaultSeverity": "info",
+        "description": "Repository description repeats readily discoverable metadata",
+        "docsUrl": "docs/rules/catalog.md#acl354",
+        "fixSafety": "none",
+        "id": "ACL354",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Repeated discoverable facts add context cost without durable policy value."
+      },
+      {
+        "category": "context-quality-cost",
+        "defaultSeverity": "warning",
+        "description": "Imported content expands context unexpectedly",
+        "docsUrl": "docs/rules/catalog.md#acl355",
+        "fixSafety": "none",
+        "id": "ACL355",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Import amplification can exceed the author-visible size of an instruction document."
+      },
+      {
+        "category": "security",
+        "defaultSeverity": "error",
+        "description": "High-confidence credential or private key appears in an instruction file",
+        "docsUrl": "docs/rules/catalog.md#acl400",
+        "fixSafety": "none",
+        "id": "ACL400",
+        "owner": "@agent-context-lint/security-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Instruction files are broadly exposed context and must not contain credential material."
+      },
+      {
+        "category": "security",
+        "defaultSeverity": "warning",
+        "description": "Instruction requests reading secrets or broad credential locations",
+        "docsUrl": "docs/rules/catalog.md#acl401",
+        "fixSafety": "none",
+        "id": "ACL401",
+        "owner": "@agent-context-lint/security-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Routine secret access expands the impact of mistakes or prompt injection."
+      },
+      {
+        "category": "security",
+        "defaultSeverity": "warning",
+        "description": "Download-and-execute command lacks integrity pinning",
+        "docsUrl": "docs/rules/catalog.md#acl402",
+        "fixSafety": "none",
+        "id": "ACL402",
+        "owner": "@agent-context-lint/security-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Executing mutable remote bytes prevents reproducible trust decisions."
+      },
+      {
+        "category": "security",
+        "defaultSeverity": "warning",
+        "description": "Destructive command is presented as routine or unconditional",
+        "docsUrl": "docs/rules/catalog.md#acl403",
+        "fixSafety": "none",
+        "id": "ACL403",
+        "owner": "@agent-context-lint/security-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Destructive operations require explicit scope, confirmation, and recovery planning."
+      },
+      {
+        "category": "security",
+        "defaultSeverity": "warning",
+        "description": "Instruction disables approvals, sandboxing, or security controls",
+        "docsUrl": "docs/rules/catalog.md#acl404",
+        "fixSafety": "none",
+        "id": "ACL404",
+        "owner": "@agent-context-lint/security-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Disabling safety controls weakens the repository's intended execution boundary."
+      },
+      {
+        "category": "security",
+        "defaultSeverity": "warning",
+        "description": "Instruction requests transmission of repository data to an external destination",
+        "docsUrl": "docs/rules/catalog.md#acl405",
+        "fixSafety": "none",
+        "id": "ACL405",
+        "owner": "@agent-context-lint/security-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "External transmission can disclose source or sensitive repository metadata."
+      },
+      {
+        "category": "security",
+        "defaultSeverity": "warning",
+        "description": "Imported instruction source is mutable or unpinned",
+        "docsUrl": "docs/rules/catalog.md#acl406",
+        "fixSafety": "none",
+        "id": "ACL406",
+        "owner": "@agent-context-lint/security-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Mutable policy can change without repository review or provenance."
+      },
+      {
+        "category": "portability",
+        "defaultSeverity": "warning",
+        "description": "Policy exists only in a vendor-specific file and has no shared equivalent",
+        "docsUrl": "docs/rules/catalog.md#acl450",
+        "fixSafety": "none",
+        "id": "ACL450",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Vendor-only policy leaves other supported agents without the same requirements."
+      },
+      {
+        "category": "portability",
+        "defaultSeverity": "warning",
+        "description": "Same repository policy differs across agent formats",
+        "docsUrl": "docs/rules/catalog.md#acl451",
+        "fixSafety": "none",
+        "id": "ACL451",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Divergent copies make cross-agent outcomes depend on the selected client."
+      },
+      {
+        "category": "portability",
+        "defaultSeverity": "info",
+        "description": "Agent does not support the selected import or nesting behavior",
+        "docsUrl": "docs/rules/catalog.md#acl452",
+        "fixSafety": "none",
+        "id": "ACL452",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Unsupported composition behavior must be visible rather than assumed effective."
+      },
+      {
+        "category": "portability",
+        "defaultSeverity": "info",
+        "description": "Instruction depends on an editor-only feature",
+        "docsUrl": "docs/rules/catalog.md#acl453",
+        "fixSafety": "none",
+        "id": "ACL453",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Editor-only behavior does not transfer to headless or hosted agent surfaces."
+      },
+      {
+        "category": "standards-freshness",
+        "defaultSeverity": "warning",
+        "description": "Locked knowledge pack is older than configured maximum age",
+        "docsUrl": "docs/rules/catalog.md#acl500",
+        "fixSafety": "none",
+        "id": "ACL500",
+        "owner": "@agent-context-lint/standards-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "An over-age pack may omit reviewed changes in supported specifications."
+      },
+      {
+        "category": "standards-freshness",
+        "defaultSeverity": "warning",
+        "description": "A newer stable knowledge pack is available",
+        "docsUrl": "docs/rules/catalog.md#acl501",
+        "fixSafety": "none",
+        "id": "ACL501",
+        "owner": "@agent-context-lint/standards-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Explicit freshness checks should surface a verified stable update without changing scan state."
+      },
+      {
+        "category": "standards-freshness",
+        "defaultSeverity": "error",
+        "description": "Knowledge pack requires a newer CLI engine",
+        "docsUrl": "docs/rules/catalog.md#acl502",
+        "fixSafety": "none",
+        "id": "ACL502",
+        "owner": "@agent-context-lint/standards-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "An incompatible engine cannot interpret the pack's contracts safely."
+      },
+      {
+        "category": "standards-freshness",
+        "defaultSeverity": "error",
+        "description": "Knowledge-pack digest or signature validation failed",
+        "docsUrl": "docs/rules/catalog.md#acl503",
+        "fixSafety": "none",
+        "id": "ACL503",
+        "owner": "@agent-context-lint/standards-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Unverified standards data must never influence diagnostics."
+      },
+      {
+        "category": "standards-freshness",
+        "defaultSeverity": "warning",
+        "description": "Repository uses syntax deprecated by the selected specification",
+        "docsUrl": "docs/rules/catalog.md#acl504",
+        "fixSafety": "none",
+        "id": "ACL504",
+        "owner": "@agent-context-lint/standards-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Deprecated syntax can stop working as clients advance."
+      },
+      {
+        "category": "standards-freshness",
+        "defaultSeverity": "warning",
+        "description": "Repository standards lockfile is missing in CI",
+        "docsUrl": "docs/rules/catalog.md#acl505",
+        "fixSafety": "none",
+        "id": "ACL505",
+        "owner": "@agent-context-lint/standards-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Without a lockfile, CI cannot reproduce the standards knowledge used for a scan."
+      },
+      {
+        "category": "standards-freshness",
+        "defaultSeverity": "info",
+        "description": "Preview upstream behavior exists but is not enabled",
+        "docsUrl": "docs/rules/catalog.md#acl506",
+        "fixSafety": "none",
+        "id": "ACL506",
+        "owner": "@agent-context-lint/standards-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Preview information should be visible without being mistaken for stable active semantics."
+      },
+      {
+        "category": "context-efficiency",
+        "defaultSeverity": "warning",
+        "description": "Always-on context exceeds configured token budget",
+        "docsUrl": "docs/rules/catalog.md#acl550",
+        "fixSafety": "none",
+        "id": "ACL550",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Resolved always-on context can exceed a client's usable budget across documents."
+      },
+      {
+        "category": "context-efficiency",
+        "defaultSeverity": "warning",
+        "description": "Effective p95 context exceeds configured token budget",
+        "docsUrl": "docs/rules/catalog.md#acl551",
+        "fixSafety": "none",
+        "id": "ACL551",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "High-tail effective context can make common targets costly or truncated."
+      },
+      {
+        "category": "context-efficiency",
+        "defaultSeverity": "warning",
+        "description": "High-confidence duplicate context exceeds threshold",
+        "docsUrl": "docs/rules/catalog.md#acl552",
+        "fixSafety": "none",
+        "id": "ACL552",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Duplicate effective text spends tokens without adding distinct instruction value."
+      },
+      {
+        "category": "context-efficiency",
+        "defaultSeverity": "info",
+        "description": "Specialized content appears in an unnecessarily broad scope",
+        "docsUrl": "docs/rules/catalog.md#acl553",
+        "fixSafety": "none",
+        "id": "ACL553",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Narrowing specialized content can reduce context while preserving intended targets."
+      },
+      {
+        "category": "context-efficiency",
+        "defaultSeverity": "info",
+        "description": "Import graph materially amplifies effective context",
+        "docsUrl": "docs/rules/catalog.md#acl554",
+        "fixSafety": "none",
+        "id": "ACL554",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Import fan-out can make resolved context much larger than source documents suggest."
+      },
+      {
+        "category": "context-efficiency",
+        "defaultSeverity": "info",
+        "description": "Vendor-specific duplication can be consolidated safely",
+        "docsUrl": "docs/rules/catalog.md#acl555",
+        "fixSafety": "none",
+        "id": "ACL555",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Safe consolidation reduces drift and repeated tokens across agent formats."
+      },
+      {
+        "category": "context-efficiency",
+        "defaultSeverity": "info",
+        "description": "Instruction density is below configured threshold",
+        "docsUrl": "docs/rules/catalog.md#acl556",
+        "fixSafety": "none",
+        "id": "ACL556",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Low-density documents spend context on prose that carries little actionable policy."
+      },
+      {
+        "category": "context-efficiency",
+        "defaultSeverity": "warning",
+        "description": "Efficiency comparison uses incompatible tokenizer versions",
+        "docsUrl": "docs/rules/catalog.md#acl557",
+        "fixSafety": "none",
+        "id": "ACL557",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "Counts from incompatible tokenizers cannot support a valid comparison."
+      },
+      {
+        "category": "context-efficiency",
+        "defaultSeverity": "info",
+        "description": "High-impact context reduction is available but not benchmarked",
+        "docsUrl": "docs/rules/catalog.md#acl558",
+        "fixSafety": "none",
+        "id": "ACL558",
+        "owner": "@agent-context-lint/rules-reviewers",
+        "precisionStatus": "seeded",
+        "rationale": "A projected saving must remain distinct from empirically measured quality preservation."
+      }
+    ]
+  },
+  "schemaVersion": "1.0.0"
+}

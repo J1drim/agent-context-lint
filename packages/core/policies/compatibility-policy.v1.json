@@ -1,0 +1,304 @@
+{
+  "recordKind": "agent-context-compatibility-policy",
+  "policyVersion": "1.0.0",
+  "effectiveDate": "2026-08-02",
+  "status": "normative",
+  "semver": {
+    "stableMajorFloor": 1,
+    "deprecationRelease": "minor",
+    "publicPackagesVersionedTogether": true,
+    "preGaBehavior": "The 1.0.0 release is stable. Any future pre-release line must publish separate release notes and migration fixtures before distribution.",
+    "accidentalBreakBehavior": "Withdraw or supersede the offending release promptly, restore compatibility in the next release, publish affected versions, and never rewrite a published artifact.",
+    "publishedPublicPackageAvailability": "indefinite",
+    "externalTakedownBehavior": "A registry-enforced, legal, privacy, or security takedown outside project control may make bytes unavailable; retain the immutable package name, version, digest, reason, and incident identity, and never reuse the identity."
+  },
+  "surfaces": [
+    {
+      "id": "cli",
+      "versionAuthority": "@agent-context/lint package version",
+      "releaseScheme": "semantic",
+      "window": {
+        "minimumNoticeDays": 180,
+        "minimumDeprecationMinorReleases": 2,
+        "minimumPriorMajorSupportDays": 365,
+        "publishedArtifactRetention": "indefinite"
+      },
+      "changes": {
+        "patch": [
+          "implementation-fix-with-documented-cli-behavior-unchanged",
+          "help-or-diagnostic-wording-clarification-with-machine-output-unchanged"
+        ],
+        "minor": [
+          "add-command-or-option-with-no-default-behavior-change",
+          "deprecate-command-or-option-with-functional-alias"
+        ],
+        "major": [
+          "remove-or-rename-command-option-or-environment-input",
+          "change-option-meaning-exit-code-default-output-or-default-profile-selection",
+          "introduce-implicit-network-write-command-execution-or-telemetry"
+        ]
+      },
+      "migration": {
+        "requiredFor": ["minor", "major"],
+        "evidence": [
+          "packaged-cli-before-and-after-fixture",
+          "old-spelling-or-behavior-remains-tested-through-deprecation-window",
+          "release-notes-upgrade-and-rollback-instructions"
+        ]
+      },
+      "invariants": [
+        "normal-scan-remains-deterministic-offline-model-free-read-only-and-command-free",
+        "deprecated-aliases-must-not-change-security-or-output-semantics",
+        "breaking-default-changes-require-major-release-even-when-an-old-flag-remains",
+        "published-package-availability-is-indefinite-and-independent-of-maintenance-support",
+        "end-of-life-uses-npm-deprecation-not-project-initiated-unpublish"
+      ],
+      "owners": ["platform-reviewers"],
+      "reviewers": ["contracts-reviewers", "release-managers", "qa-reviewers"]
+    },
+    {
+      "id": "public-library",
+      "versionAuthority": "@agent-context/core and @agent-context/lint package versions",
+      "releaseScheme": "semantic",
+      "window": {
+        "minimumNoticeDays": 180,
+        "minimumDeprecationMinorReleases": 2,
+        "minimumPriorMajorSupportDays": 365,
+        "publishedArtifactRetention": "indefinite"
+      },
+      "changes": {
+        "patch": [
+          "implementation-fix-with-accepted-inputs-results-and-side-effects-unchanged",
+          "type-or-documentation-clarification-that-does-not-narrow-consumers"
+        ],
+        "minor": [
+          "add-export-or-optional-input-with-backward-compatible-default",
+          "deprecate-export-while-retaining-equivalent-runtime-and-type-path"
+        ],
+        "major": [
+          "remove-rename-or-relocate-export",
+          "add-required-input-narrow-accepted-input-or-widen-exhaustive-result-union",
+          "change-sync-async-cancellation-error-or-capability-side-effect-contract"
+        ]
+      },
+      "migration": {
+        "requiredFor": ["minor", "major"],
+        "evidence": [
+          "consumer-compilation-fixtures-for-old-and-new-api",
+          "runtime-migration-fixture-and-pure-adapter-when-representation-changes",
+          "release-notes-upgrade-and-rollback-instructions"
+        ]
+      },
+      "invariants": [
+        "package-exports-is-the-complete-public-boundary",
+        "imports-have-no-io-environment-telemetry-signal-or-process-exit-side-effect",
+        "both-public-packages-remain-versioned-together-until-superseding-adr",
+        "published-package-availability-is-indefinite-and-independent-of-maintenance-support",
+        "end-of-life-uses-npm-deprecation-not-project-initiated-unpublish"
+      ],
+      "owners": ["contracts-reviewers"],
+      "reviewers": ["platform-reviewers", "qa-reviewers", "release-managers"]
+    },
+    {
+      "id": "profile-behavior",
+      "versionAuthority": "profile adapter version and immutable specSnapshotId",
+      "releaseScheme": "semantic",
+      "window": {
+        "minimumNoticeDays": 90,
+        "minimumDeprecationMinorReleases": 1,
+        "minimumPriorMajorSupportDays": 365,
+        "publishedArtifactRetention": "indefinite"
+      },
+      "changes": {
+        "patch": [
+          "provenance-or-wording-correction-with-resolution-graph-unchanged",
+          "new-observation-that-confirms-existing-claim-without-changing-certainty"
+        ],
+        "minor": [
+          "add-profile-surface-format-or-capability-without-changing-existing-resolution",
+          "mark-project-controlled-profile-capability-deprecated-while-retaining-behavior"
+        ],
+        "major": [
+          "change-discovery-precedence-import-glob-activation-or-default-resolution-semantics",
+          "flip-known-supported-and-unsupported-claim-or-reinterpret-existing-fixture",
+          "remove-or-rename-profile-surface-format-capability-or-stable-identifier"
+        ]
+      },
+      "migration": {
+        "requiredFor": ["minor", "major"],
+        "evidence": [
+          "old-and-new-spec-snapshot-fixtures-with-primary-source-provenance",
+          "explicit-observed-conditional-unknown-or-contradiction-state",
+          "cross-profile-regression-and-user-migration-guidance"
+        ]
+      },
+      "invariants": [
+        "upstream-drift-first-creates-a-new-dated-snapshot-and-review-trigger-not-a-silent-rewrite",
+        "undocumented-or-version-dependent-behavior-remains-conditional-or-unknown",
+        "historical-profile-identifiers-snapshots-provenance-and-fixtures-remain-addressable",
+        "forced-upstream-removal-may-shorten-notice-only-through-the-emergency-record"
+      ],
+      "owners": ["profile-reviewers"],
+      "reviewers": ["contracts-reviewers", "qa-reviewers"]
+    },
+    {
+      "id": "output-schema",
+      "versionAuthority": "family-specific schemaVersion contract and immutable JSON Schema $id",
+      "releaseScheme": "semantic",
+      "window": {
+        "minimumNoticeDays": 180,
+        "minimumDeprecationMinorReleases": 2,
+        "minimumPriorMajorSupportDays": 365,
+        "publishedArtifactRetention": "indefinite"
+      },
+      "changes": {
+        "patch": [
+          "validator-or-serializer-fix-with-accepted-shape-and-canonical-bytes-unchanged",
+          "schema-description-or-diagnostic-message-clarification"
+        ],
+        "minor": [
+          "add-optional-field-with-documented-unknown-field-down-conversion",
+          "add-enum-member-only-when-every-supported-consumer-has-safe-unknown-value-behavior"
+        ],
+        "major": [
+          "add-required-remove-rename-narrow-or-change-field-meaning",
+          "change-recordKind-schemaVersion-schema-id-canonical-order-serializer-bytes-or-compatibility-affecting-resource-limit",
+          "change-diagnostic-identity-fingerprint-baseline-matching-or-exit-status-derivation"
+        ]
+      },
+      "migration": {
+        "requiredFor": ["minor", "major"],
+        "evidence": [
+          "frozen-old-and-new-schema-positive-negative-and-boundary-vectors",
+          "pure-old-to-new-migrator-and-reviewed-down-converter-when-claimed",
+          "packaged-consumer-negotiation-test-and-no-in-place-persisted-artifact-mutation"
+        ]
+      },
+      "invariants": [
+        "schema-$id-recordKind-and-major-identity-are-never-reassigned-to-new-semantics",
+        "newer-producers-are-not-silently-accepted-by-closed-older-validators",
+        "every-supported-version-has-an-explicit-export-validator-and-migration-fixture",
+        "sarif-standard-version-and-product-subset-version-remain-distinct"
+      ],
+      "owners": ["contracts-reviewers"],
+      "reviewers": ["qa-reviewers", "platform-reviewers", "release-managers"]
+    },
+    {
+      "id": "diagnostic-baseline",
+      "versionAuthority": "agent-context-baseline-output schemaVersion and fingerprint method versions",
+      "releaseScheme": "semantic",
+      "window": {
+        "minimumNoticeDays": 180,
+        "minimumDeprecationMinorReleases": 2,
+        "minimumPriorMajorSupportDays": 365,
+        "publishedArtifactRetention": "indefinite"
+      },
+      "changes": {
+        "patch": [
+          "reader-fix-with-entry-matching-expiry-and-serialized-bytes-unchanged",
+          "non-normative-baseline-documentation-clarification"
+        ],
+        "minor": [
+          "add-optional-provenance-field-with-explicit-default-and-down-conversion",
+          "add-independent-fingerprint-version-with-existing-matching-retained"
+        ],
+        "major": [
+          "change-fingerprint-construction-matching-precedence-expiry-or-default-baseline-selection",
+          "remove-rename-or-reinterpret-baseline-entry-or-identity-field",
+          "silently-rewrite-drop-or-reclassify-persisted-user-baseline-entries"
+        ]
+      },
+      "migration": {
+        "requiredFor": ["minor", "major"],
+        "evidence": [
+          "frozen-old-baseline-match-no-match-rename-and-expiry-fixtures",
+          "pure-side-by-side-migration-with-source-and-destination-digests",
+          "atomic-write-concurrent-change-and-idempotence-tests"
+        ]
+      },
+      "invariants": [
+        "persisted-baselines-are-never-mutated-in-place-or-read-as-commands",
+        "incompatible-fingerprint-or-schema-versions-fail-closed-and-require-explicit-migration",
+        "user-owned-original-remains-recoverable-until-migrated-output-is-validated"
+      ],
+      "owners": ["contracts-reviewers"],
+      "reviewers": ["qa-reviewers", "fix-reviewers", "security-reviewers"]
+    },
+    {
+      "id": "knowledge-pack",
+      "versionAuthority": "H01 exact-SemVer packVersion plus immutable canonical-byte digest; pack schemaVersion is independent",
+      "releaseScheme": "semantic",
+      "window": {
+        "minimumNoticeDays": 30,
+        "minimumDeprecationMinorReleases": 1,
+        "minimumPriorMajorSupportDays": 365,
+        "publishedArtifactRetention": "indefinite"
+      },
+      "changes": {
+        "patch": [
+          "provenance-documentation-or-migration-hint-correction-with-guidance-unchanged",
+          "new-immutable-semver-pack-release-that-only-corrects-non-behavioral-data"
+        ],
+        "minor": [
+          "add-deprecation-known-field-location-reference-or-deterministic-pattern-within-supported-schema",
+          "publish-preview-pack-before-compatible-stable-promotion"
+        ],
+        "major": [
+          "change-pack-schema-required-field-meaning-channel-minEngine-or-activation-semantics",
+          "change-discovery-parsing-precedence-import-glob-or-executable-rule-logic-that-requires-engine-release",
+          "reuse-version-with-different-bytes-cross-channel-promote-without-review-or-activate-unverified-pack"
+        ]
+      },
+      "migration": {
+        "requiredFor": ["minor", "major"],
+        "evidence": [
+          "old-new-pack-schema-fixtures-digest-provenance-and-expected-diagnostic-diff",
+          "engine-compatibility-matrix-and-last-trusted-lock-rollback-fixture",
+          "signature-replay-freeze-mix-and-match-wrong-channel-wrong-engine-and-revocation-tests"
+        ]
+      },
+      "invariants": [
+        "h01-packs-are-data-only-immutable-canonical-json-and-closed-schema-validated-after-h02-h03-tuf-verification",
+        "packVersion-schemaVersion-adapterVersion-rulesetVersion-and-minEngineVersion-remain-distinct-exact-semver-identities",
+        "stable-and-preview-target-roles-remain-separate-and-ci-never-silently-updates",
+        "same-version-different-digest-yanked-revoked-expired-or-incompatible-pack-fails-closed",
+        "rollback-activates-only-a-previously-verified-compatible-non-revoked-lock",
+        "malicious-pack-revocation-overrides-retention-for-activation-but-preserves-audit-identity"
+      ],
+      "owners": ["standards-reviewers"],
+      "reviewers": ["security-reviewers", "profile-reviewers", "qa-reviewers"]
+    }
+  ],
+  "emergency": {
+    "allowedTriggers": [
+      "active-p0-security-incident",
+      "compromised-release-signing-or-standards-trust-infrastructure",
+      "urgent-rollback-of-harmful-published-artifact",
+      "forced-upstream-removal-that-makes-retained-behavior-unsafe-or-impossible"
+    ],
+    "noticeMayBeShortened": true,
+    "maximumBreakGlassHours": 4,
+    "reviewWithinHours": 24,
+    "retrospectiveWithinBusinessDays": 5,
+    "requiredApprovals": [
+      "security-reviewers",
+      "governance-reviewers-or-release-managers",
+      "affected-domain-owner"
+    ],
+    "recordFields": [
+      "incident-id-trigger-and-affected-versions",
+      "dri-independent-approvers-and-utc-timeline",
+      "compatibility-impact-and-shortened-window-rationale",
+      "migration-workaround-rollback-and-user-notification",
+      "tests-artifact-digests-expiry-review-and-retrospective"
+    ],
+    "nonWaivable": [
+      "repository-root-filesystem-boundary",
+      "normal-scan-no-command-execution-no-network-and-read-only-default",
+      "signature-digest-schema-channel-and-engine-verification",
+      "secret-redaction-and-no-external-repository-mutation",
+      "atomic-range-bounded-concurrent-change-safe-fixes",
+      "immutable-versioned-artifacts-and-audit-record"
+    ]
+  }
+}

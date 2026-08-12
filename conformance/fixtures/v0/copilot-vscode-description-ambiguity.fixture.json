@@ -1,0 +1,158 @@
+{
+  "recordKind": "profile-conformance-fixture",
+  "fixtureFormatVersion": "0.1.0",
+  "id": "copilot-vscode-description-ambiguity",
+  "title": "VS Code description-only instruction activation remains ambiguous",
+  "profile": {
+    "profileId": "copilot-vscode",
+    "surfaceId": "copilot-vscode/local-chat",
+    "specSnapshotId": "copilot-surfaces/2026-08-01.0",
+    "clientVersion": null,
+    "versionStatus": "living-docs-pending-observation"
+  },
+  "provenance": {
+    "researchRecordIds": ["copilot-surfaces/2026-08-01.0"],
+    "derivation": "synthetic-edge-case",
+    "assumptions": [
+      "The path-specific instruction file is discoverable under the default workspace instruction folder."
+    ],
+    "observationIds": [],
+    "sources": [
+      {
+        "id": "vscode-custom-instructions",
+        "url": "https://code.visualstudio.com/docs/agent-customization/custom-instructions",
+        "retrievedAt": "2026-08-01",
+        "immutability": "retrieved-living-doc",
+        "mutableSourceReason": "The page contains conflicting description-only activation language and does not pin an editor or extension build."
+      }
+    ]
+  },
+  "repository": {
+    "root": ".",
+    "directories": [".github/", ".github/instructions/", "src/"],
+    "files": [
+      {
+        "path": ".github/instructions/api.instructions.md",
+        "formatId": "copilot-path-instructions",
+        "content": "---\ndescription: API design guidance\n---\nUse stable API names."
+      },
+      { "path": "src/api.ts", "formatId": null, "content": "export {};" }
+    ],
+    "symlinks": []
+  },
+  "externalContext": {
+    "mode": "unavailable",
+    "entries": []
+  },
+  "invocation": {
+    "launchCwd": ".",
+    "workspaceRoots": ["."],
+    "settings": {
+      "instructionFolder": ".github/instructions",
+      "includeReferencedInstructions": false
+    },
+    "trustState": "trusted",
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "runtimeMode": "local-chat"
+  },
+  "targets": [{ "id": "target-api", "path": "src/api.ts", "purpose": "resolve-effective-context" }],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "sequence": 0,
+      "kind": "launch",
+      "path": ".",
+      "targetId": "target-api"
+    },
+    {
+      "id": "event-reference",
+      "sequence": 1,
+      "kind": "reference-path",
+      "path": "src/api.ts",
+      "targetId": "target-api"
+    }
+  ],
+  "expectedGraph": {
+    "analysisStatus": "partial",
+    "ambiguities": [
+      {
+        "id": "ambiguity-description-only",
+        "kind": "contradictory-documentation",
+        "reason": "The current page says missing applyTo prevents automatic inclusion but also describes semantic matching through description.",
+        "alternatives": [
+          {
+            "id": "manual-only",
+            "description": "The file remains discovered but requires manual attachment."
+          },
+          {
+            "id": "semantic-auto",
+            "description": "The Agent may automatically select the file from description relevance."
+          }
+        ],
+        "evidenceRefs": ["COP-GAP-001", "VSC-INSTRUCTIONS"]
+      }
+    ],
+    "nodes": [
+      {
+        "id": "event-reference-node",
+        "kind": "event",
+        "eventId": "event-reference",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["VSC-INSTRUCTIONS"]
+      },
+      {
+        "id": "doc-description",
+        "kind": "document",
+        "path": ".github/instructions/api.instructions.md",
+        "formatId": "copilot-path-instructions",
+        "resolutionStatus": "contradiction",
+        "ambiguityId": "ambiguity-description-only",
+        "evidenceRefs": ["COP-GAP-001"]
+      },
+      {
+        "id": "target-api-node",
+        "kind": "target",
+        "path": "src/api.ts",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["VSC-INSTRUCTIONS"]
+      }
+    ],
+    "edges": [
+      {
+        "id": "description-eligibility",
+        "from": "event-reference-node",
+        "to": "doc-description",
+        "relation": "makes-eligible",
+        "resolutionStatus": "contradiction",
+        "ambiguityId": "ambiguity-description-only",
+        "evidenceRefs": ["COP-GAP-001"]
+      },
+      {
+        "id": "possible-activation",
+        "from": "doc-description",
+        "to": "target-api-node",
+        "relation": "activates",
+        "resolutionStatus": "conditional",
+        "ambiguityId": "ambiguity-description-only",
+        "evidenceRefs": ["COP-GAP-001"]
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "id": "assert-discovered",
+      "predicate": "document-is-discovered",
+      "expected": true,
+      "evidenceStatus": "documented",
+      "evidenceRefs": ["VSC-INSTRUCTIONS"]
+    },
+    {
+      "id": "assert-description-activation",
+      "predicate": "automatic-activation",
+      "expected": ["manual-only", "semantic-auto"],
+      "evidenceStatus": "contradiction",
+      "ambiguityId": "ambiguity-description-only",
+      "evidenceRefs": ["COP-GAP-001"]
+    }
+  ]
+}

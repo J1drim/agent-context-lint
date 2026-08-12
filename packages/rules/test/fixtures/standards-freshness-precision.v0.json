@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "expectedRuleIds": ["ACL501"],
+      "id": "verified-stable-update",
+      "scenario": "stable-update"
+    },
+    {
+      "expectedRuleIds": ["ACL503"],
+      "id": "verified-trust-failure",
+      "scenario": "trust-failure"
+    },
+    {
+      "expectedRuleIds": ["ACL505"],
+      "id": "ci-without-lock",
+      "scenario": "ci-missing"
+    },
+    {
+      "expectedRuleIds": [],
+      "id": "ordinary-offline-scan",
+      "scenario": "baseline"
+    },
+    {
+      "expectedRuleIds": [],
+      "id": "local-scan-without-lock",
+      "scenario": "local"
+    },
+    {
+      "expectedRuleIds": [],
+      "id": "explicit-preview-enabled",
+      "scenario": "preview-enabled"
+    },
+    {
+      "expectedRuleIds": [],
+      "id": "availability-failure-is-not-trust-failure",
+      "scenario": "timeout"
+    }
+  ],
+  "precisionThreshold": 0.95,
+  "recordKind": "agent-context-standards-freshness-precision-corpus",
+  "schemaVersion": "0.1.0"
+}

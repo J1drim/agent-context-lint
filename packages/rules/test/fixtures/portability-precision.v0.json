@@ -1,0 +1,166 @@
+{
+  "cases": [
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": ["ACL450"],
+      "formatInventoryState": "complete",
+      "id": "vendor-only-command",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": null,
+      "sharedText": "Use pnpm.",
+      "vendorText": "Run tests with pnpm."
+    },
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": ["ACL450", "ACL451"],
+      "formatInventoryState": "complete",
+      "id": "package-manager-drift",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": null,
+      "sharedText": "Use pnpm.",
+      "vendorText": "Use npm."
+    },
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": [],
+      "formatInventoryState": "complete",
+      "id": "shared-equivalent",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": null,
+      "sharedText": "Use pnpm.",
+      "vendorText": "Use pnpm."
+    },
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": [],
+      "formatInventoryState": "partial",
+      "id": "partial-inventory",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": null,
+      "sharedText": "Use pnpm.",
+      "vendorText": "Run tests with pnpm."
+    },
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": ["ACL450"],
+      "formatInventoryState": "complete",
+      "id": "recognized-not-supported",
+      "otherFormatState": "recognized",
+      "otherBehaviorState": null,
+      "sharedText": "Use pnpm.",
+      "vendorText": "Run tests with pnpm."
+    },
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": [],
+      "formatInventoryState": "complete",
+      "id": "conditional-format-support",
+      "otherFormatState": "conditional",
+      "otherBehaviorState": null,
+      "sharedText": "Use pnpm.",
+      "vendorText": "Run tests with pnpm."
+    },
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": [],
+      "formatInventoryState": "complete",
+      "id": "unknown-format-support",
+      "otherFormatState": "unknown",
+      "otherBehaviorState": null,
+      "sharedText": "Use pnpm.",
+      "vendorText": "Run tests with pnpm."
+    },
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": ["ACL451"],
+      "formatInventoryState": "complete",
+      "id": "two-supported-formats-drift",
+      "otherFormatState": "supported",
+      "otherBehaviorState": null,
+      "sharedText": "Use pnpm.",
+      "vendorText": "Use npm."
+    },
+    {
+      "behaviorKind": "import",
+      "expectedRuleIds": ["ACL452"],
+      "formatInventoryState": "complete",
+      "id": "unsupported-import",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": "unsupported",
+      "sharedText": "Use pnpm.",
+      "vendorText": "Use pnpm."
+    },
+    {
+      "behaviorKind": "import",
+      "expectedRuleIds": [],
+      "formatInventoryState": "complete",
+      "id": "conditional-import",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": "conditional",
+      "sharedText": "Use pnpm.",
+      "vendorText": "Use pnpm."
+    },
+    {
+      "behaviorKind": "nesting",
+      "expectedRuleIds": ["ACL452"],
+      "formatInventoryState": "complete",
+      "id": "unsupported-nesting",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": "unsupported",
+      "sharedText": "Use pnpm.",
+      "vendorText": "Use pnpm."
+    },
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": ["ACL450"],
+      "formatInventoryState": "complete",
+      "id": "unrelated-structured-domain",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": null,
+      "sharedText": "Use pnpm.",
+      "vendorText": "Run tests."
+    },
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": ["ACL450", "ACL451"],
+      "formatInventoryState": "complete",
+      "id": "command-object-drift",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": null,
+      "sharedText": "Run pnpm test.",
+      "vendorText": "Run npm test."
+    },
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": [],
+      "formatInventoryState": "complete",
+      "id": "unclassified-shared-policy",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": null,
+      "sharedText": "Be excellent.",
+      "vendorText": "Use npm."
+    },
+    {
+      "behaviorKind": null,
+      "expectedRuleIds": [],
+      "formatInventoryState": "complete",
+      "id": "unclassified-vendor-policy",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": null,
+      "sharedText": "Use pnpm.",
+      "vendorText": "Be excellent."
+    },
+    {
+      "behaviorKind": "nesting",
+      "expectedRuleIds": [],
+      "formatInventoryState": "complete",
+      "id": "unknown-nesting-support",
+      "otherFormatState": "unsupported",
+      "otherBehaviorState": "unknown",
+      "sharedText": "Use pnpm.",
+      "vendorText": "Use pnpm."
+    }
+  ],
+  "contractVersion": "0.1.0",
+  "recordKind": "agent-context-portability-precision-corpus"
+}

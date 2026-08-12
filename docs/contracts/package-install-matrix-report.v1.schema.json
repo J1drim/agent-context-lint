@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-context.invalid/schemas/package-install-matrix-report.v1.schema.json",
+  "title": "Agent Context Linter retained package-manager install matrix report",
+  "description": "Closed, redacted offline evidence for the K09 clean package-manager matrix. The report never proves unavailable managers, unsupported Node releases, publication, or registry availability.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "artifactFormat",
+    "schemaVersion",
+    "mode",
+    "assessment",
+    "nodeVersion",
+    "selectedManagers",
+    "strict",
+    "managers",
+    "tarballs",
+    "policy",
+    "limits",
+    "reportSha256"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://agent-context.invalid/schemas/package-install-matrix-report.v1.schema.json"
+    },
+    "artifactFormat": { "const": "agent-context-package-install-matrix-v1" },
+    "schemaVersion": { "const": 1 },
+    "mode": { "const": "offline-local" },
+    "assessment": { "enum": ["passed", "exploratory", "pending-external", "blocked"] },
+    "nodeVersion": {
+      "type": "string",
+      "pattern": "^v(?:[0-9]+)\\.(?:[0-9]+)\\.(?:[0-9]+)(?:\\+[0-9A-Za-z.-]+)?$",
+      "maxLength": 64
+    },
+    "selectedManagers": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": { "enum": ["npm", "pnpm", "yarn", "bun"] }
+    },
+    "strict": { "type": "boolean" },
+    "managers": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/manager" }
+    },
+    "tarballs": { "$ref": "#/$defs/tarballs" },
+    "policy": { "$ref": "#/$defs/policy" },
+    "limits": { "$ref": "#/$defs/limits" },
+    "reportSha256": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "reason": {
+      "enum": [
+        "missing-executable",
+        "node-engine-mismatch",
+        "invalid-executable",
+        "invalid-node-launcher",
+        "invalid-pnpm-launcher",
+        "node-runtime-probe-failed",
+        "node-runtime-invalid",
+        "node-runtime-mismatch",
+        "manager-version-probe-failed",
+        "manager-version-invalid",
+        "pnpm-version-probe-failed",
+        "pnpm-version-mismatch",
+        "install-failed",
+        "workspace-backlink",
+        "runtime-validation-failed",
+        "tarball-mutated"
+      ]
+    },
+    "manager": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manager", "state"],
+      "properties": {
+        "manager": { "enum": ["npm", "pnpm", "yarn", "bun"] },
+        "runtime": { "enum": ["node", "native"] },
+        "state": { "enum": ["passed", "unavailable", "blocked", "failed"] },
+        "reason": { "$ref": "#/$defs/reason" },
+        "nodeVersion": {
+          "type": "string",
+          "pattern": "^v(?:[0-9]+)\\.(?:[0-9]+)\\.(?:[0-9]+)(?:\\+[0-9A-Za-z.-]+)?$",
+          "maxLength": 64
+        },
+        "managerVersion": {
+          "type": "string",
+          "pattern": "^(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)\\.(?:0|[1-9][0-9]*)$",
+          "maxLength": 32
+        },
+        "expectedPnpmVersion": { "type": "string", "minLength": 1, "maxLength": 32 },
+        "observedPnpmVersion": { "type": "string", "minLength": 1, "maxLength": 32 },
+        "cliManifestSha256": { "$ref": "#/$defs/sha256" },
+        "coreManifestSha256": { "$ref": "#/$defs/sha256" },
+        "stderrSha256": { "$ref": "#/$defs/sha256" },
+        "stdoutSha256": { "$ref": "#/$defs/sha256" },
+        "stderrBytes": { "type": "integer", "minimum": 0, "maximum": 262144 },
+        "stdoutBytes": { "type": "integer", "minimum": 0, "maximum": 262144 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "state": { "const": "passed" } } },
+          "then": {
+            "required": ["cliManifestSha256", "coreManifestSha256"],
+            "properties": {
+              "cliManifestSha256": {},
+              "coreManifestSha256": {},
+              "reason": {}
+            },
+            "not": { "required": ["reason"], "properties": { "reason": {} } }
+          }
+        },
+        {
+          "if": { "properties": { "state": { "const": "unavailable" } } },
+          "then": {
+            "required": ["reason"],
+            "properties": { "reason": { "const": "missing-executable" } }
+          }
+        },
+        {
+          "if": { "properties": { "state": { "const": "blocked" } } },
+          "then": {
+            "required": ["reason", "nodeVersion"],
+            "properties": {
+              "reason": { "const": "node-engine-mismatch" },
+              "nodeVersion": {}
+            }
+          }
+        },
+        {
+          "if": { "properties": { "state": { "const": "failed" } } },
+          "then": { "required": ["reason"], "properties": { "reason": {} } }
+        }
+      ]
+    },
+    "tarballs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cliSha256", "coreSha256"],
+      "properties": {
+        "cliSha256": { "$ref": "#/$defs/sha256" },
+        "coreSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["networkAccess", "credentials", "repositoryMutation", "sourcePaths"],
+      "properties": {
+        "networkAccess": { "const": "not-used" },
+        "credentials": { "const": "none" },
+        "repositoryMutation": { "const": "not-observed" },
+        "sourcePaths": { "const": "not-retained" }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "MAX_INPUT_BYTES",
+        "MAX_OUTPUT_BYTES",
+        "MAX_MANAGERS",
+        "MAX_REASON_BYTES",
+        "MAX_NODE_VERSION_BYTES",
+        "MAX_MANAGER_OUTPUT_BYTES"
+      ],
+      "properties": {
+        "MAX_INPUT_BYTES": { "const": 65536 },
+        "MAX_OUTPUT_BYTES": { "const": 65536 },
+        "MAX_MANAGERS": { "const": 4 },
+        "MAX_REASON_BYTES": { "const": 128 },
+        "MAX_NODE_VERSION_BYTES": { "const": 64 },
+        "MAX_MANAGER_OUTPUT_BYTES": { "const": 262144 }
+      }
+    }
+  }
+}

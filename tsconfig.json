@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/test-kit" },
+    { "path": "./packages/core" },
+    { "path": "./packages/markdown" },
+    { "path": "./packages/syntax" },
+    { "path": "./packages/profiles" },
+    { "path": "./packages/resolver" },
+    { "path": "./packages/evidence" },
+    { "path": "./packages/standards" },
+    { "path": "./packages/efficiency" },
+    { "path": "./packages/rules" },
+    { "path": "./packages/formatters" },
+    { "path": "./packages/cli" }
+  ]
+}

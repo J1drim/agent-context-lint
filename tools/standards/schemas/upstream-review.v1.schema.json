@@ -1,0 +1,201 @@
+{
+  "$id": "https://areaautomation.com/schemas/agent-context/upstream-review.v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "digest": { "pattern": "^[a-f0-9]{64}$", "type": "string" },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "escapedText": { "maxLength": 4096, "type": "string" },
+        "line": { "maximum": 131072, "minimum": 1, "type": "integer" },
+        "lineSha256": { "$ref": "#/$defs/digest" },
+        "lineUtf8Bytes": { "maximum": 131072, "minimum": 0, "type": "integer" },
+        "omittedUtf8Bytes": { "maximum": 131072, "minimum": 0, "type": "integer" }
+      },
+      "required": ["escapedText", "line", "lineSha256", "lineUtf8Bytes", "omittedUtf8Bytes"],
+      "type": "object"
+    },
+    "snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "provenanceArtifactSha256": { "$ref": "#/$defs/digest" },
+        "retrievedAt": { "format": "date", "type": "string" },
+        "sourceArtifactSha256": { "$ref": "#/$defs/digest" }
+      },
+      "required": ["provenanceArtifactSha256", "retrievedAt", "sourceArtifactSha256"],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifactKind": { "const": "upstream-semantic-review-draft" },
+    "baseline": { "$ref": "#/$defs/snapshot" },
+    "candidate": { "$ref": "#/$defs/snapshot" },
+    "catalogSha256": { "$ref": "#/$defs/digest" },
+    "contractVersion": { "const": "1.0.0" },
+    "diffAlgorithm": { "const": "bounded-lines-v1" },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "evidenceLineUtf8Bytes": { "const": 512 },
+        "evidenceLinesPerSide": { "const": 48 }
+      },
+      "required": ["evidenceLineUtf8Bytes", "evidenceLinesPerSide"],
+      "type": "object"
+    },
+    "publicationAuthorized": { "const": false },
+    "semanticAssessment": { "const": "not-performed" },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "baselineRawSha256": { "$ref": "#/$defs/digest" },
+          "candidateRawSha256": { "$ref": "#/$defs/digest" },
+          "id": { "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$", "type": "string" },
+          "rawStatus": { "enum": ["changed", "unchanged"] },
+          "relevantStatus": {
+            "enum": ["raw-only-change", "selected-text-changed", "unchanged"]
+          },
+          "sections": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "baselineSha256": { "$ref": "#/$defs/digest" },
+                "candidateSha256": { "$ref": "#/$defs/digest" },
+                "diff": {
+                  "anyOf": [
+                    { "type": "null" },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "baselineChangedLineCount": {
+                          "maximum": 131072,
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "baselineEvidence": {
+                          "items": { "$ref": "#/$defs/evidence" },
+                          "maxItems": 48,
+                          "type": "array"
+                        },
+                        "baselineLineCount": {
+                          "maximum": 131072,
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "candidateChangedLineCount": {
+                          "maximum": 131072,
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "candidateEvidence": {
+                          "items": { "$ref": "#/$defs/evidence" },
+                          "maxItems": 48,
+                          "type": "array"
+                        },
+                        "candidateLineCount": {
+                          "maximum": 131072,
+                          "minimum": 1,
+                          "type": "integer"
+                        },
+                        "commonPrefixLines": {
+                          "maximum": 131072,
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "commonSuffixLines": {
+                          "maximum": 131072,
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "evidenceTruncated": { "type": "boolean" }
+                      },
+                      "required": [
+                        "baselineChangedLineCount",
+                        "baselineEvidence",
+                        "baselineLineCount",
+                        "candidateChangedLineCount",
+                        "candidateEvidence",
+                        "candidateLineCount",
+                        "commonPrefixLines",
+                        "commonSuffixLines",
+                        "evidenceTruncated"
+                      ],
+                      "type": "object"
+                    }
+                  ]
+                },
+                "heading": { "maxLength": 128, "minLength": 1, "type": "string" },
+                "id": { "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$", "type": "string" },
+                "level": { "maximum": 6, "minimum": 1, "type": "integer" },
+                "status": { "enum": ["text-changed", "unchanged"] }
+              },
+              "required": [
+                "baselineSha256",
+                "candidateSha256",
+                "diff",
+                "heading",
+                "id",
+                "level",
+                "status"
+              ],
+              "type": "object"
+            },
+            "maxItems": 16,
+            "minItems": 1,
+            "type": "array"
+          },
+          "url": { "format": "uri", "pattern": "^https://", "type": "string" }
+        },
+        "required": [
+          "baselineRawSha256",
+          "candidateRawSha256",
+          "id",
+          "rawStatus",
+          "relevantStatus",
+          "sections",
+          "url"
+        ],
+        "type": "object"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "type": "array"
+    },
+    "status": { "const": "draft-human-review-required" },
+    "summary": {
+      "additionalProperties": false,
+      "properties": {
+        "changedSectionCount": { "maximum": 96, "minimum": 0, "type": "integer" },
+        "rawOnlyChangedSourceCount": { "maximum": 6, "minimum": 0, "type": "integer" },
+        "relevantChangedSourceCount": { "maximum": 6, "minimum": 0, "type": "integer" },
+        "unchangedSectionCount": { "maximum": 96, "minimum": 0, "type": "integer" },
+        "unchangedSourceCount": { "maximum": 6, "minimum": 0, "type": "integer" }
+      },
+      "required": [
+        "changedSectionCount",
+        "rawOnlyChangedSourceCount",
+        "relevantChangedSourceCount",
+        "unchangedSectionCount",
+        "unchangedSourceCount"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "artifactKind",
+    "baseline",
+    "candidate",
+    "catalogSha256",
+    "contractVersion",
+    "diffAlgorithm",
+    "limits",
+    "publicationAuthorized",
+    "semanticAssessment",
+    "sources",
+    "status",
+    "summary"
+  ],
+  "title": "Maintainer upstream semantic-review draft v1",
+  "type": "object"
+}

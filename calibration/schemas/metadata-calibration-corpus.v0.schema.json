@@ -1,0 +1,70 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/metadata-calibration-corpus.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contractVersion": { "const": "0.1.0" },
+    "recordKind": { "const": "agent-context-metadata-calibration-corpus" },
+    "repositories": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "assignedStratum": { "enum": ["agents-md", "claude", "copilot", "cursor", "gemini"] },
+          "fullName": {
+            "maxLength": 201,
+            "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$",
+            "type": "string"
+          },
+          "pinnedCommitSha": { "pattern": "^[0-9a-f]{40}$", "type": "string" },
+          "rank": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+          "repositoryId": { "pattern": "^[1-9][0-9]{0,19}$", "type": "string" }
+        },
+        "required": ["assignedStratum", "fullName", "pinnedCommitSha", "rank", "repositoryId"],
+        "type": "object"
+      },
+      "maxItems": 50,
+      "minItems": 50,
+      "type": "array"
+    },
+    "selection": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": { "const": "sha256-ranked-stratified-v1" },
+        "candidateSnapshotSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+        "minimumMonorepositories": { "const": 1 },
+        "minimumMultipleFormatRepositories": { "const": 1 },
+        "repositoriesPerStratum": { "const": 10 },
+        "seedSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+        "targetRepositoryCount": { "const": 50 }
+      },
+      "required": [
+        "algorithm",
+        "candidateSnapshotSha256",
+        "minimumMonorepositories",
+        "minimumMultipleFormatRepositories",
+        "repositoriesPerStratum",
+        "seedSha256",
+        "targetRepositoryCount"
+      ],
+      "type": "object"
+    },
+    "sourcePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnosticOutputInspectedBeforeSelection": { "const": false },
+        "externalMutation": { "const": false },
+        "repositoryContentRetrieved": { "const": false },
+        "repositorySourceRedistributed": { "const": false }
+      },
+      "required": [
+        "diagnosticOutputInspectedBeforeSelection",
+        "externalMutation",
+        "repositoryContentRetrieved",
+        "repositorySourceRedistributed"
+      ],
+      "type": "object"
+    }
+  },
+  "required": ["contractVersion", "recordKind", "repositories", "selection", "sourcePolicy"],
+  "type": "object"
+}

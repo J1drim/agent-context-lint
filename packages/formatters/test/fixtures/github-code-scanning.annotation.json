@@ -1,0 +1,17 @@
+{
+  "artifactUri": "AGENTS.md",
+  "region": { "startLine": 3, "startColumn": 3, "endLine": 3, "endColumn": 16 },
+  "level": "error",
+  "ruleId": "ACL250",
+  "helpUri": "https://agent-context-lint.dev/docs/rules/catalog.md#acl250",
+  "partialFingerprints": {
+    "primaryLocationLineHash": "9ac30a333ce4a531:1",
+    "agentContextPath/v1": "dde482dcc539531e5e98bd71063388925f7f566e97a2cca924eb567a47072916",
+    "agentContextSemantic/v1": "6c049bc33df348a479d475fcc462b6f98e6d17c12846a284870e22bf8894ba02"
+  },
+  "provenance": {
+    "profileIds": ["codex-cli"],
+    "surfaceIds": ["codex-cli/local-cli-single-cwd"],
+    "specSnapshotIds": ["codex-cli/0.146.0/2026-08-01"]
+  }
+}

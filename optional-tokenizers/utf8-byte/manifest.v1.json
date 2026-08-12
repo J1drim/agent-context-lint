@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "1.0.0",
+  "providerId": "optional:utf8-byte",
+  "identity": {
+    "id": "utf8.byte",
+    "measurement": "exact",
+    "version": "1.0.0"
+  },
+  "artifact": {
+    "abi": "agent-context-tokenizer-wasm-v1",
+    "encoding": "base64",
+    "sha256": "7bc6247983e4fbd1eaa3cbd92600448d952aac151e79c5b4b87002347742fb26"
+  }
+}

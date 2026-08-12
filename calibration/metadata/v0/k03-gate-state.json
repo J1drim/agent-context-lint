@@ -1,0 +1,9 @@
+{
+  "artifactsCommitted": false,
+  "blockers": ["native-darwin-capture", "native-darwin-confinement", "real-adjudication"],
+  "contractVersion": "0.1.0",
+  "nativeProofPath": "calibration/metadata/v0/k03-native-proof.json",
+  "recordKind": "agent-context-metadata-calibration-gate-state",
+  "sourceReplayAvailable": false,
+  "status": "feature-unavailable"
+}

@@ -1,0 +1,36 @@
+{
+  "capabilityPolicy": {
+    "allowed": [],
+    "denied": [
+      "credential-read",
+      "external-network",
+      "model-request",
+      "repository-command",
+      "repository-write",
+      "user-config-read"
+    ]
+  },
+  "caseId": "gemini-no-safe-signal",
+  "client": "no-safe-no-model-signal",
+  "contractVersion": "0.1.0",
+  "expectedLoadedSourceSequence": ["GEMINI.md"],
+  "fixtureFiles": [
+    {
+      "content": "D15_GEMINI_ROOT\nSynthetic observation marker.\n",
+      "markerId": "D15_GEMINI_ROOT",
+      "path": "GEMINI.md"
+    },
+    {
+      "content": "",
+      "markerId": null,
+      "path": "empty.md"
+    }
+  ],
+  "observedAt": "2026-08-02T00:00:00Z",
+  "operation": "blocked-paid-observation",
+  "profileId": "gemini-cli",
+  "recordKind": "agent-context-real-client-observation-plan",
+  "settingSources": ["isolated-home", "repository-fixture"],
+  "supervisor": null,
+  "surfaceId": "gemini-cli/local-terminal"
+}

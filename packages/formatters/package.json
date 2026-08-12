@@ -1,0 +1,30 @@
+{
+  "name": "@agent-context/formatters",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Internal terminal and machine-output formatters",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": "^24.11.0 || ^26.0.0"
+  },
+  "dependencies": {
+    "@agent-context/core": "workspace:*",
+    "@agent-context/efficiency": "workspace:*",
+    "@agent-context/rules": "workspace:*",
+    "@agent-context/standards": "workspace:*",
+    "get-east-asian-width": "1.6.0",
+    "unicode-segmenter": "0.17.1"
+  }
+}

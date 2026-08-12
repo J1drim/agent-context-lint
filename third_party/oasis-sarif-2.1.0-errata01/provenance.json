@@ -1,0 +1,8 @@
+{
+  "artifact": "sarif-schema-2.1.0.json",
+  "byteLength": 112768,
+  "retrievedAt": "2026-08-02",
+  "schemaDialect": "http://json-schema.org/draft-04/schema#",
+  "sha256": "c3b4bb2d6093897483348925aaa73af03b3e3f4bd4ca38cef26dcb4212a2682e",
+  "sourceUrl": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json"
+}

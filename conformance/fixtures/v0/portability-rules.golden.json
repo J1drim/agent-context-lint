@@ -1,0 +1,23 @@
+{
+  "contractVersion": "0.1.0",
+  "diagnosticRuleIds": ["ACL450", "ACL451", "ACL452"],
+  "registry": [
+    {
+      "id": "ACL450",
+      "precisionStatus": "seeded"
+    },
+    {
+      "id": "ACL451",
+      "precisionStatus": "seeded"
+    },
+    {
+      "id": "ACL452",
+      "precisionStatus": "seeded"
+    },
+    {
+      "id": "ACL453",
+      "precisionStatus": "seeded"
+    }
+  ],
+  "uncertaintyReasons": []
+}

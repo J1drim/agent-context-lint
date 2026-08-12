@@ -1,0 +1,808 @@
+{
+  "recordKind": "research-truth-table",
+  "recordVersion": "cursor-rules/2026-08-02.0",
+  "retrievedAt": "2026-08-02",
+  "description": "Schema-neutral Cursor MDC, activation, glob, nested-root, reference, and surface facts. This research record is not a product schema and grants no scan or execution authority.",
+  "surfaces": [
+    {
+      "id": "cursor-agent/ide",
+      "clientVersion": "3.12.30",
+      "revision": "63a2996a10d9e476b6c28e951dd7691d9c0cf480",
+      "architecture": "arm64",
+      "versionEvidence": "LOCAL-CURSOR-2026-08-02"
+    },
+    {
+      "id": "cursor-agent/cli",
+      "clientVersion": "2026.05.24-dda726e",
+      "revision": null,
+      "architecture": "arm64",
+      "versionEvidence": "LOCAL-CURSOR-2026-08-02"
+    }
+  ],
+  "stateVocabulary": {
+    "documented": "Current first-party material states the result for the named surface.",
+    "conditional": "A documented part coexists with an undocumented interaction or missing event state.",
+    "model-selected": "Cursor delegates relevance to the Agent; a linter must not predict inclusion.",
+    "unknown": "Reviewed first-party material does not define the exact result.",
+    "out-of-repository": "The result depends on user, team, client, or runtime state unavailable in repository bytes.",
+    "malformed": "The input is invalid or unsupported for safe profile classification; client recovery remains unknown.",
+    "profile-requirement": "A conservative linter requirement, not a claim about Cursor client behavior."
+  },
+  "sources": [
+    {
+      "id": "CURSOR-RULES",
+      "kind": "official-current-documentation",
+      "url": "https://cursor.com/docs/rules",
+      "retrievedAt": "2026-08-02",
+      "revision": null,
+      "mutableSourceReason": "The dynamically rendered documentation publishes no content revision or formal MDC schema."
+    },
+    {
+      "id": "CURSOR-CLI",
+      "kind": "official-current-documentation",
+      "url": "https://cursor.com/docs/cli/using",
+      "retrievedAt": "2026-08-02",
+      "revision": null,
+      "mutableSourceReason": "The dynamically rendered documentation publishes no content revision."
+    },
+    {
+      "id": "CURSOR-CHANGE-045",
+      "kind": "official-versioned-changelog",
+      "url": "https://cursor.com/changelog/0-45-x",
+      "retrievedAt": "2026-08-02",
+      "revision": "0.45.x",
+      "mutableSourceReason": null
+    },
+    {
+      "id": "CURSOR-CHANGE-049",
+      "kind": "official-versioned-changelog",
+      "url": "https://cursor.com/changelog/0-49",
+      "retrievedAt": "2026-08-02",
+      "revision": "0.49",
+      "mutableSourceReason": null
+    },
+    {
+      "id": "CURSOR-CLI-CHANGE-2026-01-08",
+      "kind": "official-versioned-changelog",
+      "url": "https://cursor.com/changelog/cli-jan-08-2026",
+      "retrievedAt": "2026-08-02",
+      "revision": "2026-01-08",
+      "mutableSourceReason": null
+    },
+    {
+      "id": "LOCAL-CURSOR-2026-08-02",
+      "kind": "local-inert-observation",
+      "path": "docs/profiles/cursor/observations/2026-08-02-local-metadata.md",
+      "retrievedAt": "2026-08-02",
+      "revision": null,
+      "mutableSourceReason": "A metadata-only local observation pins installed clients but makes no activation claim."
+    }
+  ],
+  "canonicalModes": [
+    {
+      "id": "always",
+      "alwaysApply": "true",
+      "globs": "empty",
+      "description": "optional",
+      "activation": "included in each supported model context",
+      "state": "documented"
+    },
+    {
+      "id": "auto-attached",
+      "alwaysApply": "false",
+      "globs": "non-empty",
+      "description": "optional",
+      "activation": "included when a referenced path matches",
+      "state": "documented"
+    },
+    {
+      "id": "agent-requested",
+      "alwaysApply": "false",
+      "globs": "empty",
+      "description": "non-empty",
+      "activation": "eligible for relevance selection by the Agent",
+      "state": "model-selected"
+    },
+    {
+      "id": "manual",
+      "alwaysApply": "false",
+      "globs": "empty",
+      "description": "empty",
+      "activation": "included only after an explicit rule mention",
+      "state": "documented"
+    }
+  ],
+  "facts": [
+    {
+      "id": "CURSOR-MDC-01",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "An .mdc file below a .cursor/rules directory with opening and closing metadata delimiters is a project-rule candidate.",
+      "sources": ["CURSOR-RULES", "CURSOR-CLI"]
+    },
+    {
+      "id": "CURSOR-MDC-02",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "Markdown following the metadata delimiters is rule instruction content.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-03",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": "agent-requested",
+      "claim": "A non-empty description is relevance metadata used by Agent Requested rules.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-04",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "conditional",
+      "activationMode": "auto-attached",
+      "claim": "A non-empty globs value is path-activation metadata, but the complete grammar and encoding are undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-05",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": "always",
+      "claim": "The boolean value alwaysApply true is the Always-mode signal.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-06",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "The boolean value alwaysApply false requires description and globs to classify the documented mode.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-07",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "malformed",
+      "activationMode": null,
+      "claim": "Missing metadata is not safely classifiable as Always; exact client recovery is unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-08",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "malformed",
+      "activationMode": null,
+      "claim": "A missing closing metadata delimiter is malformed; exact client recovery is unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-09",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Unknown metadata keys must be retained and reported because client handling is undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-10",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Duplicate metadata keys remain ambiguous; no winner or recovery rule is documented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-11",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "malformed",
+      "activationMode": null,
+      "claim": "A string or number in alwaysApply is an invalid field type; client coercion is undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-12",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "conditional",
+      "activationMode": null,
+      "claim": "An empty or whitespace description is safely treated as absent while preserving the raw value; client whitespace semantics are unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-13",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "conditional",
+      "activationMode": null,
+      "claim": "An empty or whitespace globs value is safely treated as absent while preserving the raw value; client whitespace semantics are unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-14",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Support for an .md file below .cursor/rules is not established by the reviewed rule-format documentation.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MDC-15",
+      "topic": "mdc",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "profile-requirement",
+      "activationMode": null,
+      "claim": "BOM, NUL, malformed UTF-8, and invalid Unicode inputs must fail safely with bounded diagnostics; client decoding is unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+
+    {
+      "id": "CURSOR-MODE-01",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": "always",
+      "claim": "alwaysApply true with empty globs is Always and is included in each supported model context.",
+      "sources": ["CURSOR-RULES", "CURSOR-CHANGE-049"]
+    },
+    {
+      "id": "CURSOR-MODE-02",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": "auto-attached",
+      "claim": "alwaysApply false with non-empty globs is Auto Attached and is included when a referenced path matches.",
+      "sources": ["CURSOR-RULES", "CURSOR-CHANGE-049"]
+    },
+    {
+      "id": "CURSOR-MODE-03",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "model-selected",
+      "activationMode": "agent-requested",
+      "claim": "alwaysApply false with no globs and a description is Agent Requested; the Agent decides relevance.",
+      "sources": ["CURSOR-RULES", "CURSOR-CHANGE-045"]
+    },
+    {
+      "id": "CURSOR-MODE-04",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": "manual",
+      "claim": "alwaysApply false with no globs or description is Manual and requires an explicit rule mention.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MODE-05",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "alwaysApply true combined with non-empty globs is mixed; precedence is undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MODE-06",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "conditional",
+      "activationMode": "always",
+      "claim": "alwaysApply true with a description is Always-eligible, but the description's additional role is unspecified.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MODE-07",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "alwaysApply false with both globs and description is a mixed Auto/Agent form whose interaction is undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MODE-08",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "malformed",
+      "activationMode": null,
+      "claim": "Missing alwaysApply with empty globs and description is not safely classifiable as Manual.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MODE-09",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Missing alwaysApply with globs has an undocumented default and cannot grant Auto activation authority.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MODE-10",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "model-selected",
+      "activationMode": null,
+      "claim": "Missing alwaysApply with a description may expose relevance metadata, but default mode handling is unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MODE-11",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": "auto-attached",
+      "claim": "For an Auto rule, a matching referenced path makes the path channel eligible.",
+      "sources": ["CURSOR-RULES", "CURSOR-CHANGE-049"]
+    },
+    {
+      "id": "CURSOR-MODE-12",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "conditional",
+      "activationMode": null,
+      "claim": "A non-matching path leaves the Auto channel inactive while a mixed description channel, if present, remains unresolved.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MODE-13",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "model-selected",
+      "activationMode": "agent-requested",
+      "claim": "A linter can report Agent Requested eligibility but cannot determine relevance-selected inclusion.",
+      "sources": ["CURSOR-RULES", "CURSOR-CHANGE-045"]
+    },
+    {
+      "id": "CURSOR-MODE-14",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": "manual",
+      "claim": "An explicit rule-name mention activates the identified Manual rule for that event.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-MODE-15",
+      "topic": "activation",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "profile-requirement",
+      "activationMode": null,
+      "claim": "Without a triggering event and target trace, a profile must return possible states rather than fabricate effective context.",
+      "sources": ["CURSOR-RULES"]
+    },
+
+    {
+      "id": "CURSOR-GLOB-01",
+      "topic": "glob",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": "auto-attached",
+      "claim": "A configured pattern matching a referenced path under the documented subset makes the Auto channel eligible.",
+      "sources": ["CURSOR-RULES", "CURSOR-CHANGE-049"]
+    },
+    {
+      "id": "CURSOR-GLOB-02",
+      "topic": "glob",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": "auto-attached",
+      "claim": "When no configured pattern matches, the Auto path channel is inactive.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-GLOB-03",
+      "topic": "glob",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Comma-separated scalar encoding for multiple patterns is undocumented and must remain a candidate encoding.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-GLOB-04",
+      "topic": "glob",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "YAML-style list encoding for multiple patterns is undocumented and must remain a candidate encoding.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-GLOB-05",
+      "topic": "glob",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Brace expansion such as star-dot-brace-ts-comma-tsx is not established by current first-party rules material.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-GLOB-06",
+      "topic": "glob",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Single-star and recursive-double-star patterns must not be treated as recursively equivalent without observation.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-GLOB-07",
+      "topic": "glob",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Leading slash and dot-slash anchoring and base-directory behavior are undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-GLOB-08",
+      "topic": "glob",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Windows backslash separator and escape behavior is undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-GLOB-09",
+      "topic": "glob",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Case-sensitivity behavior is undocumented and must remain platform-conditional.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-GLOB-10",
+      "topic": "glob",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "profile-requirement",
+      "activationMode": null,
+      "claim": "Invalid or adversarial patterns must be bounded and return malformed or unknown without crashing; client recovery is unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-GLOB-11",
+      "topic": "glob",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "profile-requirement",
+      "activationMode": null,
+      "claim": "A symlink-reached path must remain root-jailed and expose logical and real-path uncertainty; Cursor matching behavior is unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+
+    {
+      "id": "CURSOR-NEST-01",
+      "topic": "nested",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "A path below a nested rule directory makes that nested rule root location-eligible.",
+      "sources": ["CURSOR-RULES", "CURSOR-CLI"]
+    },
+    {
+      "id": "CURSOR-NEST-02",
+      "topic": "nested",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "A path outside a nested rule directory does not make that nested rule root location-eligible.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-NEST-03",
+      "topic": "nested",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "conditional",
+      "activationMode": "always",
+      "claim": "A nested Always rule is attachable for an in-scope reference, but exact interaction between nesting and metadata awaits observation.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-NEST-04",
+      "topic": "nested",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "conditional",
+      "activationMode": "auto-attached",
+      "claim": "An in-scope path matching a nested Auto glob satisfies both described conditions, but conjunction semantics await observation.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-NEST-05",
+      "topic": "nested",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "In-scope nesting combined with a non-matching Auto glob creates an undocumented contradiction.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-NEST-06",
+      "topic": "nested",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "model-selected",
+      "activationMode": "agent-requested",
+      "claim": "An in-scope nested Agent Requested rule may be available, while relevance selection remains conditional.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-NEST-07",
+      "topic": "nested",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": "manual",
+      "claim": "A nested Manual rule without explicit mention is not proven automatically included; nested override behavior is unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-NEST-08",
+      "topic": "nested",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Root and nested rules with the same name retain separate identities; lookup, deduplication, and precedence are undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-NEST-09",
+      "topic": "nested",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "profile-requirement",
+      "activationMode": null,
+      "claim": "A nested rule directory reached by symlink or outside the workspace must be blocked before traversal; client behavior is unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-NEST-10",
+      "topic": "nested",
+      "surfaces": ["cursor-agent/ide"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Multi-root IDE workspaces must retain supplied-root identity because cross-root ordering is undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+
+    {
+      "id": "CURSOR-REF-01",
+      "topic": "reference",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "A file mention in active rule content includes that file as additional context.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-REF-02",
+      "topic": "reference",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "A file mention in an inactive rule is not eagerly included before the containing rule triggers.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-REF-03",
+      "topic": "reference",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Whether a referenced path is based at the rule file or workspace is undocumented, so both candidates remain explicit.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-REF-04",
+      "topic": "reference",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "A reference targeting another .mdc file is a file candidate, not proven recursive rule activation.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-REF-05",
+      "topic": "reference",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "profile-requirement",
+      "activationMode": null,
+      "claim": "Reference chains and cycles must use bounded traversal and report cycles; Cursor depth and cycle handling are unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-REF-06",
+      "topic": "reference",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "A missing reference target is unresolved; exact client recovery is undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-REF-07",
+      "topic": "reference",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "profile-requirement",
+      "activationMode": null,
+      "claim": "A target outside the workspace must be blocked from normal scan reads; client permission or prompt behavior is unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-REF-08",
+      "topic": "reference",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Rule-reference token behavior inside inline or fenced code is undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-REF-09",
+      "topic": "reference",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Spaces, quoting, fragments, and trailing punctuation have undocumented tokenization and must retain raw spans.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-REF-10",
+      "topic": "reference",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "conditional",
+      "activationMode": "manual",
+      "claim": "A rule-name mention activates a Manual rule, while duplicate-name selection remains unknown.",
+      "sources": ["CURSOR-RULES"]
+    },
+
+    {
+      "id": "CURSOR-SURFACE-01",
+      "topic": "surface",
+      "surfaces": ["cursor-agent/ide"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "A root .cursorrules file is a supported but deprecated IDE source and should receive non-destructive migration guidance.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-SURFACE-02",
+      "topic": "surface",
+      "surfaces": ["cursor-agent/ide"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Nested .cursorrules support is not established by current first-party rules material.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-SURFACE-03",
+      "topic": "surface",
+      "surfaces": ["cursor-agent/ide"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "When root .cursorrules and MDC rules coexist, precedence and deduplication are undocumented.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-SURFACE-04",
+      "topic": "surface",
+      "surfaces": ["cursor-agent/ide"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "An IDE MDC rule is evaluated against IDE-specific event state.",
+      "sources": ["CURSOR-RULES"]
+    },
+    {
+      "id": "CURSOR-SURFACE-05",
+      "topic": "surface",
+      "surfaces": ["cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "A CLI MDC rule is evaluated separately against CLI-specific event state.",
+      "sources": ["CURSOR-CLI"]
+    },
+    {
+      "id": "CURSOR-SURFACE-06",
+      "topic": "surface",
+      "surfaces": ["cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "The Agent CLI reads repository-root AGENTS.md alongside project rules.",
+      "sources": ["CURSOR-CLI"]
+    },
+    {
+      "id": "CURSOR-SURFACE-07",
+      "topic": "surface",
+      "surfaces": ["cursor-agent/cli"],
+      "state": "documented",
+      "activationMode": null,
+      "claim": "The Agent CLI reads repository-root CLAUDE.md alongside project rules.",
+      "sources": ["CURSOR-CLI"]
+    },
+    {
+      "id": "CURSOR-SURFACE-08",
+      "topic": "surface",
+      "surfaces": ["cursor-agent/ide"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "CLI support for root CLAUDE.md must not be copied to the IDE surface.",
+      "sources": ["CURSOR-CLI"]
+    },
+    {
+      "id": "CURSOR-SURFACE-09",
+      "topic": "surface",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "out-of-repository",
+      "activationMode": null,
+      "claim": "Unseen user and team rules remain an explicit external-context assumption.",
+      "sources": ["CURSOR-RULES", "CURSOR-CLI"]
+    },
+    {
+      "id": "CURSOR-SURFACE-10",
+      "topic": "surface",
+      "surfaces": ["cursor-agent/ide", "cursor-agent/cli"],
+      "state": "unknown",
+      "activationMode": null,
+      "claim": "Opening or launching from a repository subdirectory has undocumented workspace-root discovery behavior.",
+      "sources": ["CURSOR-RULES", "CURSOR-CLI"]
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "CURSOR-GAP-001",
+      "summary": "MDC is shown as metadata plus Markdown, but no formal grammar or complete field schema is published."
+    },
+    {
+      "id": "CURSOR-GAP-002",
+      "summary": "Mixed alwaysApply, globs, and description combinations have no documented precedence."
+    },
+    {
+      "id": "CURSOR-GAP-003",
+      "summary": "The glob grammar, list encoding, base, separator, case, and invalid-pattern recovery are undocumented."
+    },
+    {
+      "id": "CURSOR-GAP-004",
+      "summary": "The exact interaction between nested automatic attachment and per-rule activation metadata is undocumented."
+    },
+    {
+      "id": "CURSOR-GAP-005",
+      "summary": "Reference tokenization, base directory, chaining, cycles, and external-target handling are undocumented."
+    },
+    {
+      "id": "CURSOR-GAP-006",
+      "summary": "Legacy .cursorrules precedence and deduplication with MDC rules are undocumented."
+    },
+    {
+      "id": "CURSOR-GAP-007",
+      "summary": "Agent Requested inclusion is model-selected and cannot become a deterministic profile result."
+    },
+    {
+      "id": "CURSOR-GAP-008",
+      "summary": "IDE and CLI root-discovery and multi-root ordering require separate pinned observations."
+    }
+  ],
+  "observationPolicy": {
+    "plan": "docs/profiles/cursor/observations/2026-08-02-no-paid-plan.md",
+    "paidRequestsAuthorized": false,
+    "allowedNow": ["official-documentation-review", "version-output", "help-output"],
+    "forbiddenNow": [
+      "model-request",
+      "credential-read",
+      "repository-command",
+      "external-write",
+      "upstream-mutation"
+    ],
+    "unsettledOutcome": "blocked-paid-observation"
+  }
+}

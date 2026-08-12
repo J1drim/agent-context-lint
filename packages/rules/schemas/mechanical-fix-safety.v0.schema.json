@@ -1,0 +1,1018 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context-lint.dev/rules/mechanical-fix-safety.v0.schema.json",
+  "title": "Agent Context Linter approved mechanical-fix safety matrix",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["recordKind", "contractVersion", "rules"],
+  "properties": {
+    "recordKind": {
+      "const": "agent-context-mechanical-fix-safety"
+    },
+    "contractVersion": {
+      "const": "0.1.0"
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 69,
+      "maxItems": 69,
+      "uniqueItems": true,
+      "prefixItems": [
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL100"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL101"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL102"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL103"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL104"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL105"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL106"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL107"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL108"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL109"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL150"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL151"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL152"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL153"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL154"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL155"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL156"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL200"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL201"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL202"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL203"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL204"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL205"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL206"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL250"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL251"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL252"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL253"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL254"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL255"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL300"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL301"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL302"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL303"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL304"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL305"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL350"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL351"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL352"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL353"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL354"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL355"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL400"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL401"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL402"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL403"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL404"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL405"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL406"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL450"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL451"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL452"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL453"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL500"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL501"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL502"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL503"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL504"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL505"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL506"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL550"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL551"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL552"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL553"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL554"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL555"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL556"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL557"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/rule"
+            }
+          ],
+          "properties": {
+            "ruleId": {
+              "const": "ACL558"
+            }
+          }
+        }
+      ],
+      "contains": {
+        "type": "object",
+        "required": ["decision", "reason", "ruleId"],
+        "properties": {
+          "decision": {
+            "const": "approved"
+          },
+          "reason": {
+            "const": "approved-exact-unused-suppression"
+          },
+          "ruleId": {
+            "const": "ACL109"
+          }
+        }
+      },
+      "minContains": 1,
+      "maxContains": 1,
+      "items": false
+    }
+  },
+  "$defs": {
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision", "proof", "reason", "ruleId"],
+      "properties": {
+        "decision": {
+          "enum": ["approved", "refused"]
+        },
+        "proof": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024,
+          "pattern": "^(?:[^\\uD800-\\uDFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF])+$"
+        },
+        "reason": {
+          "enum": [
+            "approved-exact-unused-suppression",
+            "ambiguous-or-subjective",
+            "changes-policy-semantics",
+            "multi-file-or-unsupported-operation",
+            "profile-or-version-dependent",
+            "security-sensitive",
+            "standards-operation-required",
+            "efficiency-recommendation-only",
+            "source-token-not-proven"
+          ]
+        },
+        "ruleId": {
+          "type": "string",
+          "pattern": "^ACL[1-5][0-9]{2}$"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "decision": {
+                "const": "approved"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "const": "approved-exact-unused-suppression"
+              },
+              "ruleId": {
+                "const": "ACL109"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "decision": {
+                "const": "refused"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "not": {
+                  "const": "approved-exact-unused-suppression"
+                }
+              },
+              "ruleId": {
+                "not": {
+                  "const": "ACL109"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

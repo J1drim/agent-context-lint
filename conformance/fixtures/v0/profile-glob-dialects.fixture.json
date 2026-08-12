@@ -1,0 +1,306 @@
+{
+  "recordKind": "agent-context-profile-glob-dialect-fixture",
+  "schemaVersion": 1,
+  "retrievedAt": "2026-08-02",
+  "provenance": [
+    {
+      "id": "claude-code-project-rules",
+      "dialectIds": ["claude-code/project-rule-paths/2026-08-01"],
+      "sourceUrls": ["https://code.claude.com/docs/en/memory"],
+      "retrievedAt": "2026-08-02",
+      "clientVersion": ">=2.1.217",
+      "versionStatus": "living-docs-with-versioned-resource-recovery",
+      "assumptions": [
+        "The selected repository root is the project root used by documented paths examples."
+      ],
+      "observedDifferences": [
+        "No E02 client execution was performed; deterministic claims are documentation-derived."
+      ]
+    },
+    {
+      "id": "copilot-vscode-apply-to",
+      "dialectIds": ["copilot-vscode/apply-to/2026-08-01"],
+      "sourceUrls": ["https://code.visualstudio.com/docs/agent-customization/custom-instructions"],
+      "retrievedAt": "2026-08-02",
+      "clientVersion": null,
+      "versionStatus": "living-docs-pending-observation",
+      "assumptions": [
+        "The E01 scopeRoot supplied by the VS Code profile is the selected workspace root."
+      ],
+      "observedDifferences": [
+        "No pinned extension observation establishes case, dotfile, escape, or bracket behavior."
+      ]
+    },
+    {
+      "id": "copilot-cli-and-hosted-apply-to",
+      "dialectIds": [
+        "copilot-cli/apply-to/2026-08-01",
+        "copilot-cloud-agent/apply-to/2026-08-01",
+        "copilot-code-review/apply-to/2026-08-01"
+      ],
+      "sourceUrls": [
+        "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions",
+        "https://docs.github.com/en/copilot/reference/custom-instructions-support"
+      ],
+      "retrievedAt": "2026-08-02",
+      "clientVersion": null,
+      "versionStatus": "living-docs-and-hosted-service-pending-observation",
+      "assumptions": ["No pattern base is inferred for nested path-instruction files."],
+      "observedDifferences": [
+        "The reviewed examples document wildcard forms but not a complete dialect or nested base."
+      ]
+    },
+    {
+      "id": "cursor-mdc-globs",
+      "dialectIds": ["cursor-agent/mdc-globs/2026-08-01"],
+      "sourceUrls": ["https://docs.cursor.com/context/rules"],
+      "retrievedAt": "2026-08-02",
+      "clientVersion": "IDE 3.12.30 / CLI 2026.05.24-dda726e (metadata only)",
+      "versionStatus": "observed-metadata-only",
+      "assumptions": ["No grammar, base, or list encoding is promoted without D16 observation."],
+      "observedDifferences": [
+        "Installed-client metadata establishes surface versions but not glob activation behavior."
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "claude-project-root-base",
+      "comparisonGroup": "same-pattern-different-base",
+      "request": {
+        "ruleId": "activation:claude-nested",
+        "profileId": "claude-code",
+        "surfaceId": "claude-code/local-session",
+        "scopeRoot": "packages/app",
+        "targetPath": "packages/app/README.md",
+        "pattern": "*.md",
+        "dialectId": "claude-code/project-rule-paths/2026-08-01"
+      },
+      "expectedState": "inactive"
+    },
+    {
+      "id": "vscode-workspace-scope-base",
+      "comparisonGroup": "same-pattern-different-base",
+      "request": {
+        "ruleId": "activation:vscode-workspace",
+        "profileId": "copilot-vscode",
+        "surfaceId": "copilot-vscode/local-chat",
+        "scopeRoot": "packages/app",
+        "targetPath": "packages/app/README.md",
+        "pattern": "*.md",
+        "dialectId": "copilot-vscode/apply-to/2026-08-01"
+      },
+      "expectedState": "active"
+    },
+    {
+      "id": "cursor-does-not-borrow-known-dialect",
+      "comparisonGroup": "same-pattern-different-base",
+      "request": {
+        "ruleId": "activation:cursor-rule",
+        "profileId": "cursor-agent",
+        "surfaceId": "cursor-agent/cli",
+        "scopeRoot": "packages/app",
+        "targetPath": "packages/app/README.md",
+        "pattern": "*.md",
+        "dialectId": "cursor-agent/mdc-globs/2026-08-01"
+      },
+      "expectedState": "indeterminate"
+    },
+    {
+      "id": "claude-root-markdown",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:claude-root",
+        "profileId": "claude-code",
+        "surfaceId": "claude-code/local-session",
+        "scopeRoot": ".",
+        "targetPath": "README.md",
+        "pattern": "*.md",
+        "dialectId": "claude-code/project-rule-paths/2026-08-01"
+      },
+      "expectedState": "active"
+    },
+    {
+      "id": "claude-nested-markdown-is-not-root",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:claude-root-only",
+        "profileId": "claude-code",
+        "surfaceId": "claude-code/local-session",
+        "scopeRoot": ".",
+        "targetPath": "docs/README.md",
+        "pattern": "*.md",
+        "dialectId": "claude-code/project-rule-paths/2026-08-01"
+      },
+      "expectedState": "inactive"
+    },
+    {
+      "id": "claude-brace-expansion",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:claude-braces",
+        "profileId": "claude-code",
+        "surfaceId": "claude-code/local-session",
+        "scopeRoot": ".",
+        "targetPath": "src/api/index.ts",
+        "pattern": "src/**/*.{ts,tsx}",
+        "dialectId": "claude-code/project-rule-paths/2026-08-01"
+      },
+      "expectedState": "active"
+    },
+    {
+      "id": "vscode-brace-expansion",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:vscode-braces",
+        "profileId": "copilot-vscode",
+        "surfaceId": "copilot-vscode/local-chat",
+        "scopeRoot": "apps/web",
+        "targetPath": "apps/web/src/index.ts",
+        "pattern": "src/**/*.{ts,tsx}",
+        "dialectId": "copilot-vscode/apply-to/2026-08-01"
+      },
+      "expectedState": "active"
+    },
+    {
+      "id": "claude-root-file-through-globstar",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:claude-globstar",
+        "profileId": "claude-code",
+        "surfaceId": "claude-code/local-session",
+        "scopeRoot": ".",
+        "targetPath": "index.ts",
+        "pattern": "**/*.ts",
+        "dialectId": "claude-code/project-rule-paths/2026-08-01"
+      },
+      "expectedState": "active"
+    },
+    {
+      "id": "dotfile-policy-remains-unknown",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:claude-dotfile",
+        "profileId": "claude-code",
+        "surfaceId": "claude-code/local-session",
+        "scopeRoot": ".",
+        "targetPath": ".hidden.md",
+        "pattern": "*.md",
+        "dialectId": "claude-code/project-rule-paths/2026-08-01"
+      },
+      "expectedState": "indeterminate"
+    },
+    {
+      "id": "case-policy-remains-unknown",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:vscode-case",
+        "profileId": "copilot-vscode",
+        "surfaceId": "copilot-vscode/local-chat",
+        "scopeRoot": ".",
+        "targetPath": "README.md",
+        "pattern": "readme.md",
+        "dialectId": "copilot-vscode/apply-to/2026-08-01"
+      },
+      "expectedState": "indeterminate"
+    },
+    {
+      "id": "claude-invalid-bracket-is-no-match",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:claude-invalid-bracket",
+        "profileId": "claude-code",
+        "surfaceId": "claude-code/local-session",
+        "scopeRoot": ".",
+        "targetPath": "a.ts",
+        "pattern": "[abc",
+        "dialectId": "claude-code/project-rule-paths/2026-08-01"
+      },
+      "expectedState": "inactive"
+    },
+    {
+      "id": "vscode-bracket-grammar-is-unknown",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:vscode-bracket",
+        "profileId": "copilot-vscode",
+        "surfaceId": "copilot-vscode/local-chat",
+        "scopeRoot": ".",
+        "targetPath": "a.ts",
+        "pattern": "[abc",
+        "dialectId": "copilot-vscode/apply-to/2026-08-01"
+      },
+      "expectedState": "indeterminate"
+    },
+    {
+      "id": "copilot-cli-base-is-unknown",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:copilot-cli",
+        "profileId": "copilot-cli",
+        "surfaceId": "copilot-cli/local-terminal",
+        "scopeRoot": ".",
+        "targetPath": "README.md",
+        "pattern": "*.md",
+        "dialectId": "copilot-cli/apply-to/2026-08-01"
+      },
+      "expectedState": "indeterminate"
+    },
+    {
+      "id": "owner-mismatch-does-not-fallback",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:owner-mismatch",
+        "profileId": "cursor-agent",
+        "surfaceId": "cursor-agent/cli",
+        "scopeRoot": ".",
+        "targetPath": "README.md",
+        "pattern": "*.md",
+        "dialectId": "claude-code/project-rule-paths/2026-08-01"
+      },
+      "expectedState": "indeterminate"
+    },
+    {
+      "id": "missing-dialect-does-not-fallback",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:missing-dialect",
+        "profileId": "claude-code",
+        "surfaceId": "claude-code/local-session",
+        "scopeRoot": ".",
+        "targetPath": "README.md",
+        "pattern": "*.md",
+        "dialectId": null
+      },
+      "expectedState": "indeterminate"
+    },
+    {
+      "id": "unknown-dialect-does-not-fallback",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:unknown-dialect",
+        "profileId": "claude-code",
+        "surfaceId": "claude-code/local-session",
+        "scopeRoot": ".",
+        "targetPath": "README.md",
+        "pattern": "*.md",
+        "dialectId": "vendor/unknown-glob/1"
+      },
+      "expectedState": "indeterminate"
+    },
+    {
+      "id": "vscode-target-outside-scope-root",
+      "comparisonGroup": null,
+      "request": {
+        "ruleId": "activation:vscode-outside",
+        "profileId": "copilot-vscode",
+        "surfaceId": "copilot-vscode/local-chat",
+        "scopeRoot": "packages/app",
+        "targetPath": "packages/other/README.md",
+        "pattern": "*.md",
+        "dialectId": "copilot-vscode/apply-to/2026-08-01"
+      },
+      "expectedState": "inactive"
+    }
+  ]
+}

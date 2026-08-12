@@ -1,0 +1,161 @@
+{
+  "recordKind": "profile-conformance-fixture",
+  "fixtureFormatVersion": "0.1.0",
+  "id": "gemini-hierarchy-jit",
+  "title": "Gemini startup ancestor and read-triggered descendant context",
+  "profile": {
+    "profileId": "gemini-cli",
+    "surfaceId": "gemini-cli/local-terminal",
+    "specSnapshotId": "gemini-cli/2026-08-02.0",
+    "clientVersion": "0.53.1",
+    "versionStatus": "pinned-package-and-source"
+  },
+  "provenance": {
+    "researchRecordIds": ["gemini-cli/2026-08-02.0"],
+    "derivation": "synthetic-edge-case",
+    "assumptions": [
+      "The workspace is trusted and the synthetic .git directory is the configured boundary."
+    ],
+    "observationIds": [],
+    "sources": [
+      {
+        "id": "gemini-memory-discovery-source",
+        "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/utils/memoryDiscovery.ts",
+        "retrievedAt": "2026-08-02",
+        "immutability": "immutable-revision",
+        "revision": "f47d6c6f7a1308d81f9f57acf7d279f0928c5249"
+      }
+    ]
+  },
+  "repository": {
+    "root": ".",
+    "directories": [".git/", "packages/", "packages/api/"],
+    "files": [
+      {
+        "path": "GEMINI.md",
+        "formatId": "gemini-context-markdown",
+        "content": "ROOT_CONTEXT"
+      },
+      {
+        "path": "packages/api/GEMINI.md",
+        "formatId": "gemini-context-markdown",
+        "content": "API_JIT_CONTEXT"
+      },
+      { "path": "packages/api/main.ts", "formatId": null, "content": "export {};" }
+    ],
+    "symlinks": []
+  },
+  "externalContext": { "mode": "unavailable", "entries": [] },
+  "invocation": {
+    "launchCwd": ".",
+    "workspaceRoots": ["."],
+    "settings": { "context.fileName": "GEMINI.md", "context.memoryBoundaryMarkers": [".git"] },
+    "trustState": "trusted",
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "runtimeMode": "normal"
+  },
+  "targets": [
+    { "id": "target-api", "path": "packages/api/main.ts", "purpose": "resolve-effective-context" }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "sequence": 0,
+      "kind": "launch",
+      "path": ".",
+      "targetId": "target-api"
+    },
+    {
+      "id": "event-read",
+      "sequence": 1,
+      "kind": "read-path",
+      "path": "packages/api/main.ts",
+      "targetId": "target-api"
+    }
+  ],
+  "expectedGraph": {
+    "analysisStatus": "complete",
+    "ambiguities": [],
+    "nodes": [
+      {
+        "id": "launch",
+        "kind": "event",
+        "eventId": "event-launch",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-LOC-002"]
+      },
+      {
+        "id": "read",
+        "kind": "event",
+        "eventId": "event-read",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-JIT-001"]
+      },
+      {
+        "id": "root-context",
+        "kind": "document",
+        "path": "GEMINI.md",
+        "formatId": "gemini-context-markdown",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-LOC-002"]
+      },
+      {
+        "id": "api-context",
+        "kind": "document",
+        "path": "packages/api/GEMINI.md",
+        "formatId": "gemini-context-markdown",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-JIT-003"]
+      },
+      {
+        "id": "api-target",
+        "kind": "target",
+        "path": "packages/api/main.ts",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-JIT-002"]
+      }
+    ],
+    "edges": [
+      {
+        "id": "startup-selects-root",
+        "from": "launch",
+        "to": "root-context",
+        "relation": "selects",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-LOC-002"]
+      },
+      {
+        "id": "read-discovers-api",
+        "from": "read",
+        "to": "api-context",
+        "relation": "discovers",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-JIT-001", "GEM-JIT-003"]
+      },
+      {
+        "id": "read-injects-api",
+        "from": "api-context",
+        "to": "api-target",
+        "relation": "injects",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-JIT-003"]
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "id": "assert-startup",
+      "predicate": "startup-documents-equal",
+      "expected": ["GEMINI.md"],
+      "evidenceStatus": "source-derived",
+      "evidenceRefs": ["GEM-LOC-002", "GEM-LOC-006"]
+    },
+    {
+      "id": "assert-jit",
+      "predicate": "event-added-documents-equal",
+      "expected": ["packages/api/GEMINI.md"],
+      "evidenceStatus": "source-derived",
+      "evidenceRefs": ["GEM-JIT-001", "GEM-JIT-003"]
+    }
+  ]
+}

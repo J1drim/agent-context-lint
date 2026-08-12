@@ -1,0 +1,59 @@
+{
+  "name": "@agent-context/lint",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "description": "Lint and explain repository instructions through a CLI and embeddable API",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE",
+    "NOTICE",
+    "bundled",
+    "completions",
+    "dist",
+    "git-runtime",
+    "man",
+    "reference",
+    "schemas",
+    "THIRD_PARTY_NOTICES"
+  ],
+  "bin": {
+    "agent-context-lint": "./dist/cli.js"
+  },
+  "man": [
+    "./man/agent-context-lint.1"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./reference/agent-context-lint-reference.v1.json": "./reference/agent-context-lint-reference.v1.json",
+    "./schemas/agent-context-lint-reference.v1.schema.json": "./schemas/agent-context-lint-reference.v1.schema.json"
+  },
+  "engines": {
+    "node": "^24.11.0 || ^26.0.0"
+  },
+  "scripts": {
+    "prepack": "node ../../scripts/build-cli-package.mjs"
+  },
+  "dependencies": {
+    "@agent-context/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@agent-context/efficiency": "workspace:*",
+    "@agent-context/evidence": "workspace:*",
+    "@agent-context/formatters": "workspace:*",
+    "@agent-context/profiles": "workspace:*",
+    "@agent-context/resolver": "workspace:*",
+    "@agent-context/rules": "workspace:*",
+    "@agent-context/standards": "workspace:*",
+    "@agent-context/syntax": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "publish"
+  }
+}

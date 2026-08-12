@@ -1,0 +1,64 @@
+{
+  "$id": "https://areaautomation.com/schemas/agent-context/upstream-provenance.v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalogSha256": { "pattern": "^[a-f0-9]{64}$", "type": "string" },
+    "contractVersion": { "const": "1.0.0" },
+    "retrievedAt": { "format": "date", "type": "string" },
+    "sourceArtifactSha256": { "pattern": "^[a-f0-9]{64}$", "type": "string" },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": { "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$", "type": "string" },
+          "mediaType": { "enum": ["text/html", "text/markdown"] },
+          "method": { "const": "GET" },
+          "rawBytes": { "maximum": 1048576, "minimum": 1, "type": "integer" },
+          "rawSha256": { "pattern": "^[a-f0-9]{64}$", "type": "string" },
+          "retrievedAt": { "format": "date", "type": "string" },
+          "sectionHashes": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "id": { "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$", "type": "string" },
+                "sha256": { "pattern": "^[a-f0-9]{64}$", "type": "string" }
+              },
+              "required": ["id", "sha256"],
+              "type": "object"
+            },
+            "maxItems": 16,
+            "minItems": 1,
+            "type": "array"
+          },
+          "status": { "const": 200 },
+          "url": { "format": "uri", "pattern": "^https://", "type": "string" }
+        },
+        "required": [
+          "id",
+          "mediaType",
+          "method",
+          "rawBytes",
+          "rawSha256",
+          "retrievedAt",
+          "sectionHashes",
+          "status",
+          "url"
+        ],
+        "type": "object"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "type": "array"
+    }
+  },
+  "required": [
+    "catalogSha256",
+    "contractVersion",
+    "retrievedAt",
+    "sourceArtifactSha256",
+    "sources"
+  ],
+  "title": "Maintainer upstream provenance v1",
+  "type": "object"
+}

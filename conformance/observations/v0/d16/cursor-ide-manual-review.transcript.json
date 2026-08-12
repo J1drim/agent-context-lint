@@ -1,0 +1,61 @@
+{
+  "actualLoadedSourceSequence": [],
+  "capabilityPolicy": {
+    "allowed": [],
+    "denied": [
+      "credential-read",
+      "external-network",
+      "model-request",
+      "repository-command",
+      "repository-write",
+      "user-config-read"
+    ]
+  },
+  "caseId": "d16-cursor-ide-manual-review",
+  "client": null,
+  "contractVersion": "0.1.0",
+  "environmentKeys": [
+    "CI",
+    "HOME",
+    "NO_COLOR",
+    "PATH",
+    "TEMP",
+    "TMP",
+    "TMPDIR",
+    "XDG_CACHE_HOME",
+    "XDG_CONFIG_HOME",
+    "XDG_DATA_HOME"
+  ],
+  "expectedLoadedSourceSequence": [".cursor/rules/always.mdc"],
+  "fixtureDigest": "40de2dba865052bfcc81ba623fe0c182fd00b9774bed6334ee5329d9bd2aaaa5",
+  "fixtureManifest": [
+    {
+      "markerId": "D15_CURSOR_IDE_RULE",
+      "path": ".cursor/rules/always.mdc",
+      "sha256": "c8a3051c0e61b1d47399e742bd7b6dfb0a76a4ce62115c9dd1e79891511fc7e0"
+    }
+  ],
+  "invocation": null,
+  "observedAt": "2026-08-02T20:18:08Z",
+  "operation": "blocked-paid-observation",
+  "planDigest": "264d28b22780df611f0f631dbad456ff4e9cb5c3d2de3b65bb2df3130ac6b9af",
+  "platform": {
+    "architecture": "arm64",
+    "operatingSystem": "darwin"
+  },
+  "profileId": "cursor-agent",
+  "recordKind": "agent-context-real-client-observation-transcript",
+  "result": {
+    "blockedReason": "ide-surface-needs-reviewed-manual-observation",
+    "exitCode": null,
+    "signal": null,
+    "status": "blocked",
+    "stderr": "",
+    "stdout": "",
+    "versionMatched": null,
+    "workspaceUnchanged": true
+  },
+  "settingSources": ["ide-runtime", "repository-fixture"],
+  "supervisor": null,
+  "surfaceId": "cursor-agent/ide"
+}

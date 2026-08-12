@@ -1,0 +1,172 @@
+{
+  "recordKind": "profile-conformance-fixture",
+  "fixtureFormatVersion": "0.1.0",
+  "id": "codex-root-order",
+  "title": "Codex default Git root and root-to-CWD order",
+  "profile": {
+    "profileId": "codex-cli",
+    "surfaceId": "codex-cli/local-cli-single-cwd",
+    "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+    "clientVersion": "0.146.0",
+    "versionStatus": "pinned-release"
+  },
+  "provenance": {
+    "researchRecordIds": ["codex-cli/0.146.0/2026-08-01"],
+    "derivation": "synthetic-edge-case",
+    "assumptions": [
+      "Launch CWD is app and the synthetic .git directory is the nearest default root marker."
+    ],
+    "observationIds": ["codex-cli-0.146.0-macos-arm64/CDX-SC-001"],
+    "sources": [
+      {
+        "id": "codex-agents-source",
+        "url": "https://github.com/openai/codex/blob/e363b08c9175ac1cbe5893615dd2cb9ddf95043b/codex-rs/core/src/agents_md.rs",
+        "retrievedAt": "2026-08-01",
+        "immutability": "immutable-revision",
+        "revision": "e363b08c9175ac1cbe5893615dd2cb9ddf95043b"
+      },
+      {
+        "id": "codex-local-observation",
+        "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0",
+        "retrievedAt": "2026-08-01",
+        "immutability": "observation-artifact",
+        "artifactPath": "docs/profiles/observations/codex-cli-0.146.0-macos-arm64.md"
+      }
+    ]
+  },
+  "repository": {
+    "root": ".",
+    "directories": [".git/", "app/"],
+    "files": [
+      { "path": "AGENTS.md", "formatId": "agents-markdown", "content": "ROOT_MARKER" },
+      { "path": "app/AGENTS.md", "formatId": "agents-markdown", "content": "APP_MARKER" },
+      { "path": "app/main.ts", "formatId": null, "content": "export {};" }
+    ],
+    "symlinks": []
+  },
+  "externalContext": {
+    "mode": "unavailable",
+    "entries": []
+  },
+  "invocation": {
+    "launchCwd": "app",
+    "workspaceRoots": ["."],
+    "settings": { "project_root_markers": [".git"], "project_doc_max_bytes": 32768 },
+    "trustState": "trusted",
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "runtimeMode": "normal"
+  },
+  "targets": [
+    { "id": "target-main", "path": "app/main.ts", "purpose": "resolve-effective-context" }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "sequence": 0,
+      "kind": "launch",
+      "path": "app",
+      "targetId": "target-main"
+    }
+  ],
+  "expectedGraph": {
+    "analysisStatus": "complete",
+    "ambiguities": [],
+    "nodes": [
+      {
+        "id": "event-launch-node",
+        "kind": "event",
+        "eventId": "event-launch",
+        "resolutionStatus": "observed",
+        "evidenceRefs": ["CDX-ROOT-01", "CDX-PATH-01"]
+      },
+      {
+        "id": "doc-root",
+        "kind": "document",
+        "path": "AGENTS.md",
+        "formatId": "agents-markdown",
+        "resolutionStatus": "observed",
+        "evidenceRefs": ["CDX-SC-001"]
+      },
+      {
+        "id": "doc-app",
+        "kind": "document",
+        "path": "app/AGENTS.md",
+        "formatId": "agents-markdown",
+        "resolutionStatus": "observed",
+        "evidenceRefs": ["CDX-SC-001"]
+      },
+      {
+        "id": "target-main-node",
+        "kind": "target",
+        "path": "app/main.ts",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CDX-PATH-03"]
+      }
+    ],
+    "edges": [
+      {
+        "id": "select-root",
+        "from": "event-launch-node",
+        "to": "doc-root",
+        "relation": "selects",
+        "resolutionStatus": "observed",
+        "evidenceRefs": ["CDX-SC-001"]
+      },
+      {
+        "id": "select-app",
+        "from": "event-launch-node",
+        "to": "doc-app",
+        "relation": "selects",
+        "resolutionStatus": "observed",
+        "evidenceRefs": ["CDX-SC-001"]
+      },
+      {
+        "id": "root-before-app",
+        "from": "doc-root",
+        "to": "doc-app",
+        "relation": "precedes",
+        "resolutionStatus": "observed",
+        "evidenceRefs": ["CDX-MERGE-01"]
+      },
+      {
+        "id": "root-activates-target",
+        "from": "doc-root",
+        "to": "target-main-node",
+        "relation": "activates",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CDX-PATH-01"]
+      },
+      {
+        "id": "app-activates-target",
+        "from": "doc-app",
+        "to": "target-main-node",
+        "relation": "activates",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CDX-PATH-01"]
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "id": "assert-root",
+      "predicate": "project-root-equals",
+      "expected": ".",
+      "evidenceStatus": "observed",
+      "evidenceRefs": ["CDX-SC-001"]
+    },
+    {
+      "id": "assert-selection",
+      "predicate": "selected-documents-equal",
+      "expected": ["AGENTS.md", "app/AGENTS.md"],
+      "evidenceStatus": "observed",
+      "evidenceRefs": ["CDX-SC-001"]
+    },
+    {
+      "id": "assert-order",
+      "predicate": "document-order-equals",
+      "expected": ["AGENTS.md", "app/AGENTS.md"],
+      "evidenceStatus": "observed",
+      "evidenceRefs": ["CDX-MERGE-01"]
+    }
+  ]
+}

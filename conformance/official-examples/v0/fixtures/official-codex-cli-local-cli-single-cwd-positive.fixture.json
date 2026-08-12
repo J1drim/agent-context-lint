@@ -1,0 +1,127 @@
+{
+  "assertions": [
+    {
+      "evidenceRefs": ["codex-cli.local-cli-single-cwd--agents-markdown"],
+      "evidenceStatus": "source-derived",
+      "expected": { "selection": "selected", "supportStatus": "supported" },
+      "id": "assert-agents-markdown-positive",
+      "predicate": "profile-format-capability-outcome"
+    }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "kind": "launch",
+      "path": ".",
+      "sequence": 0,
+      "targetId": "target-example"
+    },
+    {
+      "id": "event-reference",
+      "kind": "reference-path",
+      "path": "src/example.ts",
+      "sequence": 1,
+      "targetId": "target-example"
+    }
+  ],
+  "expectedGraph": {
+    "ambiguities": [],
+    "analysisStatus": "complete",
+    "edges": [
+      {
+        "evidenceRefs": ["codex-cli.local-cli-single-cwd--agents-markdown"],
+        "from": "document-agents-markdown",
+        "id": "edge-agents-markdown",
+        "relation": "selects",
+        "resolutionStatus": "source-derived",
+        "to": "target-example"
+      }
+    ],
+    "nodes": [
+      {
+        "evidenceRefs": ["k01-target"],
+        "id": "target-example",
+        "kind": "target",
+        "path": "src/example.ts",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["codex-cli.local-cli-single-cwd--agents-markdown"],
+        "formatId": "agents-markdown",
+        "id": "document-agents-markdown",
+        "kind": "document",
+        "path": "AGENTS.md",
+        "resolutionStatus": "source-derived"
+      }
+    ]
+  },
+  "extensions": {
+    "agent-context-lint.dev/k01": {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "polarity": "positive"
+    }
+  },
+  "externalContext": { "entries": [], "mode": "unavailable" },
+  "fixtureFormatVersion": "0.1.0",
+  "id": "official-codex-cli-local-cli-single-cwd-positive",
+  "invocation": {
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "launchCwd": ".",
+    "runtimeMode": "local-cli",
+    "settings": {},
+    "trustState": "trusted-synthetic",
+    "workspaceRoots": ["."]
+  },
+  "profile": {
+    "clientVersion": "0.146.0",
+    "profileId": "codex-cli",
+    "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+    "surfaceId": "codex-cli/local-cli-single-cwd",
+    "versionStatus": "pinned-release"
+  },
+  "provenance": {
+    "assumptions": [
+      "Example prose is replaced by short inert markers while retaining official locations, fields, and activation inputs.",
+      "The negative fixture changes only fixture-owned location or activation inputs and does not infer undocumented client behavior."
+    ],
+    "derivation": "official-example",
+    "observationIds": [],
+    "researchRecordIds": ["codex-cli/0.146.0/2026-08-01"],
+    "sources": [
+      {
+        "id": "codex-cli-0.146.0-2026-08-01-official-source",
+        "immutability": "immutable-revision",
+        "retrievedAt": "2026-08-02",
+        "url": "https://github.com/openai/codex/blob/e363b08c9175ac1cbe5893615dd2cb9ddf95043b/codex-rs/core/src/agents_md.rs",
+        "revision": "e363b08c9175ac1cbe5893615dd2cb9ddf95043b"
+      }
+    ]
+  },
+  "recordKind": "profile-conformance-fixture",
+  "repository": {
+    "directories": ["docs/", "src/"],
+    "files": [
+      {
+        "content": "# Project instructions\n\nUse the repository test command.\n@docs/policy.md\n",
+        "formatId": "agents-markdown",
+        "path": "AGENTS.md"
+      },
+      { "content": "Official-example target.\n", "formatId": null, "path": "src/example.ts" },
+      { "content": "Synthetic imported marker.\n", "formatId": null, "path": "docs/policy.md" }
+    ],
+    "root": ".",
+    "symlinks": []
+  },
+  "targets": [
+    { "id": "target-example", "path": "src/example.ts", "purpose": "resolve-effective-context" }
+  ],
+  "title": "codex-cli/local-cli-single-cwd official examples (positive)"
+}

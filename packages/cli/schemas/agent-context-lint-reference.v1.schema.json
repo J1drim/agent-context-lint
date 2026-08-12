@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context-lint.dev/cli-reference/v1",
+  "title": "Agent Context Linter generated CLI reference v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "product", "globalOptions", "commands", "configuration", "rules"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "product": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cliName", "cliVersion", "commandRegistryVersion"],
+      "properties": {
+        "cliName": { "const": "agent-context-lint" },
+        "cliVersion": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$"
+        },
+        "commandRegistryVersion": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?$"
+        }
+      }
+    },
+    "commands": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": { "$ref": "#/$defs/command" }
+    },
+    "globalOptions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "items": { "$ref": "#/$defs/option" }
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fileName", "schema", "schemaId", "schemaSha256"],
+      "properties": {
+        "fileName": { "const": ".agent-context-lint.yml" },
+        "schema": { "type": "object" },
+        "schemaId": { "type": "string", "format": "uri", "maxLength": 2048 },
+        "schemaSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contractVersion", "entries"],
+      "properties": {
+        "contractVersion": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 128,
+          "items": { "$ref": "#/$defs/rule" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "option": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["completion", "description", "names", "valueName", "values"],
+      "properties": {
+        "completion": { "enum": ["directory", "file", "none"] },
+        "description": { "type": "string", "minLength": 1, "maxLength": 8192 },
+        "names": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^(--[a-z][a-z0-9-]{0,63}|-[A-Za-z])$" }
+        },
+        "valueName": {
+          "oneOf": [{ "type": "null" }, { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$" }]
+        },
+        "values": {
+          "type": "array",
+          "maxItems": 128,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]{0,127}$"
+          }
+        }
+      }
+    },
+    "command": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "completion",
+        "description",
+        "implementationTicket",
+        "maximumOperands",
+        "minimumOperands",
+        "name",
+        "options",
+        "usage",
+        "validFirstOperands"
+      ],
+      "properties": {
+        "completion": { "enum": ["directory", "file", "none"] },
+        "description": { "type": "string", "minLength": 1, "maxLength": 8192 },
+        "implementationTicket": {
+          "type": "string",
+          "pattern": "^[A-Z][0-9]{2}(?:[-/][A-Z]?[0-9]{2})*$"
+        },
+        "maximumOperands": { "type": "integer", "minimum": 0, "maximum": 64 },
+        "minimumOperands": { "type": "integer", "minimum": 0, "maximum": 64 },
+        "name": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$" },
+        "options": {
+          "type": "array",
+          "maxItems": 32,
+          "items": { "$ref": "#/$defs/option" }
+        },
+        "usage": {
+          "type": "string",
+          "pattern": "^[a-z][A-Za-z0-9 .<>\\[\\]|/-]{0,1023}$"
+        },
+        "validFirstOperands": {
+          "type": "array",
+          "maxItems": 128,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]{0,127}$"
+          }
+        }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "defaultSeverity",
+        "description",
+        "docsUrl",
+        "fixSafety",
+        "id",
+        "owner",
+        "precisionStatus",
+        "rationale"
+      ],
+      "properties": {
+        "category": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "defaultSeverity": { "enum": ["error", "warning", "info"] },
+        "description": { "type": "string", "minLength": 1, "maxLength": 8192 },
+        "docsUrl": { "type": "string", "minLength": 1, "maxLength": 8192 },
+        "fixSafety": { "enum": ["none", "suggestion-only", "mechanical"] },
+        "id": { "type": "string", "pattern": "^ACL[1-5][0-9]{2}$" },
+        "owner": { "type": "string", "minLength": 1, "maxLength": 8192 },
+        "precisionStatus": { "enum": ["planned", "seeded", "calibrating", "qualified"] },
+        "rationale": { "type": "string", "minLength": 1, "maxLength": 8192 }
+      }
+    }
+  }
+}

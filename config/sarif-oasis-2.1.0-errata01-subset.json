@@ -1,0 +1,186 @@
+{
+  "source": {
+    "title": "Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Errata 01 JSON Schema",
+    "url": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+    "retrievedAt": "2026-08-02",
+    "sha256": "c3b4bb2d6093897483348925aaa73af03b3e3f4bd4ca38cef26dcb4212a2682e",
+    "schemaDialect": "http://json-schema.org/draft-04/schema#",
+    "licenseNote": "The exact upstream schema is redistributed unchanged with its OASIS notice; this file retains independently extracted subset-compatibility facts."
+  },
+  "nodes": {
+    "root": {
+      "required": ["version", "runs"],
+      "allowedProperties": ["$schema", "inlineExternalProperties", "properties", "runs", "version"]
+    },
+    "run": {
+      "required": ["tool"],
+      "allowedProperties": [
+        "addresses",
+        "artifacts",
+        "automationDetails",
+        "baselineGuid",
+        "columnKind",
+        "conversion",
+        "defaultEncoding",
+        "defaultSourceLanguage",
+        "externalPropertyFileReferences",
+        "graphs",
+        "invocations",
+        "language",
+        "logicalLocations",
+        "newlineSequences",
+        "originalUriBaseIds",
+        "policies",
+        "properties",
+        "redactionTokens",
+        "results",
+        "runAggregates",
+        "specialLocations",
+        "taxonomies",
+        "threadFlowLocations",
+        "tool",
+        "translations",
+        "versionControlProvenance",
+        "webRequests",
+        "webResponses"
+      ]
+    },
+    "tool": {
+      "required": ["driver"],
+      "allowedProperties": ["driver", "extensions", "properties"]
+    },
+    "toolComponent": {
+      "required": ["name"],
+      "allowedProperties": [
+        "associatedComponent",
+        "contents",
+        "dottedQuadFileVersion",
+        "downloadUri",
+        "fullDescription",
+        "fullName",
+        "globalMessageStrings",
+        "guid",
+        "informationUri",
+        "isComprehensive",
+        "language",
+        "localizedDataSemanticVersion",
+        "locations",
+        "minimumRequiredLocalizedDataSemanticVersion",
+        "name",
+        "notifications",
+        "organization",
+        "product",
+        "productSuite",
+        "properties",
+        "releaseDateUtc",
+        "rules",
+        "semanticVersion",
+        "shortDescription",
+        "supportedTaxonomies",
+        "taxa",
+        "translationMetadata",
+        "version"
+      ]
+    },
+    "reportingDescriptor": {
+      "required": ["id"],
+      "allowedProperties": [
+        "defaultConfiguration",
+        "deprecatedGuids",
+        "deprecatedIds",
+        "deprecatedNames",
+        "fullDescription",
+        "guid",
+        "help",
+        "helpUri",
+        "id",
+        "messageStrings",
+        "name",
+        "properties",
+        "relationships",
+        "shortDescription"
+      ]
+    },
+    "result": {
+      "required": ["message"],
+      "allowedProperties": [
+        "analysisTarget",
+        "attachments",
+        "baselineState",
+        "codeFlows",
+        "correlationGuid",
+        "fingerprints",
+        "fixes",
+        "graphTraversals",
+        "graphs",
+        "guid",
+        "hostedViewerUri",
+        "kind",
+        "level",
+        "locations",
+        "message",
+        "occurrenceCount",
+        "partialFingerprints",
+        "properties",
+        "provenance",
+        "rank",
+        "relatedLocations",
+        "rule",
+        "ruleId",
+        "ruleIndex",
+        "stacks",
+        "suppressions",
+        "taxa",
+        "webRequest",
+        "webResponse",
+        "workItemUris"
+      ]
+    },
+    "location": {
+      "required": [],
+      "allowedProperties": [
+        "annotations",
+        "id",
+        "logicalLocations",
+        "message",
+        "physicalLocation",
+        "properties",
+        "relationships"
+      ]
+    },
+    "physicalLocation": {
+      "required": [],
+      "allowedProperties": ["address", "artifactLocation", "contextRegion", "properties", "region"]
+    },
+    "artifactLocation": {
+      "required": [],
+      "allowedProperties": ["description", "index", "properties", "uri", "uriBaseId"]
+    },
+    "region": {
+      "required": [],
+      "allowedProperties": [
+        "byteLength",
+        "byteOffset",
+        "charLength",
+        "charOffset",
+        "endColumn",
+        "endLine",
+        "message",
+        "properties",
+        "snippet",
+        "sourceLanguage",
+        "startColumn",
+        "startLine"
+      ]
+    },
+    "message": {
+      "required": [],
+      "allowedProperties": ["arguments", "id", "markdown", "properties", "text"]
+    }
+  },
+  "invariants": {
+    "versionConst": "2.1.0",
+    "relatedLocationsUniqueItems": true,
+    "multiformatMessageStringRequired": ["text"]
+  }
+}

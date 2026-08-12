@@ -1,0 +1,371 @@
+{
+  "contractVersion": "0.1.0",
+  "recordKind": "agent-context-metadata-calibration-corpus",
+  "repositories": [
+    {
+      "assignedStratum": "agents-md",
+      "fullName": "zxlie/FeHelper",
+      "pinnedCommitSha": "cc3aa4bb7f891a209cfa605ead2b45eb3ba8ad46",
+      "rank": "078c190da57bfc47deb5553f6e6e8492ca7daf4201c0eade4ce79a580478009e",
+      "repositoryId": "8681369"
+    },
+    {
+      "assignedStratum": "agents-md",
+      "fullName": "MGeurts/genealogy",
+      "pinnedCommitSha": "a633dc9ac7a691618589090c88d6090b7155a798",
+      "rank": "0f85efd67b6bb3572d83e4ead88abdbb402b7634434e400ccc05580d0e9fa00e",
+      "repositoryId": "744711036"
+    },
+    {
+      "assignedStratum": "agents-md",
+      "fullName": "DamianB-BitFlipper/proton-drive-sync",
+      "pinnedCommitSha": "9e93d2b65afc77c9c19ab0ec59f3ef4ebf29be0b",
+      "rank": "1f815bbdb87b5e3837e158609a972355c74ed29b6f0d2c1a33b55054a45d9884",
+      "repositoryId": "1107047476"
+    },
+    {
+      "assignedStratum": "agents-md",
+      "fullName": "ViewComfy/ViewComfy",
+      "pinnedCommitSha": "fc0ba28a745231e98fd21688cdbb392800a8eb7b",
+      "rank": "38360e3018e69d1b6be97ac6bd0d703c963d436cd91033db5b7dcd7f09b93170",
+      "repositoryId": "864107095"
+    },
+    {
+      "assignedStratum": "agents-md",
+      "fullName": "meain/dotfiles",
+      "pinnedCommitSha": "d1bb273a1c8e010aee4d979e2e19862c46206b70",
+      "rank": "392f92bf82c30d5353e4a3cce4193fc51488489da836a9490df816bd66be0c65",
+      "repositoryId": "47503873"
+    },
+    {
+      "assignedStratum": "agents-md",
+      "fullName": "google/benchmark",
+      "pinnedCommitSha": "e3f7ba70253d2f52fbc41ff17ac6dc1014241ef8",
+      "rank": "39d85ba4a652c7f09c33cb95d190416247ea307b1726e8278d8a91eb64de56b5",
+      "repositoryId": "15122806"
+    },
+    {
+      "assignedStratum": "agents-md",
+      "fullName": "nunit/nunit",
+      "pinnedCommitSha": "f0ccf2344a9c65d22673a89c57eb06ce1ea059c1",
+      "rank": "465961fdd573e865c719b096763229717f8d773781838b63efeb4624d88e03a6",
+      "repositoryId": "13692183"
+    },
+    {
+      "assignedStratum": "agents-md",
+      "fullName": "kubernetes-sigs/cluster-api-provider-openstack",
+      "pinnedCommitSha": "d664653bbe75d7f3bfdc32209b90174cbc1ad281",
+      "rank": "56cc54829613cdb9be500f8f8897630e74060053843f8db1b4d34f779a93ee6b",
+      "repositoryId": "137236252"
+    },
+    {
+      "assignedStratum": "agents-md",
+      "fullName": "broadinstitute/delphy",
+      "pinnedCommitSha": "5729978cec46a9e871190d03b811ef275a5bf070",
+      "rank": "723b6e43c9e19a1b27f5a0834ab496bd8cba85653f02ef5cdc0b9d4b69178969",
+      "repositoryId": "804287442"
+    },
+    {
+      "assignedStratum": "agents-md",
+      "fullName": "nextdns/nextdns",
+      "pinnedCommitSha": "b833e8236e87c73ff48e9a40571af85a70a9fd75",
+      "rank": "7fe7a537d23f7de58c6df26c058bdd886f8b1df8f8c08340bf3f067c512e7186",
+      "repositoryId": "211206547"
+    },
+    {
+      "assignedStratum": "claude",
+      "fullName": "joske/yserver",
+      "pinnedCommitSha": "3191535d8a2380dd3aad768481533755708d5844",
+      "rank": "18b6682a868f8a77bef063df8be681e57b888b6cdb2e9408169b71605bf94013",
+      "repositoryId": "1222567771"
+    },
+    {
+      "assignedStratum": "claude",
+      "fullName": "openshift/cluster-kube-descheduler-operator",
+      "pinnedCommitSha": "dadda604e45a2ddef5d3cbe186259c712b92429f",
+      "rank": "24d7d7fcef8afa1fd8ac4794fca986c48cccd8cb78cce44d58b5a707b105df41",
+      "repositoryId": "153352722"
+    },
+    {
+      "assignedStratum": "claude",
+      "fullName": "jbetancur/react-data-table-component",
+      "pinnedCommitSha": "c7a8537bb5e3eafda7593e38c4810e891dd27e3c",
+      "rank": "2cb769696c53e34c23deb842d3b5aec949037538193989cd365127a9e872a5b4",
+      "repositoryId": "125463757"
+    },
+    {
+      "assignedStratum": "claude",
+      "fullName": "SmokinCaterpillar/pypet",
+      "pinnedCommitSha": "a95aabf1ef4a3c8066495a0d10ee32d8c02600fe",
+      "rank": "391721781d76a2a829b7ec086efa84f8495d26a7916584de00d5b89d62c3684a",
+      "repositoryId": "12901526"
+    },
+    {
+      "assignedStratum": "claude",
+      "fullName": "fsprojects/Paket",
+      "pinnedCommitSha": "3b63da856fa6d6f441d43b9dc2aa64e6ad10fe62",
+      "rank": "53772b96ce7a43af65627194f0f536c9f2b8fda4a9a40019c3ec71e1e872b099",
+      "repositoryId": "22755810"
+    },
+    {
+      "assignedStratum": "claude",
+      "fullName": "Roznoshchik/Lurnby",
+      "pinnedCommitSha": "5479480fa6f681de5524a206f4ae32932f82b81f",
+      "rank": "5b717105ff127272a21563c790105232cc40131af6b3be7f6650dd644a28d373",
+      "repositoryId": "260888800"
+    },
+    {
+      "assignedStratum": "claude",
+      "fullName": "rderaison/bromure",
+      "pinnedCommitSha": "ca0d416bb643fa4301910ee8bc1d036a120f772e",
+      "rank": "5c40fd7e11253758062bd236835a6dc92940146addbfd14b2cd8a99bfe529aef",
+      "repositoryId": "1176047082"
+    },
+    {
+      "assignedStratum": "claude",
+      "fullName": "narnia-sh/layrr",
+      "pinnedCommitSha": "e4e7a0ab972d3df4f5acc6a5929f36f3def89c59",
+      "rank": "7eac6056ea74ba1fb4d12f7a6720479dfa39a7c53173b0dadc84dfcbe66c359c",
+      "repositoryId": "1084907026"
+    },
+    {
+      "assignedStratum": "claude",
+      "fullName": "NaverPayDev/pie",
+      "pinnedCommitSha": "11f340c3641916385295cfd99b8f5e38df7c4966",
+      "rank": "836d44f1e7adf198c81e518bb9aa05e45592ec44f8c87ae131b44d4c3fc635dd",
+      "repositoryId": "784145100"
+    },
+    {
+      "assignedStratum": "claude",
+      "fullName": "Huxpro/vue-lynx",
+      "pinnedCommitSha": "a175aee4a8eac0685fbacb97050f4bbf43b7bc30",
+      "rank": "88ec65e84355dd06e3b45882610d873ccc662f41a82ce670b8e427b438133c9c",
+      "repositoryId": "1179570103"
+    },
+    {
+      "assignedStratum": "copilot",
+      "fullName": "comma-csv/comma",
+      "pinnedCommitSha": "301002f26660e8b68abb48a128268585297fc793",
+      "rank": "057f420f8ad25640d03c85b002e6d6cfc6a6a52a96537c3f94102aabcc2c769e",
+      "repositoryId": "134623"
+    },
+    {
+      "assignedStratum": "copilot",
+      "fullName": "johnpapa/vscode-winteriscoming",
+      "pinnedCommitSha": "260547834cb6ac37dd5b8bb5842cc1c8d3164946",
+      "rank": "3677d1c99ef9aa7bdfe2f13be7c4cbb47c300625103bf6a783d01047341fa6e9",
+      "repositoryId": "107423158"
+    },
+    {
+      "assignedStratum": "copilot",
+      "fullName": "brunoborges/fx2048",
+      "pinnedCommitSha": "fccb6422edb58cfd2da479c671f42aa885c2226e",
+      "rank": "3783148b73e026e04ab02d9e96fbe6af4d6c437d1d2dfeb851cb3f2c4c0d59f6",
+      "repositoryId": "18281390"
+    },
+    {
+      "assignedStratum": "copilot",
+      "fullName": "pass-agent/loomkin",
+      "pinnedCommitSha": "f769ae73adeed9bed4588934c09a6e99c87233c3",
+      "rank": "53ca7988b43c25e67f21c004008d18f344317647ac93d0e7d6b7926d4f1c33c2",
+      "repositoryId": "1169009889"
+    },
+    {
+      "assignedStratum": "copilot",
+      "fullName": "akamai/terraform-provider-akamai",
+      "pinnedCommitSha": "6cae22fa6124f74ba6593aa41478fc93462d420b",
+      "rank": "5bcaf7f21c5e683df6822e8a561d20a8a21cfdc334e412f1bccc3914cbafb66e",
+      "repositoryId": "190660950"
+    },
+    {
+      "assignedStratum": "copilot",
+      "fullName": "pulumi/kubespy",
+      "pinnedCommitSha": "7a46c6d2535c8be0c8fc155fb0f60865885681be",
+      "rank": "6c033b449282f4d820883e10f1b7b79e4aa860aa25bce449333575d8ef3b3543",
+      "repositoryId": "149165150"
+    },
+    {
+      "assignedStratum": "copilot",
+      "fullName": "Alfanous-team/alfanous",
+      "pinnedCommitSha": "c2a7cfd4645194de079bbfe8e4f0bc18c7cde2db",
+      "rank": "7537c56b9f191082c02174e1881dae2611d5d6ca74cb707c46afdab6729c42c2",
+      "repositoryId": "4617289"
+    },
+    {
+      "assignedStratum": "copilot",
+      "fullName": "AzureAD/microsoft-authentication-library-common-for-objc",
+      "pinnedCommitSha": "6c474069eaee5f421be1bd785fba7185fa6e0d47",
+      "rank": "83adefd300820647c790a19cbaee967efb71e9309619ef80f93b2a1ff4b5e3e3",
+      "repositoryId": "109302939"
+    },
+    {
+      "assignedStratum": "copilot",
+      "fullName": "EXXETA/trufos",
+      "pinnedCommitSha": "e17cbf86a07c5ba160a5198c8466b3f0c5008d24",
+      "rank": "83bbdca49132accf15e39089ee05f2bcd1e085407e84b12e0e96370d3b492d2b",
+      "repositoryId": "811384377"
+    },
+    {
+      "assignedStratum": "copilot",
+      "fullName": "cxfksword/jellyfin-plugin-danmu",
+      "pinnedCommitSha": "b2e69f87d77cf72e1658d34000720a9437f34c75",
+      "rank": "85977fed884c052530f457e6cb1730b1fa582f561c49ee9ceab5fb045ef9341e",
+      "repositoryId": "549328235"
+    },
+    {
+      "assignedStratum": "cursor",
+      "fullName": "bubblelabai/BubbleLab",
+      "pinnedCommitSha": "e64b2469659b72156ca02a767e38cf73913c40d7",
+      "rank": "05e4ce3f8369c0e21cda03e00bbb7d45de49eec74595cb2071acfab8f10e7264",
+      "repositoryId": "1068787337"
+    },
+    {
+      "assignedStratum": "cursor",
+      "fullName": "getsentry/sentry-java",
+      "pinnedCommitSha": "983e0f0a5f1c89118d4e82b6f928fb4e738ca97b",
+      "rank": "14096e3c1b0f3843424d3dbf2a5f9c195e383bc773345bd324f6c04d9a7a733c",
+      "repositoryId": "3368190"
+    },
+    {
+      "assignedStratum": "cursor",
+      "fullName": "groupultra/telegram-search",
+      "pinnedCommitSha": "54f6adced844ce9990228d75e31348bfed934e05",
+      "rank": "1d34348866fd9a6d1fdcc22ffeefc005d2a5464fa2759cfbace8970ee622d1c3",
+      "repositoryId": "929338255"
+    },
+    {
+      "assignedStratum": "cursor",
+      "fullName": "bia-technologies/yaxunit",
+      "pinnedCommitSha": "23fd2db738dbb26b7b43bdcf0c35fd2c263a3899",
+      "rank": "22dfa54d640defbd0be8cca87185bd9758acb53e3a377647cb00957ea92fe020",
+      "repositoryId": "497867241"
+    },
+    {
+      "assignedStratum": "cursor",
+      "fullName": "AIDotNet/koala-ai",
+      "pinnedCommitSha": "153a2126818451892e2f77d60ac0893065099aa6",
+      "rank": "28ead24911fa194d2854313ad63600be1846cb6d17c3e1bd83f1a4d4f1b788ad",
+      "repositoryId": "764009599"
+    },
+    {
+      "assignedStratum": "cursor",
+      "fullName": "graphprotocol/graph-tooling",
+      "pinnedCommitSha": "7fe67ac310e5f4f17dbdaabb0cb0ee0812e4101a",
+      "rank": "2e5ed33f7f07411b6e98600687a838460f7c7a49a3a11d4ec88b1942890d6507",
+      "repositoryId": "137467117"
+    },
+    {
+      "assignedStratum": "cursor",
+      "fullName": "imazen/imageflow",
+      "pinnedCommitSha": "7cbe26be6afc15b00a276c7f06558b0880b4108a",
+      "rank": "53ae37f88d142f511a95e0ed66435406b36de0c8652f3cd821de0c74d9420f25",
+      "repositoryId": "26368422"
+    },
+    {
+      "assignedStratum": "cursor",
+      "fullName": "burugo/one-mcp",
+      "pinnedCommitSha": "c53a950fb0259fada87fa4a5092cd01218150ed2",
+      "rank": "5c7ae2f16a26d36716bbd0637fce606232b13a1e9e3a4dadbd3e49bfb910634c",
+      "repositoryId": "967472164"
+    },
+    {
+      "assignedStratum": "cursor",
+      "fullName": "un-pany/v3-admin-vite",
+      "pinnedCommitSha": "c2c895d71d571e9c18c2453fa85469a479c79fc6",
+      "rank": "7056c07fe24a06350c4ff6cc087ac66f08914a81227d0fc8e8eb52e475734855",
+      "repositoryId": "483688672"
+    },
+    {
+      "assignedStratum": "cursor",
+      "fullName": "sybrew/the-seo-framework",
+      "pinnedCommitSha": "47c0e2fd36301b65865daa4f2744894c9930eb73",
+      "rank": "9bb0f640d488c04ef796495ef6d6528e00004bc5ad385e37e74c3bb45719445a",
+      "repositoryId": "47667822"
+    },
+    {
+      "assignedStratum": "gemini",
+      "fullName": "ArisGuimera/MobiAI-Core",
+      "pinnedCommitSha": "8d56bee8c669175bdf595d5f068337183ff9c506",
+      "rank": "0732db57ed25f9e55c32864af8cfc4db2b33f65fc86a23ff8ebc5e8fa31aab7b",
+      "repositoryId": "1198521301"
+    },
+    {
+      "assignedStratum": "gemini",
+      "fullName": "Curiosity-Ai-BV/localOCR",
+      "pinnedCommitSha": "30a6cb18360d8e6cc499a994eb381c239a6231f5",
+      "rank": "1c6fa43720deaaa7d773f96dc19e09e06d136802a0a611e342459c5ed9ac3429",
+      "repositoryId": "950488962"
+    },
+    {
+      "assignedStratum": "gemini",
+      "fullName": "deepmodeling/DeePTB",
+      "pinnedCommitSha": "1dcc7f61480c373870cd5bad1d4000ac80757ff5",
+      "rank": "246e3587b286c9ae8d5d0e06f43e49366517c9fda8f7e272d26ba5b46a1c35f0",
+      "repositoryId": "664914276"
+    },
+    {
+      "assignedStratum": "gemini",
+      "fullName": "n-ce/ytify",
+      "pinnedCommitSha": "2ffd216463fe8eff367102c1548f10e3382661e8",
+      "rank": "4e1af2370f149c83fb830ee8cb8d82e0756d0032c5d8de0fba2d458a9b68f45c",
+      "repositoryId": "452201043"
+    },
+    {
+      "assignedStratum": "gemini",
+      "fullName": "friendsofstrandseq/mosaicatcher-pipeline",
+      "pinnedCommitSha": "1b6fd463e04df2539f6bab05cb864a7e142ec458",
+      "rank": "4eb090c1d0bdf9addaf663e443bacfb477c40d9ad10b0a6613d4c8722513ab98",
+      "repositoryId": "206941559"
+    },
+    {
+      "assignedStratum": "gemini",
+      "fullName": "LeonMusCoden/LetterFeed",
+      "pinnedCommitSha": "bd96dce9adb52728b99671ada5824924a28da366",
+      "rank": "5c4e97ce256d8a8cc5c7f6916f550a8675c6082cc5cddf788674b3ff734b54ca",
+      "repositoryId": "1020236408"
+    },
+    {
+      "assignedStratum": "gemini",
+      "fullName": "kyxap/koreader-calibre-plugin",
+      "pinnedCommitSha": "439b2a89f982dbe32b8f89ed7950f9cedebdb725",
+      "rank": "90d26ef654f0caab7248501cc91212be521abb76b5ca2443f6399ed881d2c736",
+      "repositoryId": "582526507"
+    },
+    {
+      "assignedStratum": "gemini",
+      "fullName": "thomaskioko/tv-maniac",
+      "pinnedCommitSha": "0d38d525f6ac5bf2c0eef9cb715834ba554ef76f",
+      "rank": "97f88a741d207309c885f86d3c1d6b6a4f54603230e7c22ec9a8b56487623521",
+      "repositoryId": "361393353"
+    },
+    {
+      "assignedStratum": "gemini",
+      "fullName": "labex-labs/python-cheatsheet",
+      "pinnedCommitSha": "c5ee95196aafa19461d301aee49e75372dd4810e",
+      "rank": "9ba157b7d9b9ddf744dccd112e8a5d2794f216b66249d15907b6494e7ef486e0",
+      "repositoryId": "118820677"
+    },
+    {
+      "assignedStratum": "gemini",
+      "fullName": "protoman/rockbot",
+      "pinnedCommitSha": "d7cff810ac1a0eb2a7b2bc9e1022e2e86819eee1",
+      "rank": "b6ff43f5d6a7594f25151e3ca6462e70f3eb1e7147ad396d33ba586fbdb1288f",
+      "repositoryId": "41870881"
+    }
+  ],
+  "selection": {
+    "algorithm": "sha256-ranked-stratified-v1",
+    "candidateSnapshotSha256": "be2f1ebc1432f88e657f06db6062e68cfbaec3e35944c73e197c8586ac1c8429",
+    "minimumMonorepositories": 1,
+    "minimumMultipleFormatRepositories": 1,
+    "repositoriesPerStratum": 10,
+    "seedSha256": "bb881e605b74ee6abfd1e7567dba681d76655027069cf92816318adada9db6c4",
+    "targetRepositoryCount": 50
+  },
+  "sourcePolicy": {
+    "diagnosticOutputInspectedBeforeSelection": false,
+    "externalMutation": false,
+    "repositoryContentRetrieved": false,
+    "repositorySourceRedistributed": false
+  }
+}

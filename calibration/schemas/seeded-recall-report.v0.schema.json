@@ -1,0 +1,83 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/seeded-recall-report.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": { "$ref": "#/$defs/caseResult" },
+      "maxItems": 69,
+      "minItems": 69,
+      "type": "array"
+    },
+    "contractVersion": { "const": "0.1.0" },
+    "corpusSha256": { "$ref": "#/$defs/sha256" },
+    "recordKind": { "const": "agent-context-seeded-recall-report" },
+    "runSha256": { "$ref": "#/$defs/sha256" },
+    "schedulerVersion": { "const": "0.1.0" },
+    "summary": {
+      "additionalProperties": false,
+      "properties": {
+        "detectedCases": { "maximum": 69, "minimum": 0, "type": "integer" },
+        "missedCases": { "maximum": 69, "minimum": 0, "type": "integer" },
+        "recallBasisPoints": { "maximum": 10000, "minimum": 0, "type": "integer" },
+        "supportedCases": { "const": 69 }
+      },
+      "required": ["detectedCases", "missedCases", "recallBasisPoints", "supportedCases"],
+      "type": "object"
+    }
+  },
+  "required": [
+    "cases",
+    "contractVersion",
+    "corpusSha256",
+    "recordKind",
+    "runSha256",
+    "schedulerVersion",
+    "summary"
+  ],
+  "type": "object",
+  "$defs": {
+    "caseResult": {
+      "additionalProperties": false,
+      "properties": {
+        "caseId": { "$ref": "#/$defs/identifier" },
+        "detected": { "type": "boolean" },
+        "diagnostic": {
+          "oneOf": [{ "$ref": "#/$defs/fingerprint" }, { "type": "null" }]
+        },
+        "disposition": { "enum": ["missed", "visible"] },
+        "expectedRuleId": { "$ref": "#/$defs/ruleId" },
+        "familyId": { "$ref": "#/$defs/identifier" },
+        "scenarioId": { "$ref": "#/$defs/identifier" }
+      },
+      "required": [
+        "caseId",
+        "detected",
+        "diagnostic",
+        "disposition",
+        "expectedRuleId",
+        "familyId",
+        "scenarioId"
+      ],
+      "type": "object"
+    },
+    "fingerprint": {
+      "additionalProperties": false,
+      "properties": {
+        "path": { "$ref": "#/$defs/sha256" },
+        "semantic": { "$ref": "#/$defs/sha256" },
+        "severity": { "enum": ["error", "info", "warning"] }
+      },
+      "required": ["path", "semantic", "severity"],
+      "type": "object"
+    },
+    "identifier": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-z0-9](?:[a-z0-9._:-]{0,126}[a-z0-9])?$",
+      "type": "string"
+    },
+    "ruleId": { "pattern": "^ACL[1-5][0-9]{2}$", "type": "string" },
+    "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" }
+  }
+}

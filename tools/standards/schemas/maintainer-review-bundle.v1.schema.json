@@ -1,0 +1,66 @@
+{
+  "$id": "https://agent-context-linter.invalid/schemas/maintainer-review-bundle.v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifactKind": {
+      "const": "standards-maintainer-review-bundle"
+    },
+    "contractVersion": {
+      "const": "1.0.0"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "bytes": {
+            "maximum": 10485760,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "path": {
+            "enum": [
+              "baseline/upstream-provenance.v1.json",
+              "baseline/upstream-source.v1.json",
+              "candidate/upstream-provenance.v1.json",
+              "candidate/upstream-source.v1.json",
+              "review/upstream-fixture-scaffold.v1.json",
+              "review/upstream-review.v1.json",
+              "review/upstream-review.v1.md"
+            ]
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": ["bytes", "path", "sha256"],
+        "type": "object"
+      },
+      "maxItems": 7,
+      "minItems": 7,
+      "type": "array"
+    },
+    "sourceCommit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "type": "string"
+    },
+    "workflow": {
+      "additionalProperties": false,
+      "properties": {
+        "runAttempt": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "runId": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": ["runAttempt", "runId"],
+      "type": "object"
+    }
+  },
+  "required": ["artifactKind", "contractVersion", "files", "sourceCommit", "workflow"],
+  "type": "object"
+}

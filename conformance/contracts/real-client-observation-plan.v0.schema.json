@@ -1,0 +1,244 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/real-client-observation-plan.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "profileId": { "const": "codex-cli" },
+            "surfaceId": { "const": "codex-cli/local-cli-single-cwd" }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "profileId": { "const": "claude-code" },
+            "surfaceId": { "const": "claude-code/local-session" }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "profileId": { "const": "copilot-cli" },
+            "surfaceId": { "const": "copilot-cli/local-terminal" }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "profileId": { "const": "copilot-vscode" },
+            "surfaceId": { "const": "copilot-vscode/local-chat" }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "profileId": { "const": "copilot-cloud-agent" },
+            "surfaceId": { "const": "copilot-cloud-agent/github-hosted" }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "profileId": { "const": "copilot-code-review" },
+            "surfaceId": { "const": "copilot-code-review/github-hosted" }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "profileId": { "const": "gemini-cli" },
+            "surfaceId": { "const": "gemini-cli/local-terminal" }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "profileId": { "const": "cursor-agent" },
+            "surfaceId": { "enum": ["cursor-agent/ide", "cursor-agent/cli"] }
+          }
+        }
+      ]
+    },
+    {
+      "if": {
+        "properties": { "operation": { "const": "version-probe" } },
+        "required": ["operation"]
+      },
+      "then": {
+        "properties": {
+          "capabilityPolicy": {
+            "type": "object",
+            "properties": {
+              "allowed": { "const": ["pinned-client-version-metadata"] }
+            }
+          },
+          "client": { "$ref": "#/$defs/client" },
+          "supervisor": { "$ref": "#/$defs/supervisor" },
+          "surfaceId": {
+            "enum": [
+              "codex-cli/local-cli-single-cwd",
+              "claude-code/local-session",
+              "copilot-cli/local-terminal",
+              "gemini-cli/local-terminal",
+              "cursor-agent/cli"
+            ]
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "capabilityPolicy": {
+            "type": "object",
+            "properties": {
+              "allowed": { "const": [] }
+            }
+          },
+          "client": { "$ref": "#/$defs/blockedReason" },
+          "supervisor": { "type": "null" }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "capabilityPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed": {
+          "items": { "type": "string" },
+          "maxItems": 1,
+          "type": "array"
+        },
+        "denied": {
+          "const": [
+            "credential-read",
+            "external-network",
+            "model-request",
+            "repository-command",
+            "repository-write",
+            "user-config-read"
+          ]
+        }
+      },
+      "required": ["allowed", "denied"],
+      "type": "object"
+    },
+    "caseId": { "$ref": "#/$defs/identifier" },
+    "client": {
+      "oneOf": [{ "$ref": "#/$defs/client" }, { "$ref": "#/$defs/blockedReason" }]
+    },
+    "contractVersion": { "const": "0.1.0" },
+    "expectedLoadedSourceSequence": {
+      "items": { "$ref": "#/$defs/relativePath" },
+      "maxItems": 200,
+      "type": "array"
+    },
+    "fixtureFiles": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "content": { "maxLength": 65536, "type": "string" },
+          "markerId": {
+            "oneOf": [{ "pattern": "^D15_[A-Z0-9_]{1,64}$", "type": "string" }, { "type": "null" }]
+          },
+          "path": { "$ref": "#/$defs/relativePath" }
+        },
+        "required": ["content", "markerId", "path"],
+        "type": "object"
+      },
+      "maxItems": 200,
+      "type": "array"
+    },
+    "observedAt": {
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "type": "string"
+    },
+    "operation": {
+      "enum": ["blocked-paid-observation", "version-probe"]
+    },
+    "profileId": {
+      "enum": [
+        "claude-code",
+        "codex-cli",
+        "copilot-cli",
+        "copilot-cloud-agent",
+        "copilot-code-review",
+        "copilot-vscode",
+        "cursor-agent",
+        "gemini-cli"
+      ]
+    },
+    "recordKind": { "const": "agent-context-real-client-observation-plan" },
+    "settingSources": {
+      "items": { "$ref": "#/$defs/identifier" },
+      "maxItems": 16,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "supervisor": {
+      "oneOf": [{ "$ref": "#/$defs/supervisor" }, { "type": "null" }]
+    },
+    "surfaceId": { "type": "string" }
+  },
+  "required": [
+    "capabilityPolicy",
+    "caseId",
+    "client",
+    "contractVersion",
+    "expectedLoadedSourceSequence",
+    "fixtureFiles",
+    "observedAt",
+    "operation",
+    "profileId",
+    "recordKind",
+    "settingSources",
+    "supervisor",
+    "surfaceId"
+  ],
+  "type": "object",
+  "$defs": {
+    "blockedReason": {
+      "enum": [
+        "hosted-surface-not-locally-observable",
+        "ide-surface-needs-reviewed-manual-observation",
+        "no-safe-no-model-signal",
+        "paid-request-not-authorized"
+      ],
+      "type": "string"
+    },
+    "client": {
+      "additionalProperties": false,
+      "properties": {
+        "executablePath": { "maxLength": 4096, "minLength": 1, "type": "string" },
+        "executableSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+        "expectedVersion": { "maxLength": 128, "minLength": 1, "type": "string" }
+      },
+      "required": ["executablePath", "executableSha256", "expectedVersion"],
+      "type": "object"
+    },
+    "identifier": {
+      "pattern": "^[a-z0-9](?:[a-z0-9._-]{0,126}[a-z0-9])?$",
+      "type": "string"
+    },
+    "relativePath": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$",
+      "type": "string"
+    },
+    "supervisor": {
+      "additionalProperties": false,
+      "properties": {
+        "executablePath": { "const": "/usr/bin/sandbox-exec" },
+        "executableSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+        "kind": { "const": "macos-sandbox-exec-v1" }
+      },
+      "required": ["executablePath", "executableSha256", "kind"],
+      "type": "object"
+    }
+  }
+}

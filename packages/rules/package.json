@@ -1,0 +1,37 @@
+{
+  "name": "@agent-context/rules",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Internal deterministic lint-rule package",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "schemas"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./schemas/rule-registry.v0.schema.json": "./schemas/rule-registry.v0.schema.json",
+    "./schemas/mechanical-fix-safety.v0.schema.json": "./schemas/mechanical-fix-safety.v0.schema.json",
+    "./schemas/semantic-plugin-configuration.v0.schema.json": "./schemas/semantic-plugin-configuration.v0.schema.json",
+    "./schemas/semantic-plugin-input.v0.schema.json": "./schemas/semantic-plugin-input.v0.schema.json",
+    "./schemas/semantic-plugin-result.v0.schema.json": "./schemas/semantic-plugin-result.v0.schema.json"
+  },
+  "engines": {
+    "node": "^24.11.0 || ^26.0.0"
+  },
+  "dependencies": {
+    "@agent-context/core": "workspace:*",
+    "@agent-context/efficiency": "workspace:*",
+    "@agent-context/evidence": "workspace:*",
+    "@agent-context/profiles": "workspace:*",
+    "@agent-context/resolver": "workspace:*",
+    "@agent-context/standards": "workspace:*",
+    "@agent-context/syntax": "workspace:*"
+  }
+}

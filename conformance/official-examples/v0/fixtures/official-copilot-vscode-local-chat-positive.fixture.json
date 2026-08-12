@@ -1,0 +1,316 @@
+{
+  "assertions": [
+    {
+      "evidenceRefs": ["copilot-vscode.local-chat--copilot-repository-markdown"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "selected", "supportStatus": "supported" },
+      "id": "assert-copilot-repository-markdown-positive",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "ambiguityId": "ambiguity-copilot-path-instructions",
+      "evidenceRefs": ["copilot-vscode.local-chat--copilot-path-instructions"],
+      "evidenceStatus": "contradiction",
+      "expected": { "selection": "indeterminate", "supportStatus": "supported" },
+      "id": "assert-copilot-path-instructions-positive",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "ambiguityId": "ambiguity-agents-markdown",
+      "evidenceRefs": ["copilot-vscode.local-chat--agents-markdown"],
+      "evidenceStatus": "model-selected",
+      "expected": { "selection": "indeterminate", "supportStatus": "supported" },
+      "id": "assert-agents-markdown-positive",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "ambiguityId": "ambiguity-claude-memory-markdown",
+      "evidenceRefs": ["copilot-vscode.local-chat--claude-memory-markdown"],
+      "evidenceStatus": "conditional",
+      "expected": { "selection": "indeterminate", "supportStatus": "conditional" },
+      "id": "assert-claude-memory-markdown-positive",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "ambiguityId": "ambiguity-gemini-context-markdown",
+      "evidenceRefs": ["copilot-vscode.local-chat--gemini-context-markdown"],
+      "evidenceStatus": "not-listed",
+      "expected": { "selection": "indeterminate", "supportStatus": "not-listed" },
+      "id": "assert-gemini-context-markdown-positive",
+      "predicate": "profile-format-capability-outcome"
+    }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "kind": "launch",
+      "path": ".",
+      "sequence": 0,
+      "targetId": "target-example"
+    },
+    {
+      "id": "event-reference",
+      "kind": "reference-path",
+      "path": "src/example.ts",
+      "sequence": 1,
+      "targetId": "target-example"
+    }
+  ],
+  "expectedGraph": {
+    "ambiguities": [
+      {
+        "alternatives": [
+          {
+            "description": "The candidate is selected when the documented condition is satisfied.",
+            "id": "selected"
+          },
+          {
+            "description": "The candidate is not selected when the condition is absent or unresolved.",
+            "id": "not-selected"
+          }
+        ],
+        "evidenceRefs": ["copilot-vscode.local-chat--copilot-path-instructions"],
+        "id": "ambiguity-copilot-path-instructions",
+        "kind": "official-source-does-not-prove-one-deterministic-outcome",
+        "reason": "The canonical profile inventory preserves this capability as conditional or unresolved."
+      },
+      {
+        "alternatives": [
+          {
+            "description": "The candidate is selected when the documented condition is satisfied.",
+            "id": "selected"
+          },
+          {
+            "description": "The candidate is not selected when the condition is absent or unresolved.",
+            "id": "not-selected"
+          }
+        ],
+        "evidenceRefs": ["copilot-vscode.local-chat--agents-markdown"],
+        "id": "ambiguity-agents-markdown",
+        "kind": "official-source-does-not-prove-one-deterministic-outcome",
+        "reason": "The canonical profile inventory preserves this capability as conditional or unresolved."
+      },
+      {
+        "alternatives": [
+          {
+            "description": "The candidate is selected when the documented condition is satisfied.",
+            "id": "selected"
+          },
+          {
+            "description": "The candidate is not selected when the condition is absent or unresolved.",
+            "id": "not-selected"
+          }
+        ],
+        "evidenceRefs": ["copilot-vscode.local-chat--claude-memory-markdown"],
+        "id": "ambiguity-claude-memory-markdown",
+        "kind": "official-source-does-not-prove-one-deterministic-outcome",
+        "reason": "The canonical profile inventory preserves this capability as conditional or unresolved."
+      },
+      {
+        "alternatives": [
+          {
+            "description": "The candidate is selected when the documented condition is satisfied.",
+            "id": "selected"
+          },
+          {
+            "description": "The candidate is not selected when the condition is absent or unresolved.",
+            "id": "not-selected"
+          }
+        ],
+        "evidenceRefs": ["copilot-vscode.local-chat--gemini-context-markdown"],
+        "id": "ambiguity-gemini-context-markdown",
+        "kind": "official-source-does-not-prove-one-deterministic-outcome",
+        "reason": "The canonical profile inventory preserves this capability as conditional or unresolved."
+      }
+    ],
+    "analysisStatus": "partial",
+    "edges": [
+      {
+        "evidenceRefs": ["copilot-vscode.local-chat--copilot-repository-markdown"],
+        "from": "document-copilot-repository-markdown",
+        "id": "edge-copilot-repository-markdown",
+        "relation": "selects",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      },
+      {
+        "ambiguityId": "ambiguity-copilot-path-instructions",
+        "evidenceRefs": ["copilot-vscode.local-chat--copilot-path-instructions"],
+        "from": "document-copilot-path-instructions",
+        "id": "edge-copilot-path-instructions",
+        "relation": "selects",
+        "resolutionStatus": "contradiction",
+        "to": "target-example"
+      },
+      {
+        "ambiguityId": "ambiguity-agents-markdown",
+        "evidenceRefs": ["copilot-vscode.local-chat--agents-markdown"],
+        "from": "document-agents-markdown",
+        "id": "edge-agents-markdown",
+        "relation": "selects",
+        "resolutionStatus": "model-selected",
+        "to": "target-example"
+      },
+      {
+        "ambiguityId": "ambiguity-claude-memory-markdown",
+        "evidenceRefs": ["copilot-vscode.local-chat--claude-memory-markdown"],
+        "from": "document-claude-memory-markdown",
+        "id": "edge-claude-memory-markdown",
+        "relation": "selects",
+        "resolutionStatus": "conditional",
+        "to": "target-example"
+      },
+      {
+        "ambiguityId": "ambiguity-gemini-context-markdown",
+        "evidenceRefs": ["copilot-vscode.local-chat--gemini-context-markdown"],
+        "from": "document-gemini-context-markdown",
+        "id": "edge-gemini-context-markdown",
+        "relation": "selects",
+        "resolutionStatus": "not-listed",
+        "to": "target-example"
+      }
+    ],
+    "nodes": [
+      {
+        "evidenceRefs": ["k01-target"],
+        "id": "target-example",
+        "kind": "target",
+        "path": "src/example.ts",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["copilot-vscode.local-chat--copilot-repository-markdown"],
+        "formatId": "copilot-repository-markdown",
+        "id": "document-copilot-repository-markdown",
+        "kind": "document",
+        "path": ".github/copilot-instructions.md",
+        "resolutionStatus": "documented"
+      },
+      {
+        "ambiguityId": "ambiguity-copilot-path-instructions",
+        "evidenceRefs": ["copilot-vscode.local-chat--copilot-path-instructions"],
+        "formatId": "copilot-path-instructions",
+        "id": "document-copilot-path-instructions",
+        "kind": "document",
+        "path": ".github/instructions/example.instructions.md",
+        "resolutionStatus": "contradiction"
+      },
+      {
+        "ambiguityId": "ambiguity-agents-markdown",
+        "evidenceRefs": ["copilot-vscode.local-chat--agents-markdown"],
+        "formatId": "agents-markdown",
+        "id": "document-agents-markdown",
+        "kind": "document",
+        "path": "AGENTS.md",
+        "resolutionStatus": "model-selected"
+      },
+      {
+        "ambiguityId": "ambiguity-claude-memory-markdown",
+        "evidenceRefs": ["copilot-vscode.local-chat--claude-memory-markdown"],
+        "formatId": "claude-memory-markdown",
+        "id": "document-claude-memory-markdown",
+        "kind": "document",
+        "path": "CLAUDE.md",
+        "resolutionStatus": "conditional"
+      },
+      {
+        "ambiguityId": "ambiguity-gemini-context-markdown",
+        "evidenceRefs": ["copilot-vscode.local-chat--gemini-context-markdown"],
+        "formatId": "gemini-context-markdown",
+        "id": "document-gemini-context-markdown",
+        "kind": "document",
+        "path": "GEMINI.md",
+        "resolutionStatus": "not-listed"
+      }
+    ]
+  },
+  "extensions": {
+    "agent-context-lint.dev/k01": {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "polarity": "positive"
+    }
+  },
+  "externalContext": { "entries": [], "mode": "unavailable" },
+  "fixtureFormatVersion": "0.1.0",
+  "id": "official-copilot-vscode-local-chat-positive",
+  "invocation": {
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "launchCwd": ".",
+    "runtimeMode": "local-ide-chat",
+    "settings": {},
+    "trustState": "trusted-synthetic",
+    "workspaceRoots": ["."]
+  },
+  "profile": {
+    "clientVersion": null,
+    "profileId": "copilot-vscode",
+    "specSnapshotId": "copilot-surfaces/2026-08-01.0",
+    "surfaceId": "copilot-vscode/local-chat",
+    "versionStatus": "living-docs-pending-observation"
+  },
+  "provenance": {
+    "assumptions": [
+      "Example prose is replaced by short inert markers while retaining official locations, fields, and activation inputs.",
+      "The negative fixture changes only fixture-owned location or activation inputs and does not infer undocumented client behavior."
+    ],
+    "derivation": "official-example",
+    "observationIds": [],
+    "researchRecordIds": ["copilot-surfaces/2026-08-01.0"],
+    "sources": [
+      {
+        "id": "copilot-surfaces-2026-08-01.0-official-source",
+        "immutability": "retrieved-living-doc",
+        "retrievedAt": "2026-08-02",
+        "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions",
+        "mutableSourceReason": "GitHub and VS Code documentation are living service documents."
+      }
+    ]
+  },
+  "recordKind": "profile-conformance-fixture",
+  "repository": {
+    "directories": [".github/", ".github/instructions/", "docs/", "src/"],
+    "files": [
+      {
+        "content": "# Repository instructions\n\nUse the repository test command.\n[Policy](../docs/policy.md)\n",
+        "formatId": "copilot-repository-markdown",
+        "path": ".github/copilot-instructions.md"
+      },
+      {
+        "content": "---\napplyTo: src/**/*.ts\nunsupportedExampleField: inert\n---\nUse the TypeScript policy.\n[Policy](../../docs/policy.md)\n",
+        "formatId": "copilot-path-instructions",
+        "path": ".github/instructions/example.instructions.md"
+      },
+      {
+        "content": "# Project instructions\n\nUse the repository test command.\n@docs/policy.md\n",
+        "formatId": "agents-markdown",
+        "path": "AGENTS.md"
+      },
+      {
+        "content": "# Project memory\n\nUse the repository test command.\n@docs/policy.md\n",
+        "formatId": "claude-memory-markdown",
+        "path": "CLAUDE.md"
+      },
+      {
+        "content": "# Project context\n\nUse the repository test command.\n@docs/policy.md\n`@ignored/in-code.md`\n",
+        "formatId": "gemini-context-markdown",
+        "path": "GEMINI.md"
+      },
+      { "content": "Official-example target.\n", "formatId": null, "path": "src/example.ts" },
+      { "content": "Synthetic imported marker.\n", "formatId": null, "path": "docs/policy.md" }
+    ],
+    "root": ".",
+    "symlinks": []
+  },
+  "targets": [
+    { "id": "target-example", "path": "src/example.ts", "purpose": "resolve-effective-context" }
+  ],
+  "title": "copilot-vscode/local-chat official examples (positive)"
+}

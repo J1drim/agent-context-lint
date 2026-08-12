@@ -1,0 +1,140 @@
+{
+  "$id": "https://agent-context-linter.invalid/schemas/recovery-tabletop.v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contractVersion": { "const": "1.4.0" },
+    "executionReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "path": { "const": "tools/standards/evidence/recovery-tabletop-execution.v1.json" },
+        "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+        "sourceClosureSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" }
+      },
+      "required": ["path", "sha256", "sourceClosureSha256"],
+      "type": "object"
+    },
+    "findings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "foundAt": { "format": "date-time", "type": "string" },
+          "id": { "pattern": "^H13-[0-9]{3}$", "type": "string" },
+          "owner": { "const": "jakub-niezgoda" },
+          "resolution": { "maxLength": 2048, "minLength": 1, "type": ["string", "null"] },
+          "resolvedAt": { "format": "date-time", "type": ["string", "null"] },
+          "severity": { "enum": ["P0", "P1", "P2", "P3"] },
+          "status": { "enum": ["open", "resolved"] },
+          "summary": { "maxLength": 1024, "minLength": 1, "type": "string" },
+          "targetDate": { "format": "date", "type": "string" },
+          "targetMilestone": { "maxLength": 64, "minLength": 1, "type": "string" }
+        },
+        "required": [
+          "foundAt",
+          "id",
+          "owner",
+          "resolution",
+          "resolvedAt",
+          "severity",
+          "status",
+          "summary",
+          "targetDate",
+          "targetMilestone"
+        ],
+        "type": "object"
+      },
+      "maxItems": 32,
+      "minItems": 1,
+      "type": "array"
+    },
+    "recordKind": { "const": "agent-context-standards-recovery-tabletop" },
+    "releaseAcceptance": {
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "items": {
+            "enum": [
+              "closed-findings",
+              "generated-execution-receipt",
+              "sole-maintainer-review",
+              "source-closure-replay"
+            ]
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "decision": { "enum": ["accepted", "rejected"] }
+      },
+      "required": ["basis", "decision"],
+      "type": "object"
+    },
+    "review": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": { "const": "sole-accountable-maintainer" },
+        "decision": { "enum": ["accepted", "rejected"] },
+        "executionReceiptSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+        "reviewedAt": { "format": "date-time", "type": "string" },
+        "reviewerId": { "const": "jakub-niezgoda" },
+        "reviewSubjectSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+        "sourceClosureSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" }
+      },
+      "required": [
+        "authority",
+        "decision",
+        "executionReceiptSha256",
+        "reviewedAt",
+        "reviewerId",
+        "reviewSubjectSha256",
+        "sourceClosureSha256"
+      ],
+      "type": "object"
+    },
+    "scenarios": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actions": {
+            "items": { "type": "string" },
+            "maxItems": 10,
+            "minItems": 2,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "expected": { "maxLength": 1024, "minLength": 1, "type": "string" },
+          "id": {
+            "enum": [
+              "engine-incompatibility",
+              "key-rotation",
+              "registry-compromise",
+              "registry-outage",
+              "revocation-yank",
+              "rollback",
+              "root-threshold-compromise"
+            ]
+          },
+          "inject": { "maxLength": 1024, "minLength": 1, "type": "string" },
+          "observed": { "maxLength": 1024, "minLength": 1, "type": "string" },
+          "outcome": { "enum": ["failed", "passed"] }
+        },
+        "required": ["actions", "expected", "id", "inject", "observed", "outcome"],
+        "type": "object"
+      },
+      "maxItems": 7,
+      "minItems": 7,
+      "type": "array"
+    }
+  },
+  "required": [
+    "contractVersion",
+    "executionReceipt",
+    "findings",
+    "recordKind",
+    "releaseAcceptance",
+    "review",
+    "scenarios"
+  ],
+  "type": "object"
+}

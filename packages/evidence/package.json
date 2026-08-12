@@ -1,0 +1,31 @@
+{
+  "name": "@agent-context/evidence",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Internal read-only repository evidence collectors",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "built-in-instruction-paths.d.mts",
+    "built-in-instruction-paths.mjs",
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": "^24.11.0 || ^26.0.0"
+  },
+  "dependencies": {
+    "@agent-context/core": "workspace:*",
+    "@agent-context/syntax": "workspace:*"
+  },
+  "devDependencies": {
+    "@agent-context/test-kit": "workspace:*"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "contractVersion": "0.1.0",
+  "minimumPrecision": 0.95,
+  "cases": [
+    { "id": "acl200-exact-empty", "ruleId": "ACL200", "expected": true },
+    { "id": "acl200-indeterminate", "ruleId": "ACL200", "expected": false },
+    { "id": "acl201-missing-always", "ruleId": "ACL201", "expected": true },
+    { "id": "acl201-present-always", "ruleId": "ACL201", "expected": false },
+    { "id": "acl202-outside-directory", "ruleId": "ACL202", "expected": true },
+    { "id": "acl202-inside-directory", "ruleId": "ACL202", "expected": false },
+    { "id": "acl203-proven-shadow", "ruleId": "ACL203", "expected": true },
+    { "id": "acl203-conditional", "ruleId": "ACL203", "expected": false },
+    { "id": "acl204-active-inactive", "ruleId": "ACL204", "expected": true },
+    { "id": "acl204-indeterminate", "ruleId": "ACL204", "expected": false },
+    { "id": "acl205-ambiguous", "ruleId": "ACL205", "expected": true },
+    { "id": "acl205-known", "ruleId": "ACL205", "expected": false },
+    { "id": "acl206-generated", "ruleId": "ACL206", "expected": true },
+    { "id": "acl206-source", "ruleId": "ACL206", "expected": false }
+  ]
+}

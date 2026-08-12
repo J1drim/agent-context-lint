@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-context.invalid/schemas/release-retrospective-report.v1.schema.json",
+  "title": "Agent Context Linter local 72-hour and 30-day retrospective report",
+  "description": "Closed, redacted offline evidence for K13 review preparation. It never proves publication, human review, or elapsed monitoring by itself.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "artifactFormat",
+    "schemaVersion",
+    "mode",
+    "assessment",
+    "release",
+    "releaseAt",
+    "review72h",
+    "retrospective30d",
+    "metrics",
+    "incidents",
+    "falsePositives",
+    "decisions",
+    "policy",
+    "limits",
+    "reportSha256"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://agent-context.invalid/schemas/release-retrospective-report.v1.schema.json"
+    },
+    "artifactFormat": { "const": "agent-context-release-retrospective-v1" },
+    "schemaVersion": { "const": 1 },
+    "mode": { "const": "offline-local" },
+    "assessment": { "enum": ["ready-for-human-review", "pending-external", "blocked"] },
+    "release": { "$ref": "#/$defs/release" },
+    "releaseAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?Z$"
+    },
+    "review72h": { "$ref": "#/$defs/period72h" },
+    "retrospective30d": { "$ref": "#/$defs/period30d" },
+    "metrics": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": { "$ref": "#/$defs/metric" }
+    },
+    "incidents": { "type": "array", "maxItems": 128, "items": { "$ref": "#/$defs/incident" } },
+    "falsePositives": { "$ref": "#/$defs/falsePositives" },
+    "decisions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": { "$ref": "#/$defs/decision" }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "networkAccess",
+        "credentials",
+        "repositoryMutation",
+        "publicationVerification",
+        "humanReview"
+      ],
+      "properties": {
+        "networkAccess": { "const": "not-used" },
+        "credentials": { "const": "none" },
+        "repositoryMutation": { "const": "not-observed" },
+        "publicationVerification": { "const": "pending-external" },
+        "humanReview": { "const": "required" }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "maxInputBytes",
+        "maxOutputBytes",
+        "maxMetrics",
+        "maxIncidents",
+        "maxDecisions",
+        "maxTextBytes"
+      ],
+      "properties": {
+        "maxInputBytes": { "const": 262144 },
+        "maxOutputBytes": { "const": 524288 },
+        "maxMetrics": { "const": 128 },
+        "maxIncidents": { "const": 128 },
+        "maxDecisions": { "const": 128 },
+        "maxTextBytes": { "const": 32768 }
+      }
+    },
+    "reportSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$" },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bytes", "sha256"],
+      "properties": {
+        "bytes": { "type": "integer", "minimum": 0, "maximum": 32768 },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "artifactSha256"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+        },
+        "artifactSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "period": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "minimumHours"],
+      "properties": {
+        "status": { "enum": ["pending", "complete"] },
+        "observedAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?Z$"
+        },
+        "notes": { "$ref": "#/$defs/evidence" },
+        "minimumHours": { "enum": [72, 720] }
+      }
+    },
+    "period72h": {
+      "allOf": [
+        { "$ref": "#/$defs/period" },
+        { "type": "object", "properties": { "minimumHours": { "const": 72 } } }
+      ]
+    },
+    "period30d": {
+      "allOf": [
+        { "$ref": "#/$defs/period" },
+        { "type": "object", "properties": { "minimumHours": { "const": 720 } } }
+      ]
+    },
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "value", "unit", "evidence"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "value": { "type": "number", "minimum": 0 },
+        "unit": { "enum": ["count", "milliseconds", "ratio", "percent"] },
+        "denominator": { "type": "integer", "minimum": 1, "maximum": 1000000000 },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "incident": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "severity", "status", "owner", "dueDate", "summary", "impact"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "severity": { "enum": ["P0", "P1", "P2", "P3"] },
+        "status": { "enum": ["open", "closed"] },
+        "owner": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "dueDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "summary": { "$ref": "#/$defs/evidence" },
+        "impact": { "$ref": "#/$defs/evidence" },
+        "remediation": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "falsePositives": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["diagnosticsReviewed", "confirmedFalsePositives", "escapedFindings", "evidence"],
+      "properties": {
+        "diagnosticsReviewed": { "type": "integer", "minimum": 0, "maximum": 1000000000 },
+        "confirmedFalsePositives": { "type": "integer", "minimum": 0, "maximum": 1000000000 },
+        "escapedFindings": { "type": "integer", "minimum": 0, "maximum": 1000000000 },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "disposition", "owner", "dueDate", "rationale"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "disposition": { "enum": ["keep", "change", "defer"] },
+        "owner": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "dueDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "rationale": { "$ref": "#/$defs/evidence" }
+      }
+    }
+  }
+}

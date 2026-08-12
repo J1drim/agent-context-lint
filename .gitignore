@@ -1,0 +1,17 @@
+node_modules/
+.pnpm-store/
+dist/
+!action/dist/
+!action/dist/index.js
+*.tsbuildinfo
+*.tgz
+.DS_Store
+.idea/
+.vscode/
+coverage/
+.vitest/
+artifacts/
+.h13-runtime-inputs/
+.h13-runtime-inputs-reviewed/
+.h13-runtime-inputs.prepare-*/
+packages/cli/publish/

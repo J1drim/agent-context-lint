@@ -1,0 +1,48 @@
+{
+  "name": "@agent-context/standards",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "Internal standards knowledge and verification package",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE",
+    "NOTICE",
+    "bundled",
+    "dist",
+    "schemas"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./offline": {
+      "types": "./dist/offline.d.ts",
+      "import": "./dist/offline.js",
+      "default": "./dist/offline.js"
+    },
+    "./schemas/knowledge-pack.v0.schema.json": "./schemas/knowledge-pack.v0.schema.json",
+    "./schemas/bundled-pack-manifest.v0.schema.json": "./schemas/bundled-pack-manifest.v0.schema.json",
+    "./schemas/tuf-metadata.v0.schema.json": "./schemas/tuf-metadata.v0.schema.json",
+    "./schemas/standards-lockfile.v1.schema.json": "./schemas/standards-lockfile.v1.schema.json",
+    "./schemas/offline-standards-status.v0.schema.json": "./schemas/offline-standards-status.v0.schema.json",
+    "./schemas/standards-update.v0.schema.json": "./schemas/standards-update.v0.schema.json"
+  },
+  "engines": {
+    "node": "^24.11.0 || ^26.0.0"
+  },
+  "scripts": {
+    "prepack": "node ../../scripts/prepare-package-license.mjs .",
+    "postpack": "node ../../scripts/prepare-package-license.mjs . --clean"
+  },
+  "dependencies": {
+    "@agent-context/core": "workspace:*",
+    "@agent-context/profiles": "workspace:*",
+    "@tufjs/canonical-json": "2.0.0",
+    "@tufjs/models": "4.0.0"
+  }
+}

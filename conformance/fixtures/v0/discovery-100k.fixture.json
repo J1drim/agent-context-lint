@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "0.1.0",
+  "fixtureId": "c05-targeted-discovery-100k-v0",
+  "description": "Deterministic generated 100,000-path acceptance fixture; source content is intentionally absent.",
+  "generator": {
+    "totalPaths": 100000,
+    "instruction": {
+      "modulus": 1000,
+      "remainder": 0,
+      "pathTemplate": "packages/p{index}/AGENTS.md"
+    },
+    "evidence": {
+      "modulus": 2500,
+      "remainder": 1,
+      "pathTemplate": "packages/p{index}/package.json"
+    },
+    "ignored": {
+      "modulus": 2000,
+      "remainder": 2,
+      "pathTemplate": "generated/g{index}.ts"
+    },
+    "ordinaryPathTemplate": "src/f{index}.ts",
+    "indexWidth": 6
+  },
+  "expected": {
+    "candidateCount": 140,
+    "instructionCandidateCount": 100,
+    "evidenceCandidateCount": 40,
+    "configurationCandidateCount": 0,
+    "ignoredPathCount": 50,
+    "retainedPathCount": 99950,
+    "contentReads": 0,
+    "maximumDurationMs": 10000,
+    "maximumMatcherWork": 100000000
+  },
+  "provenance": {
+    "planTicket": "C05",
+    "source": "agent-context-linter-implementation-plan.md#stream-c-safe-filesystem-discovery-and-parsing",
+    "retrievedAt": "2026-08-02"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@agent-context/resolver",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Adapter-independent activation algebra and effective-context resolver",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "schemas"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./schemas/canonical-policy-preview.v1.schema.json": "./schemas/canonical-policy-preview.v1.schema.json"
+  },
+  "engines": {
+    "node": "^24.11.0 || ^26.0.0"
+  },
+  "dependencies": {
+    "@agent-context/core": "workspace:*",
+    "@agent-context/evidence": "workspace:*",
+    "@agent-context/profiles": "workspace:*",
+    "@agent-context/syntax": "workspace:*"
+  },
+  "devDependencies": {
+    "@agent-context/test-kit": "workspace:*"
+  }
+}

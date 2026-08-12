@@ -1,0 +1,145 @@
+{
+  "recordKind": "agent-context-diagnostics",
+  "contractVersion": "0.1.0",
+  "diagnostics": [
+    {
+      "id": "diagnostic:package-manager",
+      "ruleId": "ACL250",
+      "ruleVersion": "1.0.0",
+      "severity": "error",
+      "message": "Conflicting package-manager instruction.",
+      "primary": {
+        "sourceId": "source:agents",
+        "path": "AGENTS.md",
+        "sourceDigest": "28cb206cb6284d0a1d68044875f92c5d9011613a92ca523127137696276ef45c",
+        "range": {
+          "sourceId": "source:agents",
+          "start": { "byteOffset": 13, "utf16Offset": 13, "line": 2, "utf16Column": 2 },
+          "end": { "byteOffset": 28, "utf16Offset": 26, "line": 2, "utf16Column": 15 }
+        }
+      },
+      "related": [
+        {
+          "id": "evidence:source",
+          "kind": "source",
+          "label": "Conflicting instruction source",
+          "location": {
+            "sourceId": "source:agents",
+            "path": "AGENTS.md",
+            "sourceDigest": "28cb206cb6284d0a1d68044875f92c5d9011613a92ca523127137696276ef45c",
+            "range": {
+              "sourceId": "source:agents",
+              "start": { "byteOffset": 13, "utf16Offset": 13, "line": 2, "utf16Column": 2 },
+              "end": { "byteOffset": 28, "utf16Offset": 26, "line": 2, "utf16Column": 15 }
+            }
+          }
+        },
+        {
+          "id": "evidence:repository",
+          "kind": "repository-fact",
+          "label": "Workspace package manager",
+          "collectorId": "package-manager",
+          "factId": "package-manager:pnpm",
+          "subjectPath": ".",
+          "valueDigest": "28cb206cb6284d0a1d68044875f92c5d9011613a92ca523127137696276ef45c",
+          "locations": []
+        },
+        {
+          "id": "evidence:resolution",
+          "kind": "resolution",
+          "label": "Instruction is active for Codex",
+          "profileId": "codex-cli",
+          "surfaceId": "codex-cli/local-cli-single-cwd",
+          "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+          "eventIds": ["event:launch"],
+          "targetIds": ["target:api"],
+          "activationRuleIds": ["activation:vscode-description"],
+          "sourceLocations": [],
+          "evidenceRefs": [{ "evidenceRefId": "codex-agents-source", "factId": null }],
+          "uncertainty": { "state": "known" }
+        },
+        {
+          "id": "evidence:spec",
+          "kind": "spec",
+          "label": "Pinned client behavior",
+          "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+          "evidenceRefId": "codex-agents-source",
+          "factId": null,
+          "url": "https://github.com/openai/codex/blob/e363b08c9175ac1cbe5893615dd2cb9ddf95043b/codex-rs/core/src/agents_md.rs",
+          "retrievedAt": "2026-08-01",
+          "revision": "e363b08c9175ac1cbe5893615dd2cb9ddf95043b"
+        }
+      ],
+      "suggestion": {
+        "message": "Use the workspace package manager consistently.",
+        "fixPlan": {
+          "id": "fix:package-manager",
+          "title": "Use pnpm and add scoped policy",
+          "safety": "mechanical",
+          "application": "atomic",
+          "operations": [
+            {
+              "kind": "text-edit",
+              "sourceId": "source:agents",
+              "path": "AGENTS.md",
+              "sourceDigest": "28cb206cb6284d0a1d68044875f92c5d9011613a92ca523127137696276ef45c",
+              "range": {
+                "sourceId": "source:agents",
+                "start": { "byteOffset": 13, "utf16Offset": 13, "line": 2, "utf16Column": 2 },
+                "end": { "byteOffset": 28, "utf16Offset": 26, "line": 2, "utf16Column": 15 }
+              },
+              "newText": "Use pnpm."
+            },
+            {
+              "kind": "create-document",
+              "path": "docs/new-policy.md",
+              "destinationPrecondition": "absent",
+              "content": "# New policy\n",
+              "contentDigest": "dc53199ffb5fa8ee9dccebce71742cdc7e7cd02a0088f06920ac0688357d21d7"
+            }
+          ]
+        }
+      },
+      "fingerprintBasis": {
+        "path": { "anchor": "statement:use-paths", "profileIds": ["codex-cli"] },
+        "semantic": {
+          "components": [
+            { "key": "category", "value": "package-manager" },
+            { "key": "instruction", "value": "use-pnpm" }
+          ],
+          "profileIds": ["codex-cli"]
+        }
+      },
+      "fingerprints": {
+        "path": {
+          "method": "agent-context-lint/path/v1",
+          "value": "dde482dcc539531e5e98bd71063388925f7f566e97a2cca924eb567a47072916"
+        },
+        "semantic": {
+          "method": "agent-context-lint/semantic/v1",
+          "value": "6c049bc33df348a479d475fcc462b6f98e6d17c12846a284870e22bf8894ba02"
+        }
+      }
+    }
+  ],
+  "suppressions": [
+    {
+      "id": "suppression:intentional",
+      "state": "unused",
+      "directive": {
+        "sourceId": "source:agents",
+        "path": "AGENTS.md",
+        "sourceDigest": "28cb206cb6284d0a1d68044875f92c5d9011613a92ca523127137696276ef45c",
+        "range": {
+          "sourceId": "source:agents",
+          "start": { "byteOffset": 13, "utf16Offset": 13, "line": 2, "utf16Column": 2 },
+          "end": { "byteOffset": 28, "utf16Offset": 26, "line": 2, "utf16Column": 15 }
+        }
+      },
+      "targetRuleIds": ["ACL250"],
+      "reason": "The package is intentionally standalone.",
+      "matchedPathFingerprints": [],
+      "evidence": []
+    }
+  ]
+}

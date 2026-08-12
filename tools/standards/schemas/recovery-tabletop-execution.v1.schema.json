@@ -1,0 +1,346 @@
+{
+  "$id": "https://agent-context-linter.invalid/schemas/recovery-tabletop-execution.v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capturedAt": { "format": "date-time", "type": "string" },
+    "commands": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "argv": {
+            "items": { "minLength": 1, "type": "string" },
+            "maxItems": 16,
+            "minItems": 2,
+            "type": "array"
+          },
+          "deadlineMs": { "maximum": 300000, "minimum": 1, "type": "integer" },
+          "durationMs": { "maximum": 301000, "minimum": 0, "type": "integer" },
+          "exitCode": { "type": ["integer", "null"] },
+          "id": { "enum": ["package-audit", "standards-tools", "tuf-trust"] },
+          "signal": { "enum": ["SIGKILL", "SIGTERM", null] },
+          "tests": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "identity": { "maxLength": 1024, "minLength": 1, "type": "string" },
+                "outcome": { "enum": ["cancelled", "failed", "passed", "skipped", "todo"] }
+              },
+              "required": ["identity", "outcome"],
+              "type": "object"
+            },
+            "maxItems": 256,
+            "type": "array"
+          },
+          "timedOut": { "type": "boolean" }
+        },
+        "required": [
+          "argv",
+          "deadlineMs",
+          "durationMs",
+          "exitCode",
+          "id",
+          "signal",
+          "tests",
+          "timedOut"
+        ],
+        "type": "object"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "type": "array"
+    },
+    "containment": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capabilityCheckedAt": { "format": "date-time", "type": "string" },
+            "mechanism": { "const": "docker-linux-pid-namespace-v1" },
+            "reason": {
+              "enum": [
+                "docker-client-unavailable",
+                "docker-daemon-unavailable",
+                "pinned-offline-runtime-unavailable",
+                "pinned-runtime-inputs-unavailable",
+                "platform-unsupported"
+              ]
+            },
+            "status": { "const": "unsupported" }
+          },
+          "required": ["capabilityCheckedAt", "mechanism", "reason", "status"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capabilityCheckedAt": { "format": "date-time", "type": "string" },
+            "configuration": { "type": "object" },
+            "configurationSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+            "dockerClient": {
+              "additionalProperties": false,
+              "properties": {
+                "gitCommit": { "const": "79eb04c7d8" },
+                "sha256": {
+                  "const": "03a3ffd8b6966ca34a4c62f0479e61cbe2846900a2a14acdd557f8535a2f4b77"
+                },
+                "version": { "const": "29.5.2" }
+              },
+              "required": ["gitCommit", "sha256", "version"],
+              "type": "object"
+            },
+            "dockerServer": {
+              "additionalProperties": false,
+              "properties": {
+                "architecture": { "const": "arm64" },
+                "gitCommit": { "const": "568f755" },
+                "operatingSystem": { "const": "linux" },
+                "version": { "const": "29.5.2" }
+              },
+              "required": ["architecture", "gitCommit", "operatingSystem", "version"],
+              "type": "object"
+            },
+            "mechanism": { "const": "docker-linux-pid-namespace-v1" },
+            "runtimeImage": {
+              "additionalProperties": false,
+              "properties": {
+                "baseConfigurationDigest": { "pattern": "^sha256:[0-9a-f]{64}$", "type": "string" },
+                "baseIndexDigest": { "pattern": "^sha256:[0-9a-f]{64}$", "type": "string" },
+                "basePlatformManifestDigest": {
+                  "pattern": "^sha256:[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "buildInputManifestSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+                "preparationReviewSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+                "preparationSourceManifestSha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                "buildLockSha256": {
+                  "const": "5ebbae912cf343c384dee079767f73cb5bea64512b6a2343b7118d003ae89fea"
+                },
+                "configurationDigest": {
+                  "const": "sha256:c3565d64f5445ffc97c08949e27cc7efc47469d94f44b8876435d0c6e0caf4e9"
+                },
+                "layerDiffIds": {
+                  "const": [
+                    "sha256:03ba16bfa697d90f805315657aec416d0d167795be5c64d94a7c411cdfe7ea2d",
+                    "sha256:fdc534eab0b9dbe19ae0e3659dc87dba661c42e74c1fc6c3c56901435aec15a7",
+                    "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+                  ]
+                },
+                "platformManifestDigest": {
+                  "const": "sha256:1383c87bff20f22005f1293c750adef3f5d26ac1018dd8139888ca21769950bb"
+                },
+                "repoDigest": {
+                  "const": "sha256:1383c87bff20f22005f1293c750adef3f5d26ac1018dd8139888ca21769950bb"
+                },
+                "repository": { "const": "agent-context-h13-runtime" },
+                "sourceDateEpoch": { "minimum": 0, "type": "integer" },
+                "sizeBytes": { "const": 456224883 }
+              },
+              "required": [
+                "baseConfigurationDigest",
+                "baseIndexDigest",
+                "basePlatformManifestDigest",
+                "buildInputManifestSha256",
+                "buildLockSha256",
+                "configurationDigest",
+                "layerDiffIds",
+                "platformManifestDigest",
+                "repoDigest",
+                "repository",
+                "sourceDateEpoch",
+                "sizeBytes"
+              ],
+              "type": "object"
+            },
+            "status": { "const": "supported" }
+          },
+          "required": [
+            "capabilityCheckedAt",
+            "configuration",
+            "configurationSha256",
+            "dockerClient",
+            "dockerServer",
+            "mechanism",
+            "runtimeImage",
+            "status"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "contractVersion": { "const": "1.3.0" },
+    "captureStatus": { "enum": ["supported", "unsupported"] },
+    "durationMs": { "maximum": 301000, "minimum": 0, "type": "integer" },
+    "overallDeadlineMs": { "const": 300000 },
+    "overallExitCode": { "type": "integer" },
+    "packageInventory": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "files": { "minimum": 1, "type": "integer" },
+          "package": {
+            "enum": [
+              "@agent-context/core",
+              "@agent-context/lint",
+              "@agent-context/standards",
+              "@agent-context/tokenizer-utf8-byte"
+            ]
+          }
+        },
+        "required": ["files", "package"],
+        "type": "object"
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array"
+    },
+    "recordKind": { "const": "agent-context-standards-recovery-execution" },
+    "sourceClosure": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": { "const": "all-tracked-indexed-bytes-v2" },
+        "excludedPaths": {
+          "items": {
+            "enum": [
+              "IMPLEMENTATION_STATUS.md",
+              "tools/standards/evidence/recovery-tabletop-execution.v1.json",
+              "tools/standards/evidence/recovery-tabletop.v1.json"
+            ]
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "gitHead": { "pattern": "^[0-9a-f]{40}$", "type": "string" },
+        "indexSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+        "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+        "totalBytes": { "maximum": 33554432, "minimum": 1, "type": "integer" },
+        "trackedFileCount": { "maximum": 4096, "minimum": 1, "type": "integer" },
+        "trackedInventorySha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+        "untrackedFileCount": { "const": 0 },
+        "workingMetadataSha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" }
+      },
+      "required": [
+        "algorithm",
+        "excludedPaths",
+        "gitHead",
+        "indexSha256",
+        "sha256",
+        "totalBytes",
+        "trackedFileCount",
+        "trackedInventorySha256",
+        "untrackedFileCount",
+        "workingMetadataSha256"
+      ],
+      "type": "object"
+    },
+    "startedAt": { "format": "date-time", "type": "string" },
+    "toolchain": {
+      "additionalProperties": false,
+      "properties": {
+        "canonicalJson": { "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$", "type": "string" },
+        "executables": {
+          "additionalProperties": false,
+          "properties": {
+            "git": {
+              "additionalProperties": false,
+              "properties": {
+                "path": { "const": "/usr/bin/git" },
+                "sha256": {
+                  "const": "54af380ba6ca1b36305358e99427a31ae4b0af5dc5cb6d0198c6f2f16e97651d"
+                }
+              },
+              "required": ["path", "sha256"],
+              "type": "object"
+            },
+            "node": {
+              "additionalProperties": false,
+              "properties": {
+                "path": { "const": "/usr/local/bin/node" },
+                "sha256": {
+                  "const": "a990a8ae388fc285ddbce280e63fca48cfd7695f632b66aec6ed581566eace99"
+                }
+              },
+              "required": ["path", "sha256"],
+              "type": "object"
+            },
+            "pnpm": {
+              "additionalProperties": false,
+              "properties": {
+                "path": { "const": "/usr/local/lib/node_modules/pnpm/bin/pnpm.cjs" },
+                "sha256": {
+                  "const": "67b035e322203961795e8e34ca63a08c37a4386eda94107fb3d28f3246d882ad"
+                }
+              },
+              "required": ["path", "sha256"],
+              "type": "object"
+            },
+            "shell": {
+              "additionalProperties": false,
+              "properties": {
+                "path": { "const": "/bin/sh" },
+                "sha256": {
+                  "const": "15fc4c72f49c86639a383121eec6fbdbcd32ec9d03db915cb3096928295e1a17"
+                }
+              },
+              "required": ["path", "sha256"],
+              "type": "object"
+            },
+            "tar": {
+              "additionalProperties": false,
+              "properties": {
+                "path": { "const": "/usr/bin/tar" },
+                "sha256": {
+                  "const": "fa2df5eddc2295398bf869b103818b45184cfaa99ec66ae1af7ed3bdf4c94423"
+                }
+              },
+              "required": ["path", "sha256"],
+              "type": "object"
+            }
+          },
+          "required": ["git", "node", "pnpm", "shell", "tar"],
+          "type": "object"
+        },
+        "git": { "const": "git version 2.39.5" },
+        "node": { "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$", "type": "string" },
+        "packageManager": { "const": "pnpm@11.18.0" },
+        "pnpm": { "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$", "type": "string" },
+        "tufModels": { "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$", "type": "string" },
+        "typescript": { "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$", "type": "string" },
+        "vitest": { "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$", "type": "string" }
+      },
+      "required": [
+        "canonicalJson",
+        "executables",
+        "git",
+        "node",
+        "packageManager",
+        "pnpm",
+        "tufModels",
+        "typescript",
+        "vitest"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "capturedAt",
+    "captureStatus",
+    "commands",
+    "containment",
+    "contractVersion",
+    "durationMs",
+    "overallDeadlineMs",
+    "overallExitCode",
+    "packageInventory",
+    "recordKind",
+    "sourceClosure",
+    "startedAt",
+    "toolchain"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,52 @@
+{
+  "contractVersion": "0.1.0",
+  "entryCount": 4,
+  "orderedEntries": [
+    {
+      "analysisStatus": "complete",
+      "assemblySha256": "cc4e61a4b79376df99ecdf4df90cda985ed77c8f6132ebbd1a7543995c2727b9",
+      "clientVersion": "0.146.0",
+      "profileId": "codex-cli",
+      "profileVersion": "0.1.0",
+      "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+      "surfaceId": "codex-cli/local-cli-single-cwd",
+      "targetPath": "apps/api/main.ts",
+      "taskId": "target-alpha"
+    },
+    {
+      "analysisStatus": "complete",
+      "assemblySha256": "cc4e61a4b79376df99ecdf4df90cda985ed77c8f6132ebbd1a7543995c2727b9",
+      "clientVersion": "0.146.0",
+      "profileId": "codex-cli",
+      "profileVersion": "0.1.0",
+      "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+      "surfaceId": "codex-cli/local-cli-single-cwd",
+      "targetPath": "src/main.ts",
+      "taskId": "target-middle"
+    },
+    {
+      "analysisStatus": "complete",
+      "assemblySha256": "cc4e61a4b79376df99ecdf4df90cda985ed77c8f6132ebbd1a7543995c2727b9",
+      "clientVersion": "0.146.0",
+      "profileId": "codex-cli",
+      "profileVersion": "0.1.0",
+      "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+      "surfaceId": "codex-cli/local-cli-single-cwd",
+      "targetPath": "src/éclair.ts",
+      "taskId": "target-unicode"
+    },
+    {
+      "analysisStatus": "complete",
+      "assemblySha256": "cc4e61a4b79376df99ecdf4df90cda985ed77c8f6132ebbd1a7543995c2727b9",
+      "clientVersion": "0.146.0",
+      "profileId": "codex-cli",
+      "profileVersion": "0.1.0",
+      "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+      "surfaceId": "codex-cli/local-cli-single-cwd",
+      "targetPath": "zeta.ts",
+      "taskId": "target-zulu"
+    }
+  ],
+  "outputSha256": "8f8d388c930f228b1ed56ae534c5a4c3d841bad85d301957f094edd64cb2118c",
+  "recordKind": "agent-context-bounded-effective-context-resolution"
+}

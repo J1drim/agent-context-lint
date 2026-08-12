@@ -1,0 +1,114 @@
+{
+  "components": [
+    {
+      "id": "budgetFit",
+      "inputs": [
+        {
+          "allocationBasisPoints": 5000,
+          "id": "always-on-p95-budget",
+          "inputBasisPoints": 64,
+          "penaltyBasisPoints": 0
+        },
+        {
+          "allocationBasisPoints": 5000,
+          "id": "effective-p95-budget",
+          "inputBasisPoints": 32,
+          "penaltyBasisPoints": 0
+        }
+      ],
+      "scoreBasisPoints": 10000,
+      "weight": 30
+    },
+    {
+      "id": "scopePrecision",
+      "inputs": [
+        {
+          "allocationBasisPoints": 10000,
+          "id": "broad-scope-token-share",
+          "inputBasisPoints": 10000,
+          "penaltyBasisPoints": 10000
+        }
+      ],
+      "scoreBasisPoints": 0,
+      "weight": 25
+    },
+    {
+      "id": "nonRedundancy",
+      "inputs": [
+        {
+          "allocationBasisPoints": 7000,
+          "id": "exact-duplicate-token-share",
+          "inputBasisPoints": 2857,
+          "penaltyBasisPoints": 9523
+        },
+        {
+          "allocationBasisPoints": 3000,
+          "id": "near-duplicate-token-share",
+          "inputBasisPoints": 0,
+          "penaltyBasisPoints": 0
+        }
+      ],
+      "scoreBasisPoints": 3334,
+      "weight": 20
+    },
+    {
+      "id": "reachability",
+      "inputs": [
+        {
+          "allocationBasisPoints": 6000,
+          "id": "dead-scope-token-share",
+          "inputBasisPoints": 4286,
+          "penaltyBasisPoints": 8572
+        },
+        {
+          "allocationBasisPoints": 4000,
+          "id": "import-amplification-overhead",
+          "inputBasisPoints": 5000,
+          "penaltyBasisPoints": 10000
+        }
+      ],
+      "scoreBasisPoints": 857,
+      "weight": 10
+    },
+    {
+      "id": "instructionDensity",
+      "inputs": [
+        {
+          "allocationBasisPoints": 10000,
+          "id": "instruction-density-shortfall",
+          "inputBasisPoints": 2857,
+          "penaltyBasisPoints": 714
+        }
+      ],
+      "scoreBasisPoints": 9286,
+      "weight": 10
+    },
+    {
+      "id": "crossAgentConsistency",
+      "inputs": [
+        {
+          "allocationBasisPoints": 10000,
+          "id": "cross-profile-divergence-rate",
+          "inputBasisPoints": 0,
+          "penaltyBasisPoints": 0
+        }
+      ],
+      "scoreBasisPoints": 10000,
+      "weight": 5
+    }
+  ],
+  "grade": "F",
+  "normalizedInputs": {
+    "always-on-p95-budget": 64,
+    "broad-scope-token-share": 10000,
+    "cross-profile-divergence-rate": 0,
+    "dead-scope-token-share": 4286,
+    "effective-p95-budget": 32,
+    "exact-duplicate-token-share": 2857,
+    "import-amplification-overhead": 5000,
+    "instruction-density-shortfall": 2857,
+    "near-duplicate-token-share": 0
+  },
+  "score": 52,
+  "scoreVersion": "1.0.0"
+}

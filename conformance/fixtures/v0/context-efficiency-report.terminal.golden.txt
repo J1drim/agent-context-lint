@@ -1,0 +1,23 @@
+Context efficiency report
+State: complete
+Scope: repository
+Tokenizer: agent-context-estimate@1.0.0 (estimate)
+Score: 65/100 (D)
+Confidence: limited-static-evidence
+Components:
+  budgetFit: 100/100; weight 30; state complete
+  scopePrecision: 0/100; weight 25; state complete
+  nonRedundancy: 100/100; weight 20; state complete
+  reachability: 100/100; weight 10; state complete
+  instructionDensity: 0/100; weight 10; state complete
+  crossAgentConsistency: 100/100; weight 5; state complete
+Profiles:
+  codex-cli/codex-cli/local-cli-single-cwd@0.1.0: p50 7, p95 7, max 7 tokens; 2/2 complete
+Recommendations: 1 recommended; 1 evaluated
+  recommendation:scope:formatter: recommended; saving 7 tokens; confidence medium
+    affected: src/api.ts, src/web.ts
+    caveats: estimated-tokenizer, quality-not-empirically-verified, semantic-equivalence-not-proven, source-score-caveated, target-necessity-not-inferred
+    uncertainty: none
+Score caveats: estimated-tokenizer
+Score uncertainty: none
+Static analysis only: quality and semantic preservation are not claimed.

@@ -1,0 +1,277 @@
+{
+  "amplification": [
+    {
+      "profileId": "gemini-cli",
+      "target": {
+        "amplificationBasisPoints": 10000,
+        "contributions": [
+          {
+            "documentId": "document:agents",
+            "path": "AGENTS.md",
+            "tokens": 8
+          }
+        ],
+        "effectiveTokens": 8,
+        "path": "src/main.ts",
+        "repeatedTokens": 0,
+        "state": "complete",
+        "uniqueTokens": 8
+      }
+    },
+    {
+      "profileId": "codex-cli",
+      "target": {
+        "amplificationBasisPoints": 20000,
+        "contributions": [
+          {
+            "documentId": "document:agents",
+            "path": "AGENTS.md",
+            "tokens": 16
+          }
+        ],
+        "effectiveTokens": 16,
+        "path": "src/main.ts",
+        "repeatedTokens": 8,
+        "state": "complete",
+        "uniqueTokens": 8
+      }
+    }
+  ],
+  "broadScope": [
+    {
+      "documents": [
+        {
+          "coverageBasisPoints": 10000,
+          "effectiveTokens": 8,
+          "path": "AGENTS.md"
+        },
+        {
+          "coverageBasisPoints": 0,
+          "effectiveTokens": 0,
+          "path": "rules/dead.md"
+        }
+      ],
+      "profileId": "gemini-cli"
+    },
+    {
+      "documents": [
+        {
+          "coverageBasisPoints": 10000,
+          "effectiveTokens": 16,
+          "path": "AGENTS.md"
+        },
+        {
+          "coverageBasisPoints": 0,
+          "effectiveTokens": 0,
+          "path": "rules/dead.md"
+        }
+      ],
+      "profileId": "codex-cli"
+    }
+  ],
+  "deadScope": [
+    {
+      "paths": ["rules/dead.md"],
+      "profileId": "gemini-cli",
+      "tokens": 6
+    },
+    {
+      "paths": ["rules/dead.md"],
+      "profileId": "codex-cli",
+      "tokens": 6
+    }
+  ],
+  "density": {
+    "actionablePerThousandBasisPoints": 1428571,
+    "actionableStatementCount": 2,
+    "documents": [
+      {
+        "actionablePerThousandBasisPoints": 2500000,
+        "actionableStatementCount": 2,
+        "actionableStatements": [
+          {
+            "domains": ["package-manager", "command", "testing"],
+            "range": {
+              "end": {
+                "byteOffset": 14,
+                "line": 1,
+                "utf16Column": 14,
+                "utf16Offset": 14
+              },
+              "sourceId": "source:agents",
+              "start": {
+                "byteOffset": 0,
+                "line": 1,
+                "utf16Column": 0,
+                "utf16Offset": 0
+              }
+            },
+            "statementId": "statement:first"
+          },
+          {
+            "domains": ["package-manager", "command", "testing"],
+            "range": {
+              "end": {
+                "byteOffset": 29,
+                "line": 1,
+                "utf16Column": 29,
+                "utf16Offset": 29
+              },
+              "sourceId": "source:agents",
+              "start": {
+                "byteOffset": 15,
+                "line": 1,
+                "utf16Column": 15,
+                "utf16Offset": 15
+              }
+            },
+            "statementId": "statement:second"
+          }
+        ],
+        "documentId": "document:agents",
+        "path": "AGENTS.md",
+        "state": "complete",
+        "statementCount": 2,
+        "tokens": 8
+      },
+      {
+        "actionablePerThousandBasisPoints": 0,
+        "actionableStatementCount": 0,
+        "actionableStatements": [],
+        "documentId": "document:dead",
+        "path": "rules/dead.md",
+        "state": "complete",
+        "statementCount": 1,
+        "tokens": 6
+      }
+    ],
+    "rawTokens": 14,
+    "state": "complete",
+    "statementCount": 3
+  },
+  "divergence": {
+    "divergentPairTargetCount": 1,
+    "exactRepeatedPolicyTokens": 0,
+    "expectedPairTargetCount": 1,
+    "indeterminatePairTargetCount": 0,
+    "missing": [],
+    "observationalMatchPairTargetCount": 0,
+    "observations": [
+      {
+        "contentDifferentEffectiveTokens": 16,
+        "equivalenceClaim": false,
+        "exactRepeatedPolicy": [],
+        "exactRepeatedPolicyTokens": 0,
+        "leftProfile": {
+          "clientVersion": "0.146.0",
+          "key": "9:codex-cli|30:codex-cli/local-cli-single-cwd|5:0.1.0|28:codex-cli/0.146.0/2026-08-01|7:0.146.0",
+          "profileId": "codex-cli",
+          "profileVersion": "0.1.0",
+          "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+          "surfaceId": "codex-cli/local-cli-single-cwd"
+        },
+        "pairId": "comparison-pair:d221b6f2d8335c569950debd91e450a1",
+        "paths": [
+          {
+            "kinds": ["content-different"],
+            "leftState": "included",
+            "leftTokens": 16,
+            "path": "AGENTS.md",
+            "rightState": "included",
+            "rightTokens": 8
+          }
+        ],
+        "qualityClaim": false,
+        "rightProfile": {
+          "clientVersion": "0.53.1",
+          "key": "10:gemini-cli|25:gemini-cli/local-terminal|5:0.1.0|23:gemini-cli/2026-08-02.0|6:0.53.1",
+          "profileId": "gemini-cli",
+          "profileVersion": "0.1.0",
+          "specSnapshotId": "gemini-cli/2026-08-02.0",
+          "surfaceId": "gemini-cli/local-terminal"
+        },
+        "scopeDifferenceTokens": 0,
+        "state": "divergent",
+        "targetPath": "src/main.ts"
+      }
+    ],
+    "observedPairTargetCount": 1,
+    "qualityClaim": false,
+    "semanticEquivalenceClaim": false,
+    "state": "partial"
+  },
+  "duplication": {
+    "exact": {
+      "clusters": [
+        {
+          "canonical": {
+            "documentId": "document:agents",
+            "path": "AGENTS.md",
+            "range": {
+              "end": {
+                "byteOffset": 14,
+                "line": 1,
+                "utf16Column": 14,
+                "utf16Offset": 14
+              },
+              "sourceId": "source:agents",
+              "start": {
+                "byteOffset": 0,
+                "line": 1,
+                "utf16Column": 0,
+                "utf16Offset": 0
+              }
+            },
+            "statementId": "statement:first",
+            "tokens": 4
+          },
+          "duplicates": [
+            {
+              "documentId": "document:agents",
+              "path": "AGENTS.md",
+              "range": {
+                "end": {
+                  "byteOffset": 29,
+                  "line": 1,
+                  "utf16Column": 29,
+                  "utf16Offset": 29
+                },
+                "sourceId": "source:agents",
+                "start": {
+                  "byteOffset": 15,
+                  "line": 1,
+                  "utf16Column": 15,
+                  "utf16Offset": 15
+                }
+              },
+              "statementId": "statement:second",
+              "tokens": 4
+            }
+          ],
+          "id": "duplicate-exact-35577c2f586ba0cbc115",
+          "normalizedTextSha256": "104dbe770800f668c893d12e78d2600ef5f45e032297aa98a5c15730002f61c6",
+          "redundantTokens": 4,
+          "semanticEquivalenceClaim": false
+        }
+      ],
+      "redundantTokens": 4
+    },
+    "indexContractVersion": "0.1.0",
+    "near": {
+      "clusters": [],
+      "similarity": {
+        "algorithm": "unicode-code-point-trigram-jaccard-v1",
+        "candidateStrategy": "globally-rarest-bounded-shingles",
+        "measure": "set-jaccard",
+        "minimumSimilarityBasisPoints": 8000,
+        "normalizationContractVersion": "0.1.0",
+        "shingleUnit": "unicode-code-point",
+        "shingleWidth": 3
+      },
+      "similarityCandidateTokens": 0
+    },
+    "state": "complete"
+  },
+  "recordKind": "agent-context-efficiency-metrics",
+  "state": "partial"
+}

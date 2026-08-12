@@ -1,0 +1,169 @@
+{
+  "recordKind": "profile-conformance-fixture",
+  "fixtureFormatVersion": "0.1.0",
+  "id": "copilot-cli-order-unknown",
+  "title": "Copilot CLI source discovery is known while cross-family order remains unknown",
+  "profile": {
+    "profileId": "copilot-cli",
+    "surfaceId": "copilot-cli/local-terminal",
+    "specSnapshotId": "copilot-surfaces/2026-08-01.0",
+    "clientVersion": "1.0.77",
+    "versionStatus": "official-release-metadata-pending-behavioral-observation"
+  },
+  "provenance": {
+    "researchRecordIds": ["copilot-surfaces/2026-08-01.0"],
+    "derivation": "synthetic-edge-case",
+    "assumptions": [
+      "The synthetic launch directory is the repository root and no external instruction directories are supplied."
+    ],
+    "observationIds": ["d16-copilot-cli-no-safe-signal"],
+    "sources": [
+      {
+        "id": "copilot-cli-instructions",
+        "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions",
+        "retrievedAt": "2026-08-02",
+        "immutability": "retrieved-living-doc",
+        "mutableSourceReason": "The current instructions page does not publish a revision or complete cross-family ordering contract."
+      },
+      {
+        "id": "copilot-cli-release",
+        "url": "https://github.com/github/copilot-cli/releases/tag/v1.0.77",
+        "retrievedAt": "2026-08-02",
+        "immutability": "immutable-revision",
+        "revision": "v1.0.77"
+      }
+    ]
+  },
+  "repository": {
+    "root": ".",
+    "directories": [".git/", ".github/", "src/"],
+    "files": [
+      {
+        "path": ".github/copilot-instructions.md",
+        "formatId": "copilot-repository-markdown",
+        "content": "Repository guidance."
+      },
+      { "path": "AGENTS.md", "formatId": "agents-markdown", "content": "Agent guidance." },
+      { "path": "src/main.ts", "formatId": null, "content": "export {};" }
+    ],
+    "symlinks": []
+  },
+  "externalContext": { "mode": "unavailable", "entries": [] },
+  "invocation": {
+    "launchCwd": ".",
+    "workspaceRoots": ["."],
+    "settings": {},
+    "trustState": "trusted",
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "runtimeMode": "local-terminal"
+  },
+  "targets": [
+    { "id": "target-main", "path": "src/main.ts", "purpose": "resolve-effective-context" }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "sequence": 0,
+      "kind": "launch",
+      "path": ".",
+      "targetId": "target-main"
+    },
+    {
+      "id": "event-reference",
+      "sequence": 1,
+      "kind": "reference-path",
+      "path": "src/main.ts",
+      "targetId": "target-main"
+    }
+  ],
+  "expectedGraph": {
+    "analysisStatus": "partial",
+    "ambiguities": [
+      {
+        "id": "ambiguity-cross-family-order",
+        "kind": "undocumented-client-order",
+        "reason": "Current GitHub documentation lists both sources but does not define their relative injection order.",
+        "alternatives": [
+          {
+            "id": "repository-instructions-first",
+            "description": "Repository custom instructions precede AGENTS.md."
+          },
+          {
+            "id": "agents-first",
+            "description": "AGENTS.md precedes repository custom instructions."
+          }
+        ],
+        "evidenceRefs": ["CLI-ORDER-001", "copilot-cli-instructions"]
+      }
+    ],
+    "nodes": [
+      {
+        "id": "doc-repository",
+        "kind": "document",
+        "path": ".github/copilot-instructions.md",
+        "formatId": "copilot-repository-markdown",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CLI-FMT-001"]
+      },
+      {
+        "id": "doc-agents",
+        "kind": "document",
+        "path": "AGENTS.md",
+        "formatId": "agents-markdown",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CLI-FMT-001"]
+      },
+      {
+        "id": "target-main-node",
+        "kind": "target",
+        "path": "src/main.ts",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CLI-LOC-001"]
+      }
+    ],
+    "edges": [
+      {
+        "id": "repository-activates",
+        "from": "doc-repository",
+        "to": "target-main-node",
+        "relation": "activates",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CLI-FMT-001"]
+      },
+      {
+        "id": "agents-activates",
+        "from": "doc-agents",
+        "to": "target-main-node",
+        "relation": "activates",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CLI-FMT-001"]
+      },
+      {
+        "id": "cross-family-order",
+        "from": "doc-repository",
+        "to": "doc-agents",
+        "relation": "precedes",
+        "resolutionStatus": "unknown",
+        "ambiguityId": "ambiguity-cross-family-order",
+        "evidenceRefs": ["CLI-ORDER-001"]
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "id": "assert-both-discovered",
+      "predicate": "documents-are-discovered",
+      "expected": [".github/copilot-instructions.md", "AGENTS.md"],
+      "evidenceStatus": "documented",
+      "evidenceRefs": ["CLI-FMT-001"]
+    },
+    {
+      "id": "assert-order-unknown",
+      "predicate": "cross-family-order",
+      "expected": ["repository-instructions-first", "agents-first"],
+      "evidenceStatus": "unknown",
+      "ambiguityId": "ambiguity-cross-family-order",
+      "evidenceRefs": ["CLI-ORDER-001"]
+    }
+  ]
+}

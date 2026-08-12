@@ -1,0 +1,113 @@
+{
+  "$id": "https://schemas.agent-context.dev/standards-lockfile.v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "metadataSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "expires": { "$ref": "#/$defs/rfc3339Utc" },
+        "issuedAt": { "$ref": "#/$defs/rfc3339Utc" },
+        "role": { "minLength": 1, "type": "string" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "version": { "minimum": 1, "type": "integer" }
+      },
+      "required": ["expires", "issuedAt", "role", "sha256", "version"],
+      "type": "object"
+    },
+    "rfc3339Utc": {
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$",
+      "type": "string"
+    },
+    "semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-((?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*))?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$",
+      "type": "string"
+    },
+    "sha256": { "pattern": "^[a-f0-9]{64}$", "type": "string" }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "channel": { "enum": ["preview", "stable"] },
+    "pack": {
+      "additionalProperties": false,
+      "properties": {
+        "packId": { "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$", "type": "string" },
+        "packVersion": { "$ref": "#/$defs/semver" },
+        "publishedAt": { "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$", "type": "string" },
+        "schemaVersion": { "const": "0.1.0" }
+      },
+      "required": ["packId", "packVersion", "publishedAt", "schemaVersion"],
+      "type": "object"
+    },
+    "recordKind": { "const": "agent-context-standards-lock" },
+    "schemaVersion": { "const": "1.0.0" },
+    "target": {
+      "additionalProperties": false,
+      "properties": {
+        "channel": { "enum": ["preview", "stable"] },
+        "length": { "minimum": 1, "type": "integer" },
+        "minEngineVersion": { "$ref": "#/$defs/semver" },
+        "packId": { "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$", "type": "string" },
+        "packVersion": { "$ref": "#/$defs/semver" },
+        "schemaVersion": { "const": "0.1.0" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "targetPath": {
+          "pattern": "^knowledge/(preview|stable)/[A-Za-z0-9]+(?:[._-][A-Za-z0-9]+)*\\.json$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "channel",
+        "length",
+        "minEngineVersion",
+        "packId",
+        "packVersion",
+        "schemaVersion",
+        "sha256",
+        "targetPath"
+      ],
+      "type": "object"
+    },
+    "trustedState": {
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "delegated": {
+          "additionalProperties": false,
+          "properties": {
+            "preview": { "anyOf": [{ "$ref": "#/$defs/metadataSummary" }, { "type": "null" }] },
+            "stable": { "anyOf": [{ "$ref": "#/$defs/metadataSummary" }, { "type": "null" }] }
+          },
+          "required": ["preview", "stable"],
+          "type": "object"
+        },
+        "repositoryId": { "const": "agent-context-standards" },
+        "root": { "$ref": "#/$defs/metadataSummary" },
+        "snapshot": { "$ref": "#/$defs/metadataSummary" },
+        "targets": { "$ref": "#/$defs/metadataSummary" },
+        "timestamp": { "$ref": "#/$defs/metadataSummary" }
+      },
+      "required": [
+        "contractVersion",
+        "delegated",
+        "repositoryId",
+        "root",
+        "snapshot",
+        "targets",
+        "timestamp"
+      ],
+      "type": "object"
+    },
+    "verificationTime": { "$ref": "#/$defs/rfc3339Utc" }
+  },
+  "required": [
+    "channel",
+    "pack",
+    "recordKind",
+    "schemaVersion",
+    "target",
+    "trustedState",
+    "verificationTime"
+  ],
+  "title": "Agent Context Standards Lockfile v1",
+  "type": "object"
+}

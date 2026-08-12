@@ -1,0 +1,9 @@
+{
+  "acceptanceBoundary": "repository-owner-merge",
+  "contractVersion": "0.1.0",
+  "cryptographicSignatureRequired": false,
+  "githubOwner": "J1drim",
+  "githubRepository": "J1drim/svetovid_linter",
+  "recordKind": "agent-context-k03-maintainer-authority",
+  "reviewerId": "jakub-niezgoda"
+}

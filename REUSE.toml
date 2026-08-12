@@ -1,0 +1,29 @@
+version = 1
+
+# Central annotations avoid inserting comments into generated artifacts and
+# comment-hostile formats while still assigning machine-readable file-level
+# licensing to first-party source and documentation. Vendored and generated
+# third-party material is deliberately outside these patterns and retains its
+# own notices.
+[[annotations]]
+path = [
+  "*.md",
+  ".changeset/*.md",
+  ".github/**/*.md",
+  "calibration/**/*.md",
+  "config/**/*.md",
+  "conformance/**/*.md",
+  "docs/**/*.md",
+  "optional-tokenizers/**/*.md",
+  "packages/**/*.md",
+  "scripts/**/*.mjs",
+  "tools/**/*.mjs",
+  "packages/**/*.mjs",
+  "packages/**/*.ts",
+  "tests/**/*.ts",
+  "*.mjs",
+  "*.ts",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Jakub Niezgoda"
+SPDX-License-Identifier = "Apache-2.0"

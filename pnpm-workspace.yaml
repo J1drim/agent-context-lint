@@ -1,0 +1,38 @@
+packages:
+  - packages/*
+
+catalog:
+  "@eslint/js": 10.0.1
+  "@types/node": 24.13.3
+  "@typescript/native": npm:typescript@7.0.2
+  "@vitest/coverage-v8": 4.1.10
+  ajv: 8.20.0
+  eslint: 10.8.0
+  globals: 17.7.0
+  prettier: 3.9.6
+  spdx-expression-parse: 5.0.0
+  typescript: npm:@typescript/typescript6@6.0.2
+  typescript-eslint: 8.65.0
+  vitest: 4.1.10
+  yaml: 2.9.0
+
+allowBuilds:
+  esbuild: true
+autoInstallPeers: false
+blockExoticSubdeps: true
+disallowWorkspaceCycles: true
+engineStrict: true
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - node@24.18.1
+  - pnpm@11.18.0
+minimumReleaseAgeIgnoreMissingTime: false
+minimumReleaseAgeStrict: true
+preferFrozenLockfile: true
+saveExact: true
+saveWorkspaceProtocol: true
+sharedWorkspaceLockfile: true
+strictDepBuilds: true
+strictPeerDependencies: true
+trustLockfile: false
+verifyDepsBeforeRun: error

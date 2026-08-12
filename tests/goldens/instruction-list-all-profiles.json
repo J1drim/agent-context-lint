@@ -1,0 +1,110 @@
+{
+  "contractVersion": "0.1.0",
+  "entries": [
+    {
+      "decisionCode": "invalid-syntax",
+      "formatId": "claude-rule-markdown",
+      "path": ".claude/rules/broken.md",
+      "profileId": "claude-code",
+      "profileVersion": "2.1.217",
+      "reason": "Frontmatter paths metadata is malformed.",
+      "scopeRoot": ".",
+      "sourceState": "inactive/excluded",
+      "state": "malformed",
+      "surfaceId": "claude-code/local-session"
+    },
+    {
+      "decisionCode": "unknown-surface-support",
+      "formatId": "cursor-legacy-rules",
+      "path": ".cursorrules",
+      "profileId": "cursor-agent",
+      "profileVersion": "2026.05.24-dda726e",
+      "reason": "Legacy rule support is unknown for this surface.",
+      "scopeRoot": ".",
+      "sourceState": "documented/indeterminate/compatible",
+      "state": "conditional",
+      "surfaceId": "cursor-agent/cli"
+    },
+    {
+      "decisionCode": "selected",
+      "formatId": "agents-markdown",
+      "path": "AGENTS.md",
+      "profileId": "codex-cli",
+      "profileVersion": "0.146.0",
+      "reason": "Codex selected this document in the root-to-working-directory instruction chain.",
+      "scopeRoot": ".",
+      "sourceState": "selected",
+      "state": "supported",
+      "surfaceId": "codex-cli/local-cli-single-cwd"
+    },
+    {
+      "decisionCode": "documented-not-discovered",
+      "formatId": "gemini-context-markdown",
+      "path": "GEMINI.md",
+      "profileId": "copilot-code-review",
+      "profileVersion": null,
+      "reason": "The copilot-code-review surface recognizes gemini-context-markdown syntax, but its pinned support matrix does not list this format.",
+      "scopeRoot": null,
+      "sourceState": "not-discovered/inactive/denied",
+      "state": "recognized",
+      "surfaceId": "copilot-code-review/github-hosted"
+    },
+    {
+      "decisionCode": "loaded-static",
+      "formatId": "gemini-context-markdown",
+      "path": "GEMINI.md",
+      "profileId": "gemini-cli",
+      "profileVersion": "0.53.1",
+      "reason": "Gemini loaded this document during the static context phase.",
+      "scopeRoot": ".",
+      "sourceState": "loaded",
+      "state": "supported",
+      "surfaceId": "gemini-cli/local-terminal"
+    },
+    {
+      "decisionCode": "selection-unknown",
+      "formatId": "agents-markdown",
+      "path": "packages/api/AGENTS.md",
+      "profileId": "codex-cli",
+      "profileVersion": "0.146.0",
+      "reason": "Codex selection is conditional because discovery is uncertain.",
+      "scopeRoot": "packages/api",
+      "sourceState": "selection-unknown",
+      "state": "conditional",
+      "surfaceId": "codex-cli/local-cli-single-cwd"
+    },
+    {
+      "decisionCode": "candidate-unavailable",
+      "formatId": "gemini-context-markdown",
+      "path": "packages/web/GEMINI.md",
+      "profileId": "gemini-cli",
+      "profileVersion": "0.53.1",
+      "reason": "Candidate content was unavailable in the authorized repository snapshot.",
+      "scopeRoot": ".",
+      "sourceState": "unavailable",
+      "state": "conditional",
+      "surfaceId": "gemini-cli/local-terminal"
+    },
+    {
+      "decisionCode": "ignored-by-profile",
+      "formatId": "gemini-context-markdown",
+      "path": "vendor/GEMINI.md",
+      "profileId": "gemini-cli",
+      "profileVersion": "0.53.1",
+      "reason": "Gemini ignored this document because it matched: .gitignore.",
+      "scopeRoot": ".",
+      "sourceState": "file",
+      "state": "ignored",
+      "surfaceId": "gemini-cli/local-terminal"
+    }
+  ],
+  "recordKind": "agent-context-instruction-list",
+  "summary": {
+    "conditional": 3,
+    "ignored": 1,
+    "malformed": 1,
+    "recognized": 1,
+    "supported": 2,
+    "total": 8
+  }
+}

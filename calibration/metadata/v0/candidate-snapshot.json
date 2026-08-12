@@ -1,0 +1,3853 @@
+{
+  "candidates": [
+    {
+      "apiUrl": "https://api.github.com/repos/AIDotNet/koala-ai",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 17540,
+      "fork": false,
+      "fullName": "AIDotNet/koala-ai",
+      "instructionEvidence": [
+        {
+          "blobSha": "cdfcd64a7ee7070cb135f550a39e24c93789b0e7",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/AIDotNet/koala-ai/git/trees/463e686dd985679862c43bc837facac9cd6b44ff",
+          "path": ".cursor/rules/ui.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/AIDotNet/koala-ai",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "153a2126818451892e2f77d60ac0893065099aa6",
+      "pinnedTreeSha": "463e686dd985679862c43bc837facac9cd6b44ff",
+      "primaryLanguage": "C#",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/AIDotNet/koala-ai"
+      },
+      "pushedAt": "2025-05-21T07:07:48Z",
+      "repositoryId": "764009599",
+      "repositoryUrl": "https://github.com/AIDotNet/koala-ai",
+      "strata": ["cursor"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/akamai/terraform-provider-akamai",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 50384,
+      "fork": false,
+      "fullName": "akamai/terraform-provider-akamai",
+      "instructionEvidence": [
+        {
+          "blobSha": "d04f19e51347a7e6193a06064d2e40f176e76f55",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/akamai/terraform-provider-akamai/git/trees/890769d4ac2f52c8a9d46cc038039d3c9c24b5d5",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/akamai/terraform-provider-akamai",
+        "spdxId": "MPL-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "6cae22fa6124f74ba6593aa41478fc93462d420b",
+      "pinnedTreeSha": "890769d4ac2f52c8a9d46cc038039d3c9c24b5d5",
+      "primaryLanguage": "Go",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/akamai/terraform-provider-akamai"
+      },
+      "pushedAt": "2026-07-29T09:39:38Z",
+      "repositoryId": "190660950",
+      "repositoryUrl": "https://github.com/akamai/terraform-provider-akamai",
+      "strata": ["copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/Alfanous-team/alfanous",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 223242,
+      "fork": false,
+      "fullName": "Alfanous-team/alfanous",
+      "instructionEvidence": [
+        {
+          "blobSha": "56b33fdd1e4886adf8caf40282e31cadd6b0674d",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/Alfanous-team/alfanous/git/trees/1dc74f3c83664975166a9e117c711b4f00aebd19",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/Alfanous-team/alfanous",
+        "spdxId": "LGPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "c2a7cfd4645194de079bbfe8e4f0bc18c7cde2db",
+      "pinnedTreeSha": "1dc74f3c83664975166a9e117c711b4f00aebd19",
+      "primaryLanguage": "Python",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/Alfanous-team/alfanous"
+      },
+      "pushedAt": "2026-06-14T00:57:27Z",
+      "repositoryId": "4617289",
+      "repositoryUrl": "https://github.com/Alfanous-team/alfanous",
+      "strata": ["copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/alibaba/hooks",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 13521,
+      "fork": false,
+      "fullName": "alibaba/hooks",
+      "instructionEvidence": [
+        {
+          "blobSha": "a55997b003764786768ff2e4dca311372ae4ff61",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/alibaba/hooks/git/trees/93c3561ac1d29a7dc1e6a3cf57495454fcf7f870",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "43c994c2d3617f947bcb5adf1933e21dabe46bb5",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/alibaba/hooks/git/trees/93c3561ac1d29a7dc1e6a3cf57495454fcf7f870",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "7b5e3a242854a977ef7724d4d5d0f2686ea72b9e",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/alibaba/hooks/git/trees/93c3561ac1d29a7dc1e6a3cf57495454fcf7f870",
+          "path": ".cursor/rules/demo.mdc"
+        },
+        {
+          "blobSha": "a6d7475c13b1ce0181e542316d8e1f677e094b77",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/alibaba/hooks/git/trees/93c3561ac1d29a7dc1e6a3cf57495454fcf7f870",
+          "path": ".cursor/rules/docs.mdc"
+        },
+        {
+          "blobSha": "ef285a10ed92dbc8c64d8b4dea0b8b980422c0ff",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/alibaba/hooks/git/trees/93c3561ac1d29a7dc1e6a3cf57495454fcf7f870",
+          "path": ".cursor/rules/git.mdc"
+        },
+        {
+          "blobSha": "deb9febac74e5df8e842287c178ab05ffa17d742",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/alibaba/hooks/git/trees/93c3561ac1d29a7dc1e6a3cf57495454fcf7f870",
+          "path": ".cursor/rules/project.mdc"
+        },
+        {
+          "blobSha": "f75012f8b6745097e5db973b59404ed7550fb6b0",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/alibaba/hooks/git/trees/93c3561ac1d29a7dc1e6a3cf57495454fcf7f870",
+          "path": ".cursor/rules/testing.mdc"
+        },
+        {
+          "blobSha": "1ee44e0d679c35369acf19148c851044e990a5c2",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/alibaba/hooks/git/trees/93c3561ac1d29a7dc1e6a3cf57495454fcf7f870",
+          "path": ".cursor/rules/typescript.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/alibaba/hooks",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": ["pnpm-workspace.yaml"],
+      "pinnedCommitSha": "bb42f8f53d2d2f366e2f0f3a58b0b5492fbd6cb6",
+      "pinnedTreeSha": "93c3561ac1d29a7dc1e6a3cf57495454fcf7f870",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/alibaba/hooks"
+      },
+      "pushedAt": "2026-08-05T14:59:11Z",
+      "repositoryId": "194027578",
+      "repositoryUrl": "https://github.com/alibaba/hooks",
+      "strata": ["agents-md", "claude", "cursor"],
+      "traits": {
+        "monorepository": true,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/ArisGuimera/MobiAI-Core",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 5399,
+      "fork": false,
+      "fullName": "ArisGuimera/MobiAI-Core",
+      "instructionEvidence": [
+        {
+          "blobSha": "ceb2b988dc8aeca264a49eab26ef39e636508c84",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/ArisGuimera/MobiAI-Core/git/trees/c54f7d287e179e04f4a286422b59133d60780c8f",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "33e126779bc952687521c0e386186a4fd156ea8c",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/ArisGuimera/MobiAI-Core/git/trees/c54f7d287e179e04f4a286422b59133d60780c8f",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "38d607aeee8e5935143b1cb52011e54634ae08a6",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/ArisGuimera/MobiAI-Core/git/trees/c54f7d287e179e04f4a286422b59133d60780c8f",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/ArisGuimera/MobiAI-Core",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "8d56bee8c669175bdf595d5f068337183ff9c506",
+      "pinnedTreeSha": "c54f7d287e179e04f4a286422b59133d60780c8f",
+      "primaryLanguage": "Go",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/ArisGuimera/MobiAI-Core"
+      },
+      "pushedAt": "2026-08-03T07:14:57Z",
+      "repositoryId": "1198521301",
+      "repositoryUrl": "https://github.com/ArisGuimera/MobiAI-Core",
+      "strata": ["agents-md", "claude", "gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/AzureAD/microsoft-authentication-library-common-for-objc",
+      "archived": false,
+      "defaultBranch": "dev",
+      "diskUsageKiB": 20042,
+      "fork": false,
+      "fullName": "AzureAD/microsoft-authentication-library-common-for-objc",
+      "instructionEvidence": [
+        {
+          "blobSha": "95e99961ac3755589f38750002b53b1a0d02b885",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/AzureAD/microsoft-authentication-library-common-for-objc/git/trees/269e82f4883a882b67bf3ccbb6e6c3f8b2c7b662",
+          "path": ".clinerules/AGENTS.md"
+        },
+        {
+          "blobSha": "ad4986b1cbef760c2c4d599385e03bda76ddcd48",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/AzureAD/microsoft-authentication-library-common-for-objc/git/trees/269e82f4883a882b67bf3ccbb6e6c3f8b2c7b662",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "50b7fb422104568486761477fe0bba97c3446315",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/AzureAD/microsoft-authentication-library-common-for-objc/git/trees/269e82f4883a882b67bf3ccbb6e6c3f8b2c7b662",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/AzureAD/microsoft-authentication-library-common-for-objc",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "6c474069eaee5f421be1bd785fba7185fa6e0d47",
+      "pinnedTreeSha": "269e82f4883a882b67bf3ccbb6e6c3f8b2c7b662",
+      "primaryLanguage": "Objective-C",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/AzureAD/microsoft-authentication-library-common-for-objc"
+      },
+      "pushedAt": "2026-08-08T19:51:46Z",
+      "repositoryId": "109302939",
+      "repositoryUrl": "https://github.com/AzureAD/microsoft-authentication-library-common-for-objc",
+      "strata": ["agents-md", "claude", "copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/bia-technologies/yaxunit",
+      "archived": false,
+      "defaultBranch": "develop",
+      "diskUsageKiB": 134927,
+      "fork": false,
+      "fullName": "bia-technologies/yaxunit",
+      "instructionEvidence": [
+        {
+          "blobSha": "6d3055e2800e0900da641326fd5502a925450025",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/bsl-coding-guidelines.mdc"
+        },
+        {
+          "blobSha": "eb6e12dddc0bb91f45d512755569daf5d4967382",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/bsl-method-description.mdc"
+        },
+        {
+          "blobSha": "02b0767f8a22ea15e9d7d7df86e0d2e076422cb6",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/code-style.mdc"
+        },
+        {
+          "blobSha": "f2ccab6cc7f902e9a11b871d8801597a9865f3ee",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/fix-galo.mdc"
+        },
+        {
+          "blobSha": "14f9e76d76f9c38f9f2e1eeeffc8dbb44e8b6363",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/git.mdc"
+        },
+        {
+          "blobSha": "dca903c4687be6b79ccc3fd9085225e040849052",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Core/command-execution.mdc"
+        },
+        {
+          "blobSha": "858c3ca2258cf07c3cda10a9a6b8cc19f06665c6",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Core/complexity-decision-tree.mdc"
+        },
+        {
+          "blobSha": "829565dcaf04f6ca6835c7500caaa1025b78bc6c",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Core/creative-phase-enforcement.mdc"
+        },
+        {
+          "blobSha": "298724f673d22964afd61cf3f1f9b144299485a4",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Core/creative-phase-metrics.mdc"
+        },
+        {
+          "blobSha": "2424f5fbefb586bec0e9041fe78ab35ebb963cc9",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Core/file-verification.mdc"
+        },
+        {
+          "blobSha": "ac96e093f981fcacd804efc0fb69a6aebda2404c",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Core/hierarchical-rule-loading.mdc"
+        },
+        {
+          "blobSha": "af09f6738a59dad64a04a5a9845b10056c6c641e",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Core/memory-bank-paths.mdc"
+        },
+        {
+          "blobSha": "ff415a96fdc8f943025c552268f1170939f6de84",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Core/mode-transition-optimization.mdc"
+        },
+        {
+          "blobSha": "cf132ccc6a41228ea64e091d8e2403b302aac3f3",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Core/optimization-integration.mdc"
+        },
+        {
+          "blobSha": "3a426eb1eaf0a044351e850727cbb1916e9fab72",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Core/platform-awareness.mdc"
+        },
+        {
+          "blobSha": "d219f5736740e0c84f5e8e6ece72fc90d44cc917",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level1/optimized-workflow-level1.mdc"
+        },
+        {
+          "blobSha": "10ca194dc1851bac2c0b5cb55fbdca0ea0ca5d04",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level1/quick-documentation.mdc"
+        },
+        {
+          "blobSha": "3414f1d178774e1e7491bff203161879e3a44226",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level1/workflow-level1.mdc"
+        },
+        {
+          "blobSha": "d02b2121bb1add066d0024b18bcd1ace84ffbf7c",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level2/archive-basic.mdc"
+        },
+        {
+          "blobSha": "04bf1a08701383e2289f43b730706a8321649ed8",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level2/reflection-basic.mdc"
+        },
+        {
+          "blobSha": "e8f9c501bce77fbb84fbaf5a3a3b7519cdd2adb9",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level2/task-tracking-basic.mdc"
+        },
+        {
+          "blobSha": "af0984e6130b6158bbbac9f6b0dcaa0c239eabd3",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level2/workflow-level2.mdc"
+        },
+        {
+          "blobSha": "84ec88063def6a6d888be89eba22b252fa61d97f",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level3/archive-intermediate.mdc"
+        },
+        {
+          "blobSha": "346f0088614caac58ee19b934ab4a4fe3c939051",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level3/implementation-intermediate.mdc"
+        },
+        {
+          "blobSha": "a3ed834b4a88cff9b3ce2377704a67af2fe9cc85",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level3/planning-comprehensive.mdc"
+        },
+        {
+          "blobSha": "e37e3027f8ce4cdf83ac852ec61f5c139e9b1a3f",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level3/reflection-intermediate.mdc"
+        },
+        {
+          "blobSha": "f02c9a7f6af1f050605d1f1c164f3864ad614207",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level3/task-tracking-intermediate.mdc"
+        },
+        {
+          "blobSha": "55d0b8ed480ce552d232805d3fe4bcbf747781d5",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level3/workflow-level3.mdc"
+        },
+        {
+          "blobSha": "3a3ea4bba1a811786f9d35a2075435da2f7faca5",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level4/architectural-planning.mdc"
+        },
+        {
+          "blobSha": "78902d172d5f9e6685f70e9edaaadeeb0835d359",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level4/archive-comprehensive.mdc"
+        },
+        {
+          "blobSha": "9c12bebfbaaa9edc4b71136456d53c2529c4f33d",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level4/phased-implementation.mdc"
+        },
+        {
+          "blobSha": "36fab9a3ef7e6091c083d6273829c0d09d0c6012",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level4/reflection-comprehensive.mdc"
+        },
+        {
+          "blobSha": "360141e68517d7aa45fa2c0c77ee432e5973c972",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level4/task-tracking-advanced.mdc"
+        },
+        {
+          "blobSha": "48ed299b378313d82f1f6a249b24b893131c31da",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Level4/workflow-level4.mdc"
+        },
+        {
+          "blobSha": "8bb60a8efeaad392b702443e560b5d42be9c36de",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Phases/CreativePhase/creative-phase-architecture.mdc"
+        },
+        {
+          "blobSha": "fa64254d8749fa3c8e7f2e4a9ca6e72c229d01c5",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Phases/CreativePhase/creative-phase-uiux.mdc"
+        },
+        {
+          "blobSha": "23c0e28d571329c5a05e5de821ead86524800353",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/Phases/CreativePhase/optimized-creative-template.mdc"
+        },
+        {
+          "blobSha": "723a65cee2d8ecb81941a88e53dc136a47ea8543",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/main-optimized.mdc"
+        },
+        {
+          "blobSha": "7d07f58407e1de63100f4d3281c1d49b92f2cf4b",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/main.mdc"
+        },
+        {
+          "blobSha": "7167e1fd52ff1e685b1bce961624e41f7f88ed4c",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/archive-mode-map.mdc"
+        },
+        {
+          "blobSha": "9444319707f439b616b0a96933e03fa5d0e6cfcc",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"
+        },
+        {
+          "blobSha": "94e2f2e03395574282aa69c8baa5b9066b534aab",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/implement-mode-map.mdc"
+        },
+        {
+          "blobSha": "a62904ae1cf88ce664045281dfbf9bb5e56656c9",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/plan-mode-map.mdc"
+        },
+        {
+          "blobSha": "c102e2aa2326c79cfd1204fabbe0a263953816a9",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/qa-mode-map.mdc"
+        },
+        {
+          "blobSha": "81fd0da9df49be9faf9fda5c17c9b82c2b32bda4",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/reflect-mode-map.mdc"
+        },
+        {
+          "blobSha": "2f908710ed54891df7943dc3fdb7127bce388b54",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van-mode-map.mdc"
+        },
+        {
+          "blobSha": "11f9e8b3d811e4221b924545f36b185ea408e5f6",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-complexity-determination.mdc"
+        },
+        {
+          "blobSha": "de1df601cae87d7fccfc5637d907102e7255f8c2",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-file-verification.mdc"
+        },
+        {
+          "blobSha": "ec877e27909017f233028bff5be797c9bd834ee9",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-mode-map.mdc"
+        },
+        {
+          "blobSha": "f4e24dbf520175245de145d2749779a2ba7add81",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-platform-detection.mdc"
+        },
+        {
+          "blobSha": "53769e3342e7892080f048479a7dbc1a5fd2cd01",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-qa-checks/build-test.mdc"
+        },
+        {
+          "blobSha": "03ad41f13543891d5120cf7683f94733b3757239",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-qa-checks/config-check.mdc"
+        },
+        {
+          "blobSha": "a39fd0b004421039a295f355c7b808f2caaf7225",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-qa-checks/dependency-check.mdc"
+        },
+        {
+          "blobSha": "50d9f895562b11694f186d0ca82cd49288a9dbb3",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-qa-checks/environment-check.mdc"
+        },
+        {
+          "blobSha": "0519ecba6ea913e21689ec692e81e9e4973fbf73",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-qa-checks/file-verification.mdc"
+        },
+        {
+          "blobSha": "c61e5a6d60502ba14bf1c4163627edd4d675e28e",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-qa-main.mdc"
+        },
+        {
+          "blobSha": "d5e4ffcfa2fe549a16053df44f1b182adac8e07d",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-qa-utils/common-fixes.mdc"
+        },
+        {
+          "blobSha": "00affe679cdca5b4528ab12363bd6e7b39359f57",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-qa-utils/mode-transitions.mdc"
+        },
+        {
+          "blobSha": "021bfbb4a3fcacf3744734e0afbf072c02bcda75",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-qa-utils/reports.mdc"
+        },
+        {
+          "blobSha": "8e9ef748e9048ba6d84399615c9709e4fb4c246f",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-qa-utils/rule-calling-guide.mdc"
+        },
+        {
+          "blobSha": "e6ccd1871ea68f4f7fda9dbd5e32780d093a68d8",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/isolation_rules/visual-maps/van_mode_split/van-qa-utils/rule-calling-help.mdc"
+        },
+        {
+          "blobSha": "c25fdcffe8150fa755a6f807fd564b7d55a6706c",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/system-prompt.mdc"
+        },
+        {
+          "blobSha": "e74aa391256b8f23b276db06331b4b076fd76a4f",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/tests/testing_guidelines.mdc"
+        },
+        {
+          "blobSha": "da400d3787da74cf06400a800506b3c1452ef4b7",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/tests/yaxunit-asserions.mdc"
+        },
+        {
+          "blobSha": "9388dcc486379710b272b8a5cbeb518cf92870af",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/tests/yaxunit-test-data.mdc"
+        },
+        {
+          "blobSha": "76c769079907dd05aa1859625d2c6ef0a701aec5",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit/git/trees/df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+          "path": ".cursor/rules/tests/yaxunit_test_writer_prompt.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/bia-technologies/yaxunit",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "23fd2db738dbb26b7b43bdcf0c35fd2c263a3899",
+      "pinnedTreeSha": "df8a232a5dbf956f0ee69891f69fb5e3d110dc0d",
+      "primaryLanguage": "1C Enterprise",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/bia-technologies/yaxunit"
+      },
+      "pushedAt": "2026-06-30T20:38:19Z",
+      "repositoryId": "497867241",
+      "repositoryUrl": "https://github.com/bia-technologies/yaxunit",
+      "strata": ["cursor"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/BNETDocs/bnetdocs-web",
+      "archived": false,
+      "defaultBranch": "phoenix",
+      "diskUsageKiB": 12549,
+      "fork": false,
+      "fullName": "BNETDocs/bnetdocs-web",
+      "instructionEvidence": [
+        {
+          "blobSha": "71a72a9f489960da03c44e6dd3e49cc6d2eebf29",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/BNETDocs/bnetdocs-web/git/trees/4be863f94c861b6ca78610f97f934eaf7af45e04",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/BNETDocs/bnetdocs-web",
+        "spdxId": "AGPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "e51f32dd34a2da5178ee5f64e3f0e422491a2eab",
+      "pinnedTreeSha": "4be863f94c861b6ca78610f97f934eaf7af45e04",
+      "primaryLanguage": "JavaScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/BNETDocs/bnetdocs-web"
+      },
+      "pushedAt": "2026-06-21T13:33:54Z",
+      "repositoryId": "18000918",
+      "repositoryUrl": "https://github.com/BNETDocs/bnetdocs-web",
+      "strata": ["claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/broadinstitute/delphy",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 5467,
+      "fork": false,
+      "fullName": "broadinstitute/delphy",
+      "instructionEvidence": [
+        {
+          "blobSha": "f4754e26510345edf88c2efe4f95728cc5a640ff",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/broadinstitute/delphy/git/trees/f28276d10e5148b9e77a427275112372bdcebb1b",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "0f2712245901ebcbe631e5c376dc76c6fdebc367",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/broadinstitute/delphy/git/trees/f28276d10e5148b9e77a427275112372bdcebb1b",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/broadinstitute/delphy",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "5729978cec46a9e871190d03b811ef275a5bf070",
+      "pinnedTreeSha": "f28276d10e5148b9e77a427275112372bdcebb1b",
+      "primaryLanguage": "C++",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/broadinstitute/delphy"
+      },
+      "pushedAt": "2026-08-06T14:36:30Z",
+      "repositoryId": "804287442",
+      "repositoryUrl": "https://github.com/broadinstitute/delphy",
+      "strata": ["agents-md", "claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/brunoborges/fx2048",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 2897,
+      "fork": false,
+      "fullName": "brunoborges/fx2048",
+      "instructionEvidence": [
+        {
+          "blobSha": "fb6deee407e590ccc393ee33a473bd0cbc894637",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/brunoborges/fx2048/git/trees/af2db07559e8a1fa635032a0d0704cbdcc78462a",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/brunoborges/fx2048",
+        "spdxId": "GPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "fccb6422edb58cfd2da479c671f42aa885c2226e",
+      "pinnedTreeSha": "af2db07559e8a1fa635032a0d0704cbdcc78462a",
+      "primaryLanguage": "Java",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/brunoborges/fx2048"
+      },
+      "pushedAt": "2026-07-29T01:53:28Z",
+      "repositoryId": "18281390",
+      "repositoryUrl": "https://github.com/brunoborges/fx2048",
+      "strata": ["copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/bubblelabai/BubbleLab",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 40678,
+      "fork": false,
+      "fullName": "bubblelabai/BubbleLab",
+      "instructionEvidence": [
+        {
+          "blobSha": "6d793af251aef671a6ab58f51b91f8d53b5481dc",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/bubblelabai/BubbleLab/git/trees/27bd35ac5350cb0719e8afff8e137b9b078d7bfa",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "1777c99b9e1ab40a89a01d6d3f601b7e3a75570f",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bubblelabai/BubbleLab/git/trees/27bd35ac5350cb0719e8afff8e137b9b078d7bfa",
+          "path": ".cursor/rules/api.mdc"
+        },
+        {
+          "blobSha": "4e792acb9e42b575468a428d315af4d58f77a559",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bubblelabai/BubbleLab/git/trees/27bd35ac5350cb0719e8afff8e137b9b078d7bfa",
+          "path": ".cursor/rules/bubblelab.mdc"
+        },
+        {
+          "blobSha": "6e063b8afa2f391d726a2293551e415c64c5d36a",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bubblelabai/BubbleLab/git/trees/27bd35ac5350cb0719e8afff8e137b9b078d7bfa",
+          "path": ".cursor/rules/bundling.mdc"
+        },
+        {
+          "blobSha": "3dca9096ca9c77baf50b05a2600f45dbd25491be",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bubblelabai/BubbleLab/git/trees/27bd35ac5350cb0719e8afff8e137b9b078d7bfa",
+          "path": ".cursor/rules/code-quality.mdc"
+        },
+        {
+          "blobSha": "f5a50c9b29b8cf431b48237cc67a4dab0097eb5f",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/bubblelabai/BubbleLab/git/trees/27bd35ac5350cb0719e8afff8e137b9b078d7bfa",
+          "path": ".cursor/rules/commit.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/bubblelabai/BubbleLab",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": ["pnpm-workspace.yaml"],
+      "pinnedCommitSha": "e64b2469659b72156ca02a767e38cf73913c40d7",
+      "pinnedTreeSha": "27bd35ac5350cb0719e8afff8e137b9b078d7bfa",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/bubblelabai/BubbleLab"
+      },
+      "pushedAt": "2026-04-30T04:43:32Z",
+      "repositoryId": "1068787337",
+      "repositoryUrl": "https://github.com/bubblelabai/BubbleLab",
+      "strata": ["claude", "cursor"],
+      "traits": {
+        "monorepository": true,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/buildonspark/spark",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 541507,
+      "fork": false,
+      "fullName": "buildonspark/spark",
+      "instructionEvidence": [
+        {
+          "blobSha": "4b00693bdb617eedb785eaf94b9fa62ccdb618b5",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/buildonspark/spark/git/trees/73ee3ef243419dac600c2ad3e78b9071a876ff82",
+          "path": "spark/so/entephemeral/AGENTS.md"
+        },
+        {
+          "blobSha": "9eaccc29204ac892be8f2d530aeb4dac27f2f7e0",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/buildonspark/spark/git/trees/73ee3ef243419dac600c2ad3e78b9071a876ff82",
+          "path": ".claude/CLAUDE.md"
+        },
+        {
+          "blobSha": "8357e05e8327db8fbe693524d6ee36d936f9eb08",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/buildonspark/spark/git/trees/73ee3ef243419dac600c2ad3e78b9071a876ff82",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "1869092ca05d25399f7d3abe8ef8e8827dee8fcb",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/buildonspark/spark/git/trees/73ee3ef243419dac600c2ad3e78b9071a876ff82",
+          "path": "sdks/js/packages/spark-mcp/CLAUDE.md"
+        },
+        {
+          "blobSha": "f2eb3616d329fb41f3b7afb99ce0e82b830b10df",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/buildonspark/spark/git/trees/73ee3ef243419dac600c2ad3e78b9071a876ff82",
+          "path": "sdks/js/packages/spark-sdk/CLAUDE.md"
+        },
+        {
+          "blobSha": "879c8bf96f7b4e6584eda6ee385989cfd77f3235",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/buildonspark/spark/git/trees/73ee3ef243419dac600c2ad3e78b9071a876ff82",
+          "path": "spark/CLAUDE.md"
+        },
+        {
+          "blobSha": "46807b49a5a72a2c27b3490853e50f16d51ab145",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/buildonspark/spark/git/trees/73ee3ef243419dac600c2ad3e78b9071a876ff82",
+          "path": "spark/cmd/dbseed/CLAUDE.md"
+        },
+        {
+          "blobSha": "082eab51240f1d4570f0cbe4ea9a2066cfb311ec",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/buildonspark/spark/git/trees/73ee3ef243419dac600c2ad3e78b9071a876ff82",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/buildonspark/spark",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "eaddc418d8c2fc785bcd7e91ad5b77cc53d25fd7",
+      "pinnedTreeSha": "73ee3ef243419dac600c2ad3e78b9071a876ff82",
+      "primaryLanguage": "JavaScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/buildonspark/spark"
+      },
+      "pushedAt": "2026-08-08T00:19:25Z",
+      "repositoryId": "943579631",
+      "repositoryUrl": "https://github.com/buildonspark/spark",
+      "strata": ["agents-md", "claude", "gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/burugo/one-mcp",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 26940,
+      "fork": false,
+      "fullName": "burugo/one-mcp",
+      "instructionEvidence": [
+        {
+          "blobSha": "c7eff65d389ffa56d0c1e0ef444d0a1eca0aef1a",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/burugo/one-mcp/git/trees/e8d33f7d70ab6177c294b4daf2595851c2685f05",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "03ff95965dd1aa0113bb169e2c65ba3fd16e1eeb",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/burugo/one-mcp/git/trees/e8d33f7d70ab6177c294b4daf2595851c2685f05",
+          "path": ".cursor/rules/language.mdc"
+        },
+        {
+          "blobSha": "78c4c23fa58818036f7bfb876f896f6c8f53932e",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/burugo/one-mcp/git/trees/e8d33f7d70ab6177c294b4daf2595851c2685f05",
+          "path": ".cursor/rules/tdd.mdc"
+        },
+        {
+          "blobSha": "4a9f9aec024c38118da501236bf215f8d510b6a7",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/burugo/one-mcp/git/trees/e8d33f7d70ab6177c294b4daf2595851c2685f05",
+          "path": ".cursor/rules/thing.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/burugo/one-mcp",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "c53a950fb0259fada87fa4a5092cd01218150ed2",
+      "pinnedTreeSha": "e8d33f7d70ab6177c294b4daf2595851c2685f05",
+      "primaryLanguage": "Go",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/burugo/one-mcp"
+      },
+      "pushedAt": "2026-08-02T19:02:12Z",
+      "repositoryId": "967472164",
+      "repositoryUrl": "https://github.com/burugo/one-mcp",
+      "strata": ["agents-md", "cursor"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/comma-csv/comma",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 539,
+      "fork": false,
+      "fullName": "comma-csv/comma",
+      "instructionEvidence": [
+        {
+          "blobSha": "95ba1947f4132374d7a3cf7283185ad9a9bd37a9",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/comma-csv/comma/git/trees/66130befb0ea4e8e46e4b98693bd6811aff461af",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/comma-csv/comma",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "301002f26660e8b68abb48a128268585297fc793",
+      "pinnedTreeSha": "66130befb0ea4e8e46e4b98693bd6811aff461af",
+      "primaryLanguage": "Ruby",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/comma-csv/comma"
+      },
+      "pushedAt": "2026-08-08T07:31:03Z",
+      "repositoryId": "134623",
+      "repositoryUrl": "https://github.com/comma-csv/comma",
+      "strata": ["copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/Curiosity-Ai-BV/localOCR",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 1021,
+      "fork": false,
+      "fullName": "Curiosity-Ai-BV/localOCR",
+      "instructionEvidence": [
+        {
+          "blobSha": "cc311439cf31e63e3ed9ae95ee021ad773a225b2",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/Curiosity-Ai-BV/localOCR/git/trees/2ffa7fd476546e483fb5f6cc519410ec56271b2d",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "422673d990ef36c0105b881eed1f21984d1df03a",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/Curiosity-Ai-BV/localOCR/git/trees/2ffa7fd476546e483fb5f6cc519410ec56271b2d",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/Curiosity-Ai-BV/localOCR",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "30a6cb18360d8e6cc499a994eb381c239a6231f5",
+      "pinnedTreeSha": "2ffa7fd476546e483fb5f6cc519410ec56271b2d",
+      "primaryLanguage": "Python",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/Curiosity-Ai-BV/localOCR"
+      },
+      "pushedAt": "2026-05-29T20:58:49Z",
+      "repositoryId": "950488962",
+      "repositoryUrl": "https://github.com/Curiosity-Ai-BV/localOCR",
+      "strata": ["agents-md", "gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/cxfksword/jellyfin-plugin-danmu",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 552,
+      "fork": false,
+      "fullName": "cxfksword/jellyfin-plugin-danmu",
+      "instructionEvidence": [
+        {
+          "blobSha": "8d393cde0768f412b23ca6ffd29fd48f98847be7",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/cxfksword/jellyfin-plugin-danmu/git/trees/cdb37b16f6cd1a0a99c287f0304aadce755d3e24",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/cxfksword/jellyfin-plugin-danmu",
+        "spdxId": "GPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "b2e69f87d77cf72e1658d34000720a9437f34c75",
+      "pinnedTreeSha": "cdb37b16f6cd1a0a99c287f0304aadce755d3e24",
+      "primaryLanguage": "C#",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/cxfksword/jellyfin-plugin-danmu"
+      },
+      "pushedAt": "2026-07-16T09:10:00Z",
+      "repositoryId": "549328235",
+      "repositoryUrl": "https://github.com/cxfksword/jellyfin-plugin-danmu",
+      "strata": ["copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/DamianB-BitFlipper/proton-drive-sync",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 181674,
+      "fork": false,
+      "fullName": "DamianB-BitFlipper/proton-drive-sync",
+      "instructionEvidence": [
+        {
+          "blobSha": "3f4d7b82dea689d35633a99801f6474a66a5671a",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/DamianB-BitFlipper/proton-drive-sync/git/trees/dd4945de71e9bc9f187fb9c201ff66387c3d2af4",
+          "path": "AGENTS.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/DamianB-BitFlipper/proton-drive-sync",
+        "spdxId": "GPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "9e93d2b65afc77c9c19ab0ec59f3ef4ebf29be0b",
+      "pinnedTreeSha": "dd4945de71e9bc9f187fb9c201ff66387c3d2af4",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/DamianB-BitFlipper/proton-drive-sync"
+      },
+      "pushedAt": "2026-03-05T17:08:11Z",
+      "repositoryId": "1107047476",
+      "repositoryUrl": "https://github.com/DamianB-BitFlipper/proton-drive-sync",
+      "strata": ["agents-md"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/davraamides/todotxt-mode",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 39381,
+      "fork": false,
+      "fullName": "davraamides/todotxt-mode",
+      "instructionEvidence": [
+        {
+          "blobSha": "bc6c01f11fc9c5bf1eca37736c0401cb3c813ee6",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/davraamides/todotxt-mode/git/trees/d36fcfffa99f6f82710cbd9d261bb3bb0a2bac8f",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/davraamides/todotxt-mode",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "f05e2f4b0420d98a0200443fd5251855319a56e2",
+      "pinnedTreeSha": "d36fcfffa99f6f82710cbd9d261bb3bb0a2bac8f",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/davraamides/todotxt-mode"
+      },
+      "pushedAt": "2026-06-12T20:02:41Z",
+      "repositoryId": "182312134",
+      "repositoryUrl": "https://github.com/davraamides/todotxt-mode",
+      "strata": ["claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/deepmodeling/DeePTB",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 171463,
+      "fork": false,
+      "fullName": "deepmodeling/DeePTB",
+      "instructionEvidence": [
+        {
+          "blobSha": "42386f441e4557c086f155727b3549b85f952546",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/deepmodeling/DeePTB/git/trees/a5abfcfb3fc397f1d2534b15143b571a896f1d38",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/deepmodeling/DeePTB",
+        "spdxId": "LGPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "1dcc7f61480c373870cd5bad1d4000ac80757ff5",
+      "pinnedTreeSha": "a5abfcfb3fc397f1d2534b15143b571a896f1d38",
+      "primaryLanguage": "Python",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/deepmodeling/DeePTB"
+      },
+      "pushedAt": "2026-07-20T20:13:02Z",
+      "repositoryId": "664914276",
+      "repositoryUrl": "https://github.com/deepmodeling/DeePTB",
+      "strata": ["gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/EliasOenal/multimon-ng",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 13676,
+      "fork": false,
+      "fullName": "EliasOenal/multimon-ng",
+      "instructionEvidence": [
+        {
+          "blobSha": "82f8440eae2f6921e259a616917a1814afaaa05b",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/EliasOenal/multimon-ng/git/trees/e28b15340ed01c67f3a9e26376ffe6ca2342b89f",
+          "path": ".github/copilot-instructions.md"
+        },
+        {
+          "blobSha": "6bba449e53cdf257ccdc202e35beaa733f75c7e5",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/EliasOenal/multimon-ng/git/trees/e28b15340ed01c67f3a9e26376ffe6ca2342b89f",
+          "path": ".github/instructions/c-code.instructions.md"
+        },
+        {
+          "blobSha": "531f770b3813d7eae15c1a106d4899140ac9be18",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/EliasOenal/multimon-ng/git/trees/e28b15340ed01c67f3a9e26376ffe6ca2342b89f",
+          "path": ".github/instructions/demodulators.instructions.md"
+        },
+        {
+          "blobSha": "2b05cccfabd7463d38bac8468bbdb39f419a7cf1",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/EliasOenal/multimon-ng/git/trees/e28b15340ed01c67f3a9e26376ffe6ca2342b89f",
+          "path": ".github/instructions/generators.instructions.md"
+        },
+        {
+          "blobSha": "fade5935811f188889eeadb63a18fb93cb1ff20e",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/EliasOenal/multimon-ng/git/trees/e28b15340ed01c67f3a9e26376ffe6ca2342b89f",
+          "path": ".github/instructions/tests.instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/EliasOenal/multimon-ng",
+        "spdxId": "GPL-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "de0585926542687155852db502a9d2861e9acf95",
+      "pinnedTreeSha": "e28b15340ed01c67f3a9e26376ffe6ca2342b89f",
+      "primaryLanguage": "C",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/EliasOenal/multimon-ng"
+      },
+      "pushedAt": "2026-07-27T06:21:20Z",
+      "repositoryId": "4381863",
+      "repositoryUrl": "https://github.com/EliasOenal/multimon-ng",
+      "strata": ["copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/exoscale/cli",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 40254,
+      "fork": false,
+      "fullName": "exoscale/cli",
+      "instructionEvidence": [
+        {
+          "blobSha": "d07e1ab70032a41fdf420d5eb9c24d0385fd02f6",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/exoscale/cli/git/trees/cf5a767b9b12324ca195182811b336bedc5966c1",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "e2a75b8ea19428649bdbd1c76f68902cf6193452",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/exoscale/cli/git/trees/cf5a767b9b12324ca195182811b336bedc5966c1",
+          "path": "vendor/github.com/aws/smithy-go/AGENTS.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/exoscale/cli",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "8ab9144f84158511235ba3586a7d5dd75e6e45d2",
+      "pinnedTreeSha": "cf5a767b9b12324ca195182811b336bedc5966c1",
+      "primaryLanguage": "Go",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/exoscale/cli"
+      },
+      "pushedAt": "2026-08-07T12:36:04Z",
+      "repositoryId": "149257870",
+      "repositoryUrl": "https://github.com/exoscale/cli",
+      "strata": ["agents-md"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/EXXETA/trufos",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 13176,
+      "fork": false,
+      "fullName": "EXXETA/trufos",
+      "instructionEvidence": [
+        {
+          "blobSha": "8a723b1ee2d0ef73720539e4794e09426c618c0e",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/EXXETA/trufos/git/trees/a76e64b4572a879ee7cd54654d398101c2980c1c",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "9d4a51a3f4893ab2a17c4c201179ce0eb0b4c0d0",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/EXXETA/trufos/git/trees/a76e64b4572a879ee7cd54654d398101c2980c1c",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "c2bbe4a541d0a1b14622086b8eab2553294ff5a1",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/EXXETA/trufos/git/trees/a76e64b4572a879ee7cd54654d398101c2980c1c",
+          "path": ".github/copilot-instructions.md"
+        },
+        {
+          "blobSha": "f1ba2acbe3a9893a289d9b61cb89a23fd9f55359",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/EXXETA/trufos/git/trees/a76e64b4572a879ee7cd54654d398101c2980c1c",
+          "path": ".github/instructions/commit-and-branch.instructions.md"
+        },
+        {
+          "blobSha": "75b0684e59afc7ed9c0cc41f08d7cbd06f9e8bca",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/EXXETA/trufos/git/trees/a76e64b4572a879ee7cd54654d398101c2980c1c",
+          "path": ".github/instructions/testing.instructions.md"
+        },
+        {
+          "blobSha": "54122fe61df590e6adc3877227fc4d18f0748f6f",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/EXXETA/trufos/git/trees/a76e64b4572a879ee7cd54654d398101c2980c1c",
+          "path": ".github/instructions/typescript-react-electron.instructions.md"
+        },
+        {
+          "blobSha": "756ca3c922c615c04a6abd7b7ef3f43f400bb0c8",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/EXXETA/trufos/git/trees/a76e64b4572a879ee7cd54654d398101c2980c1c",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/EXXETA/trufos",
+        "spdxId": "GPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "e17cbf86a07c5ba160a5198c8466b3f0c5008d24",
+      "pinnedTreeSha": "a76e64b4572a879ee7cd54654d398101c2980c1c",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/EXXETA/trufos"
+      },
+      "pushedAt": "2026-08-07T15:43:31Z",
+      "repositoryId": "811384377",
+      "repositoryUrl": "https://github.com/EXXETA/trufos",
+      "strata": ["agents-md", "claude", "copilot", "gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/Fannon/search-bookmarks-history-and-tabs",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 14308,
+      "fork": false,
+      "fullName": "Fannon/search-bookmarks-history-and-tabs",
+      "instructionEvidence": [
+        {
+          "blobSha": "04bcc057557ed94227692909f94ad72eda2ce99e",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/Fannon/search-bookmarks-history-and-tabs/git/trees/1218740db72e73d746f087e83e23e917f0569614",
+          "path": "AGENTS.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/Fannon/search-bookmarks-history-and-tabs",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "f47cf58e084da8ac5fda3656d52f1d2fb5cd52aa",
+      "pinnedTreeSha": "1218740db72e73d746f087e83e23e917f0569614",
+      "primaryLanguage": "JavaScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/Fannon/search-bookmarks-history-and-tabs"
+      },
+      "pushedAt": "2026-08-05T16:47:36Z",
+      "repositoryId": "389284278",
+      "repositoryUrl": "https://github.com/Fannon/search-bookmarks-history-and-tabs",
+      "strata": ["agents-md"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/friendsofstrandseq/mosaicatcher-pipeline",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 25136,
+      "fork": false,
+      "fullName": "friendsofstrandseq/mosaicatcher-pipeline",
+      "instructionEvidence": [
+        {
+          "blobSha": "d031dbcec6d2e41273483dab707777dce00cd15d",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/friendsofstrandseq/mosaicatcher-pipeline/git/trees/0eb80a75ffd72a8ff64fc63e8584cce2e2966184",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "97650c76782d1c4881aba6adb4f7c1a82f2e591d",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/friendsofstrandseq/mosaicatcher-pipeline/git/trees/0eb80a75ffd72a8ff64fc63e8584cce2e2966184",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/friendsofstrandseq/mosaicatcher-pipeline",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "1b6fd463e04df2539f6bab05cb864a7e142ec458",
+      "pinnedTreeSha": "0eb80a75ffd72a8ff64fc63e8584cce2e2966184",
+      "primaryLanguage": "Jupyter Notebook",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/friendsofstrandseq/mosaicatcher-pipeline"
+      },
+      "pushedAt": "2026-08-05T08:11:20Z",
+      "repositoryId": "206941559",
+      "repositoryUrl": "https://github.com/friendsofstrandseq/mosaicatcher-pipeline",
+      "strata": ["claude", "gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/fsprojects/Paket",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 249797,
+      "fork": false,
+      "fullName": "fsprojects/Paket",
+      "instructionEvidence": [
+        {
+          "blobSha": "24a93733f86d4953981d8e2dfccad01d45a479e1",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/fsprojects/Paket/git/trees/dd44e2c6775266d12708fdee155ba0b710da0dd5",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/fsprojects/Paket",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "3b63da856fa6d6f441d43b9dc2aa64e6ad10fe62",
+      "pinnedTreeSha": "dd44e2c6775266d12708fdee155ba0b710da0dd5",
+      "primaryLanguage": "F#",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/fsprojects/Paket"
+      },
+      "pushedAt": "2026-01-20T08:53:10Z",
+      "repositoryId": "22755810",
+      "repositoryUrl": "https://github.com/fsprojects/Paket",
+      "strata": ["claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/getsentry/sentry-java",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 114383,
+      "fork": false,
+      "fullName": "getsentry/sentry-java",
+      "instructionEvidence": [
+        {
+          "blobSha": "4f938ceff2d250e697e753322887060d0a78d167",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "19507016af4b0dbefad64afef2ad301733308c34",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "c5a793d9240cf330f2fd4eae8299f6aa2ed523ea",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/api.mdc"
+        },
+        {
+          "blobSha": "70ac39e43a2e58515c1177b524a566278774c8d0",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/coding.mdc"
+        },
+        {
+          "blobSha": "d9a911de25ee841612ae1e7e4cac7ca4ad3b7d52",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/continuous_profiling_jvm.mdc"
+        },
+        {
+          "blobSha": "b48516dae44b88f8512c0794b583103a8013f0bf",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/deduplication.mdc"
+        },
+        {
+          "blobSha": "17e088774b51d8855c2ec9872d362d6bd7f06e54",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/e2e_tests.mdc"
+        },
+        {
+          "blobSha": "f2a78bc71cf586b045b1e63519056ef7652cd361",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/feature_flags.mdc"
+        },
+        {
+          "blobSha": "93c82ecb467f33fe6826a741d21de67c7e0b8856",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/metrics.mdc"
+        },
+        {
+          "blobSha": "5bf2c70c2f78d34896e46ecbe46f2ef2b2875019",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/new_module.mdc"
+        },
+        {
+          "blobSha": "14e9419b4de0822a2aa513f5fa22ecdfe028d96a",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/offline.mdc"
+        },
+        {
+          "blobSha": "4e773233f04f8cf3ab7c44ef7eca9433637ab40c",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/opentelemetry.mdc"
+        },
+        {
+          "blobSha": "2d239da7813f64afa6749fb0c541d49b77968368",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/options.mdc"
+        },
+        {
+          "blobSha": "b837be34add37ee4575e8625115f1fdc53466c02",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/overview_dev.mdc"
+        },
+        {
+          "blobSha": "3a37ecc15f8bffa146ae21b4c9aac7ce3ebcd767",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/pr.mdc"
+        },
+        {
+          "blobSha": "fe082c3b854f8fa33ff1f19aa146b5dea147d589",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/queues.mdc"
+        },
+        {
+          "blobSha": "e054755d4f52e13295b9f63a6e4cfc00b8b58780",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java/git/trees/47eaa88e7822f8ca7154f81c970583a2fd42527d",
+          "path": ".cursor/rules/scopes.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/getsentry/sentry-java",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "983e0f0a5f1c89118d4e82b6f928fb4e738ca97b",
+      "pinnedTreeSha": "47eaa88e7822f8ca7154f81c970583a2fd42527d",
+      "primaryLanguage": "Kotlin",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/getsentry/sentry-java"
+      },
+      "pushedAt": "2026-08-07T16:39:46Z",
+      "repositoryId": "3368190",
+      "repositoryUrl": "https://github.com/getsentry/sentry-java",
+      "strata": ["agents-md", "claude", "cursor"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/google/benchmark",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 3521,
+      "fork": false,
+      "fullName": "google/benchmark",
+      "instructionEvidence": [
+        {
+          "blobSha": "72f2abe0f0621fec538fa753b0b5e3f69a706ec0",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/google/benchmark/git/trees/f0508b62b76065d5ef0c1ff026c9b47c1a5da964",
+          "path": "AGENTS.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/google/benchmark",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "e3f7ba70253d2f52fbc41ff17ac6dc1014241ef8",
+      "pinnedTreeSha": "f0508b62b76065d5ef0c1ff026c9b47c1a5da964",
+      "primaryLanguage": "C++",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/google/benchmark"
+      },
+      "pushedAt": "2026-08-07T09:49:29Z",
+      "repositoryId": "15122806",
+      "repositoryUrl": "https://github.com/google/benchmark",
+      "strata": ["agents-md"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/GoogleContainerTools/config-sync",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 64169,
+      "fork": false,
+      "fullName": "GoogleContainerTools/config-sync",
+      "instructionEvidence": [
+        {
+          "blobSha": "e8d6522252d0b9918118b75c282fb461a5ef12fe",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/GoogleContainerTools/config-sync/git/trees/6b64c0a848c73bedaffc7de2f17a94869b22f439",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "02db715284987995f70696efd88e3e8617f258ce",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/GoogleContainerTools/config-sync/git/trees/6b64c0a848c73bedaffc7de2f17a94869b22f439",
+          "path": "vendor/go.opentelemetry.io/otel/AGENTS.md"
+        },
+        {
+          "blobSha": "dd3c4594fc15453f878812d557f9812321268711",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/GoogleContainerTools/config-sync/git/trees/6b64c0a848c73bedaffc7de2f17a94869b22f439",
+          "path": "vendor/go.opentelemetry.io/otel/CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/GoogleContainerTools/config-sync",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "816dd88929f5f3afe6b48e5900c8e99b97e811dd",
+      "pinnedTreeSha": "6b64c0a848c73bedaffc7de2f17a94869b22f439",
+      "primaryLanguage": "Go",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/GoogleContainerTools/config-sync"
+      },
+      "pushedAt": "2026-08-08T05:59:05Z",
+      "repositoryId": "465198908",
+      "repositoryUrl": "https://github.com/GoogleContainerTools/config-sync",
+      "strata": ["agents-md", "claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/graphframes/graphframes",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 5741,
+      "fork": false,
+      "fullName": "graphframes/graphframes",
+      "instructionEvidence": [
+        {
+          "blobSha": "1c59df21f8b4dee47437e37d1ebaa134a1d0951c",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/graphframes/graphframes/git/trees/ed092b3b75d3e30887774d0d991af93effb76e33",
+          "path": "AGENTS.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/graphframes/graphframes",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "340dbe4faefdf2b753a097ac68ddc864cc1a92cb",
+      "pinnedTreeSha": "ed092b3b75d3e30887774d0d991af93effb76e33",
+      "primaryLanguage": "Scala",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/graphframes/graphframes"
+      },
+      "pushedAt": "2026-08-06T17:06:17Z",
+      "repositoryId": "50067430",
+      "repositoryUrl": "https://github.com/graphframes/graphframes",
+      "strata": ["agents-md"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/graphprotocol/graph-tooling",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 16030,
+      "fork": false,
+      "fullName": "graphprotocol/graph-tooling",
+      "instructionEvidence": [
+        {
+          "blobSha": "bce91681b3e612075a03b10e8d0092e60d761303",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/graphprotocol/graph-tooling/git/trees/aa62c58c2e44dbf37e741b2f3db5de80f1a13fff",
+          "path": ".cursor/rules/@graph-tooling.mdc"
+        },
+        {
+          "blobSha": "9b3c5bf5cd23fc06df61c359ffa383f7c112cd83",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/graphprotocol/graph-tooling/git/trees/aa62c58c2e44dbf37e741b2f3db5de80f1a13fff",
+          "path": ".cursor/rules/mdc.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/graphprotocol/graph-tooling",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": ["pnpm-workspace.yaml"],
+      "pinnedCommitSha": "7fe67ac310e5f4f17dbdaabb0cb0ee0812e4101a",
+      "pinnedTreeSha": "aa62c58c2e44dbf37e741b2f3db5de80f1a13fff",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/graphprotocol/graph-tooling"
+      },
+      "pushedAt": "2026-08-07T21:55:19Z",
+      "repositoryId": "137467117",
+      "repositoryUrl": "https://github.com/graphprotocol/graph-tooling",
+      "strata": ["cursor"],
+      "traits": {
+        "monorepository": true,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/groupultra/telegram-search",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 14612,
+      "fork": false,
+      "fullName": "groupultra/telegram-search",
+      "instructionEvidence": [
+        {
+          "blobSha": "0a84ef0477e0f9fa7723c5da354932ede8457230",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "ebea6af44f95a1658fd80fe5c035fd34b8ee71a8",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".github/copilot-instructions.md"
+        },
+        {
+          "blobSha": "c02a57f68a3eb652e771310a198af75a0fd65afa",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".cursor/rules/architecture.mdc"
+        },
+        {
+          "blobSha": "2894aa5ed3a1c4c9eb4798262b0f03072d6ef409",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".cursor/rules/backend-server.mdc"
+        },
+        {
+          "blobSha": "5f822e1c2a42805f4ba45dbd26ca9282df085f12",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".cursor/rules/client.mdc"
+        },
+        {
+          "blobSha": "247ab3f641e1cab3150d8e49b7a0ee861522abaa",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".cursor/rules/contributing.mdc"
+        },
+        {
+          "blobSha": "bbfd4f9bc0e01d8f4e916c0ea8202faad7cae9af",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".cursor/rules/core.mdc"
+        },
+        {
+          "blobSha": "78f441aa5e79f7e607215b403b793eddf1732507",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".cursor/rules/db.mdc"
+        },
+        {
+          "blobSha": "599d29929cecc632f25c32f9edae32cac46c2fe6",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".cursor/rules/events.mdc"
+        },
+        {
+          "blobSha": "51cea512ec0a629712787a5851568d42c277d76e",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".cursor/rules/frontend-web.mdc"
+        },
+        {
+          "blobSha": "8203e406db33d4ee1a6437265fa14c840463fbaf",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".cursor/rules/pglite-inspector.mdc"
+        },
+        {
+          "blobSha": "aed9edade409ee8b9e31fab187e46241c171f2ab",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".cursor/rules/testing.mdc"
+        },
+        {
+          "blobSha": "eb8df82599dacad1909437bb5d6ba43ff5966838",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search/git/trees/e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+          "path": ".cursor/rules/tooling.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/groupultra/telegram-search",
+        "spdxId": "AGPL-3.0"
+      },
+      "monorepoEvidencePaths": ["pnpm-workspace.yaml"],
+      "pinnedCommitSha": "54f6adced844ce9990228d75e31348bfed934e05",
+      "pinnedTreeSha": "e8161cb1fdd46fe98a4f2b4d9f36fb1d56327162",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/groupultra/telegram-search"
+      },
+      "pushedAt": "2026-08-06T11:09:54Z",
+      "repositoryId": "929338255",
+      "repositoryUrl": "https://github.com/groupultra/telegram-search",
+      "strata": ["agents-md", "copilot", "cursor"],
+      "traits": {
+        "monorepository": true,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/Huxpro/vue-lynx",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 64548,
+      "fork": false,
+      "fullName": "Huxpro/vue-lynx",
+      "instructionEvidence": [
+        {
+          "blobSha": "4dcaddd8229bf3761609fed5c27ce77db9598785",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/Huxpro/vue-lynx/git/trees/b368ccf6330ec5402470fcc848864b8a6f6dd6c2",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "aed49f0a957b0fd1ec34bb2cdf4f7092b6db782e",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/Huxpro/vue-lynx/git/trees/b368ccf6330ec5402470fcc848864b8a6f6dd6c2",
+          "path": "examples/hello-world/AGENTS.md"
+        },
+        {
+          "blobSha": "594a82d047e318bc120c214eaa096214bcee30cd",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/Huxpro/vue-lynx/git/trees/b368ccf6330ec5402470fcc848864b8a6f6dd6c2",
+          "path": "packages/create-vue-lynx/template-common/AGENTS.md"
+        },
+        {
+          "blobSha": "76ca054d2a5435ee9b03d2614d8d3ad976b39452",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/Huxpro/vue-lynx/git/trees/b368ccf6330ec5402470fcc848864b8a6f6dd6c2",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/Huxpro/vue-lynx",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": ["pnpm-workspace.yaml"],
+      "pinnedCommitSha": "a175aee4a8eac0685fbacb97050f4bbf43b7bc30",
+      "pinnedTreeSha": "b368ccf6330ec5402470fcc848864b8a6f6dd6c2",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/Huxpro/vue-lynx"
+      },
+      "pushedAt": "2026-08-08T22:12:14Z",
+      "repositoryId": "1179570103",
+      "repositoryUrl": "https://github.com/Huxpro/vue-lynx",
+      "strata": ["agents-md", "claude"],
+      "traits": {
+        "monorepository": true,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/imazen/imageflow",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 11197,
+      "fork": false,
+      "fullName": "imazen/imageflow",
+      "instructionEvidence": [
+        {
+          "blobSha": "3f83b85eed43f4a75fd348a0825239afe6f26b83",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/imazen/imageflow/git/trees/4b7e6bbb8555e8a3924277cd984f034ad0cc556a",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "590320b249342332b099e8a6aec9955bdde3cc3e",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/imazen/imageflow/git/trees/4b7e6bbb8555e8a3924277cd984f034ad0cc556a",
+          "path": ".cursor/rules/bash.mdc"
+        },
+        {
+          "blobSha": "6880dfc690f6972259c5f40835d38386d88964fb",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/imazen/imageflow/git/trees/4b7e6bbb8555e8a3924277cd984f034ad0cc556a",
+          "path": ".cursor/rules/ci.mdc"
+        },
+        {
+          "blobSha": "8c904611df4ad70199ae9036432dbafacd996b5d",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/imazen/imageflow/git/trees/4b7e6bbb8555e8a3924277cd984f034ad0cc556a",
+          "path": ".cursor/rules/creating-rules.mdc"
+        },
+        {
+          "blobSha": "eee541d2e7227b74f83158dbd0f36f8eeac0267c",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/imazen/imageflow/git/trees/4b7e6bbb8555e8a3924277cd984f034ad0cc556a",
+          "path": ".cursor/rules/ffi.mdc"
+        },
+        {
+          "blobSha": "3889e22aa6b7abb6f93a50e25546898eeae425e8",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/imazen/imageflow/git/trees/4b7e6bbb8555e8a3924277cd984f034ad0cc556a",
+          "path": ".cursor/rules/git-commits.mdc"
+        },
+        {
+          "blobSha": "5519afe2accd3852e946058f9ebc8e8c8c54237b",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/imazen/imageflow/git/trees/4b7e6bbb8555e8a3924277cd984f034ad0cc556a",
+          "path": ".cursor/rules/json-api.mdc"
+        },
+        {
+          "blobSha": "3c33a6b9aa115097e87768582f7657bf6520c024",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/imazen/imageflow/git/trees/4b7e6bbb8555e8a3924277cd984f034ad0cc556a",
+          "path": ".cursor/rules/riapi.mdc"
+        },
+        {
+          "blobSha": "aae00489e8e44f3de2299f346a93db657a06c877",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/imazen/imageflow/git/trees/4b7e6bbb8555e8a3924277cd984f034ad0cc556a",
+          "path": ".cursor/rules/rust.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/imazen/imageflow",
+        "spdxId": "AGPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "7cbe26be6afc15b00a276c7f06558b0880b4108a",
+      "pinnedTreeSha": "4b7e6bbb8555e8a3924277cd984f034ad0cc556a",
+      "primaryLanguage": "Rust",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/imazen/imageflow"
+      },
+      "pushedAt": "2026-08-04T01:37:28Z",
+      "repositoryId": "26368422",
+      "repositoryUrl": "https://github.com/imazen/imageflow",
+      "strata": ["claude", "cursor"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/jbetancur/react-data-table-component",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 20528,
+      "fork": false,
+      "fullName": "jbetancur/react-data-table-component",
+      "instructionEvidence": [
+        {
+          "blobSha": "188cff13cf2d992176bd6d66cb6afc15497160a7",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/jbetancur/react-data-table-component/git/trees/0770397d12534bc820362698679c4f89bd0bc5c9",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/jbetancur/react-data-table-component",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "c7a8537bb5e3eafda7593e38c4810e891dd27e3c",
+      "pinnedTreeSha": "0770397d12534bc820362698679c4f89bd0bc5c9",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/jbetancur/react-data-table-component"
+      },
+      "pushedAt": "2026-07-22T00:58:54Z",
+      "repositoryId": "125463757",
+      "repositoryUrl": "https://github.com/jbetancur/react-data-table-component",
+      "strata": ["claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/johnpapa/vscode-winteriscoming",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 5840,
+      "fork": false,
+      "fullName": "johnpapa/vscode-winteriscoming",
+      "instructionEvidence": [
+        {
+          "blobSha": "5702542ae027ce141943bb1a29b70a39556d45e3",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/johnpapa/vscode-winteriscoming/git/trees/84f687483e2774d24c51b69116f9dea473ee46da",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "e01c49b850a7ce03cd06b1aeea31c9da8e6e6a72",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/johnpapa/vscode-winteriscoming/git/trees/84f687483e2774d24c51b69116f9dea473ee46da",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/johnpapa/vscode-winteriscoming",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "260547834cb6ac37dd5b8bb5842cc1c8d3164946",
+      "pinnedTreeSha": "84f687483e2774d24c51b69116f9dea473ee46da",
+      "primaryLanguage": "CSS",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/johnpapa/vscode-winteriscoming"
+      },
+      "pushedAt": "2026-07-24T06:05:56Z",
+      "repositoryId": "107423158",
+      "repositoryUrl": "https://github.com/johnpapa/vscode-winteriscoming",
+      "strata": ["agents-md", "copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/joske/yserver",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 24440,
+      "fork": false,
+      "fullName": "joske/yserver",
+      "instructionEvidence": [
+        {
+          "blobSha": "c32bd37e7830c881fcb7fceb70da4b445285439d",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/joske/yserver/git/trees/0ba250ce16e862d17ca63d263a5c6d6bc9b21c92",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "bd5a6f959f9a0fa34c56e6dede12101b7f2da3c6",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/joske/yserver/git/trees/0ba250ce16e862d17ca63d263a5c6d6bc9b21c92",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/joske/yserver",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "3191535d8a2380dd3aad768481533755708d5844",
+      "pinnedTreeSha": "0ba250ce16e862d17ca63d263a5c6d6bc9b21c92",
+      "primaryLanguage": "Rust",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/joske/yserver"
+      },
+      "pushedAt": "2026-08-08T07:41:52Z",
+      "repositoryId": "1222567771",
+      "repositoryUrl": "https://github.com/joske/yserver",
+      "strata": ["agents-md", "claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/JustinBeckwith/retry-axios",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 1395,
+      "fork": false,
+      "fullName": "JustinBeckwith/retry-axios",
+      "instructionEvidence": [
+        {
+          "blobSha": "2d1137fba9e34eca62c230817f1dce85b3e3eeca",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/JustinBeckwith/retry-axios/git/trees/7de8637b4eb0005c9338e7c9784172e4615685b8",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "6deb07deaed2a2102000c47482ed1126da3afcac",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/JustinBeckwith/retry-axios/git/trees/7de8637b4eb0005c9338e7c9784172e4615685b8",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/JustinBeckwith/retry-axios",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "857b1dff1a6f442f91e99f91e657d049e222c5b1",
+      "pinnedTreeSha": "7de8637b4eb0005c9338e7c9784172e4615685b8",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/JustinBeckwith/retry-axios"
+      },
+      "pushedAt": "2026-07-24T18:29:22Z",
+      "repositoryId": "119460931",
+      "repositoryUrl": "https://github.com/JustinBeckwith/retry-axios",
+      "strata": ["agents-md", "gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/kubernetes-sigs/cluster-api-provider-openstack",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 56941,
+      "fork": false,
+      "fullName": "kubernetes-sigs/cluster-api-provider-openstack",
+      "instructionEvidence": [
+        {
+          "blobSha": "adb8302d7aab6a2141dbdca8bb43b172f52f5ab1",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/kubernetes-sigs/cluster-api-provider-openstack/git/trees/77747ae6958892afea2859f67e88aedd49a95ea3",
+          "path": "AGENTS.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/kubernetes-sigs/cluster-api-provider-openstack",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "d664653bbe75d7f3bfdc32209b90174cbc1ad281",
+      "pinnedTreeSha": "77747ae6958892afea2859f67e88aedd49a95ea3",
+      "primaryLanguage": "Go",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/kubernetes-sigs/cluster-api-provider-openstack"
+      },
+      "pushedAt": "2026-08-07T13:51:16Z",
+      "repositoryId": "137236252",
+      "repositoryUrl": "https://github.com/kubernetes-sigs/cluster-api-provider-openstack",
+      "strata": ["agents-md"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/kyxap/koreader-calibre-plugin",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 2375,
+      "fork": false,
+      "fullName": "kyxap/koreader-calibre-plugin",
+      "instructionEvidence": [
+        {
+          "blobSha": "6669b9393c0cd6a2134d6628ec99907d0d42fcb5",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/kyxap/koreader-calibre-plugin/git/trees/7e5722743ce0af1fdcc0c90ec444833aa781d646",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/kyxap/koreader-calibre-plugin",
+        "spdxId": "GPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "439b2a89f982dbe32b8f89ed7950f9cedebdb725",
+      "pinnedTreeSha": "7e5722743ce0af1fdcc0c90ec444833aa781d646",
+      "primaryLanguage": "Python",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/kyxap/koreader-calibre-plugin"
+      },
+      "pushedAt": "2026-04-28T05:19:23Z",
+      "repositoryId": "582526507",
+      "repositoryUrl": "https://github.com/kyxap/koreader-calibre-plugin",
+      "strata": ["gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/labex-labs/python-cheatsheet",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 52153,
+      "fork": false,
+      "fullName": "labex-labs/python-cheatsheet",
+      "instructionEvidence": [
+        {
+          "blobSha": "cb9d5baeb68eea915a86e35b178de5fc76840e3d",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/labex-labs/python-cheatsheet/git/trees/0f7adbac605975a70e3f43b0f4613cb86258866b",
+          "path": ".github/copilot-instructions.md"
+        },
+        {
+          "blobSha": "6a4b6406f175e5f4c5a0efe09562a5371e06994a",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/labex-labs/python-cheatsheet/git/trees/0f7adbac605975a70e3f43b0f4613cb86258866b",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/labex-labs/python-cheatsheet",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "c5ee95196aafa19461d301aee49e75372dd4810e",
+      "pinnedTreeSha": "0f7adbac605975a70e3f43b0f4613cb86258866b",
+      "primaryLanguage": "Vue",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/labex-labs/python-cheatsheet"
+      },
+      "pushedAt": "2026-07-01T08:14:51Z",
+      "repositoryId": "118820677",
+      "repositoryUrl": "https://github.com/labex-labs/python-cheatsheet",
+      "strata": ["copilot", "gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/Lazza/RecuperaBit",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 141,
+      "fork": false,
+      "fullName": "Lazza/RecuperaBit",
+      "instructionEvidence": [
+        {
+          "blobSha": "78efe7e633b4c4675db7f53b94560291a7e80570",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/Lazza/RecuperaBit/git/trees/1578f0a0db7f84b950e3e945f1fca6381459faff",
+          "path": ".cursor/rules/uv.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/Lazza/RecuperaBit",
+        "spdxId": "GPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "90930dc8e104bb2198c1596004d355066d314d4b",
+      "pinnedTreeSha": "1578f0a0db7f84b950e3e945f1fca6381459faff",
+      "primaryLanguage": "Python",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/Lazza/RecuperaBit"
+      },
+      "pushedAt": "2026-07-26T20:05:07Z",
+      "repositoryId": "50295498",
+      "repositoryUrl": "https://github.com/Lazza/RecuperaBit",
+      "strata": ["cursor"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/LeonMusCoden/LetterFeed",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 464,
+      "fork": false,
+      "fullName": "LeonMusCoden/LetterFeed",
+      "instructionEvidence": [
+        {
+          "blobSha": "614bd2d0b3e667280023f72edafe0ec545e7a104",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/LeonMusCoden/LetterFeed/git/trees/5e88926fab7460f9a95d1fad92905eb2765eb957",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/LeonMusCoden/LetterFeed",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "bd96dce9adb52728b99671ada5824924a28da366",
+      "pinnedTreeSha": "5e88926fab7460f9a95d1fad92905eb2765eb957",
+      "primaryLanguage": "Python",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/LeonMusCoden/LetterFeed"
+      },
+      "pushedAt": "2026-07-06T07:00:06Z",
+      "repositoryId": "1020236408",
+      "repositoryUrl": "https://github.com/LeonMusCoden/LetterFeed",
+      "strata": ["gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/lostintangent/gistpad-mcp",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 189,
+      "fork": false,
+      "fullName": "lostintangent/gistpad-mcp",
+      "instructionEvidence": [
+        {
+          "blobSha": "e789c9d07956fa4da9d89a87b0830a16e7f81fed",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/lostintangent/gistpad-mcp/git/trees/2a57cc23693175b9eff79918596ca1f11b3c9127",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/lostintangent/gistpad-mcp",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "4730a35ecfb399cb42a73055e269fb4e92c24707",
+      "pinnedTreeSha": "2a57cc23693175b9eff79918596ca1f11b3c9127",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/lostintangent/gistpad-mcp"
+      },
+      "pushedAt": "2026-01-16T17:58:32Z",
+      "repositoryId": "947456242",
+      "repositoryUrl": "https://github.com/lostintangent/gistpad-mcp",
+      "strata": ["copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/meain/dotfiles",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 6017,
+      "fork": false,
+      "fullName": "meain/dotfiles",
+      "instructionEvidence": [
+        {
+          "blobSha": "4cd4d8557fd68c948be0db490ba88b706b164d59",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/meain/dotfiles/git/trees/11c83cb79cff35967e211d4fa7998b9f80b166cb",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "c0b2e8ecb9308c07fb4cf0ed6be4faa4cb7fe160",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/meain/dotfiles/git/trees/11c83cb79cff35967e211d4fa7998b9f80b166cb",
+          "path": "agents/.agents/AGENTS.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/meain/dotfiles",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "d1bb273a1c8e010aee4d979e2e19862c46206b70",
+      "pinnedTreeSha": "11c83cb79cff35967e211d4fa7998b9f80b166cb",
+      "primaryLanguage": "Shell",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/meain/dotfiles"
+      },
+      "pushedAt": "2026-08-07T06:27:01Z",
+      "repositoryId": "47503873",
+      "repositoryUrl": "https://github.com/meain/dotfiles",
+      "strata": ["agents-md"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/MGeurts/genealogy",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 43394,
+      "fork": false,
+      "fullName": "MGeurts/genealogy",
+      "instructionEvidence": [
+        {
+          "blobSha": "b9070db838a08b88b7bab66a518cd53c2b8cc932",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/MGeurts/genealogy/git/trees/bb2365c9079e82633913aa048f8b559191bfe7b5",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "c35cce209c5fd59329a73351b02989498cb001b4",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/MGeurts/genealogy/git/trees/bb2365c9079e82633913aa048f8b559191bfe7b5",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "882796a4faa5d0d88d2796c73df958858d95b70e",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/MGeurts/genealogy/git/trees/bb2365c9079e82633913aa048f8b559191bfe7b5",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/MGeurts/genealogy",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "a633dc9ac7a691618589090c88d6090b7155a798",
+      "pinnedTreeSha": "bb2365c9079e82633913aa048f8b559191bfe7b5",
+      "primaryLanguage": "PHP",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/MGeurts/genealogy"
+      },
+      "pushedAt": "2026-07-31T07:23:43Z",
+      "repositoryId": "744711036",
+      "repositoryUrl": "https://github.com/MGeurts/genealogy",
+      "strata": ["agents-md", "claude", "gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/microsoft/FLAML",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 233980,
+      "fork": false,
+      "fullName": "microsoft/FLAML",
+      "instructionEvidence": [
+        {
+          "blobSha": "86926ecc37cf1bedc552d8c82dfbd054c8ae658c",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/microsoft/FLAML/git/trees/3d195ee7b0d6dc1a3d500a7d4994248f31e7c858",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/microsoft/FLAML",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "133bc1dbc163c980dadfe00a530505852ab1c17a",
+      "pinnedTreeSha": "3d195ee7b0d6dc1a3d500a7d4994248f31e7c858",
+      "primaryLanguage": "Jupyter Notebook",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/microsoft/FLAML"
+      },
+      "pushedAt": "2026-08-07T04:33:25Z",
+      "repositoryId": "289107293",
+      "repositoryUrl": "https://github.com/microsoft/FLAML",
+      "strata": ["copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/n-ce/ytify",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 14543,
+      "fork": false,
+      "fullName": "n-ce/ytify",
+      "instructionEvidence": [
+        {
+          "blobSha": "1197e828441f5e744506e24faf1ed4127646e79a",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/n-ce/ytify/git/trees/e4d6b33a0541e90a6f6397c8be39d2d5238e1914",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/n-ce/ytify",
+        "spdxId": "GPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "2ffd216463fe8eff367102c1548f10e3382661e8",
+      "pinnedTreeSha": "e4d6b33a0541e90a6f6397c8be39d2d5238e1914",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/n-ce/ytify"
+      },
+      "pushedAt": "2026-07-26T07:43:49Z",
+      "repositoryId": "452201043",
+      "repositoryUrl": "https://github.com/n-ce/ytify",
+      "strata": ["gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/narnia-sh/layrr",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 50635,
+      "fork": false,
+      "fullName": "narnia-sh/layrr",
+      "instructionEvidence": [
+        {
+          "blobSha": "990c65a0abd80e408a5450e5ccbd18c556ab0a7f",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/narnia-sh/layrr/git/trees/47a72238c589c9f5c61ef9d30a3057fcce9fd4d8",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/narnia-sh/layrr",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "e4e7a0ab972d3df4f5acc6a5929f36f3def89c59",
+      "pinnedTreeSha": "47a72238c589c9f5c61ef9d30a3057fcce9fd4d8",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/narnia-sh/layrr"
+      },
+      "pushedAt": "2026-05-10T06:35:30Z",
+      "repositoryId": "1084907026",
+      "repositoryUrl": "https://github.com/narnia-sh/layrr",
+      "strata": ["claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/NaverPayDev/pie",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 12614,
+      "fork": false,
+      "fullName": "NaverPayDev/pie",
+      "instructionEvidence": [
+        {
+          "blobSha": "e9937b6b3e7f2e07f8c8e3fb83a7d39b456c09d8",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/NaverPayDev/pie/git/trees/95fc6b2014ba3c3742102f8bf63bf03d4eeafae4",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "33f448251af9719fe104573816c42621d22b2f00",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/NaverPayDev/pie/git/trees/95fc6b2014ba3c3742102f8bf63bf03d4eeafae4",
+          "path": "packages/es-http-status-codes/CLAUDE.md"
+        },
+        {
+          "blobSha": "14602c349fbfd4a7d1beb6246de69f11b686ac5b",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/NaverPayDev/pie/git/trees/95fc6b2014ba3c3742102f8bf63bf03d4eeafae4",
+          "path": "packages/react-pdf/CLAUDE.md"
+        },
+        {
+          "blobSha": "d206a2e008aa2f09d2ba79602904d85e91a82ed7",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/NaverPayDev/pie/git/trees/95fc6b2014ba3c3742102f8bf63bf03d4eeafae4",
+          "path": "packages/safe-html-react-parser/CLAUDE.md"
+        },
+        {
+          "blobSha": "6a18b85a319061ae8188323926a09d2a04891438",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/NaverPayDev/pie/git/trees/95fc6b2014ba3c3742102f8bf63bf03d4eeafae4",
+          "path": "packages/svg-manager/CLAUDE.md"
+        },
+        {
+          "blobSha": "95122f05f82b7d3c827e8211042110f434df11f5",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/NaverPayDev/pie/git/trees/95fc6b2014ba3c3742102f8bf63bf03d4eeafae4",
+          "path": "packages/url-param-compressor/CLAUDE.md"
+        },
+        {
+          "blobSha": "0d867265354bf908914d88102b417444d20412bf",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/NaverPayDev/pie/git/trees/95fc6b2014ba3c3742102f8bf63bf03d4eeafae4",
+          "path": "packages/utils/CLAUDE.md"
+        },
+        {
+          "blobSha": "9c0009cfd632829926f1269aa73be2c9fa6af7a5",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/NaverPayDev/pie/git/trees/95fc6b2014ba3c3742102f8bf63bf03d4eeafae4",
+          "path": "packages/vanilla-store/CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/NaverPayDev/pie",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": ["pnpm-workspace.yaml"],
+      "pinnedCommitSha": "11f340c3641916385295cfd99b8f5e38df7c4966",
+      "pinnedTreeSha": "95fc6b2014ba3c3742102f8bf63bf03d4eeafae4",
+      "primaryLanguage": "HTML",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/NaverPayDev/pie"
+      },
+      "pushedAt": "2026-06-30T07:18:48Z",
+      "repositoryId": "784145100",
+      "repositoryUrl": "https://github.com/NaverPayDev/pie",
+      "strata": ["claude"],
+      "traits": {
+        "monorepository": true,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/nextdns/nextdns",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 17000,
+      "fork": false,
+      "fullName": "nextdns/nextdns",
+      "instructionEvidence": [
+        {
+          "blobSha": "43a28340581aa8bee6e28e17848476c617ddd6b0",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/nextdns/nextdns/git/trees/8f5a85a3f8258f8118baf16be6bde7aaa8855dc9",
+          "path": "AGENTS.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/nextdns/nextdns",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "b833e8236e87c73ff48e9a40571af85a70a9fd75",
+      "pinnedTreeSha": "8f5a85a3f8258f8118baf16be6bde7aaa8855dc9",
+      "primaryLanguage": "Go",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/nextdns/nextdns"
+      },
+      "pushedAt": "2026-08-07T19:35:46Z",
+      "repositoryId": "211206547",
+      "repositoryUrl": "https://github.com/nextdns/nextdns",
+      "strata": ["agents-md"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/nunit/nunit",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 41156,
+      "fork": false,
+      "fullName": "nunit/nunit",
+      "instructionEvidence": [
+        {
+          "blobSha": "9b7ec78df11c9aad2f0ef6779ab9b9a9447a89e5",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/nunit/nunit/git/trees/1c15819890d1b74720411462cf4aeac107e823f4",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "c5b2e2f78ba990deb39713cc7cedaf39618d03a4",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/nunit/nunit/git/trees/1c15819890d1b74720411462cf4aeac107e823f4",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/nunit/nunit",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "f0ccf2344a9c65d22673a89c57eb06ce1ea059c1",
+      "pinnedTreeSha": "1c15819890d1b74720411462cf4aeac107e823f4",
+      "primaryLanguage": "C#",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/nunit/nunit"
+      },
+      "pushedAt": "2026-08-08T18:19:44Z",
+      "repositoryId": "13692183",
+      "repositoryUrl": "https://github.com/nunit/nunit",
+      "strata": ["agents-md", "copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/openshift/cluster-kube-descheduler-operator",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 93816,
+      "fork": false,
+      "fullName": "openshift/cluster-kube-descheduler-operator",
+      "instructionEvidence": [
+        {
+          "blobSha": "b937472273476f7bb76f387061c61f038606a993",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/openshift/cluster-kube-descheduler-operator/git/trees/40055ca52f43710ae35d2b163e6f9f6770f7a808",
+          "path": "vendor/github.com/openshift/api/AGENTS.md"
+        },
+        {
+          "blobSha": "9fe62bc76992598dcfdd89bcc0b2b336bfb96699",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/openshift/cluster-kube-descheduler-operator/git/trees/40055ca52f43710ae35d2b163e6f9f6770f7a808",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/openshift/cluster-kube-descheduler-operator",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "dadda604e45a2ddef5d3cbe186259c712b92429f",
+      "pinnedTreeSha": "40055ca52f43710ae35d2b163e6f9f6770f7a808",
+      "primaryLanguage": "Go",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/openshift/cluster-kube-descheduler-operator"
+      },
+      "pushedAt": "2026-08-08T10:25:50Z",
+      "repositoryId": "153352722",
+      "repositoryUrl": "https://github.com/openshift/cluster-kube-descheduler-operator",
+      "strata": ["agents-md", "claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 5167,
+      "fork": false,
+      "fullName": "oyjt/uniapp-vue3-template",
+      "instructionEvidence": [
+        {
+          "blobSha": "d775e1d96a29e45d8c141d5946ff2a7a41734456",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template/git/trees/c0f3b2a15def8ec923e27a1f83b2815cac0e3882",
+          "path": ".claude/rules/git.md"
+        },
+        {
+          "blobSha": "ecee81ec71d465a92d38496f771841827e0158ad",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template/git/trees/c0f3b2a15def8ec923e27a1f83b2815cac0e3882",
+          "path": ".claude/rules/project.md"
+        },
+        {
+          "blobSha": "ccb03f48e4c5a6f8c7c6a95ea28ce5e1e6dab2dd",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template/git/trees/c0f3b2a15def8ec923e27a1f83b2815cac0e3882",
+          "path": ".claude/rules/ts.md"
+        },
+        {
+          "blobSha": "19d600841b43c85af5a6819078e5a903ee54fec1",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template/git/trees/c0f3b2a15def8ec923e27a1f83b2815cac0e3882",
+          "path": ".claude/rules/vue.md"
+        },
+        {
+          "blobSha": "0c5c29cc6b98e9e48cd04772f26d86cce6f82a9c",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template/git/trees/c0f3b2a15def8ec923e27a1f83b2815cac0e3882",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "0527ecd245ac5c67829bab3ddb5df3789744f911",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template/git/trees/c0f3b2a15def8ec923e27a1f83b2815cac0e3882",
+          "path": ".cursor/rules/git.mdc"
+        },
+        {
+          "blobSha": "6b731822651a7d03aaa737b4134d369c2e354646",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template/git/trees/c0f3b2a15def8ec923e27a1f83b2815cac0e3882",
+          "path": ".cursor/rules/index.mdc"
+        },
+        {
+          "blobSha": "89104022336541ad40d68a7a176aa53177dbcd9b",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template/git/trees/c0f3b2a15def8ec923e27a1f83b2815cac0e3882",
+          "path": ".cursor/rules/project.mdc"
+        },
+        {
+          "blobSha": "c9632e1572b8966edc2bd9fd329c588da460a69f",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template/git/trees/c0f3b2a15def8ec923e27a1f83b2815cac0e3882",
+          "path": ".cursor/rules/ts.mdc"
+        },
+        {
+          "blobSha": "e03462be12d572066fc6f4ce1d33dee5a6d4b728",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template/git/trees/c0f3b2a15def8ec923e27a1f83b2815cac0e3882",
+          "path": ".cursor/rules/vue.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/oyjt/uniapp-vue3-template",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "4d7f3075a739c37c7fd7cff73a5d2ee7d034e113",
+      "pinnedTreeSha": "c0f3b2a15def8ec923e27a1f83b2815cac0e3882",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/oyjt/uniapp-vue3-template"
+      },
+      "pushedAt": "2026-06-04T08:15:50Z",
+      "repositoryId": "675772757",
+      "repositoryUrl": "https://github.com/oyjt/uniapp-vue3-template",
+      "strata": ["claude", "cursor"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/pass-agent/loomkin",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 6544,
+      "fork": false,
+      "fullName": "pass-agent/loomkin",
+      "instructionEvidence": [
+        {
+          "blobSha": "781631ab10f97e8f3d24ec13b46a87f0b8d44b6f",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/pass-agent/loomkin/git/trees/ef0c4762b31f43d4813bec3a4025316ba3956e81",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "2f6365ffca3c9bb2b573617d5735c98f65bc7548",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/pass-agent/loomkin/git/trees/ef0c4762b31f43d4813bec3a4025316ba3956e81",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/pass-agent/loomkin",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": ["pnpm-workspace.yaml"],
+      "pinnedCommitSha": "f769ae73adeed9bed4588934c09a6e99c87233c3",
+      "pinnedTreeSha": "ef0c4762b31f43d4813bec3a4025316ba3956e81",
+      "primaryLanguage": "Elixir",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/pass-agent/loomkin"
+      },
+      "pushedAt": "2026-05-17T12:57:59Z",
+      "repositoryId": "1169009889",
+      "repositoryUrl": "https://github.com/pass-agent/loomkin",
+      "strata": ["agents-md", "copilot"],
+      "traits": {
+        "monorepository": true,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/protoman/rockbot",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 443074,
+      "fork": false,
+      "fullName": "protoman/rockbot",
+      "instructionEvidence": [
+        {
+          "blobSha": "7e37e8cdbe470390fbc63aa219e3c22476e235f8",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/protoman/rockbot/git/trees/47318cffd5f917b98c8db73cde99db81176ab1c9",
+          "path": ".github/copilot-instructions.md"
+        },
+        {
+          "blobSha": "7e37e8cdbe470390fbc63aa219e3c22476e235f8",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/protoman/rockbot/git/trees/47318cffd5f917b98c8db73cde99db81176ab1c9",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/protoman/rockbot",
+        "spdxId": "GPL-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "d7cff810ac1a0eb2a7b2bc9e1022e2e86819eee1",
+      "pinnedTreeSha": "47318cffd5f917b98c8db73cde99db81176ab1c9",
+      "primaryLanguage": "C++",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/protoman/rockbot"
+      },
+      "pushedAt": "2026-07-21T13:23:36Z",
+      "repositoryId": "41870881",
+      "repositoryUrl": "https://github.com/protoman/rockbot",
+      "strata": ["copilot", "gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/pulumi/kubespy",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 3610,
+      "fork": false,
+      "fullName": "pulumi/kubespy",
+      "instructionEvidence": [
+        {
+          "blobSha": "c9ce31eedd535d659447f27eb004f62f0f6430de",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/pulumi/kubespy/git/trees/4bc0b3dc53999eb3d83a39726274b3843f5f224f",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/pulumi/kubespy",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "7a46c6d2535c8be0c8fc155fb0f60865885681be",
+      "pinnedTreeSha": "4bc0b3dc53999eb3d83a39726274b3843f5f224f",
+      "primaryLanguage": "Go",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/pulumi/kubespy"
+      },
+      "pushedAt": "2026-08-06T02:29:22Z",
+      "repositoryId": "149165150",
+      "repositoryUrl": "https://github.com/pulumi/kubespy",
+      "strata": ["copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/purton-tech/rust-on-nails",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 52667,
+      "fork": false,
+      "fullName": "purton-tech/rust-on-nails",
+      "instructionEvidence": [
+        {
+          "blobSha": "62b83cbe2d1116a743b525f5b4966b927cf556c2",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/purton-tech/rust-on-nails/git/trees/c6f747b99c47e964d84dd53ea81a2358b8597f8b",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "bdebbf05a55c9320054adb2cda905c7c1df26423",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/purton-tech/rust-on-nails/git/trees/c6f747b99c47e964d84dd53ea81a2358b8597f8b",
+          "path": "nails-devcontainer/AGENTS.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/purton-tech/rust-on-nails",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "58002503ac14fac04ae9d9ee48eacad5a273d108",
+      "pinnedTreeSha": "c6f747b99c47e964d84dd53ea81a2358b8597f8b",
+      "primaryLanguage": "Rust",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/purton-tech/rust-on-nails"
+      },
+      "pushedAt": "2026-07-22T11:08:34Z",
+      "repositoryId": "487286908",
+      "repositoryUrl": "https://github.com/purton-tech/rust-on-nails",
+      "strata": ["agents-md"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/rderaison/bromure",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 166013,
+      "fork": false,
+      "fullName": "rderaison/bromure",
+      "instructionEvidence": [
+        {
+          "blobSha": "1f2f3f06316bc39b2d42d26821d5c58eb073b2fc",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/rderaison/bromure/git/trees/e5b296b165650c720ea022161766bbe25b8d5dcc",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/rderaison/bromure",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "ca0d416bb643fa4301910ee8bc1d036a120f772e",
+      "pinnedTreeSha": "e5b296b165650c720ea022161766bbe25b8d5dcc",
+      "primaryLanguage": "Swift",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/rderaison/bromure"
+      },
+      "pushedAt": "2026-08-07T13:51:17Z",
+      "repositoryId": "1176047082",
+      "repositoryUrl": "https://github.com/rderaison/bromure",
+      "strata": ["claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/Roznoshchik/Lurnby",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 74475,
+      "fork": false,
+      "fullName": "Roznoshchik/Lurnby",
+      "instructionEvidence": [
+        {
+          "blobSha": "bf4888f20eb84b9908f8adacd351e919e1071829",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/Roznoshchik/Lurnby/git/trees/b4bba8b466a7227714ecc318981ce444b2f76f99",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/Roznoshchik/Lurnby",
+        "spdxId": "BSD-3-Clause"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "5479480fa6f681de5524a206f4ae32932f82b81f",
+      "pinnedTreeSha": "b4bba8b466a7227714ecc318981ce444b2f76f99",
+      "primaryLanguage": "JavaScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/Roznoshchik/Lurnby"
+      },
+      "pushedAt": "2026-05-01T14:46:54Z",
+      "repositoryId": "260888800",
+      "repositoryUrl": "https://github.com/Roznoshchik/Lurnby",
+      "strata": ["claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/sethlaw/sputr",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 90,
+      "fork": false,
+      "fullName": "sethlaw/sputr",
+      "instructionEvidence": [
+        {
+          "blobSha": "06f9380c7c53c217dcfd3fdb9afb9bd0d5c294c1",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/sethlaw/sputr/git/trees/5effc9f43ba695686ebe5b0aea2ba698197a335f",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/sethlaw/sputr",
+        "spdxId": "GPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "7a1cf4cc6b1e2571c6ca4ed1c4bcf8aee06c65b0",
+      "pinnedTreeSha": "5effc9f43ba695686ebe5b0aea2ba698197a335f",
+      "primaryLanguage": "Python",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/sethlaw/sputr"
+      },
+      "pushedAt": "2026-02-18T02:45:33Z",
+      "repositoryId": "67164929",
+      "repositoryUrl": "https://github.com/sethlaw/sputr",
+      "strata": ["claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/SmokinCaterpillar/pypet",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 15126,
+      "fork": false,
+      "fullName": "SmokinCaterpillar/pypet",
+      "instructionEvidence": [
+        {
+          "blobSha": "ec37862b87fc5ab612f6803dd36a0eb2788b9d6a",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/SmokinCaterpillar/pypet/git/trees/f20eaed2387e187e2f15b3fbe09f5415f02287ca",
+          "path": "CLAUDE.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/SmokinCaterpillar/pypet",
+        "spdxId": "BSD-3-Clause"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "a95aabf1ef4a3c8066495a0d10ee32d8c02600fe",
+      "pinnedTreeSha": "f20eaed2387e187e2f15b3fbe09f5415f02287ca",
+      "primaryLanguage": "Python",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/SmokinCaterpillar/pypet"
+      },
+      "pushedAt": "2026-03-13T21:47:07Z",
+      "repositoryId": "12901526",
+      "repositoryUrl": "https://github.com/SmokinCaterpillar/pypet",
+      "strata": ["claude"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/sverweij/state-machine-cat",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 178357,
+      "fork": false,
+      "fullName": "sverweij/state-machine-cat",
+      "instructionEvidence": [
+        {
+          "blobSha": "ede28044975ce480fd3e1d587a6eb32c422325ff",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/sverweij/state-machine-cat/git/trees/c0de3598608c322010d4ae75a7fabf0c7c22e93b",
+          "path": ".github/copilot-instructions.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/sverweij/state-machine-cat",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "7b8f980e3544c5f1b912d89d2367c8ecb10e9dcc",
+      "pinnedTreeSha": "c0de3598608c322010d4ae75a7fabf0c7c22e93b",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/sverweij/state-machine-cat"
+      },
+      "pushedAt": "2026-08-02T21:03:24Z",
+      "repositoryId": "68237661",
+      "repositoryUrl": "https://github.com/sverweij/state-machine-cat",
+      "strata": ["copilot"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/sybrew/the-seo-framework",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 10193,
+      "fork": false,
+      "fullName": "sybrew/the-seo-framework",
+      "instructionEvidence": [
+        {
+          "blobSha": "91bd8e23ed0c85057e394f363ddfb3229db234d5",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".github/copilot-instructions.md"
+        },
+        {
+          "blobSha": "0ef0b99526b70b4f2c4ff5c22423dc42b821a8c3",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".github/instructions/css.instructions.md"
+        },
+        {
+          "blobSha": "22e18b9326d13a8af9123b0e97429c62ee6508e4",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".github/instructions/docs.instructions.md"
+        },
+        {
+          "blobSha": "54fc22340421d530a25aa6bdb0d3d24ee5256c76",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".github/instructions/javascript.instructions.md"
+        },
+        {
+          "blobSha": "d7567e04174c19060c13bbcde67bc669477a6044",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".github/instructions/local.instructions.md"
+        },
+        {
+          "blobSha": "a2cbb87d088cf324d2653011af29e608972e9e01",
+          "format": "copilot",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".github/instructions/php.instructions.md"
+        },
+        {
+          "blobSha": "b6fc5470a330f3d719b58d37ce95425049b6c2d8",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".cursor/rules/core.mdc"
+        },
+        {
+          "blobSha": "f4183432265f0b1fdf18c8526cd397dd8b8fba86",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".cursor/rules/css.mdc"
+        },
+        {
+          "blobSha": "4c2fe1665b30b2e63d143cc72f57cb9b4633df70",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".cursor/rules/docs.mdc"
+        },
+        {
+          "blobSha": "fad92d1ee59129f9f2a089a6985ebaef8d35abf3",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".cursor/rules/javascript.mdc"
+        },
+        {
+          "blobSha": "0e19526f3b527f1818d8a47c27fddddb54f69415",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".cursor/rules/local.mdc"
+        },
+        {
+          "blobSha": "9032fa19f429ad258515262b834eea9eca41ce56",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework/git/trees/445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+          "path": ".cursor/rules/php.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/sybrew/the-seo-framework",
+        "spdxId": "GPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "47c0e2fd36301b65865daa4f2744894c9930eb73",
+      "pinnedTreeSha": "445dcf9cf3167bb53d04f3dfbd8afa999932d970",
+      "primaryLanguage": "PHP",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/sybrew/the-seo-framework"
+      },
+      "pushedAt": "2026-06-17T23:42:16Z",
+      "repositoryId": "47667822",
+      "repositoryUrl": "https://github.com/sybrew/the-seo-framework",
+      "strata": ["copilot", "cursor"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/thomaskioko/tv-maniac",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 393603,
+      "fork": false,
+      "fullName": "thomaskioko/tv-maniac",
+      "instructionEvidence": [
+        {
+          "blobSha": "8726884c41f16e23d95fa8138e4b4974acde202e",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/thomaskioko/tv-maniac/git/trees/4dc90b17bd1f75c4ad2bea9b8b8f7a0dfedaae40",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/thomaskioko/tv-maniac",
+        "spdxId": "Apache-2.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "0d38d525f6ac5bf2c0eef9cb715834ba554ef76f",
+      "pinnedTreeSha": "4dc90b17bd1f75c4ad2bea9b8b8f7a0dfedaae40",
+      "primaryLanguage": "Kotlin",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/thomaskioko/tv-maniac"
+      },
+      "pushedAt": "2026-08-08T20:33:46Z",
+      "repositoryId": "361393353",
+      "repositoryUrl": "https://github.com/thomaskioko/tv-maniac",
+      "strata": ["gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/thumbor/libthumbor",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 352,
+      "fork": false,
+      "fullName": "thumbor/libthumbor",
+      "instructionEvidence": [
+        {
+          "blobSha": "c629950175c6955e71d2f113193d760022ac3c23",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/thumbor/libthumbor/git/trees/cb9791cff98b65c6b20606cafae885f4860b6d3f",
+          "path": "AGENTS.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/thumbor/libthumbor",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "5e25b89055eae7a0b82acd57718210de13332044",
+      "pinnedTreeSha": "cb9791cff98b65c6b20606cafae885f4860b6d3f",
+      "primaryLanguage": "Python",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/thumbor/libthumbor"
+      },
+      "pushedAt": "2026-08-01T03:45:10Z",
+      "repositoryId": "1547235",
+      "repositoryUrl": "https://github.com/thumbor/libthumbor",
+      "strata": ["agents-md"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/un-pany/v3-admin-vite",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 54313,
+      "fork": false,
+      "fullName": "un-pany/v3-admin-vite",
+      "instructionEvidence": [
+        {
+          "blobSha": "5e45f170354f42c40a201a403a832a2cdbc9f4bb",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/un-pany/v3-admin-vite/git/trees/41e50d1059eefe25289098d895b031ed41c1bd5e",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "43c994c2d3617f947bcb5adf1933e21dabe46bb5",
+          "format": "claude",
+          "metadataUrl": "https://api.github.com/repos/un-pany/v3-admin-vite/git/trees/41e50d1059eefe25289098d895b031ed41c1bd5e",
+          "path": "CLAUDE.md"
+        },
+        {
+          "blobSha": "a6f0724f46a096556c4e0328c0499ec3354107dd",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/un-pany/v3-admin-vite/git/trees/41e50d1059eefe25289098d895b031ed41c1bd5e",
+          "path": ".cursor/rules/git.mdc"
+        },
+        {
+          "blobSha": "d9fdfb0fc93f4c6bc663bd62b5cdcfb6af5d850e",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/un-pany/v3-admin-vite/git/trees/41e50d1059eefe25289098d895b031ed41c1bd5e",
+          "path": ".cursor/rules/index.mdc"
+        },
+        {
+          "blobSha": "9142e4c84448b442c3ff16791de6864c51bf705e",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/un-pany/v3-admin-vite/git/trees/41e50d1059eefe25289098d895b031ed41c1bd5e",
+          "path": ".cursor/rules/project.mdc"
+        },
+        {
+          "blobSha": "50d7d83ef4f2f772b9ae43336782a82304010758",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/un-pany/v3-admin-vite/git/trees/41e50d1059eefe25289098d895b031ed41c1bd5e",
+          "path": ".cursor/rules/ts.mdc"
+        },
+        {
+          "blobSha": "e6b8417089a62dad6c09093bf91c7139cae4a992",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/un-pany/v3-admin-vite/git/trees/41e50d1059eefe25289098d895b031ed41c1bd5e",
+          "path": ".cursor/rules/vue.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/un-pany/v3-admin-vite",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "c2c895d71d571e9c18c2453fa85469a479c79fc6",
+      "pinnedTreeSha": "41e50d1059eefe25289098d895b031ed41c1bd5e",
+      "primaryLanguage": "Vue",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/un-pany/v3-admin-vite"
+      },
+      "pushedAt": "2026-07-11T15:57:10Z",
+      "repositoryId": "483688672",
+      "repositoryUrl": "https://github.com/un-pany/v3-admin-vite",
+      "strata": ["agents-md", "claude", "cursor"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/ViewComfy/ViewComfy",
+      "archived": false,
+      "defaultBranch": "main",
+      "diskUsageKiB": 1723,
+      "fork": false,
+      "fullName": "ViewComfy/ViewComfy",
+      "instructionEvidence": [
+        {
+          "blobSha": "898afb39e2fba9e9da4fa9a684012ccc5213aa67",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/ViewComfy/ViewComfy/git/trees/06401d7588b3d1d975ae593c8482685315216e32",
+          "path": ".claude/skills/react-best-practices/AGENTS.md"
+        },
+        {
+          "blobSha": "1f4720eda60e18bfe99d5a91d226aa255f5d29cd",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/ViewComfy/ViewComfy/git/trees/06401d7588b3d1d975ae593c8482685315216e32",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "76f3452aa76efc837a8fbcc708c875e51d27e15b",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/ViewComfy/ViewComfy/git/trees/06401d7588b3d1d975ae593c8482685315216e32",
+          "path": ".cursor/rules/front-end-cursor-rules.mdc"
+        },
+        {
+          "blobSha": "caef9a893510070b4382c217df6759cd69e1021d",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/ViewComfy/ViewComfy/git/trees/06401d7588b3d1d975ae593c8482685315216e32",
+          "path": ".cursor/rules/view-comfy-json-rules.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/ViewComfy/ViewComfy",
+        "spdxId": "AGPL-3.0"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "fc0ba28a745231e98fd21688cdbb392800a8eb7b",
+      "pinnedTreeSha": "06401d7588b3d1d975ae593c8482685315216e32",
+      "primaryLanguage": "TypeScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/ViewComfy/ViewComfy"
+      },
+      "pushedAt": "2026-03-19T15:12:27Z",
+      "repositoryId": "864107095",
+      "repositoryUrl": "https://github.com/ViewComfy/ViewComfy",
+      "strata": ["agents-md", "cursor"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/X-Wei/flutter_catalog",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 17949,
+      "fork": false,
+      "fullName": "X-Wei/flutter_catalog",
+      "instructionEvidence": [
+        {
+          "blobSha": "b53d561ff9255c45958c2a98a330dc613eba74b0",
+          "format": "gemini",
+          "metadataUrl": "https://api.github.com/repos/X-Wei/flutter_catalog/git/trees/4acbc86370112df9e692c59aad92389b3d90dcc1",
+          "path": "GEMINI.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/X-Wei/flutter_catalog",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "194564165ff45a1f56c922f859466a34d71d26c5",
+      "pinnedTreeSha": "4acbc86370112df9e692c59aad92389b3d90dcc1",
+      "primaryLanguage": "Dart",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/X-Wei/flutter_catalog"
+      },
+      "pushedAt": "2026-05-24T21:11:49Z",
+      "repositoryId": "143596315",
+      "repositoryUrl": "https://github.com/X-Wei/flutter_catalog",
+      "strata": ["gemini"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/yanyiwu/nodejieba",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 4835,
+      "fork": false,
+      "fullName": "yanyiwu/nodejieba",
+      "instructionEvidence": [
+        {
+          "blobSha": "b2d3e838e21b580018ad233f3703f990485da61b",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/yanyiwu/nodejieba/git/trees/04e12b5f7493568c80c080722ded79e22b273794",
+          "path": "AGENTS.md"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/yanyiwu/nodejieba",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "99a3e8147237b983c9068213405a8f0edb340421",
+      "pinnedTreeSha": "04e12b5f7493568c80c080722ded79e22b273794",
+      "primaryLanguage": "JavaScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/yanyiwu/nodejieba"
+      },
+      "pushedAt": "2026-07-26T16:33:44Z",
+      "repositoryId": "16175350",
+      "repositoryUrl": "https://github.com/yanyiwu/nodejieba",
+      "strata": ["agents-md"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": false
+      }
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/zxlie/FeHelper",
+      "archived": false,
+      "defaultBranch": "master",
+      "diskUsageKiB": 78104,
+      "fork": false,
+      "fullName": "zxlie/FeHelper",
+      "instructionEvidence": [
+        {
+          "blobSha": "a71feac227235cd1765a2d3cf5fcd37112796418",
+          "format": "agents-md",
+          "metadataUrl": "https://api.github.com/repos/zxlie/FeHelper/git/trees/645eedb6ebfd8deab2aac950a9fd59359e7e3c19",
+          "path": "AGENTS.md"
+        },
+        {
+          "blobSha": "77f33dbc3a701556ea36a1d16f01b9721129d6ef",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/zxlie/FeHelper/git/trees/645eedb6ebfd8deab2aac950a9fd59359e7e3c19",
+          "path": ".cursor/rules/fh.mdc"
+        },
+        {
+          "blobSha": "cb93c845e853ef54839c110e577a0d786995ce6a",
+          "format": "cursor",
+          "metadataUrl": "https://api.github.com/repos/zxlie/FeHelper/git/trees/645eedb6ebfd8deab2aac950a9fd59359e7e3c19",
+          "path": ".cursor/rules/hs.mdc"
+        }
+      ],
+      "license": {
+        "metadataUrl": "https://api.github.com/repos/zxlie/FeHelper",
+        "spdxId": "MIT"
+      },
+      "monorepoEvidencePaths": [],
+      "pinnedCommitSha": "cc3aa4bb7f891a209cfa605ead2b45eb3ba8ad46",
+      "pinnedTreeSha": "645eedb6ebfd8deab2aac950a9fd59359e7e3c19",
+      "primaryLanguage": "JavaScript",
+      "publicSourceEvidence": {
+        "basis": "public-github-repository",
+        "observedAt": "2026-08-09T01:01:51.332Z",
+        "url": "https://github.com/zxlie/FeHelper"
+      },
+      "pushedAt": "2026-07-28T10:43:18Z",
+      "repositoryId": "8681369",
+      "repositoryUrl": "https://github.com/zxlie/FeHelper",
+      "strata": ["agents-md", "cursor"],
+      "traits": {
+        "monorepository": false,
+        "multipleInstructionFormats": true
+      }
+    }
+  ],
+  "contractVersion": "0.1.0",
+  "recordKind": "agent-context-metadata-calibration-candidates",
+  "retrieval": {
+    "apiBaseUrl": "https://api.github.com",
+    "apiVersion": "2022-11-28",
+    "authentication": "authenticated-public-read",
+    "documentation": [
+      "https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-code",
+      "https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#get-a-repository",
+      "https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28#get-a-commit",
+      "https://docs.github.com/en/rest/git/trees?apiVersion=2022-11-28#get-a-tree",
+      "https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api?apiVersion=2022-11-28",
+      "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28"
+    ],
+    "queries": [
+      {
+        "format": "agents-md",
+        "incompleteResults": false,
+        "query": "filename:AGENTS.md",
+        "repositoryResultCount": 100,
+        "totalCount": 681984
+      },
+      {
+        "format": "claude",
+        "incompleteResults": false,
+        "query": "filename:CLAUDE.md",
+        "repositoryResultCount": 100,
+        "totalCount": 720896
+      },
+      {
+        "format": "copilot",
+        "incompleteResults": false,
+        "query": "filename:copilot-instructions.md path:.github",
+        "repositoryResultCount": 100,
+        "totalCount": 141312
+      },
+      {
+        "format": "cursor",
+        "incompleteResults": false,
+        "query": "extension:mdc path:.cursor/rules",
+        "repositoryResultCount": 87,
+        "totalCount": 159232
+      },
+      {
+        "format": "gemini",
+        "incompleteResults": false,
+        "query": "filename:GEMINI.md",
+        "repositoryResultCount": 100,
+        "totalCount": 57216
+      }
+    ],
+    "retrievedAt": "2026-08-09T01:01:51.332Z",
+    "samplingFrame": {
+      "codeSearchMaximumAccessibleResults": 1000,
+      "excludedUnknownLicenseCount": 26,
+      "excludedTruncatedTreeCount": 0,
+      "excludedOversizedTreeCount": 2,
+      "firstPageRepositoriesOnly": true,
+      "pageSize": 100,
+      "searchIndexSnapshotNotCompletePopulation": true,
+      "unknownLicensePolicy": "excluded-and-counted"
+    },
+    "transport": {
+      "httpMethods": ["GET"],
+      "maximumResponseBytes": 7340032,
+      "maximumRequests": 1024,
+      "redirects": "error",
+      "requestConcurrency": 1,
+      "timeoutMilliseconds": 15000
+    }
+  },
+  "sourcePolicy": {
+    "diagnosticOutputInspectedBeforeSelection": false,
+    "externalMutation": false,
+    "repositoryContentRetrieved": false,
+    "repositorySourceRedistributed": false
+  }
+}

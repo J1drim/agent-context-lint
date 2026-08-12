@@ -1,0 +1,202 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/official-example-conformance-corpus.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capabilities": {
+      "items": { "$ref": "#/$defs/capability" },
+      "maxItems": 64,
+      "minItems": 1,
+      "type": "array"
+    },
+    "contractVersion": { "const": "0.1.0" },
+    "fixtures": {
+      "items": { "$ref": "#/$defs/fixtureReference" },
+      "maxItems": 14,
+      "minItems": 14,
+      "type": "array"
+    },
+    "inventory": { "$ref": "#/$defs/fileReference" },
+    "observationReview": { "$ref": "#/$defs/fileReference" },
+    "recordKind": { "const": "official-example-conformance-corpus" },
+    "review": { "$ref": "#/$defs/review" }
+  },
+  "required": [
+    "capabilities",
+    "contractVersion",
+    "fixtures",
+    "inventory",
+    "observationReview",
+    "recordKind",
+    "review"
+  ],
+  "type": "object",
+  "$defs": {
+    "capability": {
+      "additionalProperties": false,
+      "properties": {
+        "coverageTags": {
+          "items": {
+            "enum": [
+              "activation",
+              "ambiguity",
+              "glob-edge-case",
+              "import-behavior",
+              "nested-discovery",
+              "supported-location",
+              "unsupported-field"
+            ]
+          },
+          "maxItems": 7,
+          "minItems": 7,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "evidenceStatus": {
+          "items": { "$ref": "#/$defs/identifier" },
+          "maxItems": 8,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "formatId": {
+          "enum": [
+            "agents-markdown",
+            "claude-memory-markdown",
+            "claude-rule-markdown",
+            "copilot-path-instructions",
+            "copilot-repository-markdown",
+            "cursor-legacy-rules",
+            "cursor-mdc",
+            "gemini-context-markdown"
+          ]
+        },
+        "id": { "$ref": "#/$defs/identifier" },
+        "negative": { "$ref": "#/$defs/caseReference" },
+        "positive": { "$ref": "#/$defs/caseReference" },
+        "profileId": {
+          "enum": [
+            "claude-code",
+            "codex-cli",
+            "copilot-cli",
+            "copilot-vscode",
+            "cursor-agent",
+            "gemini-cli"
+          ]
+        },
+        "supportStatus": {
+          "enum": ["conditional", "not-listed", "recognized-unsupported", "supported", "unknown"]
+        },
+        "surfaceId": {
+          "enum": [
+            "claude-code/local-session",
+            "codex-cli/local-cli-single-cwd",
+            "copilot-cli/local-terminal",
+            "copilot-vscode/local-chat",
+            "cursor-agent/cli",
+            "cursor-agent/ide",
+            "gemini-cli/local-terminal"
+          ]
+        }
+      },
+      "required": [
+        "coverageTags",
+        "evidenceStatus",
+        "formatId",
+        "id",
+        "negative",
+        "positive",
+        "profileId",
+        "supportStatus",
+        "surfaceId"
+      ],
+      "type": "object"
+    },
+    "caseReference": {
+      "additionalProperties": false,
+      "properties": {
+        "assertionId": { "$ref": "#/$defs/identifier" },
+        "expectedState": {
+          "enum": ["indeterminate", "not-selected", "selected"]
+        },
+        "fixtureId": { "$ref": "#/$defs/identifier" }
+      },
+      "required": ["assertionId", "expectedState", "fixtureId"],
+      "type": "object"
+    },
+    "fileReference": {
+      "additionalProperties": false,
+      "properties": {
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      },
+      "required": ["path", "sha256"],
+      "type": "object"
+    },
+    "fixtureReference": {
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/identifier" },
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "polarity": { "enum": ["negative", "positive"] },
+        "profileId": {
+          "enum": [
+            "claude-code",
+            "codex-cli",
+            "copilot-cli",
+            "copilot-vscode",
+            "cursor-agent",
+            "gemini-cli"
+          ]
+        },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "surfaceId": {
+          "enum": [
+            "claude-code/local-session",
+            "codex-cli/local-cli-single-cwd",
+            "copilot-cli/local-terminal",
+            "copilot-vscode/local-chat",
+            "cursor-agent/cli",
+            "cursor-agent/ide",
+            "gemini-cli/local-terminal"
+          ]
+        }
+      },
+      "required": ["id", "path", "polarity", "profileId", "sha256", "surfaceId"],
+      "type": "object"
+    },
+    "identifier": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^[a-z0-9](?:[a-z0-9._/-]{0,253}[a-z0-9])?$",
+      "type": "string"
+    },
+    "repositoryPath": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$",
+      "type": "string"
+    },
+    "review": {
+      "additionalProperties": false,
+      "properties": {
+        "cadence": { "const": "monthly" },
+        "nextReviewDue": { "format": "date", "type": "string" },
+        "primaryOwner": { "const": "@agent-context-lint/profile-reviewers" },
+        "procedurePath": { "const": "docs/profiles/official-example-conformance.md" },
+        "qualityOwner": { "const": "@agent-context-lint/qa-reviewers" },
+        "reviewedAt": { "format": "date", "type": "string" }
+      },
+      "required": [
+        "cadence",
+        "nextReviewDue",
+        "primaryOwner",
+        "procedurePath",
+        "qualityOwner",
+        "reviewedAt"
+      ],
+      "type": "object"
+    },
+    "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" }
+  }
+}

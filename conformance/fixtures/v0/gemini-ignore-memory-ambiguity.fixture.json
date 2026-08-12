@@ -1,0 +1,154 @@
+{
+  "recordKind": "profile-conformance-fixture",
+  "fixtureFormatVersion": "0.1.0",
+  "id": "gemini-ignore-memory-ambiguity",
+  "title": "Gemini ignore filtering does not decide context activation",
+  "profile": {
+    "profileId": "gemini-cli",
+    "surfaceId": "gemini-cli/local-terminal",
+    "specSnapshotId": "gemini-cli/2026-08-02.0",
+    "clientVersion": "0.53.1",
+    "versionStatus": "pinned-package-and-source"
+  },
+  "provenance": {
+    "researchRecordIds": ["gemini-cli/2026-08-02.0"],
+    "derivation": "synthetic-edge-case",
+    "assumptions": ["The workspace is trusted and ignore settings are enabled."],
+    "observationIds": [],
+    "sources": [
+      {
+        "id": "gemini-ignore-source",
+        "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/services/fileDiscoveryService.ts",
+        "retrievedAt": "2026-08-02",
+        "immutability": "immutable-revision",
+        "revision": "f47d6c6f7a1308d81f9f57acf7d279f0928c5249"
+      }
+    ]
+  },
+  "repository": {
+    "root": ".",
+    "directories": [".git/", "ignored/"],
+    "files": [
+      { "path": ".geminiignore", "formatId": null, "content": "ignored/**\n" },
+      { "path": "GEMINI.md", "formatId": "gemini-context-markdown", "content": "ROOT_CONTEXT" },
+      {
+        "path": "ignored/GEMINI.md",
+        "formatId": "gemini-context-markdown",
+        "content": "IGNORED_PATH_CONTEXT"
+      },
+      { "path": "ignored/main.ts", "formatId": null, "content": "export {};" }
+    ],
+    "symlinks": []
+  },
+  "externalContext": { "mode": "unavailable", "entries": [] },
+  "invocation": {
+    "launchCwd": ".",
+    "workspaceRoots": ["."],
+    "settings": { "context.fileFiltering.respectGeminiIgnore": true },
+    "trustState": "trusted",
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "runtimeMode": "normal"
+  },
+  "targets": [
+    { "id": "target-ignored", "path": "ignored/main.ts", "purpose": "resolve-effective-context" }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "sequence": 0,
+      "kind": "launch",
+      "path": ".",
+      "targetId": "target-ignored"
+    },
+    {
+      "id": "event-read",
+      "sequence": 1,
+      "kind": "read-path",
+      "path": "ignored/main.ts",
+      "targetId": "target-ignored"
+    }
+  ],
+  "expectedGraph": {
+    "analysisStatus": "partial",
+    "ambiguities": [
+      {
+        "id": "ignore-memory-scope",
+        "kind": "documentation-source-contradiction",
+        "reason": "Current documentation links ignore files to context while pinned ancestor/JIT discovery bypasses the file-discovery ignore service.",
+        "alternatives": [
+          {
+            "id": "ignore-deactivates-context",
+            "description": "Treat the ignored descendant context as inactive, following the broad documentation claim."
+          },
+          {
+            "id": "memory-bypasses-ignore",
+            "description": "Keep the descendant context eligible, following the pinned memory-discovery source."
+          }
+        ],
+        "evidenceRefs": ["GEM-IGN-003", "GEM-GAP-008"]
+      }
+    ],
+    "nodes": [
+      {
+        "id": "read",
+        "kind": "event",
+        "eventId": "event-read",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-JIT-001"]
+      },
+      {
+        "id": "ignored-context",
+        "kind": "document",
+        "path": "ignored/GEMINI.md",
+        "formatId": "gemini-context-markdown",
+        "resolutionStatus": "contradiction",
+        "ambiguityId": "ignore-memory-scope",
+        "evidenceRefs": ["GEM-IGN-003", "GEM-GAP-008"]
+      },
+      {
+        "id": "target",
+        "kind": "target",
+        "path": "ignored/main.ts",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-JIT-002"]
+      }
+    ],
+    "edges": [
+      {
+        "id": "read-context-eligibility",
+        "from": "read",
+        "to": "ignored-context",
+        "relation": "makes-eligible",
+        "resolutionStatus": "contradiction",
+        "ambiguityId": "ignore-memory-scope",
+        "evidenceRefs": ["GEM-IGN-003", "GEM-GAP-008"]
+      },
+      {
+        "id": "context-target-activation",
+        "from": "ignored-context",
+        "to": "target",
+        "relation": "activates",
+        "resolutionStatus": "contradiction",
+        "ambiguityId": "ignore-memory-scope",
+        "evidenceRefs": ["GEM-IGN-003", "GEM-GAP-008"]
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "id": "assert-tool-filter",
+      "predicate": "ordinary-file-tool-excludes-path",
+      "expected": "ignored/main.ts",
+      "evidenceStatus": "source-derived",
+      "evidenceRefs": ["GEM-IGN-001", "GEM-IGN-002"]
+    },
+    {
+      "id": "assert-memory-activation",
+      "predicate": "ignored-context-activation",
+      "expected": "explicit-ambiguity",
+      "evidenceStatus": "contradiction",
+      "ambiguityId": "ignore-memory-scope",
+      "evidenceRefs": ["GEM-IGN-003", "GEM-GAP-008"]
+    }
+  ]
+}

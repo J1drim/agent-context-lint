@@ -1,0 +1,15 @@
+{
+  "caseId": "codex-gemini-shared-path-divergence",
+  "contractVersion": "0.1.0",
+  "expected": {
+    "analysisStatus": "partial",
+    "content": "different",
+    "equivalenceClaim": false,
+    "ordering": "same",
+    "overall": "divergent",
+    "profileIds": ["codex-cli", "gemini-cli"],
+    "scope": "different",
+    "semanticRelation": "incompatible-profile-contracts",
+    "targetPath": "src/main.ts"
+  }
+}

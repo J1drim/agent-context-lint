@@ -1,0 +1,113 @@
+# Agent Context Linter ownership policy
+#
+# IMPORTANT: @agent-context-lint/* entries are syntactically valid placeholders.
+# They are not an operational control until replaced and verified as described in
+# docs/governance/ownership.md. Remote merge/release automation must remain
+# disabled while any placeholder is unresolved.
+#
+# Last matching pattern wins. Cross-domain and two-person approvals are enforced
+# by the review matrix and the required governance/review-policy status check.
+
+# Safe default: every otherwise-unmatched path has a maintainer owner.
+* @agent-context-lint/maintainers
+
+# Documentation and examples.
+/README.md @agent-context-lint/docs-reviewers
+/CONTRIBUTING.md @agent-context-lint/docs-reviewers
+/docs/ @agent-context-lint/docs-reviewers
+/examples/ @agent-context-lint/docs-reviewers
+
+# Core resolution, deterministic analysis, and user-facing platform packages.
+/packages/core/ @agent-context-lint/contracts-reviewers
+/packages/resolver/ @agent-context-lint/contracts-reviewers @agent-context-lint/profile-reviewers
+/packages/evidence/ @agent-context-lint/rules-reviewers
+/packages/rules/ @agent-context-lint/rules-reviewers
+/packages/efficiency/ @agent-context-lint/rules-reviewers
+/packages/cli/ @agent-context-lint/platform-reviewers
+/packages/formatters/ @agent-context-lint/platform-reviewers
+/tools/ @agent-context-lint/platform-reviewers
+
+# Tests and general fixtures. More sensitive domain patterns below take priority.
+**/*.test.ts @agent-context-lint/qa-reviewers
+**/*.spec.ts @agent-context-lint/qa-reviewers
+**/__tests__/ @agent-context-lint/qa-reviewers
+/fixtures/ @agent-context-lint/qa-reviewers
+/packages/test-kit/ @agent-context-lint/qa-reviewers
+/tools/external-corpus/ @agent-context-lint/qa-reviewers @agent-context-lint/security-reviewers
+
+# Public contracts, schemas, compatibility policy, and architecture decisions.
+/packages/core/src/contracts/ @agent-context-lint/contracts-reviewers
+/packages/core/src/config/ @agent-context-lint/contracts-reviewers
+/packages/core/src/diagnostics/ @agent-context-lint/contracts-reviewers
+/packages/core/src/ir/ @agent-context-lint/contracts-reviewers
+/packages/core/src/public-api/ @agent-context-lint/contracts-reviewers
+/packages/test-kit/src/contracts/ @agent-context-lint/contracts-reviewers
+/schemas/ @agent-context-lint/contracts-reviewers
+/docs/architecture/ @agent-context-lint/contracts-reviewers
+/docs/compatibility/ @agent-context-lint/contracts-reviewers
+/agent-context-linter-implementation-plan.md @agent-context-lint/contracts-reviewers @agent-context-lint/governance-reviewers
+
+# Client profiles, instruction syntaxes, and their conformance evidence.
+/packages/profiles/ @agent-context-lint/profile-reviewers
+/packages/syntax/ @agent-context-lint/profile-reviewers @agent-context-lint/security-reviewers
+/fixtures/agents-md/ @agent-context-lint/profile-reviewers @agent-context-lint/qa-reviewers
+/fixtures/claude/ @agent-context-lint/profile-reviewers @agent-context-lint/qa-reviewers
+/fixtures/copilot/ @agent-context-lint/profile-reviewers @agent-context-lint/qa-reviewers
+/fixtures/gemini/ @agent-context-lint/profile-reviewers @agent-context-lint/qa-reviewers
+/fixtures/cursor/ @agent-context-lint/profile-reviewers @agent-context-lint/qa-reviewers
+/docs/profiles/ @agent-context-lint/profile-reviewers @agent-context-lint/docs-reviewers
+/conformance/official-examples/ @agent-context-lint/profile-reviewers @agent-context-lint/qa-reviewers
+/conformance/contracts/official-example-conformance-corpus.v0.schema.json @agent-context-lint/contracts-reviewers @agent-context-lint/profile-reviewers @agent-context-lint/qa-reviewers
+/tools/conformance/*official-example-corpus*.mjs @agent-context-lint/profile-reviewers @agent-context-lint/qa-reviewers
+
+# Repository boundary, parsing, filesystem, and security controls.
+/packages/core/src/discovery/ @agent-context-lint/security-reviewers
+/packages/core/src/filesystem/ @agent-context-lint/security-reviewers
+/packages/core/src/fs/ @agent-context-lint/security-reviewers
+/packages/core/src/path/ @agent-context-lint/security-reviewers
+/packages/markdown/ @agent-context-lint/security-reviewers
+/fixtures/security/ @agent-context-lint/security-reviewers @agent-context-lint/qa-reviewers
+/docs/security/ @agent-context-lint/security-reviewers @agent-context-lint/docs-reviewers
+/SECURITY.md @agent-context-lint/security-reviewers
+/.github/dependabot.yml @agent-context-lint/security-reviewers @agent-context-lint/release-managers
+
+# Standards registry, signed updates, TUF trust data, and recovery evidence.
+/packages/standards/ @agent-context-lint/standards-reviewers @agent-context-lint/security-reviewers
+/standards/ @agent-context-lint/standards-reviewers @agent-context-lint/security-reviewers
+/knowledge/ @agent-context-lint/standards-reviewers @agent-context-lint/security-reviewers
+/fixtures/standards/ @agent-context-lint/standards-reviewers @agent-context-lint/security-reviewers
+/docs/standards/ @agent-context-lint/standards-reviewers @agent-context-lint/security-reviewers
+
+# File mutation, automatic fixes, and canonical synchronization.
+/packages/core/src/fixes/ @agent-context-lint/fix-reviewers @agent-context-lint/security-reviewers
+/packages/cli/src/fixes/ @agent-context-lint/fix-reviewers @agent-context-lint/security-reviewers
+/packages/rules/src/fixes/ @agent-context-lint/fix-reviewers @agent-context-lint/security-reviewers
+/fixtures/fixes/ @agent-context-lint/fix-reviewers @agent-context-lint/qa-reviewers
+/docs/fixes/ @agent-context-lint/fix-reviewers @agent-context-lint/docs-reviewers
+
+# Packaging, provenance, local release tooling, and release records.
+/package.json @agent-context-lint/release-managers
+/pnpm-lock.yaml @agent-context-lint/release-managers
+/pnpm-workspace.yaml @agent-context-lint/release-managers
+/config/feature-flags.json @agent-context-lint/profile-reviewers @agent-context-lint/release-managers
+/config/allowed-dependency-licenses.json @agent-context-lint/security-reviewers @agent-context-lint/release-managers
+/config/secret-scan-baseline.v1.json @agent-context-lint/security-reviewers @agent-context-lint/release-managers
+/.npmrc @agent-context-lint/release-managers @agent-context-lint/security-reviewers
+/.changeset/ @agent-context-lint/release-managers
+/packages/*/package.json @agent-context-lint/release-managers
+/scripts/release/ @agent-context-lint/release-managers @agent-context-lint/security-reviewers
+/scripts/check-local-policy.mjs @agent-context-lint/release-managers @agent-context-lint/security-reviewers
+/scripts/install-git-hooks.mjs @agent-context-lint/release-managers @agent-context-lint/security-reviewers
+/scripts/run-local-gate.mjs @agent-context-lint/release-managers @agent-context-lint/security-reviewers
+/docs/release/ @agent-context-lint/release-managers @agent-context-lint/docs-reviewers
+/.githooks/ @agent-context-lint/release-managers @agent-context-lint/security-reviewers
+/.github/dependabot.yml @agent-context-lint/security-reviewers @agent-context-lint/release-managers
+/action/ @agent-context-lint/release-managers @agent-context-lint/security-reviewers
+/scripts/adjudicate-secret-scan.mjs @agent-context-lint/security-reviewers @agent-context-lint/release-managers
+/scripts/build-github-action.mjs @agent-context-lint/release-managers @agent-context-lint/security-reviewers
+/scripts/test-github-action-clean-install.mjs @agent-context-lint/release-managers @agent-context-lint/security-reviewers
+
+# Governance controls are deliberately last so their own owners cannot be
+# shadowed by the broader .github or docs entries above.
+/.github/CODEOWNERS @agent-context-lint/governance-reviewers @agent-context-lint/security-reviewers
+/docs/governance/ @agent-context-lint/governance-reviewers @agent-context-lint/security-reviewers

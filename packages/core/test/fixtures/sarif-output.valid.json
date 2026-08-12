@@ -1,0 +1,80 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Agent Context Linter",
+          "semanticVersion": "1.0.0",
+          "informationUri": "https://agent-context-lint.dev",
+          "rules": [
+            {
+              "id": "ACL100",
+              "name": "valid-agent-context",
+              "shortDescription": { "text": "Validate agent context" },
+              "fullDescription": { "text": "Validates agent context files." },
+              "helpUri": "https://agent-context-lint.dev/rules/ACL100",
+              "help": {
+                "text": "Validate agent context files.",
+                "markdown": "Validate agent context files."
+              },
+              "properties": {
+                "tags": ["agent-context", "correctness"],
+                "problem.severity": "warning",
+                "agentContextCategory": "correctness",
+                "agentContextFixSafety": "none",
+                "agentContextOwner": "core",
+                "agentContextPrecisionStatus": "stable"
+              },
+              "defaultConfiguration": { "level": "warning" }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "ACL100",
+          "ruleIndex": 0,
+          "level": "warning",
+          "message": { "text": "Invalid agent context" },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": { "uri": "AGENTS.md" },
+                "region": { "startLine": 1, "startColumn": 1, "endLine": 1, "endColumn": 5 }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "message": { "text": "Related instruction" },
+              "physicalLocation": {
+                "artifactLocation": { "uri": "docs/context.md" },
+                "region": { "startLine": 2, "startColumn": 1, "endLine": 2, "endColumn": 5 }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "1a2b3c:1",
+            "agentContextPath/v1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "agentContextSemantic/v1": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          "properties": {
+            "agentContextRuleVersion": "1.0.0",
+            "profileIds": ["codex-cli"],
+            "surfaceIds": ["repository-instructions"],
+            "specSnapshotIds": ["codex-2026-08"]
+          }
+        }
+      ],
+      "properties": {
+        "agentContextSchemaVersion": "2.0.0",
+        "profileVersions": {
+          "codex-cli": { "profileVersion": "1.0.0", "clientVersion": "0.146.0" }
+        }
+      }
+    }
+  ]
+}

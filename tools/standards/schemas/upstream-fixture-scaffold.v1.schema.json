@@ -1,0 +1,78 @@
+{
+  "$id": "https://areaautomation.com/schemas/agent-context/upstream-fixture-scaffold.v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "digest": { "pattern": "^[a-f0-9]{64}$", "type": "string" }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifactKind": { "const": "upstream-fixture-update-scaffold" },
+    "baselineSourceArtifactSha256": { "$ref": "#/$defs/digest" },
+    "candidateSourceArtifactSha256": { "$ref": "#/$defs/digest" },
+    "contractVersion": { "const": "1.0.0" },
+    "publicationAuthorized": { "const": false },
+    "requirements": {
+      "items": false,
+      "maxItems": 4,
+      "minItems": 4,
+      "prefixItems": [
+        { "const": "human-semantic-review" },
+        { "const": "owned-synthetic-fixture" },
+        { "const": "profile-conformance-tests" },
+        { "const": "record-provenance-and-unknowns" }
+      ],
+      "type": "array"
+    },
+    "reviewArtifactSha256": { "$ref": "#/$defs/digest" },
+    "semanticAssessment": { "const": "not-performed" },
+    "status": { "const": "draft-unreviewed" },
+    "updates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "baselineSectionSha256": { "$ref": "#/$defs/digest" },
+          "candidateSectionSha256": { "$ref": "#/$defs/digest" },
+          "fixtureOperations": { "items": false, "maxItems": 0, "type": "array" },
+          "reviewDecision": { "const": "pending" },
+          "sectionId": {
+            "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "semanticClaims": { "items": false, "maxItems": 0, "type": "array" },
+          "sourceId": {
+            "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "url": { "format": "uri", "pattern": "^https://", "type": "string" }
+        },
+        "required": [
+          "baselineSectionSha256",
+          "candidateSectionSha256",
+          "fixtureOperations",
+          "reviewDecision",
+          "sectionId",
+          "semanticClaims",
+          "sourceId",
+          "url"
+        ],
+        "type": "object"
+      },
+      "maxItems": 96,
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifactKind",
+    "baselineSourceArtifactSha256",
+    "candidateSourceArtifactSha256",
+    "contractVersion",
+    "publicationAuthorized",
+    "requirements",
+    "reviewArtifactSha256",
+    "semanticAssessment",
+    "status",
+    "updates"
+  ],
+  "title": "Maintainer upstream fixture-update scaffold v1",
+  "type": "object"
+}

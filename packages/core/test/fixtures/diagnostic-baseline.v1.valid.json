@@ -1,0 +1,37 @@
+{
+  "recordKind": "agent-context-baseline-output",
+  "schemaVersion": "1.0.0",
+  "diagnosticContractVersion": "0.1.0",
+  "engineVersion": "1.0.0",
+  "fingerprintMethods": {
+    "path": "agent-context-lint/path/v1",
+    "semantic": "agent-context-lint/semantic/v1"
+  },
+  "createdAt": "2026-08-02T12:00:00.000Z",
+  "expiresAt": "2026-09-02T12:00:00.000Z",
+  "sourceRevision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "profileVersions": {
+    "codex-cli": {
+      "profileVersion": "1.0.0",
+      "clientVersion": "0.146.0",
+      "surfaceIds": ["codex-cli/local-cli-single-cwd"],
+      "specSnapshotIds": ["codex-cli/0.146.0/2026-08-01"]
+    }
+  },
+  "entries": [
+    {
+      "ruleId": "ACL250",
+      "ruleVersion": "1.0.0",
+      "severity": "error",
+      "path": "AGENTS.md",
+      "semanticFingerprint": "6c049bc33df348a479d475fcc462b6f98e6d17c12846a284870e22bf8894ba02",
+      "pathFingerprint": "dde482dcc539531e5e98bd71063388925f7f566e97a2cca924eb567a47072916",
+      "provenanceFingerprint": "ff23321f0903bc5fb13a726d74c1b2ca299d211d386042f8bb3a4326f0317abb",
+      "profileIds": ["codex-cli"],
+      "surfaceIds": ["codex-cli/local-cli-single-cwd"],
+      "specSnapshotIds": ["codex-cli/0.146.0/2026-08-01"],
+      "firstSeenAt": "2026-08-02T12:00:00.000Z",
+      "expiresAt": "2026-09-02T12:00:00.000Z"
+    }
+  ]
+}

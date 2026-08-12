@@ -1,0 +1,26 @@
+agent-context-linter-implementation-plan.md
+IMPLEMENTATION_STATUS.md
+docs/architecture/*
+!docs/architecture/decisions/
+docs/architecture/decisions/*
+!docs/architecture/decisions/0005-closed-cli-scan-bundle.md
+docs/governance/
+docs/security/*
+!docs/security/github-actions-integration.md
+!docs/security/metadata-calibration.md
+!docs/security/scan-command.md
+docs/support.md
+node_modules/
+packages/*/dist/
+packages/standards/bundled/
+packages/cli/bundled/
+packages/cli/reference/agent-context-lint-reference.v1.json
+pnpm-lock.yaml
+tests/goldens/
+packages/rules/test/fixtures/context-efficiency.all-rules.golden.json
+packages/rules/test/fixtures/context-efficiency.scope.golden.json
+# Byte-authenticated H13 recovery inputs/evidence are intentionally not reformatted.
+tools/standards/container/base-config.v1.json
+tools/standards/container/base-index.v1.json
+tools/standards/container/base-platform.v1.json
+tools/standards/evidence/recovery-tabletop-execution.v1.json

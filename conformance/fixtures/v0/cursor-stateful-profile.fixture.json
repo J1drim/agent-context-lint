@@ -1,0 +1,76 @@
+{
+  "recordKind": "cursor-stateful-profile-cases",
+  "schemaVersion": "0.1.0",
+  "cases": [
+    {
+      "id": "root-always",
+      "format": "mdc",
+      "path": ".cursor/rules/always.mdc",
+      "source": "---\nalwaysApply: true\n---\nAlways body\n",
+      "event": "reference-path",
+      "expectedActivation": "active",
+      "expectedCode": "always-event",
+      "expectedMechanical": "active"
+    },
+    {
+      "id": "auto-glob-unknown",
+      "format": "mdc",
+      "path": ".cursor/rules/auto.mdc",
+      "source": "---\nalwaysApply: false\nglobs: '**/*.ts'\n---\nAuto body\n",
+      "event": "reference-path",
+      "expectedActivation": "indeterminate",
+      "expectedCode": "auto-event",
+      "expectedMechanical": "indeterminate"
+    },
+    {
+      "id": "manual-mentioned",
+      "format": "mdc",
+      "path": ".cursor/rules/manual.mdc",
+      "source": "---\nalwaysApply: false\n---\nManual body\n",
+      "event": "manual-rule-mention",
+      "expectedActivation": "active",
+      "expectedCode": "manual-mention",
+      "expectedMechanical": "active"
+    },
+    {
+      "id": "agent-eligible",
+      "format": "mdc",
+      "path": ".cursor/rules/agent.mdc",
+      "source": "---\nalwaysApply: false\ndescription: Use for API work\n---\nAgent body\n",
+      "event": "reference-path",
+      "expectedActivation": "indeterminate",
+      "expectedCode": "agent-selection",
+      "expectedMechanical": "inactive"
+    },
+    {
+      "id": "agent-selected",
+      "format": "mdc",
+      "path": ".cursor/rules/agent-selected.mdc",
+      "source": "---\nalwaysApply: false\ndescription: Use for API work\n---\nAgent body\n",
+      "event": "agent-rule-selection",
+      "expectedActivation": "active",
+      "expectedCode": "agent-selection",
+      "expectedMechanical": "inactive"
+    },
+    {
+      "id": "nested-always-conditional",
+      "format": "mdc",
+      "path": "services/api/.cursor/rules/nested.mdc",
+      "source": "---\nalwaysApply: true\n---\nNested body\n",
+      "event": "reference-path",
+      "expectedActivation": "indeterminate",
+      "expectedCode": "mixed-mode",
+      "expectedMechanical": "active"
+    },
+    {
+      "id": "legacy-ide",
+      "format": "legacy",
+      "path": ".cursorrules",
+      "source": "Legacy body\n",
+      "event": "reference-path",
+      "expectedActivation": "indeterminate",
+      "expectedCode": "legacy-conditional",
+      "expectedMechanical": "inactive"
+    }
+  ]
+}

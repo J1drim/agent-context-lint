@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context-lint.dev/standards/bundled-pack-manifest.v0.schema.json",
+  "title": "Agent Context Linter immutable bundled knowledge-pack manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["recordKind", "schemaVersion", "verificationTime", "entries"],
+  "properties": {
+    "recordKind": { "const": "agent-context-bundled-pack-manifest" },
+    "schemaVersion": { "const": "0.1.0" },
+    "verificationTime": { "$ref": "#/$defs/time" },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
+      "items": { "$ref": "#/$defs/entry" }
+    }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[a-z0-9][a-z0-9._/-]*$"
+    },
+    "time": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-([0-2][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]Z$"
+    },
+    "metadataFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["length", "path", "sha256"],
+      "properties": {
+        "length": { "type": "integer", "minimum": 1, "maximum": 524288 },
+        "path": { "$ref": "#/$defs/path" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "contentFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["length", "path", "sha256"],
+      "properties": {
+        "length": { "type": "integer", "minimum": 1, "maximum": 4194304 },
+        "path": { "$ref": "#/$defs/path" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root", "timestamp", "snapshot", "targets", "delegatedTargets"],
+      "properties": {
+        "root": { "$ref": "#/$defs/metadataFile" },
+        "timestamp": { "$ref": "#/$defs/metadataFile" },
+        "snapshot": { "$ref": "#/$defs/metadataFile" },
+        "targets": { "$ref": "#/$defs/metadataFile" },
+        "delegatedTargets": { "$ref": "#/$defs/metadataFile" }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "content", "metadata", "targetPath"],
+      "properties": {
+        "channel": { "enum": ["preview", "stable"] },
+        "content": { "$ref": "#/$defs/contentFile" },
+        "metadata": { "$ref": "#/$defs/metadata" },
+        "targetPath": { "$ref": "#/$defs/path" }
+      }
+    }
+  }
+}

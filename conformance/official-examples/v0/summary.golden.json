@@ -1,0 +1,41 @@
+{
+  "capabilityCount": 22,
+  "capabilityIds": [
+    "codex-cli.local-cli-single-cwd--agents-markdown",
+    "claude-code.local-session--claude-memory-markdown",
+    "claude-code.local-session--claude-rule-markdown",
+    "copilot-cli.local-terminal--copilot-repository-markdown",
+    "copilot-cli.local-terminal--copilot-path-instructions",
+    "copilot-cli.local-terminal--agents-markdown",
+    "copilot-cli.local-terminal--claude-memory-markdown",
+    "copilot-cli.local-terminal--gemini-context-markdown",
+    "copilot-vscode.local-chat--copilot-repository-markdown",
+    "copilot-vscode.local-chat--copilot-path-instructions",
+    "copilot-vscode.local-chat--agents-markdown",
+    "copilot-vscode.local-chat--claude-memory-markdown",
+    "copilot-vscode.local-chat--gemini-context-markdown",
+    "gemini-cli.local-terminal--gemini-context-markdown",
+    "cursor-agent.ide--cursor-mdc",
+    "cursor-agent.ide--cursor-legacy-rules",
+    "cursor-agent.ide--agents-markdown",
+    "cursor-agent.ide--claude-memory-markdown",
+    "cursor-agent.cli--cursor-mdc",
+    "cursor-agent.cli--cursor-legacy-rules",
+    "cursor-agent.cli--agents-markdown",
+    "cursor-agent.cli--claude-memory-markdown"
+  ],
+  "contractVersion": "0.1.0",
+  "fixtureCount": 14,
+  "positiveStateCounts": { "indeterminate": 14, "selected": 8 },
+  "recordKind": "official-example-conformance-summary-golden",
+  "supportStatusCounts": { "conditional": 1, "not-listed": 1, "supported": 18, "unknown": 2 },
+  "surfaceCapabilityCounts": {
+    "claude-code/local-session": 2,
+    "codex-cli/local-cli-single-cwd": 1,
+    "copilot-cli/local-terminal": 5,
+    "copilot-vscode/local-chat": 5,
+    "cursor-agent/cli": 4,
+    "cursor-agent/ide": 4,
+    "gemini-cli/local-terminal": 1
+  }
+}

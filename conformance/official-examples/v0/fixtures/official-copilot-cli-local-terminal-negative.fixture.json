@@ -1,0 +1,239 @@
+{
+  "assertions": [
+    {
+      "evidenceRefs": ["copilot-cli.local-terminal--copilot-repository-markdown"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "not-selected", "supportStatus": "supported" },
+      "id": "assert-copilot-repository-markdown-negative",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "evidenceRefs": ["copilot-cli.local-terminal--copilot-path-instructions"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "not-selected", "supportStatus": "supported" },
+      "id": "assert-copilot-path-instructions-negative",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "evidenceRefs": ["copilot-cli.local-terminal--agents-markdown"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "not-selected", "supportStatus": "supported" },
+      "id": "assert-agents-markdown-negative",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "evidenceRefs": ["copilot-cli.local-terminal--claude-memory-markdown"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "not-selected", "supportStatus": "supported" },
+      "id": "assert-claude-memory-markdown-negative",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "evidenceRefs": ["copilot-cli.local-terminal--gemini-context-markdown"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "not-selected", "supportStatus": "supported" },
+      "id": "assert-gemini-context-markdown-negative",
+      "predicate": "profile-format-capability-outcome"
+    }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "kind": "launch",
+      "path": ".",
+      "sequence": 0,
+      "targetId": "target-example"
+    },
+    {
+      "id": "event-reference",
+      "kind": "reference-path",
+      "path": "src/example.ts",
+      "sequence": 1,
+      "targetId": "target-example"
+    }
+  ],
+  "expectedGraph": {
+    "ambiguities": [],
+    "analysisStatus": "complete",
+    "edges": [
+      {
+        "evidenceRefs": ["copilot-cli.local-terminal--copilot-repository-markdown"],
+        "from": "document-copilot-repository-markdown",
+        "id": "edge-copilot-repository-markdown",
+        "relation": "excludes",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      },
+      {
+        "evidenceRefs": ["copilot-cli.local-terminal--copilot-path-instructions"],
+        "from": "document-copilot-path-instructions",
+        "id": "edge-copilot-path-instructions",
+        "relation": "excludes",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      },
+      {
+        "evidenceRefs": ["copilot-cli.local-terminal--agents-markdown"],
+        "from": "document-agents-markdown",
+        "id": "edge-agents-markdown",
+        "relation": "excludes",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      },
+      {
+        "evidenceRefs": ["copilot-cli.local-terminal--claude-memory-markdown"],
+        "from": "document-claude-memory-markdown",
+        "id": "edge-claude-memory-markdown",
+        "relation": "excludes",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      },
+      {
+        "evidenceRefs": ["copilot-cli.local-terminal--gemini-context-markdown"],
+        "from": "document-gemini-context-markdown",
+        "id": "edge-gemini-context-markdown",
+        "relation": "excludes",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      }
+    ],
+    "nodes": [
+      {
+        "evidenceRefs": ["k01-target"],
+        "id": "target-example",
+        "kind": "target",
+        "path": "src/example.ts",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["copilot-cli.local-terminal--copilot-repository-markdown"],
+        "formatId": "copilot-repository-markdown",
+        "id": "document-copilot-repository-markdown",
+        "kind": "document",
+        "path": "invalid/copilot.md",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["copilot-cli.local-terminal--copilot-path-instructions"],
+        "formatId": "copilot-path-instructions",
+        "id": "document-copilot-path-instructions",
+        "kind": "document",
+        "path": "invalid/example.instruction.md",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["copilot-cli.local-terminal--agents-markdown"],
+        "formatId": "agents-markdown",
+        "id": "document-agents-markdown",
+        "kind": "document",
+        "path": "invalid/AGENT.md",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["copilot-cli.local-terminal--claude-memory-markdown"],
+        "formatId": "claude-memory-markdown",
+        "id": "document-claude-memory-markdown",
+        "kind": "document",
+        "path": "invalid/CLAUDES.md",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["copilot-cli.local-terminal--gemini-context-markdown"],
+        "formatId": "gemini-context-markdown",
+        "id": "document-gemini-context-markdown",
+        "kind": "document",
+        "path": "invalid/GEMINIS.md",
+        "resolutionStatus": "documented"
+      }
+    ]
+  },
+  "extensions": {
+    "agent-context-lint.dev/k01": {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "polarity": "negative"
+    }
+  },
+  "externalContext": { "entries": [], "mode": "unavailable" },
+  "fixtureFormatVersion": "0.1.0",
+  "id": "official-copilot-cli-local-terminal-negative",
+  "invocation": {
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "launchCwd": ".",
+    "runtimeMode": "local-cli",
+    "settings": {},
+    "trustState": "trusted-synthetic",
+    "workspaceRoots": ["."]
+  },
+  "profile": {
+    "clientVersion": null,
+    "profileId": "copilot-cli",
+    "specSnapshotId": "copilot-surfaces/2026-08-01.0",
+    "surfaceId": "copilot-cli/local-terminal",
+    "versionStatus": "living-docs-pending-observation"
+  },
+  "provenance": {
+    "assumptions": [
+      "Example prose is replaced by short inert markers while retaining official locations, fields, and activation inputs.",
+      "The negative fixture changes only fixture-owned location or activation inputs and does not infer undocumented client behavior."
+    ],
+    "derivation": "official-example",
+    "observationIds": [],
+    "researchRecordIds": ["copilot-surfaces/2026-08-01.0"],
+    "sources": [
+      {
+        "id": "copilot-surfaces-2026-08-01.0-official-source",
+        "immutability": "retrieved-living-doc",
+        "retrievedAt": "2026-08-02",
+        "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions",
+        "mutableSourceReason": "GitHub and VS Code documentation are living service documents."
+      }
+    ]
+  },
+  "recordKind": "profile-conformance-fixture",
+  "repository": {
+    "directories": ["docs/", "invalid/", "src/"],
+    "files": [
+      {
+        "content": "# Repository instructions\n\nUse the repository test command.\n[Policy](../docs/policy.md)\n",
+        "formatId": "copilot-repository-markdown",
+        "path": "invalid/copilot.md"
+      },
+      {
+        "content": "---\napplyTo: src/**/*.ts\nunsupportedExampleField: inert\n---\nUse the TypeScript policy.\n[Policy](../../docs/policy.md)\n",
+        "formatId": "copilot-path-instructions",
+        "path": "invalid/example.instruction.md"
+      },
+      {
+        "content": "# Project instructions\n\nUse the repository test command.\n@docs/policy.md\n",
+        "formatId": "agents-markdown",
+        "path": "invalid/AGENT.md"
+      },
+      {
+        "content": "# Project memory\n\nUse the repository test command.\n@docs/policy.md\n",
+        "formatId": "claude-memory-markdown",
+        "path": "invalid/CLAUDES.md"
+      },
+      {
+        "content": "# Project context\n\nUse the repository test command.\n@docs/policy.md\n`@ignored/in-code.md`\n",
+        "formatId": "gemini-context-markdown",
+        "path": "invalid/GEMINIS.md"
+      },
+      { "content": "Official-example target.\n", "formatId": null, "path": "src/example.ts" },
+      { "content": "Synthetic imported marker.\n", "formatId": null, "path": "docs/policy.md" }
+    ],
+    "root": ".",
+    "symlinks": []
+  },
+  "targets": [
+    { "id": "target-example", "path": "src/example.ts", "purpose": "resolve-effective-context" }
+  ],
+  "title": "copilot-cli/local-terminal official examples (negative)"
+}

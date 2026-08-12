@@ -1,0 +1,66 @@
+{
+  "actualLoadedSourceSequence": [],
+  "capabilityPolicy": {
+    "allowed": [],
+    "denied": [
+      "credential-read",
+      "external-network",
+      "model-request",
+      "repository-command",
+      "repository-write",
+      "user-config-read"
+    ]
+  },
+  "caseId": "gemini-no-safe-signal",
+  "client": null,
+  "contractVersion": "0.1.0",
+  "environmentKeys": [
+    "CI",
+    "HOME",
+    "NO_COLOR",
+    "PATH",
+    "TEMP",
+    "TMP",
+    "TMPDIR",
+    "XDG_CACHE_HOME",
+    "XDG_CONFIG_HOME",
+    "XDG_DATA_HOME"
+  ],
+  "expectedLoadedSourceSequence": ["GEMINI.md"],
+  "fixtureDigest": "a35db381bb9eb0df84a4d34cf822ba0e68a11623b9e6465fa0f0ad68ab66b4f7",
+  "fixtureManifest": [
+    {
+      "markerId": "D15_GEMINI_ROOT",
+      "path": "GEMINI.md",
+      "sha256": "3202e01816e26da0b5d2242cb0112e2644795f9e2412c8051bec5f7acce24e8b"
+    },
+    {
+      "markerId": null,
+      "path": "empty.md",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "invocation": null,
+  "observedAt": "2026-08-02T00:00:00Z",
+  "operation": "blocked-paid-observation",
+  "planDigest": "0a129950db8d73ac563d63ecad8f82cd09ca9f0c96ca941a7fc11b052ac7bfe5",
+  "platform": {
+    "architecture": "arm64",
+    "operatingSystem": "darwin"
+  },
+  "profileId": "gemini-cli",
+  "recordKind": "agent-context-real-client-observation-transcript",
+  "result": {
+    "blockedReason": "no-safe-no-model-signal",
+    "exitCode": null,
+    "signal": null,
+    "status": "blocked",
+    "stderr": "",
+    "stdout": "",
+    "versionMatched": null,
+    "workspaceUnchanged": true
+  },
+  "settingSources": ["isolated-home", "repository-fixture"],
+  "supervisor": null,
+  "surfaceId": "gemini-cli/local-terminal"
+}

@@ -1,0 +1,82 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/seeded-recall-corpus.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": { "$ref": "#/$defs/case" },
+      "maxItems": 69,
+      "minItems": 69,
+      "type": "array"
+    },
+    "contractVersion": { "const": "0.1.0" },
+    "recordKind": { "const": "agent-context-seeded-recall-corpus" },
+    "registryVersion": { "const": "0.1.0" },
+    "schedulerVersion": { "const": "0.1.0" },
+    "sourcePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "externalRepositoryContent": { "const": false },
+        "kind": { "const": "repository-owned-synthetic-only" }
+      },
+      "required": ["externalRepositoryContent", "kind"],
+      "type": "object"
+    }
+  },
+  "required": [
+    "cases",
+    "contractVersion",
+    "recordKind",
+    "registryVersion",
+    "schedulerVersion",
+    "sourcePolicy"
+  ],
+  "type": "object",
+  "$defs": {
+    "case": {
+      "additionalProperties": false,
+      "properties": {
+        "caseId": { "$ref": "#/$defs/identifier" },
+        "defaultSeverity": { "enum": ["error", "info", "warning"] },
+        "expectedDisposition": { "const": "visible" },
+        "expectedDiagnosticSha256": { "$ref": "#/$defs/sha256" },
+        "expectedRuleId": { "$ref": "#/$defs/ruleId" },
+        "familyId": {
+          "enum": [
+            "conflicts-duplication",
+            "context-efficiency",
+            "document-context",
+            "portability",
+            "references-imports",
+            "repository-drift",
+            "scope-activation",
+            "security",
+            "standards-freshness",
+            "syntax-structure"
+          ]
+        },
+        "scenarioId": { "$ref": "#/$defs/identifier" },
+        "syntheticEvidence": { "const": true }
+      },
+      "required": [
+        "caseId",
+        "defaultSeverity",
+        "expectedDisposition",
+        "expectedDiagnosticSha256",
+        "expectedRuleId",
+        "familyId",
+        "scenarioId",
+        "syntheticEvidence"
+      ],
+      "type": "object"
+    },
+    "identifier": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-z0-9](?:[a-z0-9._:-]{0,126}[a-z0-9])?$",
+      "type": "string"
+    },
+    "ruleId": { "pattern": "^ACL[1-5][0-9]{2}$", "type": "string" },
+    "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" }
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context-lint.dev/efficiency/context-efficiency-recommendations.v1.schema.json",
+  "title": "Agent Context Linter context-efficiency recommendations v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contractVersion",
+    "evaluations",
+    "identities",
+    "limits",
+    "qualityClaim",
+    "recommendations",
+    "recordKind",
+    "semanticQualityPreservationClaim",
+    "sourceScoreConfidence",
+    "state",
+    "tokenizer"
+  ],
+  "properties": {
+    "contractVersion": { "const": "0.1.0" },
+    "evaluations": {
+      "type": "array",
+      "maxItems": 128,
+      "items": { "$ref": "#/$defs/evaluation" }
+    },
+    "identities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "configurationSha256",
+        "metricsSha256",
+        "scoreSpecificationSha256",
+        "scoreVersion"
+      ],
+      "properties": {
+        "configurationSha256": { "$ref": "#/$defs/sha256" },
+        "metricsSha256": { "$ref": "#/$defs/sha256" },
+        "scoreSpecificationSha256": { "$ref": "#/$defs/sha256" },
+        "scoreVersion": { "$ref": "#/$defs/identifier" }
+      }
+    },
+    "limits": {
+      "const": {
+        "maximumEvidenceDocumentIds": 4096,
+        "maximumScenarios": 128,
+        "maximumTargets": 4096
+      }
+    },
+    "qualityClaim": { "const": false },
+    "recommendations": {
+      "type": "array",
+      "maxItems": 128,
+      "items": { "$ref": "#/$defs/evaluation" }
+    },
+    "recordKind": { "const": "agent-context-efficiency-recommendations" },
+    "semanticQualityPreservationClaim": { "const": false },
+    "sourceScoreConfidence": {
+      "enum": ["complete-static-evidence", "limited-static-evidence", "unavailable"]
+    },
+    "state": { "enum": ["complete", "partial"] },
+    "tokenizer": { "$ref": "#/$defs/tokenizer" }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512,
+      "pattern": "^[A-Za-z0-9]+(?:[._:/-][A-Za-z0-9]+)*$"
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16777216
+    },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "natural": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "nullableNatural": {
+      "oneOf": [{ "$ref": "#/$defs/natural" }, { "type": "null" }]
+    },
+    "nullableSha256": {
+      "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+    },
+    "tokenizer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "measurement", "version"],
+      "properties": {
+        "id": { "$ref": "#/$defs/identifier" },
+        "measurement": { "enum": ["exact", "estimate"] },
+        "version": { "$ref": "#/$defs/identifier" }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "clientVersion",
+        "key",
+        "profileId",
+        "profileVersion",
+        "specSnapshotId",
+        "surfaceId"
+      ],
+      "properties": {
+        "clientVersion": {
+          "oneOf": [{ "type": "string", "minLength": 1, "maxLength": 512 }, { "type": "null" }]
+        },
+        "key": { "type": "string", "minLength": 1, "maxLength": 3072 },
+        "profileId": { "$ref": "#/$defs/identifier" },
+        "profileVersion": { "$ref": "#/$defs/identifier" },
+        "specSnapshotId": { "$ref": "#/$defs/identifier" },
+        "surfaceId": { "$ref": "#/$defs/identifier" }
+      }
+    },
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ambiguityIds",
+        "analysisStatus",
+        "assemblyByteLength",
+        "assemblySha256",
+        "contentSha256s",
+        "profile",
+        "targetPath",
+        "tokens"
+      ],
+      "properties": {
+        "ambiguityIds": {
+          "type": "array",
+          "maxItems": 65536,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "analysisStatus": { "enum": ["complete", "partial"] },
+        "assemblyByteLength": { "$ref": "#/$defs/nullableNatural" },
+        "assemblySha256": { "$ref": "#/$defs/nullableSha256" },
+        "contentSha256s": {
+          "type": "array",
+          "maxItems": 4096,
+          "items": { "$ref": "#/$defs/sha256" }
+        },
+        "profile": { "$ref": "#/$defs/profile" },
+        "targetPath": { "$ref": "#/$defs/path" },
+        "tokens": { "$ref": "#/$defs/nullableNatural" }
+      }
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["missingContentSha256s", "mode", "state"],
+      "properties": {
+        "missingContentSha256s": {
+          "type": "array",
+          "maxItems": 4096,
+          "items": { "$ref": "#/$defs/sha256" }
+        },
+        "mode": { "enum": ["byte-identical-assembly", "unique-content-identities"] },
+        "state": { "enum": ["failed", "proved", "unknown"] }
+      }
+    },
+    "targetProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["baseline", "estimatedSavingTokens", "projected", "retention", "role"],
+      "properties": {
+        "baseline": { "$ref": "#/$defs/measurement" },
+        "estimatedSavingTokens": {
+          "oneOf": [
+            { "type": "integer", "minimum": -9007199254740991, "maximum": 9007199254740991 },
+            { "type": "null" }
+          ]
+        },
+        "projected": { "$ref": "#/$defs/measurement" },
+        "retention": { "$ref": "#/$defs/retention" },
+        "role": { "enum": ["affected", "intended", "saving"] }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["documentIds", "id", "measuredTokens", "state"],
+      "properties": {
+        "documentIds": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4096,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "id": { "$ref": "#/$defs/identifier" },
+        "measuredTokens": { "$ref": "#/$defs/natural" },
+        "state": { "enum": ["complete", "partial"] }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "affectedPaths",
+        "baselineTokens",
+        "caveatCodes",
+        "confidence",
+        "estimatedSavingBasisPoints",
+        "estimatedSavingTokens",
+        "evidence",
+        "id",
+        "kind",
+        "profiles",
+        "projectedTokens",
+        "qualityClaim",
+        "reasonCodes",
+        "semanticQualityPreservationClaim",
+        "state",
+        "targetProjections"
+      ],
+      "properties": {
+        "affectedPaths": {
+          "type": "array",
+          "maxItems": 4096,
+          "items": { "$ref": "#/$defs/path" }
+        },
+        "baselineTokens": { "$ref": "#/$defs/nullableNatural" },
+        "caveatCodes": {
+          "type": "array",
+          "maxItems": 6,
+          "items": {
+            "enum": [
+              "estimated-tokenizer",
+              "profile-resolution-uncertainty",
+              "quality-not-empirically-verified",
+              "semantic-equivalence-not-proven",
+              "source-score-caveated",
+              "source-score-unavailable",
+              "target-necessity-not-inferred"
+            ]
+          }
+        },
+        "confidence": { "enum": ["high", "low", "medium", "unavailable"] },
+        "estimatedSavingBasisPoints": {
+          "oneOf": [
+            { "type": "integer", "minimum": -9007199254740991, "maximum": 9007199254740991 },
+            { "type": "null" }
+          ]
+        },
+        "estimatedSavingTokens": {
+          "oneOf": [
+            { "type": "integer", "minimum": -9007199254740991, "maximum": 9007199254740991 },
+            { "type": "null" }
+          ]
+        },
+        "evidence": { "$ref": "#/$defs/evidence" },
+        "id": { "$ref": "#/$defs/identifier" },
+        "kind": { "enum": ["exact-duplicate-consolidation", "scope-narrowing"] },
+        "profiles": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 16,
+          "items": { "$ref": "#/$defs/profile" }
+        },
+        "projectedTokens": { "$ref": "#/$defs/nullableNatural" },
+        "qualityClaim": { "const": false },
+        "reasonCodes": {
+          "type": "array",
+          "maxItems": 11,
+          "items": {
+            "enum": [
+              "baseline-metrics-mismatch",
+              "content-retention-failed",
+              "content-retention-unknown",
+              "counterfactual-not-smaller",
+              "evidence-incomplete",
+              "missing-affected-target",
+              "no-intended-target",
+              "no-saving-target",
+              "projection-partial",
+              "tokenizer-unavailable",
+              "unexpected-affected-target"
+            ]
+          }
+        },
+        "semanticQualityPreservationClaim": { "const": false },
+        "state": { "enum": ["indeterminate", "not-recommended", "recommended"] },
+        "targetProjections": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4096,
+          "items": { "$ref": "#/$defs/targetProjection" }
+        }
+      }
+    }
+  }
+}

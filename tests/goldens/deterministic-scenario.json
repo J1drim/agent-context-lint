@@ -1,0 +1,16 @@
+{
+  "algorithm": "mulberry32-v1",
+  "clock": [
+    1893456000000,
+    1893456000250,
+    1893456000500
+  ],
+  "fixture": {
+    "contents": "8571,9010,9371",
+    "file": "samples/3474.txt"
+  },
+  "paths": {
+    "posix": "/repo/packages/api/AGENTS.md",
+    "windows": "C:\\repo\\packages\\api\\AGENTS.md"
+  }
+}

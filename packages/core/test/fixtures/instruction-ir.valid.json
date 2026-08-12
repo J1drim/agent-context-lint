@@ -1,0 +1,225 @@
+{
+  "recordKind": "agent-context-instruction-ir",
+  "contractVersion": "0.1.0",
+  "sources": [
+    {
+      "id": "source:agents",
+      "path": "AGENTS.md",
+      "encoding": "utf-8",
+      "bom": "none",
+      "text": "# Rules\r\n\r\n- Use 🧭 paths.\r\n\r\n@docs/guide.md\r\n",
+      "byteLength": 48,
+      "utf16Length": 46,
+      "sha256": "28cb206cb6284d0a1d68044875f92c5d9011613a92ca523127137696276ef45c",
+      "lineEnding": "crlf",
+      "parseState": { "state": "complete" },
+      "rootNodeId": "node:root"
+    }
+  ],
+  "documents": [
+    {
+      "id": "document:agents",
+      "sourceId": "source:agents",
+      "formatId": "agents-markdown",
+      "scopeRoot": ".",
+      "rootNodeId": "node:root",
+      "importIds": ["import:guide"],
+      "statementIds": ["statement:use-paths"],
+      "activationRuleIds": ["activation:vscode-description"]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "node:root",
+      "sourceId": "source:agents",
+      "kind": "root",
+      "range": {
+        "sourceId": "source:agents",
+        "start": { "byteOffset": 0, "utf16Offset": 0, "line": 0, "utf16Column": 0 },
+        "end": { "byteOffset": 48, "utf16Offset": 46, "line": 5, "utf16Column": 0 }
+      },
+      "childIds": ["node:heading", "node:list", "node:import-paragraph"]
+    },
+    {
+      "id": "node:heading",
+      "sourceId": "source:agents",
+      "kind": "heading",
+      "range": {
+        "sourceId": "source:agents",
+        "start": { "byteOffset": 0, "utf16Offset": 0, "line": 0, "utf16Column": 0 },
+        "end": { "byteOffset": 7, "utf16Offset": 7, "line": 0, "utf16Column": 7 }
+      },
+      "childIds": [],
+      "depth": 1
+    },
+    {
+      "id": "node:list",
+      "sourceId": "source:agents",
+      "kind": "list",
+      "range": {
+        "sourceId": "source:agents",
+        "start": { "byteOffset": 11, "utf16Offset": 11, "line": 2, "utf16Column": 0 },
+        "end": { "byteOffset": 28, "utf16Offset": 26, "line": 2, "utf16Column": 15 }
+      },
+      "childIds": ["node:list-item"],
+      "ordered": false,
+      "start": null
+    },
+    {
+      "id": "node:list-item",
+      "sourceId": "source:agents",
+      "kind": "list-item",
+      "range": {
+        "sourceId": "source:agents",
+        "start": { "byteOffset": 11, "utf16Offset": 11, "line": 2, "utf16Column": 0 },
+        "end": { "byteOffset": 28, "utf16Offset": 26, "line": 2, "utf16Column": 15 }
+      },
+      "childIds": ["node:statement-prefix", "node:statement-rest"]
+    },
+    {
+      "id": "node:import-paragraph",
+      "sourceId": "source:agents",
+      "kind": "paragraph",
+      "range": {
+        "sourceId": "source:agents",
+        "start": { "byteOffset": 32, "utf16Offset": 30, "line": 4, "utf16Column": 0 },
+        "end": { "byteOffset": 46, "utf16Offset": 44, "line": 4, "utf16Column": 14 }
+      },
+      "childIds": []
+    },
+    {
+      "id": "node:statement-prefix",
+      "sourceId": "source:agents",
+      "kind": "text",
+      "range": {
+        "sourceId": "source:agents",
+        "start": { "byteOffset": 13, "utf16Offset": 13, "line": 2, "utf16Column": 2 },
+        "end": { "byteOffset": 17, "utf16Offset": 17, "line": 2, "utf16Column": 6 }
+      },
+      "childIds": []
+    },
+    {
+      "id": "node:statement-rest",
+      "sourceId": "source:agents",
+      "kind": "text",
+      "range": {
+        "sourceId": "source:agents",
+        "start": { "byteOffset": 17, "utf16Offset": 17, "line": 2, "utf16Column": 6 },
+        "end": { "byteOffset": 28, "utf16Offset": 26, "line": 2, "utf16Column": 15 }
+      },
+      "childIds": []
+    }
+  ],
+  "imports": [
+    {
+      "id": "import:guide",
+      "documentId": "document:agents",
+      "nodeId": "node:import-paragraph",
+      "kind": "vendor-import",
+      "range": {
+        "sourceId": "source:agents",
+        "start": { "byteOffset": 32, "utf16Offset": 30, "line": 4, "utf16Column": 0 },
+        "end": { "byteOffset": 46, "utf16Offset": 44, "line": 4, "utf16Column": 14 }
+      },
+      "specifierRange": {
+        "sourceId": "source:agents",
+        "start": { "byteOffset": 33, "utf16Offset": 31, "line": 4, "utf16Column": 1 },
+        "end": { "byteOffset": 46, "utf16Offset": 44, "line": 4, "utf16Column": 14 }
+      },
+      "rawSpecifier": "docs/guide.md",
+      "targetKind": "repository-path-candidate",
+      "state": "recognized",
+      "uncertainty": { "state": "known" }
+    }
+  ],
+  "statements": [
+    {
+      "id": "statement:use-paths",
+      "documentId": "document:agents",
+      "nodeIds": ["node:statement-prefix", "node:statement-rest"],
+      "range": {
+        "sourceId": "source:agents",
+        "start": { "byteOffset": 13, "utf16Offset": 13, "line": 2, "utf16Column": 2 },
+        "end": { "byteOffset": 28, "utf16Offset": 26, "line": 2, "utf16Column": 15 }
+      },
+      "text": "Use 🧭 paths.",
+      "classification": { "state": "unclassified" }
+    }
+  ],
+  "activationRules": [
+    {
+      "id": "activation:vscode-description",
+      "documentId": "document:agents",
+      "profileId": "copilot-vscode",
+      "surfaceId": "copilot-vscode/local-chat",
+      "specSnapshotId": "copilot-surfaces/2026-08-01.0",
+      "kind": "conditional",
+      "scopeRoot": ".",
+      "include": [
+        {
+          "kind": "glob",
+          "pattern": "src/**",
+          "dialectId": null,
+          "sourceRange": null,
+          "uncertainty": {
+            "state": "unknown",
+            "reason": "The reviewed source does not name an exact glob dialect."
+          }
+        }
+      ],
+      "exclude": [],
+      "conditions": ["The model selects the document as relevant to the request."],
+      "unknownReason": null,
+      "evidenceRefs": [{ "sourceId": "vscode-instructions-docs", "factId": "COP-GAP-001" }],
+      "uncertainty": {
+        "state": "conditional",
+        "conditions": ["Selection depends on model relevance."]
+      }
+    }
+  ],
+  "targets": [
+    { "id": "target:main", "path": "src/main.ts", "purpose": "resolve-effective-context" }
+  ],
+  "events": [
+    {
+      "id": "event:launch",
+      "sequence": 0,
+      "kind": "launch",
+      "targetId": "target:main",
+      "uncertainty": { "state": "known" },
+      "path": ".",
+      "workspaceRoots": ["."],
+      "settings": [
+        { "key": "project.rootMarkers", "value": [".git"] },
+        { "key": "limits.maxBytes", "value": 32768 }
+      ]
+    },
+    {
+      "id": "event:reference",
+      "sequence": 1,
+      "kind": "reference-path",
+      "targetId": "target:main",
+      "uncertainty": { "state": "known" },
+      "path": "src/main.ts"
+    },
+    {
+      "id": "event:settings",
+      "sequence": 2,
+      "kind": "settings-change",
+      "targetId": "target:main",
+      "uncertainty": {
+        "state": "unknown",
+        "reason": "The profile does not establish whether the change is live."
+      },
+      "settings": [{ "key": "instructions.enabled", "value": true }]
+    },
+    {
+      "id": "event:manual",
+      "sequence": 3,
+      "kind": "manual-rule-mention",
+      "targetId": "target:main",
+      "uncertainty": { "state": "known" },
+      "ruleId": "activation:vscode-description"
+    }
+  ]
+}

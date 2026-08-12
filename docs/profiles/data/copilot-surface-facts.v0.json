@@ -1,0 +1,604 @@
+{
+  "recordKind": "research-truth-table",
+  "contract": false,
+  "recordVersion": "copilot-surfaces/2026-08-01.0",
+  "retrievedAt": "2026-08-01",
+  "description": "Schema-neutral D06 research evidence. This file is not a parser, profile, or fixture contract.",
+  "surfaceIds": [
+    "copilot-cli",
+    "copilot-vscode",
+    "copilot-cloud-agent",
+    "copilot-code-review"
+  ],
+  "stateVocabulary": {
+    "documented": "Affirmatively described by an official source for the named surface.",
+    "conditional": "Settings-dependent, model-selected, experimental, or contradicted by another current official source.",
+    "not-listed": "Absent from the current official support matrix for the named surface; not a permanent incompatibility claim.",
+    "unknown": "Not defined precisely enough by the reviewed official sources."
+  },
+  "scopeAssumptions": [
+    {
+      "id": "COP-ASM-001",
+      "statement": "GitHub's Copilot cloud agent support-matrix row maps to the hosted coding-agent surface represented by copilot-cloud-agent."
+    },
+    {
+      "id": "COP-ASM-002",
+      "statement": "GitHub.com's code-review row maps to copilot-code-review; the separate local VS Code code-review row is outside this surface."
+    },
+    {
+      "id": "COP-ASM-003",
+      "statement": "VS Code local Copilot Chat documentation maps to copilot-vscode; VS Code cloud-agent entrypoints map to the hosted coding-agent surface."
+    },
+    {
+      "id": "COP-ASM-004",
+      "statement": "Documented syntax examples prove only the shown examples and are not treated as an exhaustive grammar."
+    },
+    {
+      "id": "COP-ASM-005",
+      "statement": "A not-listed state is scoped to the retrieved support-matrix snapshot and does not claim permanent incompatibility."
+    },
+    {
+      "id": "COP-ASM-006",
+      "statement": "Hosted observations require a timestamp because living service behavior may change without a client version."
+    }
+  ],
+  "sources": [
+    {
+      "id": "GH-CLI",
+      "publisher": "GitHub",
+      "title": "Adding repository custom instructions for GitHub Copilot CLI",
+      "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions",
+      "documentVersion": null,
+      "clientVersion": null,
+      "retrievedAt": "2026-08-01",
+      "notes": "Living documentation; no CLI version is stated."
+    },
+    {
+      "id": "GH-MATRIX",
+      "publisher": "GitHub",
+      "title": "Support for different types of custom instructions",
+      "url": "https://docs.github.com/en/copilot/reference/custom-instructions-support",
+      "documentVersion": null,
+      "clientVersion": null,
+      "retrievedAt": "2026-08-01",
+      "notes": "Living support matrix; local VS Code Chat, VS Code cloud agent, and VS Code code review are separate rows."
+    },
+    {
+      "id": "GH-REPO",
+      "publisher": "GitHub",
+      "title": "Adding repository custom instructions for GitHub Copilot",
+      "url": "https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions",
+      "documentVersion": null,
+      "clientVersion": null,
+      "retrievedAt": "2026-08-01",
+      "notes": "Living GitHub-hosted Copilot documentation."
+    },
+    {
+      "id": "GH-REVIEW",
+      "publisher": "GitHub",
+      "title": "Using GitHub Copilot code review",
+      "url": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review?tool=vscode",
+      "documentVersion": null,
+      "clientVersion": null,
+      "retrievedAt": "2026-08-01",
+      "notes": "Current page states that code review reads custom instructions from the pull request head branch."
+    },
+    {
+      "id": "GH-REVIEW-TUTORIAL",
+      "publisher": "GitHub",
+      "title": "Customizing Copilot code review",
+      "url": "https://docs.github.com/en/copilot/tutorials/customize-code-review",
+      "documentVersion": null,
+      "clientVersion": null,
+      "retrievedAt": "2026-08-01",
+      "notes": "Living tutorial; size language is guidance, not a hard limit."
+    },
+    {
+      "id": "VSC-INSTRUCTIONS",
+      "publisher": "Microsoft",
+      "title": "Use custom instructions in VS Code",
+      "url": "https://code.visualstudio.com/docs/agent-customization/custom-instructions",
+      "documentVersion": "page snapshot displayed 2026-07-29",
+      "clientVersion": null,
+      "retrievedAt": "2026-08-01",
+      "notes": "No editor build or Copilot extension version is pinned by the page."
+    },
+    {
+      "id": "VSC-OVERVIEW",
+      "publisher": "Microsoft",
+      "title": "Customize AI in VS Code",
+      "url": "https://code.visualstudio.com/docs/agent-customization/overview",
+      "documentVersion": "page snapshot displayed 2026-07-29",
+      "clientVersion": null,
+      "retrievedAt": "2026-08-01",
+      "notes": "Describes workspace-root discovery and optional trusted parent-repository inheritance."
+    },
+    {
+      "id": "VSC-SETTINGS",
+      "publisher": "Microsoft",
+      "title": "AI settings reference",
+      "url": "https://code.visualstudio.com/docs/agents/reference/ai-settings",
+      "documentVersion": null,
+      "clientVersion": null,
+      "retrievedAt": "2026-08-01",
+      "notes": "Current reference; exact editor and extension versions are not stated."
+    }
+  ],
+  "facts": [
+    {
+      "id": "CLI-LOC-001",
+      "surface": "copilot-cli",
+      "topic": "discovery",
+      "state": "documented",
+      "claim": "Standard discovery locations include repository root, current working directory, intermediate directories, and directories nested in the path of a file being worked on.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-LOC-002",
+      "surface": "copilot-cli",
+      "topic": "path-specific-discovery",
+      "state": "documented",
+      "claim": ".github/instructions/**/*.instructions.md is discovered recursively in standard locations except intermediate directories.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-LOC-003",
+      "surface": "copilot-cli",
+      "topic": "user-discovery",
+      "state": "documented",
+      "claim": "$HOME/.copilot/copilot-instructions.md and $HOME/.copilot/instructions/**/*.instructions.md are supported; COPILOT_HOME replaces that user root.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-LOC-004",
+      "surface": "copilot-cli",
+      "topic": "extra-discovery",
+      "state": "documented",
+      "claim": "COPILOT_CUSTOM_INSTRUCTIONS_DIRS adds comma-separated directories for AGENTS.md and *.instructions.md discovery.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-FMT-001",
+      "surface": "copilot-cli",
+      "topic": "formats",
+      "state": "documented",
+      "claim": ".github/copilot-instructions.md, path-specific instructions, AGENTS.md, CLAUDE.md, .claude/CLAUDE.md, and GEMINI.md are supported.",
+      "sources": ["GH-CLI", "GH-MATRIX"]
+    },
+    {
+      "id": "CLI-GLOB-001",
+      "surface": "copilot-cli",
+      "topic": "applyTo",
+      "state": "documented",
+      "claim": "applyTo accepts comma-separated glob patterns and is evaluated against a file being worked on.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-GLOB-002",
+      "surface": "copilot-cli",
+      "topic": "applyTo-base",
+      "state": "unknown",
+      "claim": "The pattern base for path-specific files found at nested discovery roots is not stated.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-REF-001",
+      "surface": "copilot-cli",
+      "topic": "references",
+      "state": "documented",
+      "claim": "Relative @ references, including nested references, are expanded in copilot-instructions.md, AGENTS.md, and CLAUDE.md, but not GEMINI.md or *.instructions.md.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-REF-002",
+      "surface": "copilot-cli",
+      "topic": "reference-boundary",
+      "state": "documented",
+      "claim": "Repository references stay in the repository and local references stay in their custom-instruction directory; absolute and home-relative paths are rejected.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-REF-003",
+      "surface": "copilot-cli",
+      "topic": "reference-recursion",
+      "state": "unknown",
+      "claim": "Cycle handling, maximum recursion depth, and symlink canonicalization are not documented.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-ORD-001",
+      "surface": "copilot-cli",
+      "topic": "combination",
+      "state": "documented",
+      "claim": "Applicable user and repository files are combined and identical copies of selected user, repository-wide, and agent instruction files are removed.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-ORD-002",
+      "surface": "copilot-cli",
+      "topic": "precedence",
+      "state": "unknown",
+      "claim": "General ordering, conflict winner semantics, and normalization used for deduplication are not documented.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-ACT-001",
+      "surface": "copilot-cli",
+      "topic": "activation",
+      "state": "documented",
+      "claim": "Instruction changes require exiting and starting or resuming a CLI session before taking effect.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "CLI-LIM-001",
+      "surface": "copilot-cli",
+      "topic": "limits",
+      "state": "unknown",
+      "claim": "No hard size, count, import-depth, or aggregate-context limit is stated in the reviewed CLI page.",
+      "sources": ["GH-CLI"]
+    },
+    {
+      "id": "VSC-LOC-001",
+      "surface": "copilot-vscode",
+      "topic": "discovery",
+      "state": "documented",
+      "claim": "Discovery normally stays within open workspace roots; root .github/copilot-instructions.md is included for workspace chat requests.",
+      "sources": ["VSC-INSTRUCTIONS", "VSC-OVERVIEW"]
+    },
+    {
+      "id": "VSC-LOC-002",
+      "surface": "copilot-vscode",
+      "topic": "path-specific-discovery",
+      "state": "documented",
+      "claim": ".instructions.md files are discovered recursively below configured workspace and user instruction folders.",
+      "sources": ["VSC-INSTRUCTIONS", "VSC-SETTINGS"]
+    },
+    {
+      "id": "VSC-LOC-003",
+      "surface": "copilot-vscode",
+      "topic": "parent-repository",
+      "state": "conditional",
+      "claim": "Trusted parent-repository customizations can be enabled when the workspace folder has no .git; the default setting is false.",
+      "sources": ["VSC-OVERVIEW", "VSC-SETTINGS"]
+    },
+    {
+      "id": "VSC-LOC-004",
+      "surface": "copilot-vscode",
+      "topic": "multi-root-order",
+      "state": "unknown",
+      "claim": "Ordering and deduplication across multiple workspace roots are not documented.",
+      "sources": ["VSC-INSTRUCTIONS", "VSC-OVERVIEW"]
+    },
+    {
+      "id": "VSC-GLOB-001",
+      "surface": "copilot-vscode",
+      "topic": "applyTo",
+      "state": "documented",
+      "claim": "applyTo is relative to the workspace root; comma-separated and brace patterns are shown, and ** matches all files.",
+      "sources": ["VSC-INSTRUCTIONS"]
+    },
+    {
+      "id": "VSC-GLOB-002",
+      "surface": "copilot-vscode",
+      "topic": "description-activation",
+      "state": "conditional",
+      "claim": "The page both says missing applyTo prevents automatic inclusion and describes semantic matching via description, so description-only automatic activation is ambiguous.",
+      "sources": ["VSC-INSTRUCTIONS"]
+    },
+    {
+      "id": "VSC-AGENT-001",
+      "surface": "copilot-vscode",
+      "topic": "agents",
+      "state": "documented",
+      "claim": "Root AGENTS.md support is enabled by default with chat.useAgentsMdFile.",
+      "sources": ["VSC-INSTRUCTIONS", "VSC-SETTINGS"]
+    },
+    {
+      "id": "VSC-AGENT-002",
+      "surface": "copilot-vscode",
+      "topic": "nested-agents",
+      "state": "conditional",
+      "claim": "Nested AGENTS.md support is experimental, defaults false, and lets the agent select relevance based on edited files.",
+      "sources": ["VSC-INSTRUCTIONS", "VSC-SETTINGS"]
+    },
+    {
+      "id": "VSC-AGENT-003",
+      "surface": "copilot-vscode",
+      "topic": "claude",
+      "state": "conditional",
+      "claim": "VS Code documents Claude-instruction support while GitHub's current VS Code Chat support-matrix row omits it.",
+      "sources": ["VSC-INSTRUCTIONS", "VSC-SETTINGS", "GH-MATRIX"]
+    },
+    {
+      "id": "VSC-REF-001",
+      "surface": "copilot-vscode",
+      "topic": "references",
+      "state": "documented",
+      "claim": "Instruction files can contain Markdown links to files and URLs; referenced-instruction inclusion has a separate setting that defaults false.",
+      "sources": ["VSC-INSTRUCTIONS", "VSC-SETTINGS"]
+    },
+    {
+      "id": "VSC-REF-002",
+      "surface": "copilot-vscode",
+      "topic": "reference-recursion",
+      "state": "unknown",
+      "claim": "Recursive loading, cycles, depth, containment, and equivalence to CLI @ references are not documented.",
+      "sources": ["VSC-INSTRUCTIONS", "VSC-SETTINGS"]
+    },
+    {
+      "id": "VSC-ORD-001",
+      "surface": "copilot-vscode",
+      "topic": "ordering",
+      "state": "documented",
+      "claim": "Multiple files can be combined and no specific order is guaranteed; personal instructions have higher priority than repository instructions, then organization instructions.",
+      "sources": ["VSC-INSTRUCTIONS"]
+    },
+    {
+      "id": "VSC-EXC-001",
+      "surface": "copilot-vscode",
+      "topic": "excludeAgent",
+      "state": "unknown",
+      "claim": "No local VS Code Chat effect for hosted-agent excludeAgent values is documented.",
+      "sources": ["VSC-INSTRUCTIONS", "GH-REPO"]
+    },
+    {
+      "id": "VSC-LIM-001",
+      "surface": "copilot-vscode",
+      "topic": "limits",
+      "state": "unknown",
+      "claim": "No hard instruction file size, count, link-depth, or aggregate-context limit is stated.",
+      "sources": ["VSC-INSTRUCTIONS"]
+    },
+    {
+      "id": "CLOUD-LOC-001",
+      "surface": "copilot-cloud-agent",
+      "topic": "formats",
+      "state": "documented",
+      "claim": "Repository-wide, path-specific, AGENTS.md, root CLAUDE.md, root GEMINI.md, and organization instructions are supported.",
+      "sources": ["GH-REPO", "GH-MATRIX"]
+    },
+    {
+      "id": "CLOUD-GLOB-001",
+      "surface": "copilot-cloud-agent",
+      "topic": "applyTo",
+      "state": "documented",
+      "claim": "Path-specific instructions use comma-separated applyTo globs and combine with repository-wide instructions when matched.",
+      "sources": ["GH-REPO"]
+    },
+    {
+      "id": "CLOUD-GLOB-002",
+      "surface": "copilot-cloud-agent",
+      "topic": "applyTo-base",
+      "state": "unknown",
+      "claim": "The glob base and full dialect are not defined in the reviewed GitHub-hosted page.",
+      "sources": ["GH-REPO"]
+    },
+    {
+      "id": "CLOUD-AGENT-001",
+      "surface": "copilot-cloud-agent",
+      "topic": "nested-agents",
+      "state": "documented",
+      "claim": "One or more AGENTS.md files may be nested; the nearest one in the relevant directory tree takes precedence.",
+      "sources": ["GH-REPO"]
+    },
+    {
+      "id": "CLOUD-EXC-001",
+      "surface": "copilot-cloud-agent",
+      "topic": "excludeAgent",
+      "state": "documented",
+      "claim": "excludeAgent: cloud-agent excludes a path-specific file from coding-agent use; omission permits both hosted agents.",
+      "sources": ["GH-REPO"]
+    },
+    {
+      "id": "CLOUD-ORD-001",
+      "surface": "copilot-cloud-agent",
+      "topic": "precedence",
+      "state": "documented",
+      "claim": "Repository instructions have higher priority than organization instructions, while all relevant instructions are passed.",
+      "sources": ["GH-REPO"]
+    },
+    {
+      "id": "CLOUD-REF-001",
+      "surface": "copilot-cloud-agent",
+      "topic": "references",
+      "state": "unknown",
+      "claim": "No @ import, Markdown-import recursion, boundary, cycle, or depth behavior is documented for the hosted coding agent.",
+      "sources": ["GH-REPO", "GH-MATRIX"]
+    },
+    {
+      "id": "CLOUD-ACT-001",
+      "surface": "copilot-cloud-agent",
+      "topic": "branch-snapshot",
+      "state": "unknown",
+      "claim": "The reviewed sources do not pin the repository branch or lifecycle snapshot used for every coding-agent stage.",
+      "sources": ["GH-REPO"]
+    },
+    {
+      "id": "CLOUD-LIM-001",
+      "surface": "copilot-cloud-agent",
+      "topic": "limits",
+      "state": "unknown",
+      "claim": "No hard per-file, aggregate, nesting, or import limit is stated.",
+      "sources": ["GH-REPO"]
+    },
+    {
+      "id": "REVIEW-LOC-001",
+      "surface": "copilot-code-review",
+      "topic": "formats",
+      "state": "documented",
+      "claim": "Root copilot-instructions.md, path-specific instructions, root AGENTS.md, and organization instructions are supported for GitHub-hosted code review.",
+      "sources": ["GH-REVIEW", "GH-MATRIX"]
+    },
+    {
+      "id": "REVIEW-AGENT-001",
+      "surface": "copilot-code-review",
+      "topic": "nested-agents",
+      "state": "unknown",
+      "claim": "The review-specific page names root AGENTS.md while a generic GitHub-hosted page describes nested AGENTS.md, so nested review behavior is unresolved.",
+      "sources": ["GH-REVIEW", "GH-REPO"]
+    },
+    {
+      "id": "REVIEW-AGENT-002",
+      "surface": "copilot-code-review",
+      "topic": "other-agent-formats",
+      "state": "not-listed",
+      "claim": "CLAUDE.md and GEMINI.md are not listed in the current GitHub.com code-review support-matrix row.",
+      "sources": ["GH-MATRIX"]
+    },
+    {
+      "id": "REVIEW-GLOB-001",
+      "surface": "copilot-code-review",
+      "topic": "applyTo",
+      "state": "documented",
+      "claim": "Path-specific instructions apply to reviewed files matched by applyTo.",
+      "sources": ["GH-REVIEW", "GH-REPO"]
+    },
+    {
+      "id": "REVIEW-GLOB-002",
+      "surface": "copilot-code-review",
+      "topic": "applyTo-base",
+      "state": "unknown",
+      "claim": "The glob base and formal dialect are not stated.",
+      "sources": ["GH-REVIEW", "GH-REPO"]
+    },
+    {
+      "id": "REVIEW-EXC-001",
+      "surface": "copilot-code-review",
+      "topic": "excludeAgent",
+      "state": "documented",
+      "claim": "excludeAgent: code-review excludes a path-specific file; omission permits both hosted agents.",
+      "sources": ["GH-REPO"]
+    },
+    {
+      "id": "REVIEW-ACT-001",
+      "surface": "copilot-code-review",
+      "topic": "branch-snapshot",
+      "state": "documented",
+      "claim": "Code review reads instruction content from the pull request head branch.",
+      "sources": ["GH-REVIEW", "GH-REVIEW-TUTORIAL"]
+    },
+    {
+      "id": "REVIEW-ACT-002",
+      "surface": "copilot-code-review",
+      "topic": "trigger",
+      "state": "documented",
+      "claim": "Review can be manually requested; automatic review and re-review after pushes are separate configuration choices.",
+      "sources": ["GH-REVIEW"]
+    },
+    {
+      "id": "REVIEW-REF-001",
+      "surface": "copilot-code-review",
+      "topic": "external-links",
+      "state": "documented",
+      "claim": "Code review does not follow external links in custom instructions.",
+      "sources": ["GH-REVIEW-TUTORIAL"]
+    },
+    {
+      "id": "REVIEW-REF-002",
+      "surface": "copilot-code-review",
+      "topic": "internal-references",
+      "state": "unknown",
+      "claim": "Internal references, @ imports, recursion, cycles, containment, and maximum depth are not documented.",
+      "sources": ["GH-REVIEW", "GH-REVIEW-TUTORIAL"]
+    },
+    {
+      "id": "REVIEW-LIM-001",
+      "surface": "copilot-code-review",
+      "topic": "size-guidance",
+      "state": "documented",
+      "claim": "About 1,000 lines is advisory guidance intended to reduce ignored instructions, not a hard limit.",
+      "sources": ["GH-REVIEW-TUTORIAL"]
+    },
+    {
+      "id": "REVIEW-ORD-001",
+      "surface": "copilot-code-review",
+      "topic": "repository-order",
+      "state": "unknown",
+      "claim": "Ordering among repository-wide, path-specific, and agent instruction files is not stated.",
+      "sources": ["GH-REPO", "GH-REVIEW"]
+    }
+  ],
+  "crossSurfaceRules": [
+    {
+      "id": "COP-PRE-001",
+      "claim": "Syntax recognition is independent from surface activation; unknown activation is not invalid syntax."
+    },
+    {
+      "id": "COP-PRE-002",
+      "claim": "There is no universal Copilot precedence or ordering model."
+    },
+    {
+      "id": "COP-PRE-003",
+      "claim": "excludeAgent values affect only their named hosted surfaces."
+    },
+    {
+      "id": "COP-PRE-004",
+      "claim": "Glob bases and dialect details are surface-specific; only VS Code explicitly states workspace-root relativity."
+    },
+    {
+      "id": "COP-PRE-005",
+      "claim": "CLI @ reference behavior must not be projected onto VS Code or hosted surfaces."
+    },
+    {
+      "id": "COP-PRE-006",
+      "claim": "Undocumented activation, ordering, reference, and limit behavior remains unknown."
+    },
+    {
+      "id": "COP-PRE-007",
+      "claim": "The code-review 1,000-line statement is advisory and cannot cause a hard validation failure."
+    },
+    {
+      "id": "COP-PRE-008",
+      "claim": "Branch provenance is surface-specific; code review documents head-branch loading while coding-agent lifecycle behavior remains unknown."
+    },
+    {
+      "id": "COP-PRE-009",
+      "claim": "Client observations require pinned versions or hosted timestamps because the official pages are living documentation."
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "COP-GAP-001",
+      "summary": "VS Code description-only activation is internally ambiguous in the current instructions page."
+    },
+    {
+      "id": "COP-GAP-002",
+      "summary": "VS Code Claude support is documented by VS Code but omitted by GitHub's VS Code Chat matrix row."
+    },
+    {
+      "id": "COP-GAP-003",
+      "summary": "Nested AGENTS.md support for hosted code review differs between generic and review-specific page scope."
+    },
+    {
+      "id": "COP-GAP-004",
+      "summary": "CLI and hosted GitHub glob bases are not stated for nested path-specific files."
+    },
+    {
+      "id": "COP-GAP-005",
+      "summary": "Within-repository instruction ordering is not defined across the four surfaces."
+    },
+    {
+      "id": "COP-GAP-006",
+      "summary": "Reference and import behavior cannot be shared across CLI, VS Code, and hosted clients."
+    },
+    {
+      "id": "COP-GAP-007",
+      "summary": "Symlink, canonicalization, case, deduplication-normalization, recursion, and hard-limit rules are incomplete."
+    },
+    {
+      "id": "COP-GAP-008",
+      "summary": "VS Code multi-root workspace ordering is not documented."
+    }
+  ],
+  "observationPolicy": {
+    "paidCallsPerformed": false,
+    "hostedActionsPerformed": false,
+    "externalRepositoriesModified": false,
+    "promotionRequirements": [
+      "pinned client version or hosted observation timestamp",
+      "reproducible project-owned fixture",
+      "raw redacted evidence",
+      "profile-owner and QA review"
+    ]
+  }
+}

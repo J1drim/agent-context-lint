@@ -1,0 +1,269 @@
+{
+  "assertions": [
+    {
+      "ambiguityId": "ambiguity-cursor-mdc",
+      "evidenceRefs": ["cursor-agent.cli--cursor-mdc"],
+      "evidenceStatus": "model-selected",
+      "expected": { "selection": "indeterminate", "supportStatus": "supported" },
+      "id": "assert-cursor-mdc-positive",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "ambiguityId": "ambiguity-cursor-legacy-rules",
+      "evidenceRefs": ["cursor-agent.cli--cursor-legacy-rules"],
+      "evidenceStatus": "unknown",
+      "expected": { "selection": "indeterminate", "supportStatus": "unknown" },
+      "id": "assert-cursor-legacy-rules-positive",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "evidenceRefs": ["cursor-agent.cli--agents-markdown"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "selected", "supportStatus": "supported" },
+      "id": "assert-agents-markdown-positive",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "ambiguityId": "ambiguity-claude-memory-markdown",
+      "evidenceRefs": ["cursor-agent.cli--claude-memory-markdown"],
+      "evidenceStatus": "unknown",
+      "expected": { "selection": "indeterminate", "supportStatus": "supported" },
+      "id": "assert-claude-memory-markdown-positive",
+      "predicate": "profile-format-capability-outcome"
+    }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "kind": "launch",
+      "path": ".",
+      "sequence": 0,
+      "targetId": "target-example"
+    },
+    {
+      "id": "event-reference",
+      "kind": "reference-path",
+      "path": "src/example.ts",
+      "sequence": 1,
+      "targetId": "target-example"
+    }
+  ],
+  "expectedGraph": {
+    "ambiguities": [
+      {
+        "alternatives": [
+          {
+            "description": "The candidate is selected when the documented condition is satisfied.",
+            "id": "selected"
+          },
+          {
+            "description": "The candidate is not selected when the condition is absent or unresolved.",
+            "id": "not-selected"
+          }
+        ],
+        "evidenceRefs": ["cursor-agent.cli--cursor-mdc"],
+        "id": "ambiguity-cursor-mdc",
+        "kind": "official-source-does-not-prove-one-deterministic-outcome",
+        "reason": "The canonical profile inventory preserves this capability as conditional or unresolved."
+      },
+      {
+        "alternatives": [
+          {
+            "description": "The candidate is selected when the documented condition is satisfied.",
+            "id": "selected"
+          },
+          {
+            "description": "The candidate is not selected when the condition is absent or unresolved.",
+            "id": "not-selected"
+          }
+        ],
+        "evidenceRefs": ["cursor-agent.cli--cursor-legacy-rules"],
+        "id": "ambiguity-cursor-legacy-rules",
+        "kind": "official-source-does-not-prove-one-deterministic-outcome",
+        "reason": "The canonical profile inventory preserves this capability as conditional or unresolved."
+      },
+      {
+        "alternatives": [
+          {
+            "description": "The candidate is selected when the documented condition is satisfied.",
+            "id": "selected"
+          },
+          {
+            "description": "The candidate is not selected when the condition is absent or unresolved.",
+            "id": "not-selected"
+          }
+        ],
+        "evidenceRefs": ["cursor-agent.cli--claude-memory-markdown"],
+        "id": "ambiguity-claude-memory-markdown",
+        "kind": "official-source-does-not-prove-one-deterministic-outcome",
+        "reason": "The canonical profile inventory preserves this capability as conditional or unresolved."
+      }
+    ],
+    "analysisStatus": "partial",
+    "edges": [
+      {
+        "ambiguityId": "ambiguity-cursor-mdc",
+        "evidenceRefs": ["cursor-agent.cli--cursor-mdc"],
+        "from": "document-cursor-mdc",
+        "id": "edge-cursor-mdc",
+        "relation": "selects",
+        "resolutionStatus": "model-selected",
+        "to": "target-example"
+      },
+      {
+        "ambiguityId": "ambiguity-cursor-legacy-rules",
+        "evidenceRefs": ["cursor-agent.cli--cursor-legacy-rules"],
+        "from": "document-cursor-legacy-rules",
+        "id": "edge-cursor-legacy-rules",
+        "relation": "selects",
+        "resolutionStatus": "unknown",
+        "to": "target-example"
+      },
+      {
+        "evidenceRefs": ["cursor-agent.cli--agents-markdown"],
+        "from": "document-agents-markdown",
+        "id": "edge-agents-markdown",
+        "relation": "selects",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      },
+      {
+        "ambiguityId": "ambiguity-claude-memory-markdown",
+        "evidenceRefs": ["cursor-agent.cli--claude-memory-markdown"],
+        "from": "document-claude-memory-markdown",
+        "id": "edge-claude-memory-markdown",
+        "relation": "selects",
+        "resolutionStatus": "unknown",
+        "to": "target-example"
+      }
+    ],
+    "nodes": [
+      {
+        "evidenceRefs": ["k01-target"],
+        "id": "target-example",
+        "kind": "target",
+        "path": "src/example.ts",
+        "resolutionStatus": "documented"
+      },
+      {
+        "ambiguityId": "ambiguity-cursor-mdc",
+        "evidenceRefs": ["cursor-agent.cli--cursor-mdc"],
+        "formatId": "cursor-mdc",
+        "id": "document-cursor-mdc",
+        "kind": "document",
+        "path": ".cursor/rules/example.mdc",
+        "resolutionStatus": "model-selected"
+      },
+      {
+        "ambiguityId": "ambiguity-cursor-legacy-rules",
+        "evidenceRefs": ["cursor-agent.cli--cursor-legacy-rules"],
+        "formatId": "cursor-legacy-rules",
+        "id": "document-cursor-legacy-rules",
+        "kind": "document",
+        "path": ".cursorrules",
+        "resolutionStatus": "unknown"
+      },
+      {
+        "evidenceRefs": ["cursor-agent.cli--agents-markdown"],
+        "formatId": "agents-markdown",
+        "id": "document-agents-markdown",
+        "kind": "document",
+        "path": "AGENTS.md",
+        "resolutionStatus": "documented"
+      },
+      {
+        "ambiguityId": "ambiguity-claude-memory-markdown",
+        "evidenceRefs": ["cursor-agent.cli--claude-memory-markdown"],
+        "formatId": "claude-memory-markdown",
+        "id": "document-claude-memory-markdown",
+        "kind": "document",
+        "path": "CLAUDE.md",
+        "resolutionStatus": "unknown"
+      }
+    ]
+  },
+  "extensions": {
+    "agent-context-lint.dev/k01": {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "polarity": "positive"
+    }
+  },
+  "externalContext": { "entries": [], "mode": "unavailable" },
+  "fixtureFormatVersion": "0.1.0",
+  "id": "official-cursor-agent-cli-positive",
+  "invocation": {
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "launchCwd": ".",
+    "runtimeMode": "local-cli",
+    "settings": {},
+    "trustState": "trusted-synthetic",
+    "workspaceRoots": ["."]
+  },
+  "profile": {
+    "clientVersion": "2026.05.24-dda726e",
+    "profileId": "cursor-agent",
+    "specSnapshotId": "cursor/2026-08-01",
+    "surfaceId": "cursor-agent/cli",
+    "versionStatus": "observed-metadata-only"
+  },
+  "provenance": {
+    "assumptions": [
+      "Example prose is replaced by short inert markers while retaining official locations, fields, and activation inputs.",
+      "The negative fixture changes only fixture-owned location or activation inputs and does not infer undocumented client behavior."
+    ],
+    "derivation": "official-example",
+    "observationIds": [],
+    "researchRecordIds": ["cursor/2026-08-01"],
+    "sources": [
+      {
+        "id": "cursor-2026-08-01-official-source",
+        "immutability": "retrieved-living-doc",
+        "retrievedAt": "2026-08-02",
+        "url": "https://cursor.com/docs/rules",
+        "mutableSourceReason": "Cursor documentation is dynamically rendered and has no published revision hash."
+      }
+    ]
+  },
+  "recordKind": "profile-conformance-fixture",
+  "repository": {
+    "directories": [".cursor/", ".cursor/rules/", "docs/", "src/"],
+    "files": [
+      {
+        "content": "---\ndescription: TypeScript guidance\nglobs: src/**/*.ts\nalwaysApply: false\nunsupportedExampleField: inert\n---\nUse the TypeScript policy.\n@docs/policy.md\n",
+        "formatId": "cursor-mdc",
+        "path": ".cursor/rules/example.mdc"
+      },
+      {
+        "content": "Use the repository test command.\n@docs/policy.md\n",
+        "formatId": "cursor-legacy-rules",
+        "path": ".cursorrules"
+      },
+      {
+        "content": "# Project instructions\n\nUse the repository test command.\n@docs/policy.md\n",
+        "formatId": "agents-markdown",
+        "path": "AGENTS.md"
+      },
+      {
+        "content": "# Project memory\n\nUse the repository test command.\n@docs/policy.md\n",
+        "formatId": "claude-memory-markdown",
+        "path": "CLAUDE.md"
+      },
+      { "content": "Official-example target.\n", "formatId": null, "path": "src/example.ts" },
+      { "content": "Synthetic imported marker.\n", "formatId": null, "path": "docs/policy.md" }
+    ],
+    "root": ".",
+    "symlinks": []
+  },
+  "targets": [
+    { "id": "target-example", "path": "src/example.ts", "purpose": "resolve-effective-context" }
+  ],
+  "title": "cursor-agent/cli official examples (positive)"
+}

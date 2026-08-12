@@ -1,0 +1,24 @@
+{
+  "name": "@agent-context/tokenizer-utf8-byte",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "description": "Optional data-only exact UTF-8 byte tokenizer for Agent Context Linter",
+  "type": "module",
+  "files": [
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "manifest.v1.json",
+    "provider.wasm.b64"
+  ],
+  "exports": {
+    "./manifest.v1.json": "./manifest.v1.json",
+    "./provider.wasm.b64": "./provider.wasm.b64"
+  },
+  "engines": {
+    "node": "^24.11.0 || ^26.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

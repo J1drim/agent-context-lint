@@ -1,0 +1,61 @@
+{
+  "actualLoadedSourceSequence": [],
+  "capabilityPolicy": {
+    "allowed": [],
+    "denied": [
+      "credential-read",
+      "external-network",
+      "model-request",
+      "repository-command",
+      "repository-write",
+      "user-config-read"
+    ]
+  },
+  "caseId": "d16-claude-code-no-safe-signal",
+  "client": null,
+  "contractVersion": "0.1.0",
+  "environmentKeys": [
+    "CI",
+    "HOME",
+    "NO_COLOR",
+    "PATH",
+    "TEMP",
+    "TMP",
+    "TMPDIR",
+    "XDG_CACHE_HOME",
+    "XDG_CONFIG_HOME",
+    "XDG_DATA_HOME"
+  ],
+  "expectedLoadedSourceSequence": ["CLAUDE.md"],
+  "fixtureDigest": "72eacb401a1e2795e8441a1a27340b0ea946ac2efabffb41e51eab8cb3774c5b",
+  "fixtureManifest": [
+    {
+      "markerId": "D15_CLAUDE_ROOT",
+      "path": "CLAUDE.md",
+      "sha256": "58b1735cefbc51406febf1e9d1f8198380bf1fee17c8f6b674d5a029fa72f1d1"
+    }
+  ],
+  "invocation": null,
+  "observedAt": "2026-08-02T20:18:08Z",
+  "operation": "blocked-paid-observation",
+  "planDigest": "ab5cbda2c1f677cb65c9ed5b3a55ee8d40fa32453426a1dd9c01806f6640fd37",
+  "platform": {
+    "architecture": "arm64",
+    "operatingSystem": "darwin"
+  },
+  "profileId": "claude-code",
+  "recordKind": "agent-context-real-client-observation-transcript",
+  "result": {
+    "blockedReason": "no-safe-no-model-signal",
+    "exitCode": null,
+    "signal": null,
+    "status": "blocked",
+    "stderr": "",
+    "stdout": "",
+    "versionMatched": null,
+    "workspaceUnchanged": true
+  },
+  "settingSources": ["isolated-home", "repository-fixture"],
+  "supervisor": null,
+  "surfaceId": "claude-code/local-session"
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-context-lint.dev/schemas/semantic-plugin-input.v0.schema.json",
+  "title": "Agent Context Linter semantic plug-in input v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contractVersion", "documents", "recordKind"],
+  "properties": {
+    "contractVersion": { "const": "0.1.0" },
+    "documents": {
+      "type": "array",
+      "maxItems": 2048,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["documentId", "path", "sourceDigest", "text"],
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9:._/-]{0,255}$"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "pattern": "^(?![A-Za-z]:)(?!.*[\\u0000-\\u001F\\u007F])(?!.*[\\uD800-\\uDFFF])(?!.*\\\\)(?!.*(?:^|/)\\.{1,2}(?:/|$))[^/]+(?:/[^/]+)*$"
+          },
+          "sourceDigest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "text": { "type": "string", "maxLength": 8388608, "pattern": "^[^\\u0000]*$" }
+        }
+      }
+    },
+    "recordKind": { "const": "agent-context-semantic-plugin-input" }
+  }
+}

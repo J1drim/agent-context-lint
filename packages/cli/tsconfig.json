@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "rootDir": "./src",
+    "tsBuildInfoFile": "./.tsbuildinfo"
+  },
+  "include": ["src/**/*.ts"],
+  "references": [
+    { "path": "../core" },
+    { "path": "../efficiency" },
+    { "path": "../evidence" },
+    { "path": "../formatters" },
+    { "path": "../profiles" },
+    { "path": "../resolver" },
+    { "path": "../rules" },
+    { "path": "../standards" },
+    { "path": "../syntax" }
+  ]
+}

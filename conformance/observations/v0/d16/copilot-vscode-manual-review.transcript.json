@@ -1,0 +1,61 @@
+{
+  "actualLoadedSourceSequence": [],
+  "capabilityPolicy": {
+    "allowed": [],
+    "denied": [
+      "credential-read",
+      "external-network",
+      "model-request",
+      "repository-command",
+      "repository-write",
+      "user-config-read"
+    ]
+  },
+  "caseId": "d16-copilot-vscode-manual-review",
+  "client": null,
+  "contractVersion": "0.1.0",
+  "environmentKeys": [
+    "CI",
+    "HOME",
+    "NO_COLOR",
+    "PATH",
+    "TEMP",
+    "TMP",
+    "TMPDIR",
+    "XDG_CACHE_HOME",
+    "XDG_CONFIG_HOME",
+    "XDG_DATA_HOME"
+  ],
+  "expectedLoadedSourceSequence": [".github/instructions/api.instructions.md"],
+  "fixtureDigest": "4f263714f313c805512b28edbbb60a6ff4f4110d0b50da3ac3493148eff21798",
+  "fixtureManifest": [
+    {
+      "markerId": "D15_COPILOT_VSCODE_RULE",
+      "path": ".github/instructions/api.instructions.md",
+      "sha256": "c01f50b9ad82f0368e8b66d3d101ae7e61c52594064dae5fee16bbaffed95558"
+    }
+  ],
+  "invocation": null,
+  "observedAt": "2026-08-02T20:18:08Z",
+  "operation": "blocked-paid-observation",
+  "planDigest": "47b7607d65d0eaf5fdd5ff3ceba51e5b474698c5dfa81c8ac1e82e3e3153f051",
+  "platform": {
+    "architecture": "arm64",
+    "operatingSystem": "darwin"
+  },
+  "profileId": "copilot-vscode",
+  "recordKind": "agent-context-real-client-observation-transcript",
+  "result": {
+    "blockedReason": "ide-surface-needs-reviewed-manual-observation",
+    "exitCode": null,
+    "signal": null,
+    "status": "blocked",
+    "stderr": "",
+    "stdout": "",
+    "versionMatched": null,
+    "workspaceUnchanged": true
+  },
+  "settingSources": ["ide-runtime", "repository-fixture"],
+  "supervisor": null,
+  "surfaceId": "copilot-vscode/local-chat"
+}

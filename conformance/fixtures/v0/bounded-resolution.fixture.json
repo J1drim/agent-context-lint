@@ -1,0 +1,26 @@
+{
+  "contractVersion": "0.1.0",
+  "recordKind": "agent-context-bounded-resolution-fixture",
+  "source": {
+    "content": "Use deterministic tests.\n",
+    "path": "AGENTS.md"
+  },
+  "targets": [
+    {
+      "id": "target-zulu",
+      "path": "zeta.ts"
+    },
+    {
+      "id": "target-alpha",
+      "path": "apps/api/main.ts"
+    },
+    {
+      "id": "target-unicode",
+      "path": "src/éclair.ts"
+    },
+    {
+      "id": "target-middle",
+      "path": "src/main.ts"
+    }
+  ]
+}

@@ -1,0 +1,730 @@
+{
+  "capabilities": [
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "source-derived", "observed"],
+      "formatId": "agents-markdown",
+      "id": "codex-cli.local-cli-single-cwd--agents-markdown",
+      "negative": {
+        "assertionId": "assert-agents-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-codex-cli-local-cli-single-cwd-negative"
+      },
+      "positive": {
+        "assertionId": "assert-agents-markdown-positive",
+        "expectedState": "selected",
+        "fixtureId": "official-codex-cli-local-cli-single-cwd-positive"
+      },
+      "profileId": "codex-cli",
+      "supportStatus": "supported",
+      "surfaceId": "codex-cli/local-cli-single-cwd"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "pending-observation"],
+      "formatId": "claude-memory-markdown",
+      "id": "claude-code.local-session--claude-memory-markdown",
+      "negative": {
+        "assertionId": "assert-claude-memory-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-claude-code-local-session-negative"
+      },
+      "positive": {
+        "assertionId": "assert-claude-memory-markdown-positive",
+        "expectedState": "selected",
+        "fixtureId": "official-claude-code-local-session-positive"
+      },
+      "profileId": "claude-code",
+      "supportStatus": "supported",
+      "surfaceId": "claude-code/local-session"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "pending-observation"],
+      "formatId": "claude-rule-markdown",
+      "id": "claude-code.local-session--claude-rule-markdown",
+      "negative": {
+        "assertionId": "assert-claude-rule-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-claude-code-local-session-negative"
+      },
+      "positive": {
+        "assertionId": "assert-claude-rule-markdown-positive",
+        "expectedState": "selected",
+        "fixtureId": "official-claude-code-local-session-positive"
+      },
+      "profileId": "claude-code",
+      "supportStatus": "supported",
+      "surfaceId": "claude-code/local-session"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "pending-observation"],
+      "formatId": "copilot-repository-markdown",
+      "id": "copilot-cli.local-terminal--copilot-repository-markdown",
+      "negative": {
+        "assertionId": "assert-copilot-repository-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-copilot-cli-local-terminal-negative"
+      },
+      "positive": {
+        "assertionId": "assert-copilot-repository-markdown-positive",
+        "expectedState": "selected",
+        "fixtureId": "official-copilot-cli-local-terminal-positive"
+      },
+      "profileId": "copilot-cli",
+      "supportStatus": "supported",
+      "surfaceId": "copilot-cli/local-terminal"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "conditional"],
+      "formatId": "copilot-path-instructions",
+      "id": "copilot-cli.local-terminal--copilot-path-instructions",
+      "negative": {
+        "assertionId": "assert-copilot-path-instructions-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-copilot-cli-local-terminal-negative"
+      },
+      "positive": {
+        "assertionId": "assert-copilot-path-instructions-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-copilot-cli-local-terminal-positive"
+      },
+      "profileId": "copilot-cli",
+      "supportStatus": "supported",
+      "surfaceId": "copilot-cli/local-terminal"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "unknown"],
+      "formatId": "agents-markdown",
+      "id": "copilot-cli.local-terminal--agents-markdown",
+      "negative": {
+        "assertionId": "assert-agents-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-copilot-cli-local-terminal-negative"
+      },
+      "positive": {
+        "assertionId": "assert-agents-markdown-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-copilot-cli-local-terminal-positive"
+      },
+      "profileId": "copilot-cli",
+      "supportStatus": "supported",
+      "surfaceId": "copilot-cli/local-terminal"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "unknown"],
+      "formatId": "claude-memory-markdown",
+      "id": "copilot-cli.local-terminal--claude-memory-markdown",
+      "negative": {
+        "assertionId": "assert-claude-memory-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-copilot-cli-local-terminal-negative"
+      },
+      "positive": {
+        "assertionId": "assert-claude-memory-markdown-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-copilot-cli-local-terminal-positive"
+      },
+      "profileId": "copilot-cli",
+      "supportStatus": "supported",
+      "surfaceId": "copilot-cli/local-terminal"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented"],
+      "formatId": "gemini-context-markdown",
+      "id": "copilot-cli.local-terminal--gemini-context-markdown",
+      "negative": {
+        "assertionId": "assert-gemini-context-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-copilot-cli-local-terminal-negative"
+      },
+      "positive": {
+        "assertionId": "assert-gemini-context-markdown-positive",
+        "expectedState": "selected",
+        "fixtureId": "official-copilot-cli-local-terminal-positive"
+      },
+      "profileId": "copilot-cli",
+      "supportStatus": "supported",
+      "surfaceId": "copilot-cli/local-terminal"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented"],
+      "formatId": "copilot-repository-markdown",
+      "id": "copilot-vscode.local-chat--copilot-repository-markdown",
+      "negative": {
+        "assertionId": "assert-copilot-repository-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-copilot-vscode-local-chat-negative"
+      },
+      "positive": {
+        "assertionId": "assert-copilot-repository-markdown-positive",
+        "expectedState": "selected",
+        "fixtureId": "official-copilot-vscode-local-chat-positive"
+      },
+      "profileId": "copilot-vscode",
+      "supportStatus": "supported",
+      "surfaceId": "copilot-vscode/local-chat"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "conditional", "contradiction"],
+      "formatId": "copilot-path-instructions",
+      "id": "copilot-vscode.local-chat--copilot-path-instructions",
+      "negative": {
+        "assertionId": "assert-copilot-path-instructions-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-copilot-vscode-local-chat-negative"
+      },
+      "positive": {
+        "assertionId": "assert-copilot-path-instructions-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-copilot-vscode-local-chat-positive"
+      },
+      "profileId": "copilot-vscode",
+      "supportStatus": "supported",
+      "surfaceId": "copilot-vscode/local-chat"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "conditional", "model-selected"],
+      "formatId": "agents-markdown",
+      "id": "copilot-vscode.local-chat--agents-markdown",
+      "negative": {
+        "assertionId": "assert-agents-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-copilot-vscode-local-chat-negative"
+      },
+      "positive": {
+        "assertionId": "assert-agents-markdown-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-copilot-vscode-local-chat-positive"
+      },
+      "profileId": "copilot-vscode",
+      "supportStatus": "supported",
+      "surfaceId": "copilot-vscode/local-chat"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["conditional", "contradiction"],
+      "formatId": "claude-memory-markdown",
+      "id": "copilot-vscode.local-chat--claude-memory-markdown",
+      "negative": {
+        "assertionId": "assert-claude-memory-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-copilot-vscode-local-chat-negative"
+      },
+      "positive": {
+        "assertionId": "assert-claude-memory-markdown-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-copilot-vscode-local-chat-positive"
+      },
+      "profileId": "copilot-vscode",
+      "supportStatus": "conditional",
+      "surfaceId": "copilot-vscode/local-chat"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["not-listed"],
+      "formatId": "gemini-context-markdown",
+      "id": "copilot-vscode.local-chat--gemini-context-markdown",
+      "negative": {
+        "assertionId": "assert-gemini-context-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-copilot-vscode-local-chat-negative"
+      },
+      "positive": {
+        "assertionId": "assert-gemini-context-markdown-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-copilot-vscode-local-chat-positive"
+      },
+      "profileId": "copilot-vscode",
+      "supportStatus": "not-listed",
+      "surfaceId": "copilot-vscode/local-chat"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "source-derived", "blocked-paid-observation"],
+      "formatId": "gemini-context-markdown",
+      "id": "gemini-cli.local-terminal--gemini-context-markdown",
+      "negative": {
+        "assertionId": "assert-gemini-context-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-gemini-cli-local-terminal-negative"
+      },
+      "positive": {
+        "assertionId": "assert-gemini-context-markdown-positive",
+        "expectedState": "selected",
+        "fixtureId": "official-gemini-cli-local-terminal-positive"
+      },
+      "profileId": "gemini-cli",
+      "supportStatus": "supported",
+      "surfaceId": "gemini-cli/local-terminal"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "model-selected", "blocked-paid-observation"],
+      "formatId": "cursor-mdc",
+      "id": "cursor-agent.ide--cursor-mdc",
+      "negative": {
+        "assertionId": "assert-cursor-mdc-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-cursor-agent-ide-negative"
+      },
+      "positive": {
+        "assertionId": "assert-cursor-mdc-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-cursor-agent-ide-positive"
+      },
+      "profileId": "cursor-agent",
+      "supportStatus": "supported",
+      "surfaceId": "cursor-agent/ide"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "unknown"],
+      "formatId": "cursor-legacy-rules",
+      "id": "cursor-agent.ide--cursor-legacy-rules",
+      "negative": {
+        "assertionId": "assert-cursor-legacy-rules-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-cursor-agent-ide-negative"
+      },
+      "positive": {
+        "assertionId": "assert-cursor-legacy-rules-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-cursor-agent-ide-positive"
+      },
+      "profileId": "cursor-agent",
+      "supportStatus": "supported",
+      "surfaceId": "cursor-agent/ide"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "unknown"],
+      "formatId": "agents-markdown",
+      "id": "cursor-agent.ide--agents-markdown",
+      "negative": {
+        "assertionId": "assert-agents-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-cursor-agent-ide-negative"
+      },
+      "positive": {
+        "assertionId": "assert-agents-markdown-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-cursor-agent-ide-positive"
+      },
+      "profileId": "cursor-agent",
+      "supportStatus": "supported",
+      "surfaceId": "cursor-agent/ide"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["unknown"],
+      "formatId": "claude-memory-markdown",
+      "id": "cursor-agent.ide--claude-memory-markdown",
+      "negative": {
+        "assertionId": "assert-claude-memory-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-cursor-agent-ide-negative"
+      },
+      "positive": {
+        "assertionId": "assert-claude-memory-markdown-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-cursor-agent-ide-positive"
+      },
+      "profileId": "cursor-agent",
+      "supportStatus": "unknown",
+      "surfaceId": "cursor-agent/ide"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "model-selected", "blocked-paid-observation"],
+      "formatId": "cursor-mdc",
+      "id": "cursor-agent.cli--cursor-mdc",
+      "negative": {
+        "assertionId": "assert-cursor-mdc-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-cursor-agent-cli-negative"
+      },
+      "positive": {
+        "assertionId": "assert-cursor-mdc-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-cursor-agent-cli-positive"
+      },
+      "profileId": "cursor-agent",
+      "supportStatus": "supported",
+      "surfaceId": "cursor-agent/cli"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["unknown"],
+      "formatId": "cursor-legacy-rules",
+      "id": "cursor-agent.cli--cursor-legacy-rules",
+      "negative": {
+        "assertionId": "assert-cursor-legacy-rules-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-cursor-agent-cli-negative"
+      },
+      "positive": {
+        "assertionId": "assert-cursor-legacy-rules-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-cursor-agent-cli-positive"
+      },
+      "profileId": "cursor-agent",
+      "supportStatus": "unknown",
+      "surfaceId": "cursor-agent/cli"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented"],
+      "formatId": "agents-markdown",
+      "id": "cursor-agent.cli--agents-markdown",
+      "negative": {
+        "assertionId": "assert-agents-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-cursor-agent-cli-negative"
+      },
+      "positive": {
+        "assertionId": "assert-agents-markdown-positive",
+        "expectedState": "selected",
+        "fixtureId": "official-cursor-agent-cli-positive"
+      },
+      "profileId": "cursor-agent",
+      "supportStatus": "supported",
+      "surfaceId": "cursor-agent/cli"
+    },
+    {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "evidenceStatus": ["documented", "unknown"],
+      "formatId": "claude-memory-markdown",
+      "id": "cursor-agent.cli--claude-memory-markdown",
+      "negative": {
+        "assertionId": "assert-claude-memory-markdown-negative",
+        "expectedState": "not-selected",
+        "fixtureId": "official-cursor-agent-cli-negative"
+      },
+      "positive": {
+        "assertionId": "assert-claude-memory-markdown-positive",
+        "expectedState": "indeterminate",
+        "fixtureId": "official-cursor-agent-cli-positive"
+      },
+      "profileId": "cursor-agent",
+      "supportStatus": "supported",
+      "surfaceId": "cursor-agent/cli"
+    }
+  ],
+  "contractVersion": "0.1.0",
+  "fixtures": [
+    {
+      "id": "official-codex-cli-local-cli-single-cwd-negative",
+      "path": "conformance/official-examples/v0/fixtures/official-codex-cli-local-cli-single-cwd-negative.fixture.json",
+      "polarity": "negative",
+      "profileId": "codex-cli",
+      "sha256": "31e87bf678b3b5d178ef952e5f643af0ec997030ab83c4871f93d3dd0cf34eb4",
+      "surfaceId": "codex-cli/local-cli-single-cwd"
+    },
+    {
+      "id": "official-codex-cli-local-cli-single-cwd-positive",
+      "path": "conformance/official-examples/v0/fixtures/official-codex-cli-local-cli-single-cwd-positive.fixture.json",
+      "polarity": "positive",
+      "profileId": "codex-cli",
+      "sha256": "36fae9175341d0e6a5e1be3777756590163160bdc64b49ad5aa25d22b4aae680",
+      "surfaceId": "codex-cli/local-cli-single-cwd"
+    },
+    {
+      "id": "official-claude-code-local-session-negative",
+      "path": "conformance/official-examples/v0/fixtures/official-claude-code-local-session-negative.fixture.json",
+      "polarity": "negative",
+      "profileId": "claude-code",
+      "sha256": "5f5eced95f0fa7a480a39069a6d229979957eed0363f92a94c7e9358ad0b7477",
+      "surfaceId": "claude-code/local-session"
+    },
+    {
+      "id": "official-claude-code-local-session-positive",
+      "path": "conformance/official-examples/v0/fixtures/official-claude-code-local-session-positive.fixture.json",
+      "polarity": "positive",
+      "profileId": "claude-code",
+      "sha256": "565f42b7c90ab5efa2750698172f0ad025986e1034c0557a976a68a7a00686f1",
+      "surfaceId": "claude-code/local-session"
+    },
+    {
+      "id": "official-copilot-cli-local-terminal-negative",
+      "path": "conformance/official-examples/v0/fixtures/official-copilot-cli-local-terminal-negative.fixture.json",
+      "polarity": "negative",
+      "profileId": "copilot-cli",
+      "sha256": "525744f9fee7b1d236d32dd4e37b57b175a3760a62ed946a4011659656d6ba4d",
+      "surfaceId": "copilot-cli/local-terminal"
+    },
+    {
+      "id": "official-copilot-cli-local-terminal-positive",
+      "path": "conformance/official-examples/v0/fixtures/official-copilot-cli-local-terminal-positive.fixture.json",
+      "polarity": "positive",
+      "profileId": "copilot-cli",
+      "sha256": "2926f993b8ba84d9fbf0464b00955ddd06b59b901b9daecda7932060a4265e81",
+      "surfaceId": "copilot-cli/local-terminal"
+    },
+    {
+      "id": "official-copilot-vscode-local-chat-negative",
+      "path": "conformance/official-examples/v0/fixtures/official-copilot-vscode-local-chat-negative.fixture.json",
+      "polarity": "negative",
+      "profileId": "copilot-vscode",
+      "sha256": "6a3a63ad87d9f7cc452b57df4a0998a6607e87c1fd5e4e9f0329b59330736d65",
+      "surfaceId": "copilot-vscode/local-chat"
+    },
+    {
+      "id": "official-copilot-vscode-local-chat-positive",
+      "path": "conformance/official-examples/v0/fixtures/official-copilot-vscode-local-chat-positive.fixture.json",
+      "polarity": "positive",
+      "profileId": "copilot-vscode",
+      "sha256": "54f9769b1caf69a04b5c60b0ebd2fa12fc8d68ef444caa6734008972591a94bd",
+      "surfaceId": "copilot-vscode/local-chat"
+    },
+    {
+      "id": "official-gemini-cli-local-terminal-negative",
+      "path": "conformance/official-examples/v0/fixtures/official-gemini-cli-local-terminal-negative.fixture.json",
+      "polarity": "negative",
+      "profileId": "gemini-cli",
+      "sha256": "2c026f0d4faca9ef5956576328e0061a086f3d7c9688df6639dfd1ab90e6ee4e",
+      "surfaceId": "gemini-cli/local-terminal"
+    },
+    {
+      "id": "official-gemini-cli-local-terminal-positive",
+      "path": "conformance/official-examples/v0/fixtures/official-gemini-cli-local-terminal-positive.fixture.json",
+      "polarity": "positive",
+      "profileId": "gemini-cli",
+      "sha256": "8a32dfbc80708b554716b791ab14cd579656e880c4c6822ac4f69fb688874ee1",
+      "surfaceId": "gemini-cli/local-terminal"
+    },
+    {
+      "id": "official-cursor-agent-ide-negative",
+      "path": "conformance/official-examples/v0/fixtures/official-cursor-agent-ide-negative.fixture.json",
+      "polarity": "negative",
+      "profileId": "cursor-agent",
+      "sha256": "e657726dfb83b2e5f5b026b226061ab18951e928c0d2e54af1ac3bded444baed",
+      "surfaceId": "cursor-agent/ide"
+    },
+    {
+      "id": "official-cursor-agent-ide-positive",
+      "path": "conformance/official-examples/v0/fixtures/official-cursor-agent-ide-positive.fixture.json",
+      "polarity": "positive",
+      "profileId": "cursor-agent",
+      "sha256": "2a8bee0dc4d4b315eb90ad4a8510b314192ff84edd48d6597103197b067f77e2",
+      "surfaceId": "cursor-agent/ide"
+    },
+    {
+      "id": "official-cursor-agent-cli-negative",
+      "path": "conformance/official-examples/v0/fixtures/official-cursor-agent-cli-negative.fixture.json",
+      "polarity": "negative",
+      "profileId": "cursor-agent",
+      "sha256": "1ed71230dc294aa6e407e99d36b29d4546b32a803cfa1d1833b636a1161082ff",
+      "surfaceId": "cursor-agent/cli"
+    },
+    {
+      "id": "official-cursor-agent-cli-positive",
+      "path": "conformance/official-examples/v0/fixtures/official-cursor-agent-cli-positive.fixture.json",
+      "polarity": "positive",
+      "profileId": "cursor-agent",
+      "sha256": "1aeabc5ffff574a957ffd3a37b0aeb43e602c555c9b823bf42c96368e8fbfcbf",
+      "surfaceId": "cursor-agent/cli"
+    }
+  ],
+  "inventory": {
+    "path": "conformance/contracts/profile-surface-map.v0.json",
+    "sha256": "184298429e3002cddc541b58a2313c22569a31a8f75ef7c71d0bba68672618bc"
+  },
+  "observationReview": {
+    "path": "conformance/observations/v0/d16/review.json",
+    "sha256": "bba0d1158e7abc6d94fbf08e780de636da7612b62c8f399368ece3c446bfabc5"
+  },
+  "recordKind": "official-example-conformance-corpus",
+  "review": {
+    "cadence": "monthly",
+    "nextReviewDue": "2026-09-02",
+    "primaryOwner": "@agent-context-lint/profile-reviewers",
+    "procedurePath": "docs/profiles/official-example-conformance.md",
+    "qualityOwner": "@agent-context-lint/qa-reviewers",
+    "reviewedAt": "2026-08-02"
+  }
+}

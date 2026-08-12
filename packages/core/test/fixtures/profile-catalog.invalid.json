@@ -1,0 +1,66 @@
+{
+  "recordKind": "agent-context-profile-catalog",
+  "contractVersion": "0.1.0",
+  "documentFormats": [
+    {
+      "id": "agents-markdown",
+      "syntaxFamily": "markdown-instructions",
+      "syntaxFeatures": ["markdown-body"],
+      "activation": "root to CWD"
+    }
+  ],
+  "clientProfiles": [
+    {
+      "id": "codex-cli",
+      "displayName": "OpenAI Codex CLI",
+      "releaseClass": "ga-required",
+      "surfaceIds": ["codex-cli/local-cli-single-cwd"]
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "codex-cli/local-cli-single-cwd",
+      "profileId": "codex-cli",
+      "kind": "local-cli",
+      "specSnapshotIds": ["codex-cli/invalid-date"],
+      "capabilities": []
+    }
+  ],
+  "specSnapshots": [
+    {
+      "id": "codex-cli/invalid-date",
+      "profileIds": ["codex-cli"],
+      "surfaceIds": ["codex-cli/local-cli-single-cwd"],
+      "clientVersion": null,
+      "versionStatus": "invalid-example",
+      "retrievedAt": "2026-02-31",
+      "sources": [
+        {
+          "id": "codex-docs",
+          "immutability": "living",
+          "url": "https://developers.openai.com/codex/guides/agents-md",
+          "artifactPath": null,
+          "retrievedAt": "2026-02-31",
+          "revision": null,
+          "mutableSourceReason": "Living documentation."
+        }
+      ],
+      "assumptions": []
+    }
+  ],
+  "capabilityDefinitions": [],
+  "formatSupport": [
+    {
+      "surfaceId": "codex-cli/local-cli-single-cwd",
+      "formatId": "agents-markdown",
+      "specSnapshotId": "codex-cli/invalid-date",
+      "recognition": {
+        "support": "unknown",
+        "evidence": ["unknown"],
+        "evidenceRefs": ["codex-docs"],
+        "uncertainty": { "state": "known" }
+      },
+      "capabilities": []
+    }
+  ]
+}

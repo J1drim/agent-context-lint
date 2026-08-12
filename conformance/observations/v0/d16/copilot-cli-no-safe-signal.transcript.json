@@ -1,0 +1,61 @@
+{
+  "actualLoadedSourceSequence": [],
+  "capabilityPolicy": {
+    "allowed": [],
+    "denied": [
+      "credential-read",
+      "external-network",
+      "model-request",
+      "repository-command",
+      "repository-write",
+      "user-config-read"
+    ]
+  },
+  "caseId": "d16-copilot-cli-no-safe-signal",
+  "client": null,
+  "contractVersion": "0.1.0",
+  "environmentKeys": [
+    "CI",
+    "HOME",
+    "NO_COLOR",
+    "PATH",
+    "TEMP",
+    "TMP",
+    "TMPDIR",
+    "XDG_CACHE_HOME",
+    "XDG_CONFIG_HOME",
+    "XDG_DATA_HOME"
+  ],
+  "expectedLoadedSourceSequence": [".github/copilot-instructions.md"],
+  "fixtureDigest": "a3495d2c6ce1b91c08fc2fad297ac47233d967e43a56c9bad59e86885e55c46c",
+  "fixtureManifest": [
+    {
+      "markerId": "D15_COPILOT_CLI_ROOT",
+      "path": ".github/copilot-instructions.md",
+      "sha256": "7f4f634de601f00deb5c5430f68855661fc15d135456ec06fa1df95cfa28ba49"
+    }
+  ],
+  "invocation": null,
+  "observedAt": "2026-08-02T20:18:08Z",
+  "operation": "blocked-paid-observation",
+  "planDigest": "cf28ac44ddeb27c671881897eb4a8dda38db021e3e3a2885a2b3babcb5670360",
+  "platform": {
+    "architecture": "arm64",
+    "operatingSystem": "darwin"
+  },
+  "profileId": "copilot-cli",
+  "recordKind": "agent-context-real-client-observation-transcript",
+  "result": {
+    "blockedReason": "no-safe-no-model-signal",
+    "exitCode": null,
+    "signal": null,
+    "status": "blocked",
+    "stderr": "",
+    "stdout": "",
+    "versionMatched": null,
+    "workspaceUnchanged": true
+  },
+  "settingSources": ["isolated-home", "repository-fixture"],
+  "supervisor": null,
+  "surfaceId": "copilot-cli/local-terminal"
+}

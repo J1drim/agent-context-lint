@@ -1,0 +1,31 @@
+{
+  "capabilityPolicy": {
+    "allowed": [],
+    "denied": [
+      "credential-read",
+      "external-network",
+      "model-request",
+      "repository-command",
+      "repository-write",
+      "user-config-read"
+    ]
+  },
+  "caseId": "d16-claude-code-no-safe-signal",
+  "client": "no-safe-no-model-signal",
+  "contractVersion": "0.1.0",
+  "expectedLoadedSourceSequence": ["CLAUDE.md"],
+  "fixtureFiles": [
+    {
+      "content": "D15_CLAUDE_ROOT\nSynthetic observation marker.\n",
+      "markerId": "D15_CLAUDE_ROOT",
+      "path": "CLAUDE.md"
+    }
+  ],
+  "observedAt": "2026-08-02T20:18:08Z",
+  "operation": "blocked-paid-observation",
+  "profileId": "claude-code",
+  "recordKind": "agent-context-real-client-observation-plan",
+  "settingSources": ["isolated-home", "repository-fixture"],
+  "supervisor": null,
+  "surfaceId": "claude-code/local-session"
+}

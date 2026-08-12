@@ -1,0 +1,727 @@
+{
+  "recordKind": "profile-surface-map",
+  "contractVersion": "0.1.0",
+  "gate": "G0",
+  "retrievedAt": "2026-08-01",
+  "description": "Schema-neutral canonical mapping between document formats, client profiles, and separately versioned runtime surfaces.",
+  "evidenceStates": [
+    "documented",
+    "documented-versioned",
+    "source-derived",
+    "observed",
+    "observed-metadata",
+    "conditional",
+    "model-selected",
+    "unknown",
+    "not-listed",
+    "recognized-unsupported",
+    "out-of-repository",
+    "contradiction",
+    "pending-observation",
+    "blocked-paid-observation",
+    "security-boundary"
+  ],
+  "supportStates": ["supported", "conditional", "unknown", "not-listed", "recognized-unsupported"],
+  "researchRecords": [
+    {
+      "id": "codex-cli/0.146.0/2026-08-01",
+      "path": "docs/profiles/codex-cli-agents.md",
+      "upstreamRevision": "e363b08c9175ac1cbe5893615dd2cb9ddf95043b",
+      "primarySources": [
+        "https://github.com/openai/codex/blob/e363b08c9175ac1cbe5893615dd2cb9ddf95043b/codex-rs/core/src/agents_md.rs",
+        "https://developers.openai.com/codex/guides/agents-md"
+      ]
+    },
+    {
+      "id": "claude-code/2026-08-01",
+      "path": "docs/profiles/claude-code/compatibility.md",
+      "upstreamRevision": null,
+      "mutableSourceReason": "First-party documentation does not publish an immutable revision.",
+      "primarySources": [
+        "https://code.claude.com/docs/en/memory",
+        "https://code.claude.com/docs/en/settings"
+      ]
+    },
+    {
+      "id": "copilot-surfaces/2026-08-01.0",
+      "path": "docs/profiles/copilot-surface-support.md",
+      "upstreamRevision": null,
+      "mutableSourceReason": "GitHub and VS Code documentation are living service documents.",
+      "primarySources": [
+        "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions",
+        "https://docs.github.com/en/copilot/reference/custom-instructions-support",
+        "https://code.visualstudio.com/docs/agent-customization/custom-instructions"
+      ]
+    },
+    {
+      "id": "gemini-cli/2026-08-02.0",
+      "path": "docs/profiles/gemini-cli/compatibility.md",
+      "upstreamRevision": "f47d6c6f7a1308d81f9f57acf7d279f0928c5249",
+      "primarySources": [
+        "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/docs/cli/gemini-md.md",
+        "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/utils/memoryDiscovery.ts"
+      ]
+    },
+    {
+      "id": "cursor/2026-08-01",
+      "path": "docs/profiles/cursor/compatibility.md",
+      "upstreamRevision": null,
+      "mutableSourceReason": "Cursor documentation is dynamically rendered and has no published revision hash.",
+      "primarySources": ["https://cursor.com/docs/rules", "https://cursor.com/docs/cli/using"]
+    }
+  ],
+  "documentFormats": [
+    {
+      "id": "agents-markdown",
+      "syntaxFamily": "markdown-instructions",
+      "canonicalLocationPatterns": ["**/AGENTS.md", "**/AGENTS.override.md"],
+      "defaultNames": ["AGENTS.md", "AGENTS.override.md"],
+      "configuredNames": "Codex project_doc_fallback_filenames may add arbitrary filenames without changing their Markdown syntax.",
+      "parserResponsibilities": [
+        "markdown-body",
+        "empty-content-state",
+        "reference-token-candidates"
+      ],
+      "researchRecords": [
+        "codex-cli/0.146.0/2026-08-01",
+        "copilot-surfaces/2026-08-01.0",
+        "cursor/2026-08-01"
+      ]
+    },
+    {
+      "id": "claude-memory-markdown",
+      "syntaxFamily": "markdown-instructions",
+      "canonicalLocationPatterns": ["**/CLAUDE.md", "**/.claude/CLAUDE.md", "**/CLAUDE.local.md"],
+      "defaultNames": ["CLAUDE.md", ".claude/CLAUDE.md", "CLAUDE.local.md"],
+      "configuredNames": null,
+      "parserResponsibilities": [
+        "markdown-body",
+        "at-reference-candidates",
+        "code-region-exclusion",
+        "html-comment-spans"
+      ],
+      "researchRecords": [
+        "claude-code/2026-08-01",
+        "copilot-surfaces/2026-08-01.0",
+        "cursor/2026-08-01"
+      ]
+    },
+    {
+      "id": "claude-rule-markdown",
+      "syntaxFamily": "markdown-with-yaml-frontmatter",
+      "canonicalLocationPatterns": ["**/.claude/rules/**/*.md"],
+      "defaultNames": [],
+      "configuredNames": null,
+      "parserResponsibilities": [
+        "markdown-body",
+        "yaml-frontmatter",
+        "paths-field",
+        "at-reference-candidates",
+        "html-comment-spans"
+      ],
+      "researchRecords": ["claude-code/2026-08-01"]
+    },
+    {
+      "id": "copilot-repository-markdown",
+      "syntaxFamily": "markdown-instructions",
+      "canonicalLocationPatterns": ["**/.github/copilot-instructions.md"],
+      "defaultNames": ["copilot-instructions.md"],
+      "configuredNames": null,
+      "parserResponsibilities": [
+        "markdown-body",
+        "at-reference-candidates",
+        "markdown-link-candidates"
+      ],
+      "researchRecords": ["copilot-surfaces/2026-08-01.0"]
+    },
+    {
+      "id": "copilot-path-instructions",
+      "syntaxFamily": "markdown-with-yaml-frontmatter",
+      "canonicalLocationPatterns": ["**/.github/instructions/**/*.instructions.md"],
+      "defaultNames": [],
+      "configuredNames": "Copilot CLI custom roots and VS Code instruction-folder settings can add search roots.",
+      "parserResponsibilities": [
+        "markdown-body",
+        "yaml-frontmatter",
+        "applyTo-field",
+        "excludeAgent-field",
+        "name-field",
+        "description-field"
+      ],
+      "researchRecords": ["copilot-surfaces/2026-08-01.0"]
+    },
+    {
+      "id": "gemini-context-markdown",
+      "syntaxFamily": "markdown-instructions",
+      "canonicalLocationPatterns": ["**/GEMINI.md"],
+      "defaultNames": ["GEMINI.md"],
+      "configuredNames": "context.fileName accepts a string or ordered string list; pinned source retains GEMINI.md unless duplicated.",
+      "parserResponsibilities": [
+        "markdown-body",
+        "at-import-candidates",
+        "backtick-code-region-exclusion"
+      ],
+      "researchRecords": ["gemini-cli/2026-08-02.0", "copilot-surfaces/2026-08-01.0"]
+    },
+    {
+      "id": "cursor-mdc",
+      "syntaxFamily": "mdc",
+      "canonicalLocationPatterns": ["**/.cursor/rules/**/*.mdc"],
+      "defaultNames": [],
+      "configuredNames": null,
+      "parserResponsibilities": [
+        "markdown-body",
+        "delimiter-frontmatter",
+        "description-field",
+        "globs-field",
+        "alwaysApply-field",
+        "at-reference-candidates"
+      ],
+      "researchRecords": ["cursor/2026-08-01"]
+    },
+    {
+      "id": "cursor-legacy-rules",
+      "syntaxFamily": "legacy-plain-text-instructions",
+      "canonicalLocationPatterns": [".cursorrules"],
+      "defaultNames": [".cursorrules"],
+      "configuredNames": null,
+      "parserResponsibilities": ["plain-text-body", "legacy-migration-marker"],
+      "researchRecords": ["cursor/2026-08-01"]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "codex-cli",
+      "product": "OpenAI Codex CLI",
+      "releaseClass": "ga-required",
+      "surfaceIds": ["codex-cli/local-cli-single-cwd"]
+    },
+    {
+      "id": "claude-code",
+      "product": "Anthropic Claude Code",
+      "releaseClass": "ga-required",
+      "surfaceIds": ["claude-code/local-session"]
+    },
+    {
+      "id": "copilot-cli",
+      "product": "GitHub Copilot CLI",
+      "releaseClass": "ga-required",
+      "surfaceIds": ["copilot-cli/local-terminal"]
+    },
+    {
+      "id": "copilot-vscode",
+      "product": "GitHub Copilot Chat in Visual Studio Code",
+      "releaseClass": "ga-required",
+      "surfaceIds": ["copilot-vscode/local-chat"]
+    },
+    {
+      "id": "copilot-cloud-agent",
+      "product": "GitHub Copilot coding agent",
+      "releaseClass": "recognized-evidence-only",
+      "surfaceIds": ["copilot-cloud-agent/github-hosted"]
+    },
+    {
+      "id": "copilot-code-review",
+      "product": "GitHub Copilot code review",
+      "releaseClass": "recognized-evidence-only",
+      "surfaceIds": ["copilot-code-review/github-hosted"]
+    },
+    {
+      "id": "gemini-cli",
+      "product": "Google Gemini CLI",
+      "releaseClass": "ga-required",
+      "surfaceIds": ["gemini-cli/local-terminal"]
+    },
+    {
+      "id": "cursor-agent",
+      "product": "Cursor",
+      "releaseClass": "ga-required",
+      "surfaceIds": ["cursor-agent/ide", "cursor-agent/cli"]
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "codex-cli/local-cli-single-cwd",
+      "profileId": "codex-cli",
+      "kind": "local-cli",
+      "version": "0.146.0",
+      "versionStatus": "pinned-release",
+      "defaultInstructionNames": ["AGENTS.override.md", "AGENTS.md"],
+      "configurableInstructionNames": ["project_doc_fallback_filenames"],
+      "repositoryRootModel": "nearest ancestor containing any effective project_root_markers value; otherwise launch CWD only",
+      "rootMarkers": { "default": [".git"], "configurable": true, "evidenceStatus": "documented" },
+      "externalScopes": ["CODEX_HOME global instructions"],
+      "externalScopeStatus": "out-of-repository",
+      "researchRecords": ["codex-cli/0.146.0/2026-08-01"]
+    },
+    {
+      "id": "claude-code/local-session",
+      "profileId": "claude-code",
+      "kind": "local-cli-and-integrated-session",
+      "version": null,
+      "versionStatus": "living-docs-pending-observation",
+      "defaultInstructionNames": [
+        "CLAUDE.md",
+        ".claude/CLAUDE.md",
+        "CLAUDE.local.md",
+        ".claude/rules/**/*.md"
+      ],
+      "configurableInstructionNames": [],
+      "repositoryRootModel": "launch-directory ancestor chain plus on-demand descendant subtrees; scan root remains a linter safety boundary",
+      "rootMarkers": { "default": [], "configurable": false, "evidenceStatus": "documented" },
+      "externalScopes": [
+        "managed CLAUDE.md",
+        "user CLAUDE.md",
+        "user rules",
+        "approved additional directories"
+      ],
+      "externalScopeStatus": "out-of-repository",
+      "researchRecords": ["claude-code/2026-08-01"]
+    },
+    {
+      "id": "copilot-cli/local-terminal",
+      "profileId": "copilot-cli",
+      "kind": "local-cli",
+      "version": null,
+      "versionStatus": "living-docs-pending-observation",
+      "defaultInstructionNames": [
+        ".github/copilot-instructions.md",
+        ".github/instructions/**/*.instructions.md",
+        "AGENTS.md",
+        "CLAUDE.md",
+        ".claude/CLAUDE.md",
+        "GEMINI.md"
+      ],
+      "configurableInstructionNames": ["COPILOT_HOME", "COPILOT_CUSTOM_INSTRUCTIONS_DIRS"],
+      "repositoryRootModel": "repository root, launch CWD, intermediate directories, and runtime file-working paths; exact ordering is unknown",
+      "rootMarkers": { "default": null, "configurable": null, "evidenceStatus": "unknown" },
+      "externalScopes": ["COPILOT_HOME user instructions", "COPILOT_CUSTOM_INSTRUCTIONS_DIRS"],
+      "externalScopeStatus": "out-of-repository",
+      "researchRecords": ["copilot-surfaces/2026-08-01.0"]
+    },
+    {
+      "id": "copilot-vscode/local-chat",
+      "profileId": "copilot-vscode",
+      "kind": "local-ide-chat",
+      "version": null,
+      "versionStatus": "living-docs-pending-observation",
+      "defaultInstructionNames": [
+        ".github/copilot-instructions.md",
+        ".github/instructions/**/*.instructions.md",
+        "AGENTS.md"
+      ],
+      "configurableInstructionNames": [
+        "instruction-folder settings",
+        "chat.useAgentsMdFile",
+        "chat.useNestedAgentsMdFiles",
+        "chat.useClaudeMdFile"
+      ],
+      "repositoryRootModel": "open workspace roots; optional trusted parent repository lookup when enabled",
+      "rootMarkers": {
+        "default": [],
+        "conditional": [".git"],
+        "configurable": true,
+        "evidenceStatus": "conditional"
+      },
+      "externalScopes": [
+        "user instruction folders",
+        "organization instructions",
+        "workspace settings",
+        "IDE runtime state"
+      ],
+      "externalScopeStatus": "out-of-repository",
+      "researchRecords": ["copilot-surfaces/2026-08-01.0"]
+    },
+    {
+      "id": "copilot-cloud-agent/github-hosted",
+      "profileId": "copilot-cloud-agent",
+      "kind": "hosted-coding-agent",
+      "version": null,
+      "versionStatus": "hosted-service-date-2026-08-01",
+      "defaultInstructionNames": [
+        ".github/copilot-instructions.md",
+        ".github/instructions/**/*.instructions.md",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "GEMINI.md"
+      ],
+      "configurableInstructionNames": [],
+      "repositoryRootModel": "hosted checked-out repository; branch lifecycle details are not fully documented",
+      "rootMarkers": { "default": null, "configurable": null, "evidenceStatus": "unknown" },
+      "externalScopes": ["organization instructions", "repository settings", "hosted task state"],
+      "externalScopeStatus": "out-of-repository",
+      "researchRecords": ["copilot-surfaces/2026-08-01.0"]
+    },
+    {
+      "id": "copilot-code-review/github-hosted",
+      "profileId": "copilot-code-review",
+      "kind": "hosted-code-review",
+      "version": null,
+      "versionStatus": "hosted-service-date-2026-08-01",
+      "defaultInstructionNames": [
+        ".github/copilot-instructions.md",
+        ".github/instructions/**/*.instructions.md",
+        "AGENTS.md"
+      ],
+      "configurableInstructionNames": [],
+      "repositoryRootModel": "pull-request head-branch repository snapshot",
+      "rootMarkers": { "default": null, "configurable": null, "evidenceStatus": "unknown" },
+      "externalScopes": [
+        "personal instructions",
+        "organization instructions",
+        "repository review settings",
+        "pull-request event state"
+      ],
+      "externalScopeStatus": "out-of-repository",
+      "researchRecords": ["copilot-surfaces/2026-08-01.0"]
+    },
+    {
+      "id": "gemini-cli/local-terminal",
+      "profileId": "gemini-cli",
+      "kind": "local-cli",
+      "version": "0.53.1",
+      "versionStatus": "pinned-package-and-source",
+      "defaultInstructionNames": ["GEMINI.md"],
+      "configurableInstructionNames": ["context.fileName"],
+      "repositoryRootModel": "trusted workspace roots with nearest configured memory boundary marker; descendant context is JIT",
+      "rootMarkers": {
+        "default": [".git"],
+        "configurable": true,
+        "evidenceStatus": "source-derived"
+      },
+      "externalScopes": [
+        "global Gemini context",
+        "include directories",
+        "private project memory",
+        "extension context"
+      ],
+      "externalScopeStatus": "out-of-repository",
+      "researchRecords": ["gemini-cli/2026-08-02.0"]
+    },
+    {
+      "id": "cursor-agent/ide",
+      "profileId": "cursor-agent",
+      "kind": "local-ide",
+      "version": "3.12.30",
+      "versionStatus": "observed-metadata-only",
+      "defaultInstructionNames": [".cursor/rules/**/*.mdc", ".cursorrules", "AGENTS.md"],
+      "configurableInstructionNames": [],
+      "repositoryRootModel": "supplied IDE workspace roots with nested .cursor/rules scope roots",
+      "rootMarkers": { "default": null, "configurable": null, "evidenceStatus": "unknown" },
+      "externalScopes": ["user rules", "team-managed state", "memories", "IDE runtime references"],
+      "externalScopeStatus": "out-of-repository",
+      "researchRecords": ["cursor/2026-08-01"]
+    },
+    {
+      "id": "cursor-agent/cli",
+      "profileId": "cursor-agent",
+      "kind": "local-cli",
+      "version": "2026.05.24-dda726e",
+      "versionStatus": "observed-metadata-only",
+      "defaultInstructionNames": [".cursor/rules/**/*.mdc", "AGENTS.md", "CLAUDE.md"],
+      "configurableInstructionNames": [],
+      "repositoryRootModel": "supplied CLI workspace root; subdirectory-launch root discovery is unknown",
+      "rootMarkers": { "default": null, "configurable": null, "evidenceStatus": "unknown" },
+      "externalScopes": ["user rules", "team-managed state", "runtime references"],
+      "externalScopeStatus": "out-of-repository",
+      "researchRecords": ["cursor/2026-08-01"]
+    }
+  ],
+  "formatSupport": [
+    {
+      "surfaceId": "codex-cli/local-cli-single-cwd",
+      "formatId": "agents-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["root-to-launch-cwd"],
+      "userScopes": ["CODEX_HOME"],
+      "activation": "one selected candidate per directory, root to CWD",
+      "evidenceStatus": ["documented", "source-derived", "observed"]
+    },
+    {
+      "surfaceId": "claude-code/local-session",
+      "formatId": "claude-memory-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["ancestor-launch", "descendant-on-demand", "local"],
+      "userScopes": ["managed", "user", "additional-directory-conditional"],
+      "activation": "launch or subtree read",
+      "evidenceStatus": ["documented", "pending-observation"]
+    },
+    {
+      "surfaceId": "claude-code/local-session",
+      "formatId": "claude-rule-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["recursive-project-rules"],
+      "userScopes": ["recursive-user-rules"],
+      "activation": "launch when unconditional or matching read when paths-scoped",
+      "evidenceStatus": ["documented", "pending-observation"]
+    },
+
+    {
+      "surfaceId": "copilot-cli/local-terminal",
+      "formatId": "copilot-repository-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["standard-locations"],
+      "userScopes": ["COPILOT_HOME"],
+      "activation": "session startup/resume",
+      "evidenceStatus": ["documented", "pending-observation"]
+    },
+    {
+      "surfaceId": "copilot-cli/local-terminal",
+      "formatId": "copilot-path-instructions",
+      "supportStatus": "supported",
+      "repositoryScopes": ["recursive-standard-roots-except-intermediate-directories"],
+      "userScopes": ["COPILOT_HOME", "custom-instruction-directories"],
+      "activation": "applyTo match against runtime file being worked on",
+      "evidenceStatus": ["documented", "conditional"]
+    },
+    {
+      "surfaceId": "copilot-cli/local-terminal",
+      "formatId": "agents-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["standard-locations"],
+      "userScopes": ["custom-instruction-directories"],
+      "activation": "combined; general order unknown",
+      "evidenceStatus": ["documented", "unknown"]
+    },
+    {
+      "surfaceId": "copilot-cli/local-terminal",
+      "formatId": "claude-memory-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["root-and-standard-locations"],
+      "userScopes": [],
+      "activation": "root CLAUDE.md and .claude/CLAUDE.md recognized; Copilot CLI reference rules apply only to documented families",
+      "evidenceStatus": ["documented", "unknown"]
+    },
+    {
+      "surfaceId": "copilot-cli/local-terminal",
+      "formatId": "gemini-context-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["root-and-standard-locations"],
+      "userScopes": [],
+      "activation": "recognized as instruction text; Gemini @ imports are not expanded",
+      "evidenceStatus": ["documented"]
+    },
+
+    {
+      "surfaceId": "copilot-vscode/local-chat",
+      "formatId": "copilot-repository-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["workspace-root"],
+      "userScopes": [],
+      "activation": "always included when enabled",
+      "evidenceStatus": ["documented"]
+    },
+    {
+      "surfaceId": "copilot-vscode/local-chat",
+      "formatId": "copilot-path-instructions",
+      "supportStatus": "supported",
+      "repositoryScopes": ["configured-workspace-instruction-folders"],
+      "userScopes": ["configured-user-instruction-folders"],
+      "activation": "applyTo match, manual attach, or documented-but-ambiguous description relevance",
+      "evidenceStatus": ["documented", "conditional", "contradiction"]
+    },
+    {
+      "surfaceId": "copilot-vscode/local-chat",
+      "formatId": "agents-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["workspace-root"],
+      "userScopes": [],
+      "activation": "root enabled by default; nested experimental and model-selected",
+      "evidenceStatus": ["documented", "conditional", "model-selected"]
+    },
+    {
+      "surfaceId": "copilot-vscode/local-chat",
+      "formatId": "claude-memory-markdown",
+      "supportStatus": "conditional",
+      "repositoryScopes": ["workspace-root"],
+      "userScopes": [],
+      "activation": "VS Code docs and GitHub support matrix disagree",
+      "evidenceStatus": ["conditional", "contradiction"]
+    },
+    {
+      "surfaceId": "copilot-vscode/local-chat",
+      "formatId": "gemini-context-markdown",
+      "supportStatus": "not-listed",
+      "repositoryScopes": ["workspace-root"],
+      "userScopes": [],
+      "activation": "not listed in current support matrix",
+      "evidenceStatus": ["not-listed"]
+    },
+
+    {
+      "surfaceId": "copilot-cloud-agent/github-hosted",
+      "formatId": "copilot-repository-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["repository-root"],
+      "userScopes": [],
+      "activation": "hosted coding-agent request",
+      "evidenceStatus": ["documented"]
+    },
+    {
+      "surfaceId": "copilot-cloud-agent/github-hosted",
+      "formatId": "copilot-path-instructions",
+      "supportStatus": "supported",
+      "repositoryScopes": ["recursive-repository"],
+      "userScopes": [],
+      "activation": "matching applyTo unless excludeAgent is cloud-agent",
+      "evidenceStatus": ["documented", "conditional"]
+    },
+    {
+      "surfaceId": "copilot-cloud-agent/github-hosted",
+      "formatId": "agents-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["repository-root-and-nested"],
+      "userScopes": [],
+      "activation": "nearest relevant AGENTS.md; relevant directory may depend on selected work",
+      "evidenceStatus": ["documented", "conditional"]
+    },
+    {
+      "surfaceId": "copilot-cloud-agent/github-hosted",
+      "formatId": "claude-memory-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["repository-root-alternative"],
+      "userScopes": [],
+      "activation": "single root alternative",
+      "evidenceStatus": ["documented"]
+    },
+    {
+      "surfaceId": "copilot-cloud-agent/github-hosted",
+      "formatId": "gemini-context-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["repository-root-alternative"],
+      "userScopes": [],
+      "activation": "single root alternative",
+      "evidenceStatus": ["documented"]
+    },
+
+    {
+      "surfaceId": "copilot-code-review/github-hosted",
+      "formatId": "copilot-repository-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["pull-request-head-root"],
+      "userScopes": ["personal-instructions", "organization-instructions"],
+      "activation": "review event when custom instructions enabled",
+      "evidenceStatus": ["documented", "conditional"]
+    },
+    {
+      "surfaceId": "copilot-code-review/github-hosted",
+      "formatId": "copilot-path-instructions",
+      "supportStatus": "supported",
+      "repositoryScopes": ["pull-request-head-recursive"],
+      "userScopes": [],
+      "activation": "applyTo match for reviewed files unless excludeAgent is code-review",
+      "evidenceStatus": ["documented", "conditional"]
+    },
+    {
+      "surfaceId": "copilot-code-review/github-hosted",
+      "formatId": "agents-markdown",
+      "supportStatus": "conditional",
+      "repositoryScopes": ["pull-request-head-root"],
+      "userScopes": [],
+      "activation": "root documented; nested behavior unknown",
+      "evidenceStatus": ["documented", "unknown"]
+    },
+    {
+      "surfaceId": "copilot-code-review/github-hosted",
+      "formatId": "claude-memory-markdown",
+      "supportStatus": "not-listed",
+      "repositoryScopes": ["pull-request-head-root"],
+      "userScopes": [],
+      "activation": "not listed in current GitHub.com review matrix",
+      "evidenceStatus": ["not-listed"]
+    },
+    {
+      "surfaceId": "copilot-code-review/github-hosted",
+      "formatId": "gemini-context-markdown",
+      "supportStatus": "not-listed",
+      "repositoryScopes": ["pull-request-head-root"],
+      "userScopes": [],
+      "activation": "not listed in current GitHub.com review matrix",
+      "evidenceStatus": ["not-listed"]
+    },
+
+    {
+      "surfaceId": "gemini-cli/local-terminal",
+      "formatId": "gemini-context-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["trusted-workspace-ancestors", "jit-descendants", "include-roots"],
+      "userScopes": ["global-gemini-directory"],
+      "activation": "startup hierarchy, /memory reload, and high-intent tool JIT events",
+      "evidenceStatus": ["documented", "source-derived", "blocked-paid-observation"]
+    },
+
+    {
+      "surfaceId": "cursor-agent/ide",
+      "formatId": "cursor-mdc",
+      "supportStatus": "supported",
+      "repositoryScopes": ["workspace-and-nested-rule-roots"],
+      "userScopes": ["user-rules", "team-managed-state"],
+      "activation": "always, auto, model-selected agent-requested, or manual",
+      "evidenceStatus": ["documented", "model-selected", "blocked-paid-observation"]
+    },
+    {
+      "surfaceId": "cursor-agent/ide",
+      "formatId": "cursor-legacy-rules",
+      "supportStatus": "supported",
+      "repositoryScopes": ["workspace-root"],
+      "userScopes": [],
+      "activation": "legacy source; precedence with MDC unknown",
+      "evidenceStatus": ["documented", "unknown"]
+    },
+    {
+      "surfaceId": "cursor-agent/ide",
+      "formatId": "agents-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["workspace-root"],
+      "userScopes": [],
+      "activation": "plain Markdown alternative; detailed semantics unresolved",
+      "evidenceStatus": ["documented", "unknown"]
+    },
+    {
+      "surfaceId": "cursor-agent/ide",
+      "formatId": "claude-memory-markdown",
+      "supportStatus": "unknown",
+      "repositoryScopes": ["workspace-root"],
+      "userScopes": [],
+      "activation": "CLI support must not be copied to IDE",
+      "evidenceStatus": ["unknown"]
+    },
+
+    {
+      "surfaceId": "cursor-agent/cli",
+      "formatId": "cursor-mdc",
+      "supportStatus": "supported",
+      "repositoryScopes": ["workspace-and-nested-rule-roots"],
+      "userScopes": ["user-rules", "team-managed-state"],
+      "activation": "same rules system as IDE, resolved against CLI event trace",
+      "evidenceStatus": ["documented", "model-selected", "blocked-paid-observation"]
+    },
+    {
+      "surfaceId": "cursor-agent/cli",
+      "formatId": "cursor-legacy-rules",
+      "supportStatus": "unknown",
+      "repositoryScopes": ["workspace-root"],
+      "userScopes": [],
+      "activation": "legacy support is documented generally but not independently established for CLI",
+      "evidenceStatus": ["unknown"]
+    },
+    {
+      "surfaceId": "cursor-agent/cli",
+      "formatId": "agents-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["repository-root"],
+      "userScopes": [],
+      "activation": "root instruction source alongside project rules",
+      "evidenceStatus": ["documented"]
+    },
+    {
+      "surfaceId": "cursor-agent/cli",
+      "formatId": "claude-memory-markdown",
+      "supportStatus": "supported",
+      "repositoryScopes": ["repository-root"],
+      "userScopes": [],
+      "activation": "root CLAUDE.md source alongside project rules; Claude-specific import semantics are not transferred",
+      "evidenceStatus": ["documented", "unknown"]
+    }
+  ]
+}

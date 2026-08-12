@@ -1,0 +1,58 @@
+{
+  "baselineRetrievedAt": "2026-07-31",
+  "candidateRetrievedAt": "2026-08-02",
+  "changes": [
+    {
+      "baselineLines": ["AGENTS guidance is reviewed as documentation."],
+      "candidateLines": [
+        "AGENTS guidance is reviewed as changed documentation.",
+        "A draft may contain `code`, <angle brackets>, or maintainer-looking prose."
+      ],
+      "sectionId": "purpose",
+      "sourceId": "agents-format"
+    },
+    {
+      "baselineLines": ["Claude context loading sample."],
+      "candidateLines": [
+        "Claude context loading sample changed: Żółć.",
+        "Review the evidence only."
+      ],
+      "sectionId": "loading",
+      "sourceId": "claude-code-memory"
+    },
+    {
+      "baselineLines": ["Codex discovery sample."],
+      "candidateLines": ["Codex discovery sample changed.", "No behavior conclusion is generated."],
+      "sectionId": "discovery",
+      "sourceId": "codex-agents"
+    },
+    {
+      "baselineLines": ["Cursor activation sample."],
+      "candidateLines": [
+        "Cursor activation sample changed.",
+        "Model-selected behavior remains unknown."
+      ],
+      "sectionId": "behavior",
+      "sourceId": "cursor-rules"
+    },
+    {
+      "baselineLines": ["Gemini hierarchy sample."],
+      "candidateLines": [
+        "Gemini hierarchy sample changed.",
+        "Client observation is still required."
+      ],
+      "sectionId": "hierarchy",
+      "sourceId": "gemini-context"
+    },
+    {
+      "baselineLines": ["Copilot path scope sample."],
+      "candidateLines": [
+        "Copilot path scope sample changed.",
+        "Surface-specific review is required."
+      ],
+      "sectionId": "path-scope",
+      "sourceId": "github-copilot-instructions"
+    }
+  ],
+  "schemaVersion": "1.0.0"
+}

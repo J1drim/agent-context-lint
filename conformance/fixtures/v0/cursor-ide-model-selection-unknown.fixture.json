@@ -1,0 +1,128 @@
+{
+  "recordKind": "profile-conformance-fixture",
+  "fixtureFormatVersion": "0.1.0",
+  "id": "cursor-ide-model-selection-unknown",
+  "title": "Cursor IDE Agent Requested selection remains model-selected",
+  "profile": {
+    "profileId": "cursor-agent",
+    "surfaceId": "cursor-agent/ide",
+    "specSnapshotId": "cursor/2026-08-01",
+    "clientVersion": "3.12.30",
+    "versionStatus": "observed-metadata-only"
+  },
+  "provenance": {
+    "researchRecordIds": ["cursor/2026-08-01"],
+    "derivation": "synthetic-edge-case",
+    "assumptions": ["The supplied directory is the only trusted IDE workspace root."],
+    "observationIds": ["d16-cursor-ide-manual-review"],
+    "sources": [
+      {
+        "id": "cursor-rules",
+        "url": "https://cursor.com/docs/rules",
+        "retrievedAt": "2026-08-02",
+        "immutability": "retrieved-living-doc",
+        "mutableSourceReason": "The dynamically rendered rules page publishes no revision or deterministic model-selection algorithm."
+      },
+      {
+        "id": "cursor-ide-metadata",
+        "url": "https://cursor.com/docs/rules",
+        "retrievedAt": "2026-08-02",
+        "immutability": "observation-artifact",
+        "artifactPath": "docs/profiles/cursor/observations/2026-08-02-local-metadata.md"
+      }
+    ]
+  },
+  "repository": {
+    "root": ".",
+    "directories": [".cursor/", ".cursor/rules/", "src/"],
+    "files": [
+      {
+        "path": ".cursor/rules/api.mdc",
+        "formatId": "cursor-mdc",
+        "content": "---\ndescription: API guidance\nglobs:\nalwaysApply: false\n---\nUse stable names."
+      },
+      { "path": "src/api.ts", "formatId": null, "content": "export {};" }
+    ],
+    "symlinks": []
+  },
+  "externalContext": { "mode": "unavailable", "entries": [] },
+  "invocation": {
+    "launchCwd": ".",
+    "workspaceRoots": ["."],
+    "settings": {},
+    "trustState": "trusted",
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "runtimeMode": "ide-agent"
+  },
+  "targets": [{ "id": "target-api", "path": "src/api.ts", "purpose": "resolve-effective-context" }],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "sequence": 0,
+      "kind": "launch",
+      "path": ".",
+      "targetId": "target-api"
+    },
+    {
+      "id": "event-reference",
+      "sequence": 1,
+      "kind": "reference-path",
+      "path": "src/api.ts",
+      "targetId": "target-api"
+    }
+  ],
+  "expectedGraph": {
+    "analysisStatus": "partial",
+    "ambiguities": [
+      {
+        "id": "ambiguity-model-selection",
+        "kind": "model-selected-activation",
+        "reason": "The rule is eligible for the Agent, but no deterministic client signal exposes whether the model selects it for this event.",
+        "alternatives": [
+          { "id": "selected", "description": "The Agent selects the eligible rule." },
+          { "id": "not-selected", "description": "The Agent does not select the eligible rule." }
+        ],
+        "evidenceRefs": ["CURSOR-MODE-03", "cursor-rules"]
+      }
+    ],
+    "nodes": [
+      {
+        "id": "doc-api",
+        "kind": "document",
+        "path": ".cursor/rules/api.mdc",
+        "formatId": "cursor-mdc",
+        "resolutionStatus": "model-selected",
+        "ambiguityId": "ambiguity-model-selection",
+        "evidenceRefs": ["CURSOR-MODE-03"]
+      },
+      {
+        "id": "target-api-node",
+        "kind": "target",
+        "path": "src/api.ts",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CURSOR-RULES"]
+      }
+    ],
+    "edges": [
+      {
+        "id": "possible-selection",
+        "from": "doc-api",
+        "to": "target-api-node",
+        "relation": "activates",
+        "resolutionStatus": "model-selected",
+        "ambiguityId": "ambiguity-model-selection",
+        "evidenceRefs": ["CURSOR-MODE-03"]
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "id": "assert-selection-conditional",
+      "predicate": "agent-requested-selection",
+      "expected": ["selected", "not-selected"],
+      "evidenceStatus": "model-selected",
+      "ambiguityId": "ambiguity-model-selection",
+      "evidenceRefs": ["CURSOR-MODE-03"]
+    }
+  ]
+}

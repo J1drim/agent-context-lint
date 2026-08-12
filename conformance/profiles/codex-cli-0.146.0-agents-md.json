@@ -1,0 +1,438 @@
+{
+  "catalogVersion": 1,
+  "status": "schema-neutral-reviewed-with-d01-v0-mapping-example",
+  "canonicalFixtureExample": "conformance/fixtures/v0/codex-root-order.fixture.json",
+  "profile": {
+    "id": "codex-cli",
+    "clientVersion": "0.146.0",
+    "releaseTag": "rust-v0.146.0",
+    "releaseCommit": "e363b08c9175ac1cbe5893615dd2cb9ddf95043b",
+    "surface": "local-cli-single-cwd"
+  },
+  "conventions": {
+    "paths": "POSIX-style symbolic fixture paths; the harness supplies an isolated filesystem",
+    "content": "UTF-8 strings unless rawHex is present",
+    "externalContext": "never discovered from the host; supplied explicitly or unavailable",
+    "assertionPolicy": "unknown means no pass/fail compatibility assertion may be invented"
+  },
+  "scenarios": [
+    {
+      "id": "CDX-SC-001",
+      "title": "default Git root and root-to-CWD order",
+      "evidence": ["documented", "source", "observed"],
+      "setup": {
+        "directories": ["/work/repo/.git", "/work/repo/a/b"],
+        "files": {
+          "/work/repo/AGENTS.md": "ROOT",
+          "/work/repo/a/AGENTS.md": "CHILD",
+          "/work/repo/a/b/AGENTS.md": "DEEP"
+        }
+      },
+      "invocation": { "cwd": "/work/repo/a/b", "config": {} },
+      "expected": {
+        "projectRoot": "/work/repo",
+        "selected": ["/work/repo/AGENTS.md", "/work/repo/a/AGENTS.md", "/work/repo/a/b/AGENTS.md"],
+        "projectTextFragments": ["ROOT", "CHILD", "DEEP"],
+        "order": "root-to-cwd"
+      }
+    },
+    {
+      "id": "CDX-SC-002",
+      "title": "no marker limits discovery to CWD",
+      "evidence": ["documented", "source", "observed"],
+      "setup": {
+        "directories": ["/work/plain/child"],
+        "files": { "/work/plain/AGENTS.md": "PARENT", "/work/plain/child/AGENTS.md": "CHILD" }
+      },
+      "invocation": { "cwd": "/work/plain/child", "config": {} },
+      "expected": {
+        "projectRoot": null,
+        "selected": ["/work/plain/child/AGENTS.md"],
+        "excluded": [{ "path": "/work/plain/AGENTS.md", "reason": "outside-discovery-chain" }]
+      }
+    },
+    {
+      "id": "CDX-SC-003",
+      "title": "empty marker list disables traversal",
+      "evidence": ["documented", "source", "observed"],
+      "setup": {
+        "directories": ["/work/repo/.git", "/work/repo/a"],
+        "files": { "/work/repo/AGENTS.md": "ROOT", "/work/repo/a/AGENTS.md": "CHILD" }
+      },
+      "invocation": { "cwd": "/work/repo/a", "config": { "project_root_markers": [] } },
+      "expected": { "projectRoot": null, "selected": ["/work/repo/a/AGENTS.md"] }
+    },
+    {
+      "id": "CDX-SC-004",
+      "title": "custom nearest project marker",
+      "evidence": ["documented", "source", "observed"],
+      "setup": {
+        "directories": ["/work/.workspace-root", "/work/a/b"],
+        "files": {
+          "/work/AGENTS.md": "ROOT",
+          "/work/a/AGENTS.md": "CHILD",
+          "/work/a/b/AGENTS.md": "DEEP"
+        }
+      },
+      "invocation": {
+        "cwd": "/work/a/b",
+        "config": { "project_root_markers": [".workspace-root"] }
+      },
+      "expected": {
+        "projectRoot": "/work",
+        "selected": ["/work/AGENTS.md", "/work/a/AGENTS.md", "/work/a/b/AGENTS.md"]
+      }
+    },
+    {
+      "id": "CDX-SC-005",
+      "title": "override is the first project candidate",
+      "evidence": ["documented", "source", "observed"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "files": {
+          "/work/repo/AGENTS.override.md": "OVERRIDE",
+          "/work/repo/AGENTS.md": "BASE",
+          "/work/repo/TEAM.md": "FALLBACK"
+        }
+      },
+      "invocation": {
+        "cwd": "/work/repo",
+        "config": { "project_doc_fallback_filenames": ["TEAM.md"] }
+      },
+      "expected": {
+        "selected": ["/work/repo/AGENTS.override.md"],
+        "shadowed": ["/work/repo/AGENTS.md", "/work/repo/TEAM.md"]
+      }
+    },
+    {
+      "id": "CDX-SC-006",
+      "title": "fallback configuration order",
+      "evidence": ["documented", "source"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "files": { "/work/repo/FIRST.md": "FIRST", "/work/repo/SECOND.md": "SECOND" }
+      },
+      "invocation": {
+        "cwd": "/work/repo",
+        "config": { "project_doc_fallback_filenames": ["FIRST.md", "SECOND.md"] }
+      },
+      "expected": { "selected": ["/work/repo/FIRST.md"], "shadowed": ["/work/repo/SECOND.md"] }
+    },
+    {
+      "id": "CDX-SC-007",
+      "title": "empty project override shadows non-empty base",
+      "evidence": ["source", "observed"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "files": { "/work/repo/AGENTS.override.md": "", "/work/repo/AGENTS.md": "BASE" }
+      },
+      "invocation": { "cwd": "/work/repo", "config": {} },
+      "expected": {
+        "selected": ["/work/repo/AGENTS.override.md"],
+        "contentOmissions": [
+          { "path": "/work/repo/AGENTS.override.md", "reason": "empty-after-trim" }
+        ],
+        "shadowed": ["/work/repo/AGENTS.md"],
+        "projectTextFragments": []
+      }
+    },
+    {
+      "id": "CDX-SC-008",
+      "title": "empty first fallback shadows later fallback",
+      "evidence": ["source", "observed"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "files": { "/work/repo/FIRST.md": "   \n", "/work/repo/SECOND.md": "SECOND" }
+      },
+      "invocation": {
+        "cwd": "/work/repo",
+        "config": { "project_doc_fallback_filenames": ["FIRST.md", "SECOND.md"] }
+      },
+      "expected": {
+        "selected": ["/work/repo/FIRST.md"],
+        "contentOmissions": [{ "path": "/work/repo/FIRST.md", "reason": "empty-after-trim" }],
+        "shadowed": ["/work/repo/SECOND.md"]
+      }
+    },
+    {
+      "id": "CDX-SC-009",
+      "title": "empty and duplicate fallback names are removed",
+      "evidence": ["source"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "files": { "/work/repo/TEAM.md": "TEAM" }
+      },
+      "invocation": {
+        "cwd": "/work/repo",
+        "config": { "project_doc_fallback_filenames": ["", "AGENTS.md", "TEAM.md", "TEAM.md"] }
+      },
+      "expected": {
+        "effectiveCandidates": ["AGENTS.override.md", "AGENTS.md", "TEAM.md"],
+        "selected": ["/work/repo/TEAM.md"]
+      }
+    },
+    {
+      "id": "CDX-SC-010",
+      "title": "aggregate budget truncates a later file",
+      "evidence": ["source", "observed"],
+      "setup": {
+        "directories": ["/work/repo/.git", "/work/repo/a", "/work/repo/a/b"],
+        "files": {
+          "/work/repo/AGENTS.md": "12345678901234567890123",
+          "/work/repo/a/AGENTS.md": "CHILD_12345678901234567",
+          "/work/repo/a/b/AGENTS.md": "DEEP"
+        }
+      },
+      "invocation": { "cwd": "/work/repo/a/b", "config": { "project_doc_max_bytes": 30 } },
+      "expected": {
+        "projectTextFragments": ["12345678901234567890123", "CHILD_1"],
+        "truncations": [{ "path": "/work/repo/a/AGENTS.md", "rawByteOffset": 7 }],
+        "contentOmissions": [
+          { "path": "/work/repo/a/b/AGENTS.md", "reason": "aggregate-budget-exhausted" }
+        ],
+        "remainingProjectBytes": 0
+      }
+    },
+    {
+      "id": "CDX-SC-011",
+      "title": "zero project budget",
+      "evidence": ["source"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "files": { "/work/repo/AGENTS.md": "PROJECT" }
+      },
+      "invocation": { "cwd": "/work/repo", "config": { "project_doc_max_bytes": 0 } },
+      "expected": {
+        "projectTextFragments": [],
+        "contentOmissions": [
+          { "path": "/work/repo/AGENTS.md", "reason": "project-doc-loading-disabled" }
+        ]
+      }
+    },
+    {
+      "id": "CDX-SC-012",
+      "title": "raw byte truncation can split UTF-8",
+      "evidence": ["source", "observed"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "files": { "/work/repo/AGENTS.md": { "text": "1234567€TAIL", "utf8ByteLength": 14 } }
+      },
+      "invocation": { "cwd": "/work/repo", "config": { "project_doc_max_bytes": 9 } },
+      "expected": {
+        "projectTextFragments": ["1234567�"],
+        "truncations": [{ "path": "/work/repo/AGENTS.md", "rawByteOffset": 9 }],
+        "decode": "utf8-lossy-replacement"
+      }
+    },
+    {
+      "id": "CDX-SC-013",
+      "title": "global override precedes project text",
+      "evidence": ["documented", "source", "observed"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "files": { "/work/repo/AGENTS.md": "PROJECT" },
+        "externalContext": { "globalBase": "GLOBAL_BASE", "globalOverride": "GLOBAL_OVERRIDE" }
+      },
+      "invocation": {
+        "cwd": "/work/repo",
+        "config": {},
+        "externalContextMode": "explicit-fixture"
+      },
+      "expected": {
+        "globalText": "GLOBAL_OVERRIDE",
+        "assembledText": "GLOBAL_OVERRIDE\n\n--- project-doc ---\n\nPROJECT"
+      }
+    },
+    {
+      "id": "CDX-SC-014",
+      "title": "empty global override falls through to global base",
+      "evidence": ["documented", "observed"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "externalContext": { "globalBase": "GLOBAL_BASE", "globalOverride": "" }
+      },
+      "invocation": {
+        "cwd": "/work/repo",
+        "config": {},
+        "externalContextMode": "explicit-fixture"
+      },
+      "expected": { "globalText": "GLOBAL_BASE" }
+    },
+    {
+      "id": "CDX-SC-015",
+      "title": "normal scan does not read CODEX_HOME",
+      "evidence": ["security-boundary"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "files": { "/work/repo/AGENTS.md": "PROJECT" }
+      },
+      "invocation": { "cwd": "/work/repo", "config": {}, "externalContextMode": "unavailable" },
+      "expected": {
+        "globalContextStatus": "external-context-unavailable",
+        "hostPathsRead": [],
+        "projectTextFragments": ["PROJECT"]
+      }
+    },
+    {
+      "id": "CDX-SC-016",
+      "title": "external symlink is recognized but not followed by linter",
+      "evidence": ["source", "observed", "security-boundary"],
+      "setup": {
+        "directories": ["/work/repo/.git", "/outside"],
+        "files": { "/outside/instructions.md": "OUTSIDE" },
+        "symlinks": { "/work/repo/AGENTS.md": "/outside/instructions.md" }
+      },
+      "invocation": { "cwd": "/work/repo", "scanRoot": "/work/repo", "config": {} },
+      "expected": {
+        "selected": ["/work/repo/AGENTS.md"],
+        "contentStatus": "unavailable-external-symlink-target",
+        "diagnostics": ["external-symlink-target"],
+        "pathsReadOutsideScanRoot": []
+      }
+    },
+    {
+      "id": "CDX-SC-017",
+      "title": "later instructions do not mechanically erase earlier text",
+      "evidence": ["documented", "source"],
+      "setup": {
+        "directories": ["/work/repo/.git", "/work/repo/a"],
+        "files": { "/work/repo/AGENTS.md": "Use tabs.", "/work/repo/a/AGENTS.md": "Use spaces." }
+      },
+      "invocation": { "cwd": "/work/repo/a", "config": {} },
+      "expected": {
+        "projectTextFragments": ["Use tabs.", "Use spaces."],
+        "analysis": [{ "kind": "ordered-conflict-opportunity", "semanticWinner": "unknown" }]
+      }
+    },
+    {
+      "id": "CDX-SC-018",
+      "title": "filename case portability remains unknown",
+      "evidence": ["unknown"],
+      "setup": { "directories": ["/work/repo/.git"], "files": { "/work/repo/agents.md": "LOWER" } },
+      "invocation": { "cwd": "/work/repo", "config": {} },
+      "expected": {
+        "portableCompatibilityAssertion": "unknown",
+        "requiredDiagnostic": "filesystem-case-semantics-not-profiled"
+      }
+    },
+    {
+      "id": "CDX-SC-019",
+      "title": "launch CWD is independent of lint target",
+      "evidence": ["documented", "source"],
+      "setup": {
+        "directories": ["/work/repo/.git", "/work/repo/service/deep"],
+        "files": { "/work/repo/AGENTS.md": "ROOT", "/work/repo/service/AGENTS.md": "SERVICE" }
+      },
+      "invocation": {
+        "cwd": "/work/repo",
+        "lintTarget": "/work/repo/service/deep/file.ts",
+        "config": {}
+      },
+      "expected": {
+        "selected": ["/work/repo/AGENTS.md"],
+        "excluded": [{ "path": "/work/repo/service/AGENTS.md", "reason": "below-session-cwd" }]
+      }
+    },
+    {
+      "id": "CDX-SC-020",
+      "title": "repository config cannot bootstrap its own root marker",
+      "evidence": ["source"],
+      "setup": {
+        "directories": ["/work/repo/.custom", "/work/repo/.codex", "/work/repo/a"],
+        "files": {
+          "/work/repo/AGENTS.md": "ROOT",
+          "/work/repo/.codex/config.toml": "project_root_markers = ['.custom']",
+          "/work/repo/a/AGENTS.md": "CHILD"
+        }
+      },
+      "invocation": { "cwd": "/work/repo/a", "nonProjectConfig": {}, "projectConfigTrusted": true },
+      "expected": {
+        "projectRoot": null,
+        "selected": ["/work/repo/a/AGENTS.md"],
+        "ignoredForRootDetection": ["/work/repo/.codex/config.toml"]
+      }
+    },
+    {
+      "id": "CDX-SC-021",
+      "title": "candidate directory is skipped for the next file candidate",
+      "evidence": ["source"],
+      "setup": {
+        "directories": ["/work/repo/.git", "/work/repo/AGENTS.override.md"],
+        "files": { "/work/repo/AGENTS.md": "BASE" }
+      },
+      "invocation": { "cwd": "/work/repo", "config": {} },
+      "expected": {
+        "selected": ["/work/repo/AGENTS.md"],
+        "candidateSkips": [{ "path": "/work/repo/AGENTS.override.md", "reason": "not-a-file" }]
+      }
+    },
+    {
+      "id": "CDX-SC-022",
+      "title": "selected blank project file does not consume aggregate budget",
+      "evidence": ["source"],
+      "setup": {
+        "directories": ["/work/repo/.git", "/work/repo/a"],
+        "files": { "/work/repo/AGENTS.md": "   ", "/work/repo/a/AGENTS.md": "CHILD_TEXT" }
+      },
+      "invocation": { "cwd": "/work/repo/a", "config": { "project_doc_max_bytes": 5 } },
+      "expected": {
+        "selected": ["/work/repo/AGENTS.md", "/work/repo/a/AGENTS.md"],
+        "contentOmissions": [{ "path": "/work/repo/AGENTS.md", "reason": "empty-after-trim" }],
+        "projectTextFragments": ["CHILD"],
+        "truncations": [{ "path": "/work/repo/a/AGENTS.md", "rawByteOffset": 5 }]
+      }
+    },
+    {
+      "id": "CDX-SC-023",
+      "title": "global text and separators do not consume project budget",
+      "evidence": ["source", "observed"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "files": { "/work/repo/AGENTS.md": "PROJECT" },
+        "externalContext": { "globalBase": "A_GLOBAL_STRING_LONGER_THAN_FOUR_BYTES" }
+      },
+      "invocation": {
+        "cwd": "/work/repo",
+        "config": { "project_doc_max_bytes": 4 },
+        "externalContextMode": "explicit-fixture"
+      },
+      "expected": {
+        "globalText": "A_GLOBAL_STRING_LONGER_THAN_FOUR_BYTES",
+        "projectTextFragments": ["PROJ"],
+        "truncations": [{ "path": "/work/repo/AGENTS.md", "rawByteOffset": 4 }]
+      }
+    },
+    {
+      "id": "CDX-SC-024",
+      "title": "non-NotFound read error makes project analysis incomplete",
+      "evidence": ["source", "unknown-user-visible-contract"],
+      "setup": {
+        "directories": ["/work/repo/.git"],
+        "unreadableFiles": ["/work/repo/AGENTS.md"]
+      },
+      "invocation": { "cwd": "/work/repo", "config": {} },
+      "expected": {
+        "analysisStatus": "incomplete",
+        "diagnostics": ["instruction-read-error"],
+        "portableClientExitOrDisplayAssertion": "unknown"
+      }
+    },
+    {
+      "id": "CDX-SC-025",
+      "title": "internal symlink retains link and target provenance",
+      "evidence": ["source"],
+      "setup": {
+        "directories": ["/work/repo/.git", "/work/repo/docs"],
+        "files": { "/work/repo/docs/instructions.md": "INTERNAL" },
+        "symlinks": { "/work/repo/AGENTS.md": "/work/repo/docs/instructions.md" }
+      },
+      "invocation": { "cwd": "/work/repo", "scanRoot": "/work/repo", "config": {} },
+      "expected": {
+        "selected": ["/work/repo/AGENTS.md"],
+        "resolvedTarget": "/work/repo/docs/instructions.md",
+        "projectTextFragments": ["INTERNAL"],
+        "pathsReadOutsideScanRoot": []
+      }
+    }
+  ]
+}

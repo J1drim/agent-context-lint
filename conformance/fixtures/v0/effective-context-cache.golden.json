@@ -1,0 +1,19 @@
+{
+  "key": {
+    "configurationSha256": "48a9bbf5149a93efb7e2d1dbee73c93f225ca342bb0cb4b3fd895dab9c27e790",
+    "contractVersion": "0.1.0",
+    "dependencySha256": "0f3e1e6a0d1edf632fbd612b82a378ae4c6b96dc42fda2c2e34a554750988526",
+    "importDagSha256": "ba9997ff59d80886c5c978bf4fda2d5c59c89ac7dd65381389a50b5bb2ed0dc2",
+    "profileId": "codex-cli",
+    "profileResolutionSha256": "b3784104e465dd472981eb119ecbe70d5f003b9b72f3ea31391850989ac81d28",
+    "profileVersion": "0.1.0",
+    "recordKind": "agent-context-effective-context-cache-key",
+    "samplingSha256": "3e4d7d7e708f05365b80950e610e3f64d13aa4cfafa064b12573457f4eeddaed",
+    "sha256": "9bfaa236b7121f4f65d0d60e01e68e55d09d5396a0e3081f082fa77d77f5373a",
+    "sourceIdentitySha256": "2330565cd419b61611f77d46561b05ecb416259b938ddd40491bd3b81b5f3c9f",
+    "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+    "surfaceId": "codex-cli/local-cli-single-cwd",
+    "targetPath": "src/main.ts"
+  },
+  "resolutionSha256": "04afd8ff6974b7c07e78aab2c35d4fbf33fe2fee8d2014435634e866fd6d1ba4"
+}

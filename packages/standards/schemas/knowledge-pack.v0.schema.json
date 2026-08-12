@@ -1,0 +1,380 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context-lint.dev/standards/knowledge-pack.v0.schema.json",
+  "title": "Agent Context Linter canonical data-only standards knowledge pack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "recordKind",
+    "schemaVersion",
+    "channel",
+    "packId",
+    "packVersion",
+    "publishedAt",
+    "compatibility",
+    "sources",
+    "knowledge"
+  ],
+  "properties": {
+    "recordKind": { "const": "agent-context-knowledge-pack" },
+    "schemaVersion": { "const": "0.1.0" },
+    "channel": { "$ref": "#/$defs/channel" },
+    "packId": { "$ref": "#/$defs/stableId" },
+    "packVersion": { "$ref": "#/$defs/semver" },
+    "publishedAt": { "$ref": "#/$defs/date" },
+    "compatibility": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/compatibility" }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1024,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "knowledge": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10000,
+      "uniqueItems": true,
+      "items": {
+        "oneOf": [
+          { "$ref": "#/$defs/fieldKnowledge" },
+          { "$ref": "#/$defs/locationKnowledge" },
+          { "$ref": "#/$defs/deprecationKnowledge" },
+          { "$ref": "#/$defs/migrationKnowledge" }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "boundedText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "stableId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096,
+      "pattern": "^[A-Za-z0-9]+(?:[._:/-][A-Za-z0-9]+)*$"
+    },
+    "ruleId": {
+      "type": "string",
+      "pattern": "^ACL[1-9][0-9]{2}$"
+    },
+    "semver": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 4096,
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-((?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*))?(?:\\+([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "httpsUrl": {
+      "type": "string",
+      "minLength": 9,
+      "maxLength": 4096,
+      "pattern": "^https://(?:\\[[0-9A-Fa-f:.]+\\]|[^/@:\\[\\]]+)(?::[0-9]+)?(?:/[^\\s]*)?$"
+    },
+    "nullableStableId": {
+      "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/stableId" }]
+    },
+    "nullableSemver": {
+      "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/semver" }]
+    },
+    "valueType": {
+      "enum": ["array", "boolean", "number", "object", "string"]
+    },
+    "locationScope": {
+      "enum": ["repository-root", "scope-root"]
+    },
+    "channel": {
+      "enum": ["preview", "stable"]
+    },
+    "ruleIds": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/ruleId" }
+    },
+    "sourceIds": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1024,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/stableId" }
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "adapterVersion",
+        "channel",
+        "contentDigests",
+        "formatId",
+        "minEngineVersion",
+        "profileId",
+        "retrievedAt",
+        "rulesetVersion",
+        "specificationUrls",
+        "surfaceId",
+        "upstreamRevision"
+      ],
+      "properties": {
+        "adapterVersion": { "$ref": "#/$defs/semver" },
+        "channel": { "$ref": "#/$defs/channel" },
+        "contentDigests": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 1024,
+          "propertyNames": { "$ref": "#/$defs/httpsUrl" },
+          "additionalProperties": { "$ref": "#/$defs/sha256" }
+        },
+        "formatId": { "$ref": "#/$defs/stableId" },
+        "minEngineVersion": { "$ref": "#/$defs/semver" },
+        "profileId": { "$ref": "#/$defs/nullableStableId" },
+        "retrievedAt": { "$ref": "#/$defs/date" },
+        "rulesetVersion": { "$ref": "#/$defs/semver" },
+        "specificationUrls": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1024,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/httpsUrl" }
+        },
+        "surfaceId": { "$ref": "#/$defs/nullableStableId" },
+        "upstreamRevision": { "$ref": "#/$defs/nullableStableId" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "url", "retrievedAt", "sha256"],
+      "properties": {
+        "id": { "$ref": "#/$defs/stableId" },
+        "url": { "$ref": "#/$defs/httpsUrl" },
+        "retrievedAt": { "$ref": "#/$defs/date" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "knowledgeBase": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "profileId",
+        "surfaceId",
+        "summary",
+        "ruleIds",
+        "sourceIds",
+        "matcher"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/stableId" },
+        "kind": { "enum": ["known-field", "known-location", "deprecation", "migration-hint"] },
+        "profileId": { "$ref": "#/$defs/nullableStableId" },
+        "surfaceId": { "$ref": "#/$defs/nullableStableId" },
+        "summary": { "$ref": "#/$defs/boundedText" },
+        "ruleIds": { "$ref": "#/$defs/ruleIds" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "matcher": {}
+      }
+    },
+    "fieldPresenceMatcher": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operands"],
+      "properties": {
+        "id": { "const": "field-presence" },
+        "operands": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["fieldName"],
+          "properties": { "fieldName": { "$ref": "#/$defs/stableId" } }
+        }
+      }
+    },
+    "fieldTypeMatcher": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operands"],
+      "properties": {
+        "id": { "const": "field-type" },
+        "operands": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["fieldName", "valueType"],
+          "properties": {
+            "fieldName": { "$ref": "#/$defs/stableId" },
+            "valueType": { "$ref": "#/$defs/valueType" }
+          }
+        }
+      }
+    },
+    "locationMatcher": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operands"],
+      "properties": {
+        "id": { "const": "location-exact" },
+        "operands": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "scope"],
+          "properties": {
+            "path": { "$ref": "#/$defs/boundedText" },
+            "scope": { "$ref": "#/$defs/locationScope" }
+          }
+        }
+      }
+    },
+    "identifierMatcher": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operands"],
+      "properties": {
+        "id": { "const": "identifier-equals" },
+        "operands": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["identifier"],
+          "properties": { "identifier": { "$ref": "#/$defs/stableId" } }
+        }
+      }
+    },
+    "transitionMatcher": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operands"],
+      "properties": {
+        "id": { "const": "identifier-transition" },
+        "operands": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["fromId", "toId"],
+          "properties": {
+            "fromId": { "$ref": "#/$defs/stableId" },
+            "toId": { "$ref": "#/$defs/stableId" }
+          }
+        }
+      }
+    },
+    "fieldKnowledge": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/knowledgeBase" },
+        {
+          "type": "object",
+          "required": ["field"],
+          "properties": {
+            "kind": { "const": "known-field" },
+            "matcher": {
+              "oneOf": [
+                { "$ref": "#/$defs/fieldPresenceMatcher" },
+                { "$ref": "#/$defs/fieldTypeMatcher" }
+              ]
+            },
+            "field": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "required", "valueType"],
+              "properties": {
+                "name": { "$ref": "#/$defs/stableId" },
+                "required": { "type": "boolean" },
+                "valueType": { "$ref": "#/$defs/valueType" }
+              }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "locationKnowledge": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/knowledgeBase" },
+        {
+          "type": "object",
+          "required": ["location"],
+          "properties": {
+            "kind": { "const": "known-location" },
+            "matcher": { "$ref": "#/$defs/locationMatcher" },
+            "location": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["path", "scope"],
+              "properties": {
+                "path": { "$ref": "#/$defs/boundedText" },
+                "scope": { "$ref": "#/$defs/locationScope" }
+              }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "deprecationKnowledge": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/knowledgeBase" },
+        {
+          "type": "object",
+          "required": ["deprecation"],
+          "properties": {
+            "kind": { "const": "deprecation" },
+            "matcher": { "$ref": "#/$defs/identifierMatcher" },
+            "deprecation": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["subjectId", "replacementId", "deprecatedSince", "removalVersion"],
+              "properties": {
+                "subjectId": { "$ref": "#/$defs/stableId" },
+                "replacementId": { "$ref": "#/$defs/nullableStableId" },
+                "deprecatedSince": { "$ref": "#/$defs/date" },
+                "removalVersion": { "$ref": "#/$defs/nullableSemver" }
+              }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "migrationKnowledge": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/knowledgeBase" },
+        {
+          "type": "object",
+          "required": ["migration"],
+          "properties": {
+            "kind": { "const": "migration-hint" },
+            "matcher": { "$ref": "#/$defs/transitionMatcher" },
+            "migration": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["fromId", "toId", "guidance"],
+              "properties": {
+                "fromId": { "$ref": "#/$defs/stableId" },
+                "toId": { "$ref": "#/$defs/stableId" },
+                "guidance": { "$ref": "#/$defs/boundedText" }
+              }
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}

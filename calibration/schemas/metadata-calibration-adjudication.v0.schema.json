@@ -1,0 +1,173 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/metadata-calibration-adjudication.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [{ "$ref": "#/$defs/review" }, { "$ref": "#/$defs/adjudication" }],
+  "$defs": {
+    "adjudication": {
+      "additionalProperties": false,
+      "properties": {
+        "adjudicatedAt": { "format": "date-time", "type": "string" },
+        "contractVersion": { "const": "0.1.0" },
+        "decisions": {
+          "items": { "$ref": "#/$defs/decision" },
+          "maxItems": 10000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "maintainerAuthoritySha256": { "$ref": "#/$defs/sha256" },
+        "maintainerReviewerId": { "const": "jakub-niezgoda" },
+        "maintainerReviewSha256": { "$ref": "#/$defs/sha256" },
+        "recordKind": { "const": "agent-context-metadata-calibration-adjudication" },
+        "privatePayloadSha256": { "$ref": "#/$defs/sha256" },
+        "reportSha256": { "$ref": "#/$defs/sha256" },
+        "summary": {
+          "additionalProperties": false,
+          "properties": {
+            "error": { "$ref": "#/$defs/precision" },
+            "resolvedCount": { "minimum": 0, "type": "integer" },
+            "warning": { "$ref": "#/$defs/precision" }
+          },
+          "required": ["error", "resolvedCount", "warning"],
+          "type": "object"
+        }
+      },
+      "required": [
+        "adjudicatedAt",
+        "contractVersion",
+        "decisions",
+        "maintainerAuthoritySha256",
+        "maintainerReviewerId",
+        "maintainerReviewSha256",
+        "recordKind",
+        "privatePayloadSha256",
+        "reportSha256",
+        "summary"
+      ],
+      "type": "object"
+    },
+    "decision": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnosticFingerprint": { "$ref": "#/$defs/sha256" },
+        "label": { "$ref": "#/$defs/label" },
+        "reason": { "$ref": "#/$defs/reason" },
+        "repositoryId": { "pattern": "^[1-9][0-9]{0,19}$", "type": "string" },
+        "resolution": { "const": "maintainer-review" },
+        "ruleId": { "pattern": "^ACL[1-5][0-9]{2}$", "type": "string" },
+        "severity": { "enum": ["error", "warning"] }
+      },
+      "required": [
+        "diagnosticFingerprint",
+        "label",
+        "reason",
+        "repositoryId",
+        "resolution",
+        "ruleId",
+        "severity"
+      ],
+      "type": "object"
+    },
+    "identifier": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-z0-9](?:[a-z0-9._:-]{0,126}[a-z0-9])?$",
+      "type": "string"
+    },
+    "label": {
+      "enum": [
+        "false-positive",
+        "test-harness-defect",
+        "true-positive",
+        "uncertain-client-behavior"
+      ]
+    },
+    "precision": {
+      "additionalProperties": false,
+      "properties": {
+        "denominator": { "minimum": 0, "type": "integer" },
+        "falsePositiveCount": { "minimum": 0, "type": "integer" },
+        "lowerWilsonBasisPoints": { "maximum": 10000, "minimum": 0, "type": "integer" },
+        "precisionBasisPoints": { "maximum": 10000, "minimum": 0, "type": "integer" },
+        "thresholdBasisPoints": { "enum": [8500, 9500] },
+        "thresholdPassed": { "type": "boolean" },
+        "truePositiveCount": { "minimum": 0, "type": "integer" },
+        "upperWilsonBasisPoints": { "maximum": 10000, "minimum": 0, "type": "integer" }
+      },
+      "required": [
+        "denominator",
+        "falsePositiveCount",
+        "lowerWilsonBasisPoints",
+        "precisionBasisPoints",
+        "thresholdBasisPoints",
+        "thresholdPassed",
+        "truePositiveCount",
+        "upperWilsonBasisPoints"
+      ],
+      "type": "object"
+    },
+    "reason": {
+      "enum": [
+        "classifier-boundary",
+        "documented-behavior-confirmed",
+        "fixture-or-scan-defect",
+        "insufficient-evidence",
+        "profile-semantics-unknown",
+        "repository-evidence-mismatch",
+        "rule-threshold",
+        "scope-resolution"
+      ]
+    },
+    "review": {
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "labels": {
+          "items": { "$ref": "#/$defs/reviewLabel" },
+          "maxItems": 10000,
+          "minItems": 1,
+          "type": "array"
+        },
+        "maintainerAuthoritySha256": { "$ref": "#/$defs/sha256" },
+        "recordKind": { "const": "agent-context-metadata-calibration-review" },
+        "privatePayloadSha256": { "$ref": "#/$defs/sha256" },
+        "reportSha256": { "$ref": "#/$defs/sha256" },
+        "reviewedAt": { "format": "date-time", "type": "string" },
+        "reviewerId": { "const": "jakub-niezgoda" },
+        "role": { "const": "maintainer" }
+      },
+      "required": [
+        "contractVersion",
+        "labels",
+        "maintainerAuthoritySha256",
+        "privatePayloadSha256",
+        "recordKind",
+        "reportSha256",
+        "reviewedAt",
+        "reviewerId",
+        "role"
+      ],
+      "type": "object"
+    },
+    "reviewLabel": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnosticFingerprint": { "$ref": "#/$defs/sha256" },
+        "label": { "$ref": "#/$defs/label" },
+        "reason": { "$ref": "#/$defs/reason" },
+        "repositoryId": { "pattern": "^[1-9][0-9]{0,19}$", "type": "string" },
+        "ruleId": { "pattern": "^ACL[1-5][0-9]{2}$", "type": "string" },
+        "severity": { "enum": ["error", "warning"] }
+      },
+      "required": [
+        "diagnosticFingerprint",
+        "label",
+        "reason",
+        "repositoryId",
+        "ruleId",
+        "severity"
+      ],
+      "type": "object"
+    },
+    "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" }
+  }
+}

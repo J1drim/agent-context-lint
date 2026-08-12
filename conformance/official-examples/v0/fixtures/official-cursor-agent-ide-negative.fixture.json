@@ -1,0 +1,211 @@
+{
+  "assertions": [
+    {
+      "evidenceRefs": ["cursor-agent.ide--cursor-mdc"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "not-selected", "supportStatus": "supported" },
+      "id": "assert-cursor-mdc-negative",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "evidenceRefs": ["cursor-agent.ide--cursor-legacy-rules"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "not-selected", "supportStatus": "supported" },
+      "id": "assert-cursor-legacy-rules-negative",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "evidenceRefs": ["cursor-agent.ide--agents-markdown"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "not-selected", "supportStatus": "supported" },
+      "id": "assert-agents-markdown-negative",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "evidenceRefs": ["cursor-agent.ide--claude-memory-markdown"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "not-selected", "supportStatus": "unknown" },
+      "id": "assert-claude-memory-markdown-negative",
+      "predicate": "profile-format-capability-outcome"
+    }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "kind": "launch",
+      "path": ".",
+      "sequence": 0,
+      "targetId": "target-example"
+    },
+    {
+      "id": "event-reference",
+      "kind": "reference-path",
+      "path": "src/example.ts",
+      "sequence": 1,
+      "targetId": "target-example"
+    }
+  ],
+  "expectedGraph": {
+    "ambiguities": [],
+    "analysisStatus": "complete",
+    "edges": [
+      {
+        "evidenceRefs": ["cursor-agent.ide--cursor-mdc"],
+        "from": "document-cursor-mdc",
+        "id": "edge-cursor-mdc",
+        "relation": "excludes",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      },
+      {
+        "evidenceRefs": ["cursor-agent.ide--cursor-legacy-rules"],
+        "from": "document-cursor-legacy-rules",
+        "id": "edge-cursor-legacy-rules",
+        "relation": "excludes",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      },
+      {
+        "evidenceRefs": ["cursor-agent.ide--agents-markdown"],
+        "from": "document-agents-markdown",
+        "id": "edge-agents-markdown",
+        "relation": "excludes",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      },
+      {
+        "evidenceRefs": ["cursor-agent.ide--claude-memory-markdown"],
+        "from": "document-claude-memory-markdown",
+        "id": "edge-claude-memory-markdown",
+        "relation": "excludes",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      }
+    ],
+    "nodes": [
+      {
+        "evidenceRefs": ["k01-target"],
+        "id": "target-example",
+        "kind": "target",
+        "path": "src/example.ts",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["cursor-agent.ide--cursor-mdc"],
+        "formatId": "cursor-mdc",
+        "id": "document-cursor-mdc",
+        "kind": "document",
+        "path": "invalid/example.mdc",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["cursor-agent.ide--cursor-legacy-rules"],
+        "formatId": "cursor-legacy-rules",
+        "id": "document-cursor-legacy-rules",
+        "kind": "document",
+        "path": "invalid/cursorrules.txt",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["cursor-agent.ide--agents-markdown"],
+        "formatId": "agents-markdown",
+        "id": "document-agents-markdown",
+        "kind": "document",
+        "path": "invalid/AGENT.md",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["cursor-agent.ide--claude-memory-markdown"],
+        "formatId": "claude-memory-markdown",
+        "id": "document-claude-memory-markdown",
+        "kind": "document",
+        "path": "invalid/CLAUDES.md",
+        "resolutionStatus": "documented"
+      }
+    ]
+  },
+  "extensions": {
+    "agent-context-lint.dev/k01": {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "polarity": "negative"
+    }
+  },
+  "externalContext": { "entries": [], "mode": "unavailable" },
+  "fixtureFormatVersion": "0.1.0",
+  "id": "official-cursor-agent-ide-negative",
+  "invocation": {
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "launchCwd": ".",
+    "runtimeMode": "local-ide",
+    "settings": {},
+    "trustState": "trusted-synthetic",
+    "workspaceRoots": ["."]
+  },
+  "profile": {
+    "clientVersion": "3.12.30",
+    "profileId": "cursor-agent",
+    "specSnapshotId": "cursor/2026-08-01",
+    "surfaceId": "cursor-agent/ide",
+    "versionStatus": "observed-metadata-only"
+  },
+  "provenance": {
+    "assumptions": [
+      "Example prose is replaced by short inert markers while retaining official locations, fields, and activation inputs.",
+      "The negative fixture changes only fixture-owned location or activation inputs and does not infer undocumented client behavior."
+    ],
+    "derivation": "official-example",
+    "observationIds": [],
+    "researchRecordIds": ["cursor/2026-08-01"],
+    "sources": [
+      {
+        "id": "cursor-2026-08-01-official-source",
+        "immutability": "retrieved-living-doc",
+        "retrievedAt": "2026-08-02",
+        "url": "https://cursor.com/docs/rules",
+        "mutableSourceReason": "Cursor documentation is dynamically rendered and has no published revision hash."
+      }
+    ]
+  },
+  "recordKind": "profile-conformance-fixture",
+  "repository": {
+    "directories": ["docs/", "invalid/", "src/"],
+    "files": [
+      {
+        "content": "---\ndescription: TypeScript guidance\nglobs: src/**/*.ts\nalwaysApply: false\nunsupportedExampleField: inert\n---\nUse the TypeScript policy.\n@docs/policy.md\n",
+        "formatId": "cursor-mdc",
+        "path": "invalid/example.mdc"
+      },
+      {
+        "content": "Use the repository test command.\n@docs/policy.md\n",
+        "formatId": "cursor-legacy-rules",
+        "path": "invalid/cursorrules.txt"
+      },
+      {
+        "content": "# Project instructions\n\nUse the repository test command.\n@docs/policy.md\n",
+        "formatId": "agents-markdown",
+        "path": "invalid/AGENT.md"
+      },
+      {
+        "content": "# Project memory\n\nUse the repository test command.\n@docs/policy.md\n",
+        "formatId": "claude-memory-markdown",
+        "path": "invalid/CLAUDES.md"
+      },
+      { "content": "Official-example target.\n", "formatId": null, "path": "src/example.ts" },
+      { "content": "Synthetic imported marker.\n", "formatId": null, "path": "docs/policy.md" }
+    ],
+    "root": ".",
+    "symlinks": []
+  },
+  "targets": [
+    { "id": "target-example", "path": "src/example.ts", "purpose": "resolve-effective-context" }
+  ],
+  "title": "cursor-agent/ide official examples (negative)"
+}

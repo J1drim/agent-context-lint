@@ -1,0 +1,113 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/metadata-calibration-report.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contractVersion": { "const": "0.1.0" },
+    "corpusSha256": { "$ref": "#/$defs/sha256" },
+    "diagnostics": {
+      "items": { "$ref": "#/$defs/diagnostic" },
+      "maxItems": 10000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "engine": { "$ref": "#/$defs/engine" },
+    "engineVersion": { "$ref": "#/$defs/version" },
+    "generatedAt": { "format": "date-time", "type": "string" },
+    "knowledgeVersion": { "$ref": "#/$defs/version" },
+    "privatePayloadSha256": { "$ref": "#/$defs/sha256" },
+    "recordKind": { "const": "agent-context-metadata-calibration-report" },
+    "sourcePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "fingerprintOnly": { "const": true },
+        "repositoryContent": { "const": false },
+        "repositoryPaths": { "const": false }
+      },
+      "required": ["fingerprintOnly", "repositoryContent", "repositoryPaths"],
+      "type": "object"
+    }
+  },
+  "required": [
+    "contractVersion",
+    "corpusSha256",
+    "diagnostics",
+    "engine",
+    "engineVersion",
+    "generatedAt",
+    "knowledgeVersion",
+    "privatePayloadSha256",
+    "recordKind",
+    "sourcePolicy"
+  ],
+  "type": "object",
+  "$defs": {
+    "diagnostic": {
+      "additionalProperties": false,
+      "properties": {
+        "diagnosticFingerprint": { "$ref": "#/$defs/sha256" },
+        "effectiveSeverity": { "enum": ["error", "warning", "info"] },
+        "pathFingerprint": { "$ref": "#/$defs/sha256" },
+        "repositoryId": { "pattern": "^[1-9][0-9]{0,19}$", "type": "string" },
+        "ruleId": { "pattern": "^ACL[1-5][0-9]{2}$", "type": "string" },
+        "semanticFingerprint": { "$ref": "#/$defs/sha256" },
+        "severity": { "enum": ["error", "warning"] }
+      },
+      "required": [
+        "diagnosticFingerprint",
+        "effectiveSeverity",
+        "pathFingerprint",
+        "repositoryId",
+        "ruleId",
+        "semanticFingerprint",
+        "severity"
+      ],
+      "type": "object"
+    },
+    "engine": {
+      "additionalProperties": false,
+      "properties": {
+        "captureStartedAt": { "format": "date-time", "type": "string" },
+        "commitSha": { "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$", "type": "string" },
+        "git": { "$ref": "#/$defs/tool" },
+        "gitRemoteHttps": { "$ref": "#/$defs/tool" },
+        "hdiutil": { "$ref": "#/$defs/tool" },
+        "guardSha256": { "$ref": "#/$defs/sha256" },
+        "knowledgeVersion": { "$ref": "#/$defs/version" },
+        "node": { "$ref": "#/$defs/tool" },
+        "sandboxExec": { "$ref": "#/$defs/tool" },
+        "packageSha256": { "$ref": "#/$defs/sha256" },
+        "ruleRegistrySha256": { "$ref": "#/$defs/sha256" },
+        "runtimeClosureSha256": { "$ref": "#/$defs/sha256" },
+        "version": { "$ref": "#/$defs/version" }
+      },
+      "required": [
+        "captureStartedAt",
+        "commitSha",
+        "git",
+        "gitRemoteHttps",
+        "hdiutil",
+        "guardSha256",
+        "knowledgeVersion",
+        "node",
+        "sandboxExec",
+        "packageSha256",
+        "ruleRegistrySha256",
+        "runtimeClosureSha256",
+        "version"
+      ],
+      "type": "object"
+    },
+    "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+    "tool": {
+      "additionalProperties": false,
+      "properties": {
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "version": { "maxLength": 256, "minLength": 1, "type": "string" }
+      },
+      "required": ["sha256", "version"],
+      "type": "object"
+    },
+    "version": { "maxLength": 128, "minLength": 1, "type": "string" }
+  }
+}

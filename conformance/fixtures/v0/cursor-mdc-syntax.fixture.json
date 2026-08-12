@@ -1,0 +1,114 @@
+{
+  "recordKind": "cursor-mdc-syntax-field-matrix",
+  "schemaVersion": "0.1.0",
+  "cases": [
+    {
+      "id": "true-none",
+      "alwaysApply": true,
+      "description": false,
+      "globs": false,
+      "classification": "always",
+      "state": "known-syntax",
+      "canonical": true
+    },
+    {
+      "id": "true-description",
+      "alwaysApply": true,
+      "description": true,
+      "globs": false,
+      "classification": "always",
+      "state": "conditional",
+      "canonical": false
+    },
+    {
+      "id": "true-globs",
+      "alwaysApply": true,
+      "description": false,
+      "globs": true,
+      "classification": "mixed",
+      "state": "unknown",
+      "canonical": false
+    },
+    {
+      "id": "true-both",
+      "alwaysApply": true,
+      "description": true,
+      "globs": true,
+      "classification": "mixed",
+      "state": "unknown",
+      "canonical": false
+    },
+    {
+      "id": "false-none",
+      "alwaysApply": false,
+      "description": false,
+      "globs": false,
+      "classification": "manual",
+      "state": "known-syntax",
+      "canonical": true
+    },
+    {
+      "id": "false-description",
+      "alwaysApply": false,
+      "description": true,
+      "globs": false,
+      "classification": "agent-requested",
+      "state": "known-syntax",
+      "canonical": true
+    },
+    {
+      "id": "false-globs",
+      "alwaysApply": false,
+      "description": false,
+      "globs": true,
+      "classification": "auto-attached",
+      "state": "known-syntax",
+      "canonical": true
+    },
+    {
+      "id": "false-both",
+      "alwaysApply": false,
+      "description": true,
+      "globs": true,
+      "classification": "mixed",
+      "state": "unknown",
+      "canonical": false
+    },
+    {
+      "id": "missing-none",
+      "alwaysApply": null,
+      "description": false,
+      "globs": false,
+      "classification": "unknown",
+      "state": "unknown",
+      "canonical": false
+    },
+    {
+      "id": "missing-description",
+      "alwaysApply": null,
+      "description": true,
+      "globs": false,
+      "classification": "unknown",
+      "state": "unknown",
+      "canonical": false
+    },
+    {
+      "id": "missing-globs",
+      "alwaysApply": null,
+      "description": false,
+      "globs": true,
+      "classification": "unknown",
+      "state": "unknown",
+      "canonical": false
+    },
+    {
+      "id": "missing-both",
+      "alwaysApply": null,
+      "description": true,
+      "globs": true,
+      "classification": "unknown",
+      "state": "unknown",
+      "canonical": false
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context-lint.dev/efficiency/context-efficiency-score.v1.schema.json",
+  "title": "Agent Context Linter context-efficiency score v1",
+  "description": "Closed result contract for versioned static context-efficiency component and aggregate scores.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "caveatCodes",
+    "components",
+    "confidence",
+    "configuration",
+    "contractVersion",
+    "grade",
+    "identities",
+    "qualityClaim",
+    "recordKind",
+    "score",
+    "semanticQualityPreservationClaim",
+    "specification",
+    "state",
+    "tokenizer",
+    "uncertaintyCodes"
+  ],
+  "properties": {
+    "recordKind": { "const": "agent-context-efficiency-score" },
+    "contractVersion": { "const": "0.1.0" },
+    "state": { "enum": ["caveated", "complete", "unavailable"] },
+    "confidence": {
+      "enum": ["complete-static-evidence", "limited-static-evidence", "unavailable"]
+    },
+    "score": { "anyOf": [{ "$ref": "#/$defs/score" }, { "type": "null" }] },
+    "grade": { "anyOf": [{ "enum": ["A", "B", "C", "D", "F"] }, { "type": "null" }] },
+    "qualityClaim": { "const": false },
+    "semanticQualityPreservationClaim": { "const": false },
+    "tokenizer": {
+      "$ref": "https://schemas.agent-context-lint.dev/efficiency/tokenizer-identity.v1.schema.json"
+    },
+    "specification": {
+      "$ref": "https://schemas.agent-context-lint.dev/efficiency/efficiency-score-specification.v1.schema.json"
+    },
+    "configuration": { "$ref": "#/$defs/configuration" },
+    "identities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["configurationSha256", "metricsSha256", "specificationSha256"],
+      "properties": {
+        "configurationSha256": { "$ref": "#/$defs/sha256" },
+        "metricsSha256": { "$ref": "#/$defs/sha256" },
+        "specificationSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "caveatCodes": {
+      "type": "array",
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/caveatCode" }
+    },
+    "uncertaintyCodes": {
+      "type": "array",
+      "maxItems": 9,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/uncertaintyCode" }
+    },
+    "components": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": { "$ref": "#/$defs/component" }
+    }
+  },
+  "$defs": {
+    "natural": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "basisPoints": { "type": "integer", "minimum": 0, "maximum": 1000000 },
+    "scoreBasisPoints": { "type": "integer", "minimum": 0, "maximum": 10000 },
+    "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "componentId": {
+      "enum": [
+        "budgetFit",
+        "scopePrecision",
+        "nonRedundancy",
+        "reachability",
+        "instructionDensity",
+        "crossAgentConsistency"
+      ]
+    },
+    "uncertaintyCode": {
+      "enum": [
+        "amplification-partial",
+        "broad-scope-partial",
+        "dead-scope-unknown",
+        "density-partial",
+        "distribution-empty",
+        "distribution-partial",
+        "divergence-indeterminate",
+        "divergence-partial",
+        "sampling-partial"
+      ]
+    },
+    "caveatCode": {
+      "enum": ["estimated-tokenizer", "sampling-stratified", "zero-weight-component-unavailable"]
+    },
+    "normalization": {
+      "enum": [
+        "budget-utilization-v1",
+        "broad-scope-token-share-v1",
+        "cross-profile-divergence-rate-v1",
+        "dead-scope-token-share-v1",
+        "density-shortfall-v1",
+        "duplicate-token-share-v1",
+        "import-amplification-overhead-v1"
+      ]
+    },
+    "nullableNatural": {
+      "anyOf": [{ "$ref": "#/$defs/natural" }, { "type": "null" }]
+    },
+    "nullableBasisPoints": {
+      "anyOf": [{ "$ref": "#/$defs/basisPoints" }, { "type": "null" }]
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["budgets", "componentWeights", "gradeThresholds", "scoreVersion"],
+      "properties": {
+        "scoreVersion": { "const": "1.0.0" },
+        "budgets": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["alwaysOnTokens", "effectiveP95Tokens", "zeroBudgetPolicy"],
+          "properties": {
+            "alwaysOnTokens": { "type": "integer", "minimum": 0, "maximum": 10000000 },
+            "effectiveP95Tokens": { "type": "integer", "minimum": 0, "maximum": 10000000 },
+            "zeroBudgetPolicy": {
+              "const": "zero-observed-is-zero-utilization-otherwise-saturate"
+            }
+          }
+        },
+        "componentWeights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "budgetFit",
+            "scopePrecision",
+            "nonRedundancy",
+            "reachability",
+            "instructionDensity",
+            "crossAgentConsistency"
+          ],
+          "properties": {
+            "budgetFit": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "scopePrecision": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "nonRedundancy": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "reachability": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "instructionDensity": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "crossAgentConsistency": { "type": "integer", "minimum": 0, "maximum": 100 }
+          }
+        },
+        "gradeThresholds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["A", "B", "C", "D"],
+          "properties": {
+            "A": { "$ref": "#/$defs/score" },
+            "B": { "$ref": "#/$defs/score" },
+            "C": { "$ref": "#/$defs/score" },
+            "D": { "$ref": "#/$defs/score" }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "documentId",
+        "id",
+        "path",
+        "profileKey",
+        "state",
+        "tokens",
+        "value",
+        "valueUnit"
+      ],
+      "properties": {
+        "documentId": { "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
+        "id": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "path": { "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
+        "profileKey": {
+          "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 4096 }, { "type": "null" }]
+        },
+        "state": { "enum": ["complete", "empty", "measured", "partial", "sampled", "unknown"] },
+        "tokens": { "$ref": "#/$defs/nullableNatural" },
+        "value": { "$ref": "#/$defs/nullableNatural" },
+        "valueUnit": {
+          "anyOf": [{ "enum": ["basis-points", "count"] }, { "type": "null" }]
+        }
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allocationBasisPoints",
+        "denominator",
+        "evidence",
+        "id",
+        "inputBasisPoints",
+        "metricSource",
+        "normalization",
+        "numerator",
+        "penaltyBasisPoints",
+        "reasonCodes",
+        "state"
+      ],
+      "properties": {
+        "allocationBasisPoints": { "$ref": "#/$defs/scoreBasisPoints" },
+        "denominator": { "$ref": "#/$defs/nullableNatural" },
+        "evidence": {
+          "type": "array",
+          "maxItems": 1000000,
+          "items": { "$ref": "#/$defs/evidence" }
+        },
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "inputBasisPoints": { "$ref": "#/$defs/nullableBasisPoints" },
+        "metricSource": { "type": "string", "minLength": 1, "maxLength": 512 },
+        "normalization": { "$ref": "#/$defs/normalization" },
+        "numerator": { "$ref": "#/$defs/nullableNatural" },
+        "penaltyBasisPoints": { "$ref": "#/$defs/nullableBasisPoints" },
+        "reasonCodes": {
+          "type": "array",
+          "maxItems": 9,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/uncertaintyCode" }
+        },
+        "state": { "enum": ["complete", "sampled", "unavailable"] }
+      }
+    },
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "inputs", "reasonCodes", "score", "scoreBasisPoints", "state", "weight"],
+      "properties": {
+        "id": { "$ref": "#/$defs/componentId" },
+        "inputs": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": { "$ref": "#/$defs/input" }
+        },
+        "reasonCodes": {
+          "type": "array",
+          "maxItems": 9,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/uncertaintyCode" }
+        },
+        "score": { "anyOf": [{ "$ref": "#/$defs/score" }, { "type": "null" }] },
+        "scoreBasisPoints": {
+          "anyOf": [{ "$ref": "#/$defs/scoreBasisPoints" }, { "type": "null" }]
+        },
+        "state": { "enum": ["complete", "ignored-unavailable", "sampled", "unavailable"] },
+        "weight": { "type": "integer", "minimum": 0, "maximum": 100 }
+      }
+    }
+  }
+}

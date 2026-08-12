@@ -1,0 +1,107 @@
+{
+  "algorithm": "mulberry32-v1",
+  "bounds": {
+    "generatedCasesPerSeed": 24,
+    "maxGeneratedInputBytes": 8192,
+    "maxGeneratedInputUtf16CodeUnits": 4096,
+    "maxPersistedCases": 64,
+    "maxPersistedTotalBytes": 65536,
+    "maxSeeds": 16
+  },
+  "recordKind": "agent-context-parser-fuzz-corpus",
+  "regressions": {
+    "frontmatter": [
+      {
+        "bytesBase64": "LS0tCmE6ICZhIFsqYV0KLS0tCg==",
+        "dialect": "yaml",
+        "id": "yaml-self-alias"
+      },
+      {
+        "bytesBase64": "LS0tCmE6IDEKYTogMgotLS0K",
+        "dialect": "mdc",
+        "id": "mdc-duplicate-key"
+      },
+      {
+        "bytesBase64": "LS0tCmE6IFsxLCAyCi0tLQo=",
+        "dialect": "yaml",
+        "id": "yaml-unclosed-sequence"
+      },
+      {
+        "bytesBase64": "/w==",
+        "dialect": "yaml",
+        "id": "yaml-invalid-utf8"
+      }
+    ],
+    "graphs": [
+      {
+        "id": "graph-cycle-and-root-escape",
+        "sources": {
+          "AGENTS.md": "@docs/a.md\n",
+          "docs/a.md": "@../AGENTS.md\n@../../outside.md\n"
+        }
+      }
+    ],
+    "ignore": [
+      {
+        "id": "globstar-negation-parent",
+        "paths": ["build/keep.txt", "build/out.bin", "src/index.ts"],
+        "patterns": ["build/", "!build/keep.txt"]
+      },
+      {
+        "id": "metacharacter-pressure",
+        "paths": ["aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.txt", "safe.txt"],
+        "patterns": ["*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*b"]
+      },
+      {
+        "id": "escaped-and-unicode",
+        "paths": ["#literal", "café/🧭.md", "space name.md"],
+        "patterns": ["\\#literal", "caf?/?.md", "space\\ name.md"]
+      }
+    ],
+    "imports": [
+      {
+        "id": "fence-comment-and-live-import",
+        "syntax": "claude-code",
+        "text": "```md\n@hidden.md\n```\n<!-- @also-hidden.md -->\n@live.md\n"
+      },
+      {
+        "id": "bidi-and-terminal-adjacent",
+        "syntax": "gemini-cli",
+        "text": "@safe.md\u001b[31m\u202e\n"
+      },
+      {
+        "id": "import-malformed-unicode",
+        "syntax": "cursor-agent",
+        "text": "@broken-\ud800.md"
+      }
+    ],
+    "markdown": [
+      {
+        "id": "unclosed-fence",
+        "text": "# heading\n```ts\nconst value = 1;\n"
+      },
+      {
+        "id": "adversarial-html-comment",
+        "text": "before\n<!-- <!-- <!-- never closes\n@not-an-import.md\n"
+      },
+      {
+        "id": "controls-bidi-and-surrogate",
+        "text": "# title\ntext \u001b[31m \u202e \ud800 end"
+      },
+      {
+        "id": "mixed-newlines-unicode",
+        "text": "# café\r\n- 日本語\r- 🧭\n"
+      }
+    ],
+    "paths": [
+      { "flavor": "posix", "id": "parent-traversal", "input": "a/../../escape" },
+      { "flavor": "win32", "id": "device-namespace", "input": "\\\\?\\C:\\escape" },
+      { "flavor": "win32", "id": "drive-relative", "input": "C:relative\\file" },
+      { "flavor": "posix", "id": "terminal-control", "input": "safe/\u001b[31m" },
+      { "flavor": "posix", "id": "path-malformed-unicode", "input": "safe/\ud800" },
+      { "flavor": "posix", "id": "canonical-unicode", "input": "café/日本語/🧭.md" }
+    ]
+  },
+  "schemaVersion": 1,
+  "seeds": [0, 1, 3090, 12648430, 3735928559, 4294967295]
+}

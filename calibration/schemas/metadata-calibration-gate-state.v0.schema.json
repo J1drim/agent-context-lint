@@ -1,0 +1,52 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/metadata-calibration-gate-state.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "properties": {
+        "artifactsCommitted": { "const": false },
+        "blockers": {
+          "const": ["native-darwin-capture", "native-darwin-confinement", "real-adjudication"]
+        },
+        "contractVersion": { "const": "0.1.0" },
+        "nativeProofPath": { "const": "calibration/metadata/v0/k03-native-proof.json" },
+        "recordKind": { "const": "agent-context-metadata-calibration-gate-state" },
+        "sourceReplayAvailable": { "const": false },
+        "status": { "const": "feature-unavailable" }
+      },
+      "required": [
+        "artifactsCommitted",
+        "blockers",
+        "contractVersion",
+        "nativeProofPath",
+        "recordKind",
+        "sourceReplayAvailable",
+        "status"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "artifactsCommitted": { "const": true },
+        "blockers": { "const": [] },
+        "contractVersion": { "const": "0.1.0" },
+        "nativeProofPath": { "const": "calibration/metadata/v0/k03-native-proof.json" },
+        "recordKind": { "const": "agent-context-metadata-calibration-gate-state" },
+        "sourceReplayAvailable": { "const": true },
+        "status": { "const": "ready" }
+      },
+      "required": [
+        "artifactsCommitted",
+        "blockers",
+        "contractVersion",
+        "nativeProofPath",
+        "recordKind",
+        "sourceReplayAvailable",
+        "status"
+      ],
+      "type": "object"
+    }
+  ]
+}

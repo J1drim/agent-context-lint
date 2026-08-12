@@ -1,0 +1,118 @@
+.TH AGENT-CONTEXT-LINT 1 "2026-08-03" "agent\-context\-lint 1.0.0" "Agent Context Linter"
+.SH NAME
+agent\-context\-lint \- lint agent instruction files
+.SH SYNOPSIS
+.B agent\-context\-lint
+[\fIoptions\fR] \fIcommand\fR [\fIarguments\fR]
+.SH DESCRIPTION
+A deterministic, offline\-by\-default command\-line interface for inspecting
+agent instruction files.
+.SH COMMANDS
+.TP
+.B efficiency [repository] [\-\-agent <profile>] [\-\-format
+.br
+.B terminal|json] [\-\-compare <repository>] [\-\-no\-color] [\-\-width
+.br
+.B <columns>]
+Report instruction\-context efficiency.
+.TP
+.B explain <target> [\-\-agent <profile>] [\-\-surface <surface>]
+.br
+.B [\-\-trace <file>] [\-\-format terminal|json]
+Explain effective instructions for a target path.
+.TP
+.B init [repository]
+Create a starter repository configuration.
+.TP
+.B list [repository] [\-\-format terminal|json]
+List discovered instruction surfaces.
+.TP
+.B rules [\-\-format terminal|json]
+List installed lint rules.
+.TP
+.B scan [repository] [\-\-format stylish|json|sarif] [\-\-rule ACLNNN]
+.br
+.B [\-\-severity <override>] [\-\-fail\-on error|warning|never]
+.br
+.B [\-\-maximum\-concurrency 1..10] [\-\-profile profile] [\-\-surface
+.br
+.B surface] [\-\-changed \-\-base ref] [\-\-fix\-dry\-run]
+Lint repository agent instruction files.
+.TP
+.B standards <status|check|update> [\-\-format terminal|json]
+.br
+.B [\-\-dry\-run] [\-\-cache <directory>]
+Inspect, verify, or update standards knowledge.
+.SH OPTIONS
+.TP
+.B \-h, \-\-help
+Show command help.
+.TP
+.B \-V, \-\-version
+Show the package version.
+.TP
+.B \-\-agent profile
+Select an exact client profile.
+.TP
+.B \-\-format format
+Select deterministic terminal or JSON output.
+.TP
+.B \-\-compare repository
+Compare against an independently resolved repository source.
+.TP
+.B \-\-no\-color
+Render terminal output without ANSI color.
+.TP
+.B \-\-width columns
+Set terminal width from 40 through 240 columns.
+.TP
+.B \-\-trace file
+Load a repository\-contained resolution\-event trace.
+.TP
+.B \-\-surface surface
+Select a client surface; repeat to select more.
+.TP
+.B \-\-rule rule
+Run only a registered rule; repeat to select more.
+.TP
+.B \-\-severity override
+Override one rule severity as ACLNNN=severity; repeatable.
+.TP
+.B \-\-fail\-on threshold
+Choose the diagnostic failure threshold.
+.TP
+.B \-\-maximum\-concurrency workers
+Bound rule\-family worker concurrency from 1 through 10.
+.TP
+.B \-\-profile profile
+Select a client profile; repeat to select more.
+.TP
+.B \-\-changed
+Select diagnostics changed from one explicit Git base reference.
+.TP
+.B \-\-base ref
+Resolve the exact Git base reference for \-\-changed mode.
+.TP
+.B \-\-fix\-dry\-run
+Preview selected mechanical fixes without writing.
+.TP
+.B \-\-cache directory
+Use an explicit private cache root for update activation.
+.TP
+.B \-\-dry\-run
+Preview a signed update without writing cache or lockfile state.
+.SH FILES
+.TP
+.B \&.agent\-context\-lint.yml
+Versioned repository configuration. The machine reference embeds its
+complete schema and digest.
+.SH EXIT STATUS
+0 for success, 1 for lint policy failure, 2 for usage or operational
+failure, and 130 for SIGINT.
+.SH COMPLETION
+Version\-matched Bash, Zsh, and Fish completion files are installed in the
+package completions directory. PowerShell completion is not part of the
+version 1 contract.
+.SH SEE ALSO
+The packaged reference/agent\-context\-lint\-reference.v1.json file is the
+complete machine\-readable command, configuration, and rule reference.

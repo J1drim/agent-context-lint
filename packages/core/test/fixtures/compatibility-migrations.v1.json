@@ -1,0 +1,90 @@
+{
+  "recordKind": "agent-context-compatibility-migration-fixtures",
+  "fixtureVersion": "1.0.0",
+  "cases": [
+    {
+      "id": "cli-add-option",
+      "surfaceId": "cli",
+      "changeId": "add-command-or-option-with-no-default-behavior-change",
+      "classification": "minor",
+      "migrationRequired": true
+    },
+    {
+      "id": "cli-change-default",
+      "surfaceId": "cli",
+      "changeId": "change-option-meaning-exit-code-default-output-or-default-profile-selection",
+      "classification": "major",
+      "migrationRequired": true
+    },
+    {
+      "id": "library-compatible-fix",
+      "surfaceId": "public-library",
+      "changeId": "implementation-fix-with-accepted-inputs-results-and-side-effects-unchanged",
+      "classification": "patch",
+      "migrationRequired": false
+    },
+    {
+      "id": "library-widen-result-union",
+      "surfaceId": "public-library",
+      "changeId": "add-required-input-narrow-accepted-input-or-widen-exhaustive-result-union",
+      "classification": "major",
+      "migrationRequired": true
+    },
+    {
+      "id": "profile-add-surface",
+      "surfaceId": "profile-behavior",
+      "changeId": "add-profile-surface-format-or-capability-without-changing-existing-resolution",
+      "classification": "minor",
+      "migrationRequired": true
+    },
+    {
+      "id": "profile-change-precedence",
+      "surfaceId": "profile-behavior",
+      "changeId": "change-discovery-precedence-import-glob-activation-or-default-resolution-semantics",
+      "classification": "major",
+      "migrationRequired": true
+    },
+    {
+      "id": "schema-add-optional",
+      "surfaceId": "output-schema",
+      "changeId": "add-optional-field-with-documented-unknown-field-down-conversion",
+      "classification": "minor",
+      "migrationRequired": true
+    },
+    {
+      "id": "schema-change-identity",
+      "surfaceId": "output-schema",
+      "changeId": "change-recordKind-schemaVersion-schema-id-canonical-order-serializer-bytes-or-compatibility-affecting-resource-limit",
+      "classification": "major",
+      "migrationRequired": true
+    },
+    {
+      "id": "diagnostic-baseline-new-fingerprint",
+      "surfaceId": "diagnostic-baseline",
+      "changeId": "add-independent-fingerprint-version-with-existing-matching-retained",
+      "classification": "minor",
+      "migrationRequired": true
+    },
+    {
+      "id": "diagnostic-baseline-change-matching",
+      "surfaceId": "diagnostic-baseline",
+      "changeId": "change-fingerprint-construction-matching-precedence-expiry-or-default-baseline-selection",
+      "classification": "major",
+      "migrationRequired": true
+    },
+    {
+      "id": "pack-add-data",
+      "surfaceId": "knowledge-pack",
+      "changeId": "add-deprecation-known-field-location-reference-or-deterministic-pattern-within-supported-schema",
+      "classification": "minor",
+      "migrationRequired": true
+    },
+    {
+      "id": "pack-requires-engine",
+      "surfaceId": "knowledge-pack",
+      "changeId": "change-discovery-parsing-precedence-import-glob-or-executable-rule-logic-that-requires-engine-release",
+      "classification": "major",
+      "migrationRequired": true
+    }
+  ]
+}

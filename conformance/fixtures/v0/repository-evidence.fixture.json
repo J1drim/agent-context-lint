@@ -1,0 +1,32 @@
+{
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "content": "name: CI\non: [push]\njobs:\n  verify:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - run: pnpm test\n"
+    },
+    { "path": ".nvmrc", "content": "20.18.0\n" },
+    { "path": ".prettierrc.json", "content": "{}\n" },
+    {
+      "path": "Justfile",
+      "content": "check target='all':\n  @echo {{target}}\n\nimport 'untrusted.just'\n"
+    },
+    {
+      "path": "Makefile",
+      "content": "test build:\n\t@echo inert\n\ndanger:\n\t@touch SHOULD_NOT_EXIST\n\n$(eval $(shell touch SHOULD_NOT_EXIST))\n"
+    },
+    {
+      "path": "package.json",
+      "content": "{\n  \"name\": \"fixture\",\n  \"packageManager\": \"pnpm@11.18.0\",\n  \"engines\": { \"node\": \"^24.11.0\" },\n  \"scripts\": {\n    \"test\": \"node -e \\\"require('node:fs').writeFileSync('SHOULD_NOT_EXIST','x')\\\"\",\n    \"substitute\": \"echo $(touch SHOULD_NOT_EXIST) `touch SHOULD_NOT_EXIST`\"\n  },\n  \"devDependencies\": { \"eslint\": \"10.0.1\", \"prettier\": \"3.9.6\" },\n  \"workspaces\": [\"packages/*\"]\n}\n"
+    },
+    { "path": "package-lock.json", "content": "{}\n" },
+    { "path": "pnpm-lock.yaml", "content": "lockfileVersion: '9.0'\n" },
+    {
+      "path": "pyproject.toml",
+      "content": "[project]\nname = \"fixture-python\"\nrequires-python = \">=3.12\"\n\n[tool.poe.tasks]\ntest = \"pytest\"\n"
+    },
+    {
+      "path": "turbo.json",
+      "content": "{\"tasks\":{\"build\":{\"dependsOn\":[\"^build\"]},\"test\":{}}}\n"
+    }
+  ]
+}

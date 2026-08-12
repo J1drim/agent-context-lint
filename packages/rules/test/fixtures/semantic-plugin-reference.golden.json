@@ -1,0 +1,30 @@
+{
+  "contractVersion": "0.1.0",
+  "determinism": "non-deterministic",
+  "enabled": true,
+  "findings": [
+    {
+      "code": "contradiction-candidate",
+      "documentId": "document:agents",
+      "line": 2,
+      "message": "Document contains both always and never directives; manual review is required.",
+      "path": "AGENTS.md",
+      "sourceDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "networkAccess": "denied",
+  "ok": true,
+  "plugin": {
+    "capabilities": [],
+    "id": "reference-contradiction-candidate-v1",
+    "module": {
+      "format": "webassembly-v1",
+      "importedFunctions": 0,
+      "maximumMemoryBytes": 0,
+      "sha256": "c0ee64588938369cf39b3422e47f1f33ea478c836c84c355ed3650c4cbb69afb"
+    },
+    "version": "1.0.0"
+  },
+  "qualityClaim": false,
+  "recordKind": "agent-context-semantic-plugin-result"
+}

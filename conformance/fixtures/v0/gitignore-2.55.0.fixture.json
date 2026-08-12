@@ -1,0 +1,194 @@
+{
+  "cases": [
+    {
+      "expectedIgnored": true,
+      "id": "basename-any-depth",
+      "path": "src/file.o",
+      "patterns": ["*.o"]
+    },
+    {
+      "expectedIgnored": false,
+      "id": "root-anchor-does-not-match-nested",
+      "path": "src/hello.txt",
+      "patterns": ["/hello.*"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "root-anchor-matches-root",
+      "path": "hello.txt",
+      "patterns": ["/hello.*"]
+    },
+    {
+      "expectedIgnored": false,
+      "id": "middle-slash-is-relative",
+      "path": "a/doc/frotz/file",
+      "patterns": ["doc/frotz/"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "directory-only-descendant",
+      "path": "doc/frotz/file",
+      "patterns": ["doc/frotz/"]
+    },
+    {
+      "expectedIgnored": false,
+      "id": "directory-only-does-not-match-file",
+      "path": "frotz",
+      "patterns": ["frotz/"]
+    },
+    {
+      "expectedIgnored": false,
+      "id": "last-negation-wins",
+      "path": "foo.html",
+      "patterns": ["*.html", "!foo.html"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "last-positive-wins",
+      "path": "foo.html",
+      "patterns": ["!foo.html", "*.html"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "excluded-parent-cannot-reinclude-child",
+      "path": "foo/bar.txt",
+      "patterns": ["foo/", "!foo/bar.txt"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "single-star-does-not-cross-slash",
+      "path": "foo/bar/hello.c",
+      "patterns": ["foo/*"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "leading-globstar",
+      "path": "a/b/foo",
+      "patterns": ["**/foo"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "middle-globstar-zero-directories",
+      "path": "a/b",
+      "patterns": ["a/**/b"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "middle-globstar-many-directories",
+      "path": "a/x/y/b",
+      "patterns": ["a/**/b"]
+    },
+    {
+      "expectedIgnored": false,
+      "id": "trailing-globstar-does-not-match-directory-itself",
+      "path": "abc",
+      "patterns": ["abc/**"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "trailing-globstar-matches-content",
+      "path": "abc/x/y",
+      "patterns": ["abc/**"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "escaped-leading-hash",
+      "path": "#important",
+      "patterns": ["\\#important"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "escaped-leading-bang",
+      "path": "!important.txt",
+      "patterns": ["\\!important.txt"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "escaped-trailing-space",
+      "path": "space ",
+      "patterns": ["space\\ "]
+    },
+    {
+      "expectedIgnored": false,
+      "id": "unescaped-trailing-space-is-discarded",
+      "path": "space ",
+      "patterns": ["space "]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "range-class",
+      "path": "file-B.txt",
+      "patterns": ["file-[A-Z].txt"]
+    },
+    {
+      "expectedIgnored": false,
+      "id": "case-sensitive",
+      "path": "FILE.o",
+      "patterns": ["file.o"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "question-mark-single-character",
+      "path": "file-x.txt",
+      "patterns": ["file-?.txt"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "inverted-character-class",
+      "path": "file-1.txt",
+      "patterns": ["file-[!A-Z].txt"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "closing-bracket-first-in-class",
+      "path": "file-].txt",
+      "patterns": ["file-[]].txt"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "unclosed-class-is-literal",
+      "path": "[literal",
+      "patterns": ["[literal"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "escaped-slash-remains-separator",
+      "path": "a/b",
+      "patterns": ["a\\/b"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "comments-and-blanks-match-nothing",
+      "path": "plain.txt",
+      "patterns": ["# comment", "", "plain.txt"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "caret-inverted-character-class",
+      "path": "file-1.txt",
+      "patterns": ["file-[^A-Z].txt"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "escaped-character-in-class",
+      "path": "file-].txt",
+      "patterns": ["file-[\\]].txt"]
+    },
+    {
+      "expectedIgnored": false,
+      "id": "reversed-range-does-not-broaden",
+      "path": "file-m.txt",
+      "patterns": ["file-[z-a].txt"]
+    },
+    {
+      "expectedIgnored": true,
+      "id": "escaped-trailing-separator-is-directory-only",
+      "path": "folder/file",
+      "patterns": ["folder\\/"]
+    }
+  ],
+  "recordKind": "gitignore-conformance-fixture",
+  "retrievedAt": "2026-08-02",
+  "schemaVersion": 1,
+  "sourceUrl": "https://git-scm.com/docs/gitignore/2.55.0"
+}

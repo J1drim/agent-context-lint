@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context-lint.dev/efficiency/tokenizer-identity.v1.schema.json",
+  "title": "Agent Context Linter tokenizer identity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "measurement", "version"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9]+(?:[._:/-][A-Za-z0-9]+)*$"
+    },
+    "measurement": { "enum": ["exact", "estimate"] },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9]+(?:[._+:/-][A-Za-z0-9]+)*$"
+    }
+  }
+}

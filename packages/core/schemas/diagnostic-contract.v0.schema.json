@@ -1,0 +1,482 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context-lint.dev/core/diagnostic-contract.v0.schema.json",
+  "title": "Agent Context Linter diagnostic contract v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["recordKind", "contractVersion", "diagnostics", "suppressions"],
+  "properties": {
+    "recordKind": { "const": "agent-context-diagnostics" },
+    "contractVersion": { "const": "0.1.0" },
+    "diagnostics": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": { "$ref": "#/$defs/diagnostic" }
+    },
+    "suppressions": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": { "$ref": "#/$defs/suppression" }
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9]+(?:[._:/-][A-Za-z0-9]+)*$"
+    },
+    "nonEmptyText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16384,
+      "pattern": "^(?:[^\\uD800-\\uDFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF])+$"
+    },
+    "path": { "type": "string", "minLength": 1 },
+    "digest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "position": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["byteOffset", "utf16Offset", "line", "utf16Column"],
+      "properties": {
+        "byteOffset": { "type": "integer", "minimum": 0 },
+        "utf16Offset": { "type": "integer", "minimum": 0 },
+        "line": { "type": "integer", "minimum": 0 },
+        "utf16Column": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "start", "end"],
+      "properties": {
+        "sourceId": { "$ref": "#/$defs/identifier" },
+        "start": { "$ref": "#/$defs/position" },
+        "end": { "$ref": "#/$defs/position" }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "path", "sourceDigest", "range"],
+      "properties": {
+        "sourceId": { "$ref": "#/$defs/identifier" },
+        "path": { "$ref": "#/$defs/path" },
+        "sourceDigest": { "$ref": "#/$defs/digest" },
+        "range": { "$ref": "#/$defs/range" }
+      }
+    },
+    "uncertainty": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state"],
+          "properties": { "state": { "const": "known" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "conditions"],
+          "properties": {
+            "state": { "const": "conditional" },
+            "conditions": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/nonEmptyText" }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "reason"],
+          "properties": {
+            "state": { "const": "unknown" },
+            "reason": { "$ref": "#/$defs/nonEmptyText" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "reason", "alternatives"],
+          "properties": {
+            "state": { "const": "contradiction" },
+            "reason": { "$ref": "#/$defs/nonEmptyText" },
+            "alternatives": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["id", "description"],
+                "properties": {
+                  "id": { "$ref": "#/$defs/identifier" },
+                  "description": { "$ref": "#/$defs/nonEmptyText" }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "sourceEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "label", "location"],
+      "properties": {
+        "id": { "$ref": "#/$defs/identifier" },
+        "kind": { "const": "source" },
+        "label": { "$ref": "#/$defs/nonEmptyText" },
+        "location": { "$ref": "#/$defs/location" }
+      }
+    },
+    "repositoryFactEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "label",
+        "collectorId",
+        "factId",
+        "subjectPath",
+        "valueDigest",
+        "locations"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/identifier" },
+        "kind": { "const": "repository-fact" },
+        "label": { "$ref": "#/$defs/nonEmptyText" },
+        "collectorId": { "$ref": "#/$defs/identifier" },
+        "factId": { "$ref": "#/$defs/identifier" },
+        "subjectPath": { "oneOf": [{ "$ref": "#/$defs/path" }, { "type": "null" }] },
+        "valueDigest": { "$ref": "#/$defs/digest" },
+        "locations": {
+          "type": "array",
+          "maxItems": 128,
+          "items": { "$ref": "#/$defs/location" }
+        }
+      }
+    },
+    "resolutionEvidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidenceRefId", "factId"],
+      "properties": {
+        "evidenceRefId": { "$ref": "#/$defs/identifier" },
+        "factId": { "oneOf": [{ "$ref": "#/$defs/identifier" }, { "type": "null" }] }
+      }
+    },
+    "resolutionEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "label",
+        "profileId",
+        "surfaceId",
+        "specSnapshotId",
+        "eventIds",
+        "targetIds",
+        "activationRuleIds",
+        "sourceLocations",
+        "evidenceRefs",
+        "uncertainty"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/identifier" },
+        "kind": { "const": "resolution" },
+        "label": { "$ref": "#/$defs/nonEmptyText" },
+        "profileId": { "$ref": "#/$defs/identifier" },
+        "surfaceId": { "$ref": "#/$defs/identifier" },
+        "specSnapshotId": { "$ref": "#/$defs/identifier" },
+        "eventIds": {
+          "type": "array",
+          "maxItems": 1024,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "targetIds": {
+          "type": "array",
+          "maxItems": 1024,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "activationRuleIds": {
+          "type": "array",
+          "maxItems": 1024,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "sourceLocations": {
+          "type": "array",
+          "maxItems": 128,
+          "items": { "$ref": "#/$defs/location" }
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "maxItems": 1024,
+          "items": { "$ref": "#/$defs/resolutionEvidenceRef" }
+        },
+        "uncertainty": { "$ref": "#/$defs/uncertainty" }
+      }
+    },
+    "specEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "label",
+        "specSnapshotId",
+        "evidenceRefId",
+        "factId",
+        "url",
+        "retrievedAt",
+        "revision"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/identifier" },
+        "kind": { "const": "spec" },
+        "label": { "$ref": "#/$defs/nonEmptyText" },
+        "specSnapshotId": { "$ref": "#/$defs/identifier" },
+        "evidenceRefId": { "$ref": "#/$defs/identifier" },
+        "factId": { "oneOf": [{ "$ref": "#/$defs/identifier" }, { "type": "null" }] },
+        "url": { "type": "string", "pattern": "^https://" },
+        "retrievedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "revision": { "oneOf": [{ "$ref": "#/$defs/nonEmptyText" }, { "type": "null" }] }
+      }
+    },
+    "relatedEvidence": {
+      "oneOf": [
+        { "$ref": "#/$defs/sourceEvidence" },
+        { "$ref": "#/$defs/repositoryFactEvidence" },
+        { "$ref": "#/$defs/resolutionEvidence" },
+        { "$ref": "#/$defs/specEvidence" }
+      ]
+    },
+    "textEdit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "sourceId", "path", "sourceDigest", "range", "newText"],
+      "properties": {
+        "kind": { "const": "text-edit" },
+        "sourceId": { "$ref": "#/$defs/identifier" },
+        "path": { "$ref": "#/$defs/path" },
+        "sourceDigest": { "$ref": "#/$defs/digest" },
+        "range": { "$ref": "#/$defs/range" },
+        "newText": { "type": "string", "maxLength": 1048576 }
+      }
+    },
+    "moveDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "sourceId",
+        "path",
+        "sourceDigest",
+        "destinationPath",
+        "destinationPrecondition"
+      ],
+      "properties": {
+        "kind": { "const": "move-document" },
+        "sourceId": { "$ref": "#/$defs/identifier" },
+        "path": { "$ref": "#/$defs/path" },
+        "sourceDigest": { "$ref": "#/$defs/digest" },
+        "destinationPath": { "$ref": "#/$defs/path" },
+        "destinationPrecondition": { "const": "absent" }
+      }
+    },
+    "createDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "path", "destinationPrecondition", "content", "contentDigest"],
+      "properties": {
+        "kind": { "const": "create-document" },
+        "path": { "$ref": "#/$defs/path" },
+        "destinationPrecondition": { "const": "absent" },
+        "content": { "type": "string", "maxLength": 1048576 },
+        "contentDigest": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "fixOperation": {
+      "oneOf": [
+        { "$ref": "#/$defs/textEdit" },
+        { "$ref": "#/$defs/moveDocument" },
+        { "$ref": "#/$defs/createDocument" }
+      ]
+    },
+    "fixPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "safety", "application", "operations"],
+      "properties": {
+        "id": { "$ref": "#/$defs/identifier" },
+        "title": { "$ref": "#/$defs/nonEmptyText" },
+        "safety": { "const": "mechanical" },
+        "application": { "const": "atomic" },
+        "operations": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1024,
+          "items": { "$ref": "#/$defs/fixOperation" }
+        }
+      }
+    },
+    "suggestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["message", "fixPlan"],
+      "properties": {
+        "message": { "$ref": "#/$defs/nonEmptyText" },
+        "fixPlan": { "oneOf": [{ "$ref": "#/$defs/fixPlan" }, { "type": "null" }] }
+      }
+    },
+    "fingerprintComponent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "value"],
+      "properties": {
+        "key": { "$ref": "#/$defs/identifier" },
+        "value": { "$ref": "#/$defs/nonEmptyText" }
+      }
+    },
+    "fingerprintBasis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "semantic"],
+      "properties": {
+        "path": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["anchor", "profileIds"],
+          "properties": {
+            "anchor": { "$ref": "#/$defs/nonEmptyText" },
+            "profileIds": {
+              "type": "array",
+              "maxItems": 128,
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/identifier" }
+            }
+          }
+        },
+        "semantic": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["components", "profileIds"],
+          "properties": {
+            "components": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 128,
+              "items": { "$ref": "#/$defs/fingerprintComponent" }
+            },
+            "profileIds": {
+              "type": "array",
+              "maxItems": 128,
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/identifier" }
+            }
+          }
+        }
+      }
+    },
+    "pathFingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "value"],
+      "properties": {
+        "method": { "const": "agent-context-lint/path/v1" },
+        "value": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "semanticFingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "value"],
+      "properties": {
+        "method": { "const": "agent-context-lint/semantic/v1" },
+        "value": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "diagnostic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "ruleId",
+        "ruleVersion",
+        "severity",
+        "message",
+        "primary",
+        "related",
+        "suggestion",
+        "fingerprintBasis",
+        "fingerprints"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/identifier" },
+        "ruleId": { "$ref": "#/$defs/identifier" },
+        "ruleVersion": { "$ref": "#/$defs/identifier" },
+        "severity": { "enum": ["error", "warning", "info"] },
+        "message": { "$ref": "#/$defs/nonEmptyText" },
+        "primary": { "$ref": "#/$defs/location" },
+        "related": {
+          "type": "array",
+          "maxItems": 128,
+          "items": { "$ref": "#/$defs/relatedEvidence" }
+        },
+        "suggestion": { "oneOf": [{ "$ref": "#/$defs/suggestion" }, { "type": "null" }] },
+        "fingerprintBasis": { "$ref": "#/$defs/fingerprintBasis" },
+        "fingerprints": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "semantic"],
+          "properties": {
+            "path": { "$ref": "#/$defs/pathFingerprint" },
+            "semantic": { "$ref": "#/$defs/semanticFingerprint" }
+          }
+        }
+      }
+    },
+    "suppression": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "state",
+        "directive",
+        "targetRuleIds",
+        "reason",
+        "matchedPathFingerprints",
+        "evidence"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/identifier" },
+        "state": { "enum": ["applicable", "suppressed", "unused"] },
+        "directive": { "$ref": "#/$defs/location" },
+        "targetRuleIds": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1024,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "reason": { "oneOf": [{ "$ref": "#/$defs/nonEmptyText" }, { "type": "null" }] },
+        "matchedPathFingerprints": {
+          "type": "array",
+          "maxItems": 10000,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/digest" }
+        },
+        "evidence": {
+          "type": "array",
+          "maxItems": 128,
+          "items": { "$ref": "#/$defs/relatedEvidence" }
+        }
+      }
+    }
+  }
+}

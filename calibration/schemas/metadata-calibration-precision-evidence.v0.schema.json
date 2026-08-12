@@ -1,0 +1,317 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/metadata-calibration-precision-evidence.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adjudicationSha256": { "$ref": "#/$defs/sha256" },
+    "contractVersion": { "const": "0.1.0" },
+    "corpusSha256": { "$ref": "#/$defs/sha256" },
+    "diagnosticCount": { "minimum": 500, "type": "integer" },
+    "engine": { "$ref": "#/$defs/engine" },
+    "externalHoldout": {
+      "additionalProperties": false,
+      "properties": {
+        "releaseTrialObserved": { "const": false },
+        "releaseTrialRepositoryCount": { "const": 0 },
+        "releaseTrialUsedForSelection": { "const": false },
+        "releaseTrialUsedForTuning": { "const": false }
+      },
+      "required": [
+        "releaseTrialObserved",
+        "releaseTrialRepositoryCount",
+        "releaseTrialUsedForSelection",
+        "releaseTrialUsedForTuning"
+      ],
+      "type": "object"
+    },
+    "generatedAt": { "format": "date-time", "type": "string" },
+    "falsePositiveAggregates": {
+      "items": { "$ref": "#/$defs/falsePositiveAggregate" },
+      "maxItems": 1104,
+      "type": "array"
+    },
+    "lineage": { "$ref": "#/$defs/lineage" },
+    "maintainerAuthoritySha256": { "$ref": "#/$defs/sha256" },
+    "maintainerReviewSha256": { "$ref": "#/$defs/sha256" },
+    "precision": {
+      "additionalProperties": false,
+      "properties": {
+        "error": { "$ref": "#/$defs/precision" },
+        "warning": { "$ref": "#/$defs/precision" }
+      },
+      "required": ["error", "warning"],
+      "type": "object"
+    },
+    "precisionGatePassed": { "const": true },
+    "recordKind": { "const": "agent-context-metadata-calibration-precision-evidence" },
+    "privatePayloadSha256": { "$ref": "#/$defs/sha256" },
+    "reportSha256": { "$ref": "#/$defs/sha256" },
+    "resolvedDiagnosticCount": { "minimum": 500, "type": "integer" },
+    "reviewDispositionPolicy": { "$ref": "#/$defs/reviewDispositionPolicy" },
+    "ruleResults": {
+      "items": { "$ref": "#/$defs/ruleResult" },
+      "maxItems": 69,
+      "minItems": 1,
+      "type": "array"
+    },
+    "seededRecallReportSha256": { "$ref": "#/$defs/sha256" },
+    "sourcePolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "fingerprintOnly": { "const": true },
+        "repositoryContent": { "const": false },
+        "repositoryPaths": { "const": false }
+      },
+      "required": ["fingerprintOnly", "repositoryContent", "repositoryPaths"],
+      "type": "object"
+    },
+    "tuningChanges": {
+      "items": { "$ref": "#/$defs/tuningChange" },
+      "maxItems": 1000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "adjudicationSha256",
+    "contractVersion",
+    "corpusSha256",
+    "diagnosticCount",
+    "engine",
+    "externalHoldout",
+    "generatedAt",
+    "falsePositiveAggregates",
+    "lineage",
+    "maintainerAuthoritySha256",
+    "maintainerReviewSha256",
+    "precision",
+    "precisionGatePassed",
+    "recordKind",
+    "privatePayloadSha256",
+    "reportSha256",
+    "resolvedDiagnosticCount",
+    "reviewDispositionPolicy",
+    "ruleResults",
+    "seededRecallReportSha256",
+    "sourcePolicy",
+    "tuningChanges"
+  ],
+  "type": "object",
+  "$defs": {
+    "engine": {
+      "additionalProperties": false,
+      "properties": {
+        "captureStartedAt": { "format": "date-time", "type": "string" },
+        "commitSha": { "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$", "type": "string" },
+        "git": { "$ref": "#/$defs/tool" },
+        "gitRemoteHttps": { "$ref": "#/$defs/tool" },
+        "hdiutil": { "$ref": "#/$defs/tool" },
+        "guardSha256": { "$ref": "#/$defs/sha256" },
+        "knowledgeVersion": { "$ref": "#/$defs/version" },
+        "node": { "$ref": "#/$defs/tool" },
+        "sandboxExec": { "$ref": "#/$defs/tool" },
+        "packageSha256": { "$ref": "#/$defs/sha256" },
+        "ruleRegistrySha256": { "$ref": "#/$defs/sha256" },
+        "runtimeClosureSha256": { "$ref": "#/$defs/sha256" },
+        "version": { "$ref": "#/$defs/version" }
+      },
+      "required": [
+        "captureStartedAt",
+        "commitSha",
+        "git",
+        "gitRemoteHttps",
+        "hdiutil",
+        "guardSha256",
+        "knowledgeVersion",
+        "node",
+        "sandboxExec",
+        "packageSha256",
+        "ruleRegistrySha256",
+        "runtimeClosureSha256",
+        "version"
+      ],
+      "type": "object"
+    },
+    "falsePositiveAggregate": {
+      "additionalProperties": false,
+      "properties": {
+        "assignedStratum": { "enum": ["agents-md", "claude", "copilot", "cursor", "gemini"] },
+        "count": { "minimum": 1, "type": "integer" },
+        "multipleInstructionFormats": { "type": "boolean" },
+        "reason": { "$ref": "#/$defs/reason" },
+        "repositoryType": { "enum": ["monorepository", "single-repository"] },
+        "ruleId": { "pattern": "^ACL[1-5][0-9]{2}$", "type": "string" },
+        "severity": { "enum": ["error", "warning"] }
+      },
+      "required": [
+        "assignedStratum",
+        "count",
+        "multipleInstructionFormats",
+        "reason",
+        "repositoryType",
+        "ruleId",
+        "severity"
+      ],
+      "type": "object"
+    },
+    "lineage": {
+      "additionalProperties": false,
+      "properties": {
+        "finalEngineSha256": { "$ref": "#/$defs/sha256" },
+        "finalReportSha256": { "$ref": "#/$defs/sha256" },
+        "finalSeededRecallReportSha256": { "$ref": "#/$defs/sha256" },
+        "engineSourceCommitSha": { "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$", "type": "string" },
+        "preTuningAdjudicationSha256": { "$ref": "#/$defs/sha256" },
+        "preTuningEngineSha256": { "$ref": "#/$defs/sha256" },
+        "preTuningMaintainerReviewSha256": { "$ref": "#/$defs/sha256" },
+        "preTuningReportSha256": { "$ref": "#/$defs/sha256" },
+        "tuningApplied": { "type": "boolean" }
+      },
+      "required": [
+        "finalEngineSha256",
+        "finalReportSha256",
+        "finalSeededRecallReportSha256",
+        "engineSourceCommitSha",
+        "preTuningAdjudicationSha256",
+        "preTuningEngineSha256",
+        "preTuningMaintainerReviewSha256",
+        "preTuningReportSha256",
+        "tuningApplied"
+      ],
+      "type": "object"
+    },
+    "precision": {
+      "additionalProperties": false,
+      "properties": {
+        "denominator": { "minimum": 1, "type": "integer" },
+        "falsePositiveCount": { "minimum": 0, "type": "integer" },
+        "lowerWilsonBasisPoints": { "maximum": 10000, "minimum": 0, "type": "integer" },
+        "precisionBasisPoints": { "maximum": 10000, "minimum": 0, "type": "integer" },
+        "thresholdBasisPoints": { "enum": [8500, 9500] },
+        "thresholdPassed": { "const": true },
+        "truePositiveCount": { "minimum": 0, "type": "integer" },
+        "upperWilsonBasisPoints": { "maximum": 10000, "minimum": 0, "type": "integer" }
+      },
+      "required": [
+        "denominator",
+        "falsePositiveCount",
+        "lowerWilsonBasisPoints",
+        "precisionBasisPoints",
+        "thresholdBasisPoints",
+        "thresholdPassed",
+        "truePositiveCount",
+        "upperWilsonBasisPoints"
+      ],
+      "type": "object"
+    },
+    "reviewDispositionPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "maximumUncertainBasisPoints": { "const": 500 },
+        "maximumUncertainCount": { "const": 25 },
+        "testHarnessDefectCount": { "const": 0 },
+        "testHarnessDefectsBlock": { "const": true },
+        "uncertainBasisPoints": { "maximum": 500, "minimum": 0, "type": "integer" },
+        "uncertainCount": { "maximum": 25, "minimum": 0, "type": "integer" }
+      },
+      "required": [
+        "maximumUncertainBasisPoints",
+        "maximumUncertainCount",
+        "testHarnessDefectCount",
+        "testHarnessDefectsBlock",
+        "uncertainBasisPoints",
+        "uncertainCount"
+      ],
+      "type": "object"
+    },
+    "ruleResult": {
+      "additionalProperties": false,
+      "properties": {
+        "falsePositiveCount": { "minimum": 0, "type": "integer" },
+        "otherCount": { "minimum": 0, "type": "integer" },
+        "ruleId": { "pattern": "^ACL[1-5][0-9]{2}$", "type": "string" },
+        "severity": { "enum": ["error", "warning"] },
+        "truePositiveCount": { "minimum": 0, "type": "integer" }
+      },
+      "required": ["falsePositiveCount", "otherCount", "ruleId", "severity", "truePositiveCount"],
+      "type": "object"
+    },
+    "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+    "reason": {
+      "enum": [
+        "classifier-boundary",
+        "repository-evidence-mismatch",
+        "rule-threshold",
+        "scope-resolution"
+      ]
+    },
+    "tool": {
+      "additionalProperties": false,
+      "properties": {
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "version": { "maxLength": 256, "minLength": 1, "type": "string" }
+      },
+      "required": ["sha256", "version"],
+      "type": "object"
+    },
+    "tuningChange": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "enum": [
+            "classifier-tightened",
+            "rule-disabled",
+            "rule-threshold-tightened",
+            "severity-demoted"
+          ]
+        },
+        "codeCommitSha": {
+          "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$",
+          "type": "string"
+        },
+        "evidenceFingerprints": {
+          "items": { "$ref": "#/$defs/sha256" },
+          "maxItems": 1000,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "packageSha256": { "$ref": "#/$defs/sha256" },
+        "preTuningAdjudicationSha256": { "$ref": "#/$defs/sha256" },
+        "preTuningReportSha256": { "$ref": "#/$defs/sha256" },
+        "regressionTests": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "maxLength": 512,
+                "minLength": 1,
+                "pattern": "^calibration/regressions/[A-Za-z0-9._/-]+\\.test\\.mjs$",
+                "type": "string"
+              },
+              "sha256": { "$ref": "#/$defs/sha256" }
+            },
+            "required": ["path", "sha256"],
+            "type": "object"
+          },
+          "maxItems": 100,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "ruleId": { "pattern": "^ACL[1-5][0-9]{2}$", "type": "string" }
+      },
+      "required": [
+        "action",
+        "codeCommitSha",
+        "evidenceFingerprints",
+        "packageSha256",
+        "preTuningAdjudicationSha256",
+        "preTuningReportSha256",
+        "regressionTests",
+        "ruleId"
+      ],
+      "type": "object"
+    },
+    "version": { "maxLength": 128, "minLength": 1, "type": "string" }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/metadata-calibration-maintainer-authority.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acceptanceBoundary": { "const": "repository-owner-merge" },
+    "contractVersion": { "const": "0.1.0" },
+    "cryptographicSignatureRequired": { "const": false },
+    "githubOwner": { "const": "J1drim" },
+    "githubRepository": { "const": "J1drim/svetovid_linter" },
+    "recordKind": { "const": "agent-context-k03-maintainer-authority" },
+    "reviewerId": { "const": "jakub-niezgoda" }
+  },
+  "required": [
+    "acceptanceBoundary",
+    "contractVersion",
+    "cryptographicSignatureRequired",
+    "githubOwner",
+    "githubRepository",
+    "recordKind",
+    "reviewerId"
+  ],
+  "type": "object"
+}

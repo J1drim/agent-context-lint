@@ -1,0 +1,375 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-context-lint.dev/schemas/agent-context-lint-config.v1.schema.json",
+  "title": "Agent Context Linter repository configuration v1",
+  "description": "Closed schema for .agent-context-lint.yml after safe YAML decoding. Unknown structural keys are rejected.",
+  "$comment": "JSON Schema describes portable decoded JSON shape. The runtime additionally enforces aggregate UTF-8 byte/value limits and rejects JavaScript-only non-JSON authority such as accessors, proxies, cycles, exotic prototypes, sparse arrays, symbols, non-finite numbers, and negative zero.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version"],
+  "properties": {
+    "version": {
+      "description": "Configuration document version.",
+      "const": 1
+    },
+    "profiles": {
+      "description": "Per-client and per-surface enablement. Omitted profiles and surfaces are enabled.",
+      "type": "object",
+      "additionalProperties": false,
+      "default": {},
+      "properties": {
+        "claudeCode": { "$ref": "#/$defs/claudeCodeProfile" },
+        "codexCli": { "$ref": "#/$defs/codexCliProfile" },
+        "copilotCli": { "$ref": "#/$defs/copilotCliProfile" },
+        "copilotCloudAgent": { "$ref": "#/$defs/copilotCloudAgentProfile" },
+        "copilotCodeReview": { "$ref": "#/$defs/copilotCodeReviewProfile" },
+        "copilotVscode": { "$ref": "#/$defs/copilotVscodeProfile" },
+        "cursorAgent": { "$ref": "#/$defs/cursorAgentProfile" },
+        "geminiCli": { "$ref": "#/$defs/geminiCliProfile" }
+      }
+    },
+    "rules": {
+      "description": "Rule severity overrides and the version-1 maxTokens option. Rule IDs must use ACL followed by three digits.",
+      "type": "object",
+      "maxProperties": 512,
+      "propertyNames": { "pattern": "^ACL[0-9]{3}$" },
+      "additionalProperties": { "$ref": "#/$defs/ruleSetting" },
+      "default": {}
+    },
+    "ignore": {
+      "description": "Ordered, unique, root-relative POSIX glob patterns. Backslashes and absolute patterns are rejected.",
+      "type": "array",
+      "maxItems": 256,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024,
+        "pattern": "^(?=(?:[^\\uD800-\\uDFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF])+$)(?!/)(?!.*[\\u0000-\\u001f\\u007f])(?!.*\\\\)(?!.*//)(?!.*(?:^|/)\\.{1,2}(?:/|$)).+$"
+      },
+      "default": []
+    },
+    "limits": { "$ref": "#/$defs/limits" },
+    "commands": { "$ref": "#/$defs/commands" },
+    "security": { "$ref": "#/$defs/security" },
+    "standards": { "$ref": "#/$defs/standards" },
+    "efficiency": { "$ref": "#/$defs/efficiency" }
+  },
+  "$defs": {
+    "claudeCodeProfile": {
+      "oneOf": [
+        { "type": "boolean" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "surfaces": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": { "claude-code/local-session": { "type": "boolean", "default": true } },
+              "default": {}
+            }
+          }
+        }
+      ]
+    },
+    "codexCliProfile": {
+      "oneOf": [
+        { "type": "boolean" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "surfaces": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "codex-cli/local-cli-single-cwd": { "type": "boolean", "default": true }
+              },
+              "default": {}
+            }
+          }
+        }
+      ]
+    },
+    "copilotCliProfile": {
+      "oneOf": [
+        { "type": "boolean" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "surfaces": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "copilot-cli/local-terminal": { "type": "boolean", "default": true }
+              },
+              "default": {}
+            }
+          }
+        }
+      ]
+    },
+    "copilotCloudAgentProfile": {
+      "oneOf": [
+        { "type": "boolean" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "surfaces": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "copilot-cloud-agent/github-hosted": { "type": "boolean", "default": true }
+              },
+              "default": {}
+            }
+          }
+        }
+      ]
+    },
+    "copilotCodeReviewProfile": {
+      "oneOf": [
+        { "type": "boolean" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "surfaces": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "copilot-code-review/github-hosted": { "type": "boolean", "default": true }
+              },
+              "default": {}
+            }
+          }
+        }
+      ]
+    },
+    "copilotVscodeProfile": {
+      "oneOf": [
+        { "type": "boolean" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "surfaces": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": { "copilot-vscode/local-chat": { "type": "boolean", "default": true } },
+              "default": {}
+            }
+          }
+        }
+      ]
+    },
+    "cursorAgentProfile": {
+      "oneOf": [
+        { "type": "boolean" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "surfaces": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "cursor-agent/cli": { "type": "boolean", "default": true },
+                "cursor-agent/ide": { "type": "boolean", "default": true }
+              },
+              "default": {}
+            }
+          }
+        }
+      ]
+    },
+    "geminiCliProfile": {
+      "oneOf": [
+        { "type": "boolean" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "surfaces": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": { "gemini-cli/local-terminal": { "type": "boolean", "default": true } },
+              "default": {}
+            }
+          }
+        }
+      ]
+    },
+    "ruleSetting": {
+      "oneOf": [
+        { "enum": ["error", "warning", "info", "off"] },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["severity"],
+          "properties": {
+            "severity": { "enum": ["error", "warning", "info", "off"] },
+            "maxTokens": {
+              "type": ["integer", "null"],
+              "minimum": 1,
+              "maximum": 10000000
+            }
+          }
+        }
+      ]
+    },
+    "limits": {
+      "description": "Hard upper bounds consumed by later discovery, parsing, import, and diagnostic stages.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maxDiagnostics": { "type": "integer", "minimum": 1, "maximum": 100000, "default": 10000 },
+        "maxFileBytes": {
+          "type": "integer",
+          "minimum": 1024,
+          "maximum": 16777216,
+          "default": 1048576
+        },
+        "maxFiles": { "type": "integer", "minimum": 1, "maximum": 1000000, "default": 100000 },
+        "maxImportDepth": { "type": "integer", "minimum": 1, "maximum": 64, "default": 16 },
+        "maxImportFanOut": { "type": "integer", "minimum": 1, "maximum": 4096, "default": 128 },
+        "maxTotalBytes": {
+          "type": "integer",
+          "minimum": 1024,
+          "maximum": 1073741824,
+          "default": 67108864
+        },
+        "maxTraversalDepth": { "type": "integer", "minimum": 1, "maximum": 1024, "default": 128 }
+      },
+      "default": {}
+    },
+    "commands": {
+      "description": "Repository command evidence settings; configuration never executes commands.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "packageManager": { "enum": ["auto", "npm", "pnpm", "yarn", "bun"], "default": "auto" }
+      },
+      "default": {}
+    },
+    "security": {
+      "description": "Conservative policy inputs for later rules. These flags never grant filesystem or network capability.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allowAbsolutePaths": { "type": "boolean", "default": false },
+        "allowNetworkReferences": { "type": "boolean", "default": false }
+      },
+      "default": {}
+    },
+    "standards": {
+      "description": "Local standards selection. Network access remains an explicit standards-command concern.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "channel": { "enum": ["stable", "preview"], "default": "stable" },
+        "lockfile": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024,
+          "pattern": "^(?=(?:[^\\uD800-\\uDFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF])+$)(?!\\.?$)(?!/)(?![A-Za-z]:)(?!.*[\\u0000-\\u001f\\u007f])(?!.*\\\\)(?!.*//)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*\\/$).+$",
+          "default": "agent-context-standards.lock.json"
+        },
+        "maxAgeDays": { "type": "integer", "minimum": 1, "maximum": 365, "default": 30 },
+        "requireCurrentInCI": { "type": "boolean", "default": false }
+      },
+      "default": {}
+    },
+    "efficiency": {
+      "description": "Static token accounting inputs. B06 defines shape and defaults; G06 owns score formula semantics.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tokenizer": { "enum": ["estimate"], "default": "estimate" },
+        "scoreVersion": { "enum": ["1.0.0"], "default": "1.0.0" },
+        "budgets": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "alwaysOnTokens": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000000,
+              "default": 2500
+            },
+            "effectiveP95Tokens": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000000,
+              "default": 5000
+            }
+          },
+          "default": {}
+        },
+        "componentWeights": {
+          "description": "Integer percentage weights. Runtime validation additionally requires their sum to equal 100.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "budgetFit": { "type": "integer", "minimum": 0, "maximum": 100, "default": 30 },
+            "scopePrecision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 25
+            },
+            "nonRedundancy": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 20
+            },
+            "reachability": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 10
+            },
+            "instructionDensity": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 10
+            },
+            "crossAgentConsistency": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "default": 5
+            }
+          },
+          "default": {}
+        },
+        "gradeThresholds": {
+          "description": "Inclusive grade floors. Runtime validation additionally requires A > B > C > D.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "A": { "type": "integer", "minimum": 0, "maximum": 100, "default": 90 },
+            "B": { "type": "integer", "minimum": 0, "maximum": 100, "default": 80 },
+            "C": { "type": "integer", "minimum": 0, "maximum": 100, "default": 70 },
+            "D": { "type": "integer", "minimum": 0, "maximum": 100, "default": 55 }
+          },
+          "default": {}
+        }
+      },
+      "default": {}
+    }
+  }
+}

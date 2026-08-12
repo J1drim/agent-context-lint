@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context-lint.dev/rules/rule-registry.v0.schema.json",
+  "title": "Agent Context Linter rule metadata registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contractVersion", "rules"],
+  "properties": {
+    "contractVersion": {
+      "const": "0.1.0"
+    },
+    "rules": {
+      "type": "array",
+      "maxItems": 128,
+      "items": {
+        "$ref": "#/$defs/ruleMetadata"
+      }
+    }
+  },
+  "$defs": {
+    "boundedText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024,
+      "pattern": "^(?:[^\\uD800-\\uDFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF])+$"
+    },
+    "ruleMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "defaultSeverity",
+        "description",
+        "docsUrl",
+        "fixSafety",
+        "id",
+        "owner",
+        "precisionStatus",
+        "rationale"
+      ],
+      "properties": {
+        "category": {
+          "enum": [
+            "syntax-structure",
+            "references-imports",
+            "scope-activation",
+            "conflicts-duplication",
+            "repository-drift",
+            "context-quality-cost",
+            "security",
+            "portability",
+            "standards-freshness",
+            "context-efficiency"
+          ]
+        },
+        "defaultSeverity": {
+          "enum": ["error", "warning", "info"]
+        },
+        "description": {
+          "$ref": "#/$defs/boundedText"
+        },
+        "docsUrl": {
+          "type": "string",
+          "pattern": "^docs/rules/catalog\\.md#acl[1-5][0-9]{2}$"
+        },
+        "fixSafety": {
+          "enum": ["none", "suggestion-only", "mechanical"]
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^ACL[1-5][0-9]{2}$"
+        },
+        "owner": {
+          "enum": [
+            "@agent-context-lint/rules-reviewers",
+            "@agent-context-lint/security-reviewers",
+            "@agent-context-lint/standards-reviewers"
+          ]
+        },
+        "precisionStatus": {
+          "enum": ["planned", "seeded", "calibrating", "qualified"]
+        },
+        "rationale": {
+          "$ref": "#/$defs/boundedText"
+        }
+      }
+    }
+  }
+}

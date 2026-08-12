@@ -1,0 +1,144 @@
+{
+  "recordKind": "profile-conformance-fixture",
+  "fixtureFormatVersion": "0.1.0",
+  "id": "gemini-import-modes",
+  "title": "Gemini tree and flat import depth remain distinct",
+  "profile": {
+    "profileId": "gemini-cli",
+    "surfaceId": "gemini-cli/local-terminal",
+    "specSnapshotId": "gemini-cli/2026-08-02.0",
+    "clientVersion": "0.53.1",
+    "versionStatus": "pinned-package-and-source"
+  },
+  "provenance": {
+    "researchRecordIds": ["gemini-cli/2026-08-02.0"],
+    "derivation": "synthetic-edge-case",
+    "assumptions": ["The root .git directory is the configured import boundary."],
+    "observationIds": [],
+    "sources": [
+      {
+        "id": "gemini-import-source",
+        "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/packages/core/src/utils/memoryImportProcessor.ts",
+        "retrievedAt": "2026-08-02",
+        "immutability": "immutable-revision",
+        "revision": "f47d6c6f7a1308d81f9f57acf7d279f0928c5249"
+      }
+    ]
+  },
+  "repository": {
+    "root": ".",
+    "directories": [".git/", "context/"],
+    "files": [
+      { "path": "GEMINI.md", "formatId": "gemini-context-markdown", "content": "@context/one.md" },
+      { "path": "context/one.md", "formatId": null, "content": "@two.md" },
+      { "path": "context/two.md", "formatId": null, "content": "@three.md" },
+      { "path": "context/three.md", "formatId": null, "content": "@four.md" },
+      { "path": "context/four.md", "formatId": null, "content": "@five.md" },
+      { "path": "context/five.md", "formatId": null, "content": "@six.md" },
+      { "path": "context/six.md", "formatId": null, "content": "DEPTH_SIX" },
+      { "path": "main.ts", "formatId": null, "content": "export {};" }
+    ],
+    "symlinks": []
+  },
+  "externalContext": { "mode": "unavailable", "entries": [] },
+  "invocation": {
+    "launchCwd": ".",
+    "workspaceRoots": ["."],
+    "settings": { "context.importFormat": "tree", "context.memoryBoundaryMarkers": [".git"] },
+    "trustState": "trusted",
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "runtimeMode": "normal"
+  },
+  "targets": [{ "id": "target-main", "path": "main.ts", "purpose": "resolve-effective-context" }],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "sequence": 0,
+      "kind": "launch",
+      "path": ".",
+      "targetId": "target-main"
+    }
+  ],
+  "expectedGraph": {
+    "analysisStatus": "partial",
+    "ambiguities": [
+      {
+        "id": "flat-depth-contract",
+        "kind": "documentation-source-contradiction",
+        "reason": "Documentation promises configurable bounded depth while pinned flat-mode recursion does not enforce its depth argument.",
+        "alternatives": [
+          {
+            "id": "documented-bounded",
+            "description": "Apply a configured import-depth limit to flat mode."
+          },
+          {
+            "id": "source-unbounded",
+            "description": "Represent the pinned flat-mode source behavior while enforcing a linter-owned resource cap."
+          }
+        ],
+        "evidenceRefs": ["GEM-IMP-006", "GEM-GAP-004"]
+      }
+    ],
+    "nodes": [
+      {
+        "id": "root-context",
+        "kind": "document",
+        "path": "GEMINI.md",
+        "formatId": "gemini-context-markdown",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-IMP-001"]
+      },
+      {
+        "id": "first-import",
+        "kind": "content-occurrence",
+        "path": "context/one.md",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-IMP-002"]
+      },
+      {
+        "id": "deep-import",
+        "kind": "content-occurrence",
+        "path": "context/six.md",
+        "resolutionStatus": "contradiction",
+        "ambiguityId": "flat-depth-contract",
+        "evidenceRefs": ["GEM-IMP-006", "GEM-GAP-004"]
+      }
+    ],
+    "edges": [
+      {
+        "id": "root-imports-first",
+        "from": "root-context",
+        "to": "first-import",
+        "relation": "imports",
+        "resolutionStatus": "source-derived",
+        "evidenceRefs": ["GEM-IMP-001", "GEM-IMP-002"]
+      },
+      {
+        "id": "flat-depth-result",
+        "from": "first-import",
+        "to": "deep-import",
+        "relation": "imports",
+        "resolutionStatus": "contradiction",
+        "ambiguityId": "flat-depth-contract",
+        "evidenceRefs": ["GEM-IMP-006", "GEM-GAP-004"]
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "id": "assert-relative-base",
+      "predicate": "nested-relative-base-equals-importer-directory",
+      "expected": "context/",
+      "evidenceStatus": "source-derived",
+      "evidenceRefs": ["GEM-IMP-002"]
+    },
+    {
+      "id": "assert-flat-depth",
+      "predicate": "flat-depth-six-result",
+      "expected": "explicit-ambiguity",
+      "evidenceStatus": "contradiction",
+      "ambiguityId": "flat-depth-contract",
+      "evidenceRefs": ["GEM-IMP-006", "GEM-GAP-004"]
+    }
+  ]
+}

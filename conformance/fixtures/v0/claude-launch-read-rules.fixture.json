@@ -1,0 +1,213 @@
+{
+  "recordKind": "profile-conformance-fixture",
+  "fixtureFormatVersion": "0.1.0",
+  "id": "claude-launch-read-rules",
+  "title": "Claude Code separates launch memory from descendant and path-rule activation",
+  "profile": {
+    "profileId": "claude-code",
+    "surfaceId": "claude-code/local-session",
+    "specSnapshotId": "claude-code/2026-08-01",
+    "clientVersion": "2.1.217",
+    "versionStatus": "documented-version-boundary-pending-observation"
+  },
+  "provenance": {
+    "researchRecordIds": ["claude-code/2026-08-01"],
+    "derivation": "synthetic-edge-case",
+    "assumptions": [
+      "The caller supplied the complete managed and user instruction context as explicit synthetic external context.",
+      "The client version selects the documented bounded brace-expansion behavior."
+    ],
+    "observationIds": [],
+    "sources": [
+      {
+        "id": "claude-memory-docs",
+        "url": "https://code.claude.com/docs/en/memory",
+        "retrievedAt": "2026-08-01",
+        "immutability": "retrieved-living-doc",
+        "mutableSourceReason": "Claude Code documentation is living evidence; D16 must pin a client observation before release."
+      }
+    ]
+  },
+  "repository": {
+    "root": ".",
+    "directories": [".claude/", ".claude/rules/", "apps/", "apps/api/", "other/", "other/src/"],
+    "files": [
+      {
+        "path": "CLAUDE.md",
+        "formatId": "claude-memory-markdown",
+        "content": "Repository launch instructions."
+      },
+      {
+        "path": ".claude/rules/other-typescript.md",
+        "formatId": "claude-rule-markdown",
+        "content": "---\npaths: other/src/**/*.ts\n---\nUse the other TypeScript policy."
+      },
+      {
+        "path": "other/CLAUDE.md",
+        "formatId": "claude-memory-markdown",
+        "content": "Instructions loaded only when the other subtree is read."
+      },
+      {
+        "path": "other/src/api.ts",
+        "formatId": null,
+        "content": "export {};"
+      }
+    ],
+    "symlinks": []
+  },
+  "externalContext": {
+    "mode": "explicit-synthetic",
+    "entries": []
+  },
+  "invocation": {
+    "launchCwd": "apps/api",
+    "workspaceRoots": ["."],
+    "settings": {
+      "additionalDirectoryInstructions": false,
+      "claudeMdExcludes": [],
+      "settingSources": ["local", "managed", "project", "user"]
+    },
+    "trustState": "trusted",
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "runtimeMode": "normal"
+  },
+  "targets": [
+    {
+      "id": "target-other-api",
+      "path": "other/src/api.ts",
+      "purpose": "resolve-effective-context"
+    }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "sequence": 0,
+      "kind": "launch",
+      "path": "apps/api",
+      "targetId": "target-other-api"
+    },
+    {
+      "id": "event-read-other",
+      "sequence": 1,
+      "kind": "read-path",
+      "path": "other/src/api.ts",
+      "targetId": "target-other-api"
+    }
+  ],
+  "expectedGraph": {
+    "analysisStatus": "complete",
+    "ambiguities": [],
+    "nodes": [
+      {
+        "id": "event-launch-node",
+        "kind": "event",
+        "eventId": "event-launch",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CC-LOAD-01"]
+      },
+      {
+        "id": "event-read-node",
+        "kind": "event",
+        "eventId": "event-read-other",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CC-LOAD-06", "CC-RULE-04"]
+      },
+      {
+        "id": "doc-root-memory",
+        "kind": "document",
+        "path": "CLAUDE.md",
+        "formatId": "claude-memory-markdown",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CC-LOAD-01"]
+      },
+      {
+        "id": "doc-descendant-memory",
+        "kind": "document",
+        "path": "other/CLAUDE.md",
+        "formatId": "claude-memory-markdown",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CC-LOAD-06"]
+      },
+      {
+        "id": "doc-path-rule",
+        "kind": "document",
+        "path": ".claude/rules/other-typescript.md",
+        "formatId": "claude-rule-markdown",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CC-RULE-04", "CC-VERSION-2.1.217"]
+      },
+      {
+        "id": "target-other-api-node",
+        "kind": "target",
+        "path": "other/src/api.ts",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CC-LOAD-06", "CC-RULE-04"]
+      }
+    ],
+    "edges": [
+      {
+        "id": "launch-injects-root",
+        "from": "event-launch-node",
+        "to": "doc-root-memory",
+        "relation": "injects",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CC-LOAD-01"]
+      },
+      {
+        "id": "read-injects-descendant",
+        "from": "event-read-node",
+        "to": "doc-descendant-memory",
+        "relation": "injects",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CC-LOAD-06"]
+      },
+      {
+        "id": "read-activates-path-rule",
+        "from": "event-read-node",
+        "to": "doc-path-rule",
+        "relation": "activates",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CC-RULE-04"]
+      },
+      {
+        "id": "root-precedes-descendant",
+        "from": "doc-root-memory",
+        "to": "doc-descendant-memory",
+        "relation": "precedes",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CC-LOAD-08"]
+      },
+      {
+        "id": "documents-activate-target",
+        "from": "doc-descendant-memory",
+        "to": "target-other-api-node",
+        "relation": "activates",
+        "resolutionStatus": "documented",
+        "evidenceRefs": ["CC-LOAD-06"]
+      }
+    ]
+  },
+  "assertions": [
+    {
+      "id": "assert-root-launch",
+      "predicate": "root-memory-activation",
+      "expected": "launch",
+      "evidenceStatus": "documented",
+      "evidenceRefs": ["CC-LOAD-01"]
+    },
+    {
+      "id": "assert-descendant-read",
+      "predicate": "descendant-memory-activation",
+      "expected": "event-read-other",
+      "evidenceStatus": "documented",
+      "evidenceRefs": ["CC-LOAD-06"]
+    },
+    {
+      "id": "assert-path-rule-read",
+      "predicate": "path-rule-activation",
+      "expected": "event-read-other",
+      "evidenceStatus": "documented",
+      "evidenceRefs": ["CC-RULE-04"]
+    }
+  ]
+}

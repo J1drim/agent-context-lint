@@ -1,0 +1,39 @@
+{
+  "capabilityPolicy": {
+    "allowed": ["pinned-client-version-metadata"],
+    "denied": [
+      "credential-read",
+      "external-network",
+      "model-request",
+      "repository-command",
+      "repository-write",
+      "user-config-read"
+    ]
+  },
+  "caseId": "d16-codex-cli-current-version",
+  "client": {
+    "executablePath": "/opt/homebrew/bin/codex",
+    "executableSha256": "ae1d3ffe6d48aec6a4dc3f50e7eb8e0d11962485a6a9406c5a7012139383da02",
+    "expectedVersion": "codex-cli 0.146.0"
+  },
+  "contractVersion": "0.1.0",
+  "expectedLoadedSourceSequence": [],
+  "fixtureFiles": [
+    {
+      "content": "D15_CODEX_ROOT\nSynthetic observation marker.\n",
+      "markerId": "D15_CODEX_ROOT",
+      "path": "AGENTS.md"
+    }
+  ],
+  "observedAt": "2026-08-02T20:18:08Z",
+  "operation": "version-probe",
+  "profileId": "codex-cli",
+  "recordKind": "agent-context-real-client-observation-plan",
+  "settingSources": ["isolated-home", "repository-fixture"],
+  "supervisor": {
+    "executablePath": "/usr/bin/sandbox-exec",
+    "executableSha256": "8290e4be7387a0df83cd1559e86afd880464f269450573d012795761fe298f16",
+    "kind": "macos-sandbox-exec-v1"
+  },
+  "surfaceId": "codex-cli/local-cli-single-cwd"
+}

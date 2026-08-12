@@ -1,0 +1,267 @@
+{
+  "cases": [
+    {
+      "expectedDomains": ["package-manager"],
+      "id": "pm-01",
+      "text": "Use pnpm for dependency installation."
+    },
+    {
+      "expectedDomains": ["package-manager"],
+      "id": "pm-02",
+      "text": "Always use yarn in this workspace."
+    },
+    {
+      "expectedDomains": ["package-manager"],
+      "id": "pm-03",
+      "text": "The package manager must be npm."
+    },
+    { "expectedDomains": ["package-manager"], "id": "pm-04", "text": "Do not use bun." },
+    {
+      "expectedDomains": ["package-manager"],
+      "id": "pm-05",
+      "text": "Install dependencies with pnpm."
+    },
+    { "expectedDomains": ["package-manager"], "id": "pm-06", "text": "Build packages using yarn." },
+    { "expectedDomains": ["package-manager"], "id": "pm-07", "text": "Must use npm for releases." },
+    { "expectedDomains": ["package-manager"], "id": "pm-08", "text": "Never use yarn." },
+
+    { "expectedDomains": ["command"], "id": "cmd-01", "text": "Run make verify." },
+    { "expectedDomains": ["command"], "id": "cmd-02", "text": "Execute ./scripts/check.sh." },
+    { "expectedDomains": ["command"], "id": "cmd-03", "text": "Invoke task build." },
+    { "expectedDomains": ["command"], "id": "cmd-04", "text": "Must run cargo check." },
+    { "expectedDomains": ["command"], "id": "cmd-05", "text": "Should execute go vet ./...." },
+    { "expectedDomains": ["command"], "id": "cmd-06", "text": "Always run just lint." },
+    { "expectedDomains": ["command"], "id": "cmd-07", "text": "Never run deploy-production." },
+    { "expectedDomains": ["command"], "id": "cmd-08", "text": "Do not invoke release.sh." },
+
+    {
+      "expectedDomains": ["file-ownership"],
+      "id": "owner-01",
+      "text": "src/api is owned by platform-team."
+    },
+    {
+      "expectedDomains": ["file-ownership"],
+      "id": "owner-02",
+      "text": "docs/ are maintained by docs-team."
+    },
+    {
+      "expectedDomains": ["file-ownership"],
+      "id": "owner-03",
+      "text": "@security owns threat-model.md."
+    },
+    { "expectedDomains": ["file-ownership"], "id": "owner-04", "text": "team-a owns packages/a/." },
+    {
+      "expectedDomains": ["file-ownership"],
+      "id": "owner-05",
+      "text": "database migrations are owned by db-team."
+    },
+    {
+      "expectedDomains": ["file-ownership"],
+      "id": "owner-06",
+      "text": "CODEOWNERS is maintained by release."
+    },
+    {
+      "expectedDomains": ["file-ownership"],
+      "id": "owner-07",
+      "text": "frontend owns web/components."
+    },
+    {
+      "expectedDomains": ["file-ownership"],
+      "id": "owner-08",
+      "text": "infra owns .github/workflows."
+    },
+
+    {
+      "expectedDomains": ["generated-files"],
+      "id": "gen-01",
+      "text": "Do not edit generated files."
+    },
+    {
+      "expectedDomains": ["generated-files"],
+      "id": "gen-02",
+      "text": "Never modify generated API clients."
+    },
+    {
+      "expectedDomains": ["generated-files"],
+      "id": "gen-03",
+      "text": "Must not touch generated artifacts."
+    },
+    {
+      "expectedDomains": ["generated-files"],
+      "id": "gen-04",
+      "text": "Do not write to the generated schema."
+    },
+    {
+      "expectedDomains": ["generated-files"],
+      "id": "gen-05",
+      "text": "Generated files must not be edited."
+    },
+    {
+      "expectedDomains": ["generated-files"],
+      "id": "gen-06",
+      "text": "Generated artifacts are read-only."
+    },
+    {
+      "expectedDomains": ["generated-files"],
+      "id": "gen-07",
+      "text": "Never edit files in generated/output."
+    },
+    {
+      "expectedDomains": ["generated-files"],
+      "id": "gen-08",
+      "text": "Do not modify any generated snapshots."
+    },
+
+    {
+      "expectedDomains": ["formatting"],
+      "id": "fmt-01",
+      "text": "Format TypeScript with prettier."
+    },
+    { "expectedDomains": ["formatting"], "id": "fmt-02", "text": "Format Python using black." },
+    {
+      "expectedDomains": ["formatting"],
+      "id": "fmt-03",
+      "text": "Formatting must be done with biome."
+    },
+    {
+      "expectedDomains": ["formatting"],
+      "id": "fmt-04",
+      "text": "Use prettier to format JavaScript."
+    },
+    {
+      "expectedDomains": ["formatting"],
+      "id": "fmt-05",
+      "text": "Always use gofmt for formatting Go."
+    },
+    {
+      "expectedDomains": ["formatting"],
+      "id": "fmt-06",
+      "text": "Must use rustfmt to format Rust."
+    },
+    { "expectedDomains": ["formatting"], "id": "fmt-07", "text": "Use ruff to format Python." },
+    {
+      "expectedDomains": ["formatting"],
+      "id": "fmt-08",
+      "text": "The formatter must run with prettier."
+    },
+
+    { "expectedDomains": ["command", "testing"], "id": "test-01", "text": "Run unit tests." },
+    {
+      "expectedDomains": ["command", "testing"],
+      "id": "test-02",
+      "text": "Execute integration tests."
+    },
+    { "expectedDomains": ["command", "testing"], "id": "test-03", "text": "Must run all tests." },
+    {
+      "expectedDomains": ["command", "testing"],
+      "id": "test-04",
+      "text": "Should run end-to-end tests."
+    },
+    { "expectedDomains": ["testing"], "id": "test-05", "text": "All tests must pass." },
+    { "expectedDomains": ["testing"], "id": "test-06", "text": "Unit tests should be run." },
+    { "expectedDomains": ["testing"], "id": "test-07", "text": "Integration tests must pass." },
+    { "expectedDomains": ["testing"], "id": "test-08", "text": "E2E tests should pass." },
+
+    {
+      "expectedDomains": ["approval-requirement"],
+      "id": "approval-01",
+      "text": "Releases require approval from release-team."
+    },
+    {
+      "expectedDomains": ["approval-requirement"],
+      "id": "approval-02",
+      "text": "Get approval from security before merging."
+    },
+    {
+      "expectedDomains": ["approval-requirement"],
+      "id": "approval-03",
+      "text": "Obtain sign-off from platform."
+    },
+    {
+      "expectedDomains": ["approval-requirement"],
+      "id": "approval-04",
+      "text": "Must have approval from @owners."
+    },
+    {
+      "expectedDomains": ["approval-requirement"],
+      "id": "approval-05",
+      "text": "Deployment requires security approval."
+    },
+    {
+      "expectedDomains": ["approval-requirement"],
+      "id": "approval-06",
+      "text": "Do not merge without maintainer approval."
+    },
+    {
+      "expectedDomains": ["approval-requirement"],
+      "id": "approval-07",
+      "text": "Never release without legal sign-off."
+    },
+    {
+      "expectedDomains": ["approval-requirement"],
+      "id": "approval-08",
+      "text": "Changes require an approval from api-team."
+    },
+
+    { "expectedDomains": ["path-policy"], "id": "path-01", "text": "Do not edit vendor/." },
+    {
+      "expectedDomains": ["path-policy"],
+      "id": "path-02",
+      "text": "Never modify config/prod.yml."
+    },
+    { "expectedDomains": ["path-policy"], "id": "path-03", "text": "Must not touch migrations/." },
+    {
+      "expectedDomains": ["path-policy"],
+      "id": "path-04",
+      "text": "Do not write to packages/core/."
+    },
+    { "expectedDomains": ["path-policy"], "id": "path-05", "text": "Only edit docs/." },
+    { "expectedDomains": ["path-policy"], "id": "path-06", "text": "Only modify src/public/." },
+    { "expectedDomains": ["path-policy"], "id": "path-07", "text": "Allowed paths: src/, tests/." },
+    { "expectedDomains": ["path-policy"], "id": "path-08", "text": "Forbidden path: secrets/." },
+
+    { "expectedDomains": [], "id": "neg-01", "text": "This repository uses pnpm today." },
+    { "expectedDomains": [], "id": "neg-02", "text": "You can run the example locally." },
+    { "expectedDomains": [], "id": "neg-03", "text": "Tests are located under test/." },
+    { "expectedDomains": [], "id": "neg-04", "text": "Formatting documentation follows below." },
+    { "expectedDomains": [], "id": "neg-05", "text": "The generated report explains ownership." },
+    { "expectedDomains": [], "id": "neg-06", "text": "Approval status is displayed in CI." },
+    { "expectedDomains": [], "id": "neg-07", "text": "The path contains the word vendor." },
+    { "expectedDomains": [], "id": "neg-08", "text": "npm and yarn are both package managers." },
+    { "expectedDomains": [], "id": "neg-09", "text": "Running is a common verb." },
+    { "expectedDomains": [], "id": "neg-10", "text": "Security reviewed the release yesterday." },
+    { "expectedDomains": [], "id": "neg-11", "text": "Generated files can be inspected." },
+    { "expectedDomains": [], "id": "neg-12", "text": "The formatter section is informational." },
+    { "expectedDomains": [], "id": "neg-13", "text": "Should this command be run?" },
+    { "expectedDomains": [], "id": "neg-14", "text": "A test command example appears in prose." },
+    { "expectedDomains": [], "id": "neg-15", "text": "Who owns this directory?" },
+    { "expectedDomains": [], "id": "neg-16", "text": "Approval may be requested later." },
+    { "expectedDomains": [], "id": "neg-17", "text": "Paths are listed for reference." },
+    { "expectedDomains": [], "id": "neg-18", "text": "The team discussed using npm." },
+    { "expectedDomains": [], "id": "neg-19", "text": "Do not assume generated means immutable." },
+    { "expectedDomains": [], "id": "neg-20", "text": "Neverland is an example project name." },
+    {
+      "expectedDomains": [],
+      "id": "neg-21",
+      "text": "The guide describes how to build packages using yarn."
+    },
+    {
+      "expectedDomains": [],
+      "id": "neg-22",
+      "text": "The formatter integrates with prettier."
+    },
+    {
+      "expectedDomains": [],
+      "id": "neg-23",
+      "text": "We discussed use prettier to format output."
+    },
+    {
+      "expectedDomains": [],
+      "id": "neg-24",
+      "text": "The page says get approval from owners."
+    }
+  ],
+  "contractVersion": "0.1.0",
+  "minimumPositiveLabelsPerDomain": 8,
+  "precisionThreshold": 0.95
+}

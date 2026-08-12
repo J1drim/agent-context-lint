@@ -1,0 +1,72 @@
+[
+  {
+    "inputCodeUnits": 0,
+    "inputUtf8Bytes": 0,
+    "name": "empty",
+    "text": "",
+    "tokens": 0
+  },
+  {
+    "inputCodeUnits": 4,
+    "inputUtf8Bytes": 4,
+    "name": "four-ascii-byte-boundary",
+    "text": "test",
+    "tokens": 1
+  },
+  {
+    "inputCodeUnits": 5,
+    "inputUtf8Bytes": 5,
+    "name": "five-ascii-bytes-round-up",
+    "text": "tests",
+    "tokens": 2
+  },
+  {
+    "inputCodeUnits": 2,
+    "inputUtf8Bytes": 3,
+    "name": "decomposed-accent",
+    "text": "é",
+    "tokens": 1
+  },
+  {
+    "inputCodeUnits": 2,
+    "inputUtf8Bytes": 4,
+    "name": "astral-emoji",
+    "text": "😀",
+    "tokens": 1
+  },
+  {
+    "inputCodeUnits": 2,
+    "inputUtf8Bytes": 6,
+    "name": "cjk",
+    "text": "漢字",
+    "tokens": 2
+  },
+  {
+    "inputCodeUnits": 21,
+    "inputUtf8Bytes": 21,
+    "name": "markdown-list",
+    "text": "# Plan\n\n- Test code.\n",
+    "tokens": 6
+  },
+  {
+    "inputCodeUnits": 17,
+    "inputUtf8Bytes": 24,
+    "name": "unicode-markdown",
+    "text": "## Café 😀\n\n- 漢字\n",
+    "tokens": 6
+  },
+  {
+    "inputCodeUnits": 4,
+    "inputUtf8Bytes": 4,
+    "name": "lf-is-data",
+    "text": "abc\n",
+    "tokens": 1
+  },
+  {
+    "inputCodeUnits": 5,
+    "inputUtf8Bytes": 5,
+    "name": "crlf-is-data",
+    "text": "abc\r\n",
+    "tokens": 2
+  }
+]

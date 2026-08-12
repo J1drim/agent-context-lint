@@ -1,0 +1,346 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context-lint.dev/standards/tuf-metadata.v0.schema.json",
+  "title": "Agent Context Standards TUF metadata POUF v0",
+  "oneOf": [
+    { "$ref": "#/$defs/rootEnvelope" },
+    { "$ref": "#/$defs/timestampEnvelope" },
+    { "$ref": "#/$defs/snapshotEnvelope" },
+    { "$ref": "#/$defs/topTargetsEnvelope" },
+    { "$ref": "#/$defs/delegatedTargetsEnvelope" }
+  ],
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "signature": { "type": "string", "pattern": "^[a-f0-9]{128}$" },
+    "semver": {
+      "type": "string",
+      "maxLength": 256,
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-((?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*))?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "time": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-([0-2][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]Z$"
+    },
+    "extension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["issuedAt", "policyVersion", "repositoryId"],
+      "properties": {
+        "issuedAt": { "$ref": "#/$defs/time" },
+        "policyVersion": { "const": "0.1.0" },
+        "repositoryId": { "const": "agent-context-standards" }
+      }
+    },
+    "signatureEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["keyid", "sig"],
+      "properties": {
+        "keyid": { "$ref": "#/$defs/sha256" },
+        "sig": { "$ref": "#/$defs/signature" }
+      }
+    },
+    "signatures": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "items": { "$ref": "#/$defs/signatureEntry" }
+    },
+    "key": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["keytype", "keyval", "scheme"],
+      "properties": {
+        "keytype": { "const": "ed25519" },
+        "scheme": { "const": "ed25519" },
+        "keyval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["public"],
+          "properties": { "public": { "type": "string", "pattern": "^[a-f0-9]{64}$" } }
+        }
+      }
+    },
+    "keyMap": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 16,
+      "propertyNames": { "$ref": "#/$defs/sha256" },
+      "additionalProperties": { "$ref": "#/$defs/key" }
+    },
+    "rootOfflineRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["keyids", "threshold"],
+      "properties": {
+        "keyids": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/sha256" }
+        },
+        "threshold": { "const": 2 }
+      }
+    },
+    "onlineRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["keyids", "threshold"],
+      "properties": {
+        "keyids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/sha256" }
+        },
+        "threshold": { "const": 1 }
+      }
+    },
+    "rootSigned": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "_type",
+        "consistent_snapshot",
+        "expires",
+        "keys",
+        "roles",
+        "spec_version",
+        "version",
+        "x-agent-context"
+      ],
+      "properties": {
+        "_type": { "const": "root" },
+        "consistent_snapshot": { "const": true },
+        "expires": { "$ref": "#/$defs/time" },
+        "keys": { "$ref": "#/$defs/keyMap" },
+        "roles": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["root", "snapshot", "targets", "timestamp"],
+          "properties": {
+            "root": { "$ref": "#/$defs/rootOfflineRole" },
+            "snapshot": { "$ref": "#/$defs/onlineRole" },
+            "targets": { "$ref": "#/$defs/rootOfflineRole" },
+            "timestamp": { "$ref": "#/$defs/onlineRole" }
+          }
+        },
+        "spec_version": { "const": "1.0.35" },
+        "version": { "type": "integer", "minimum": 1, "maximum": 2147483647 },
+        "x-agent-context": { "$ref": "#/$defs/extension" }
+      }
+    },
+    "rootEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["signatures", "signed"],
+      "properties": {
+        "signatures": { "$ref": "#/$defs/signatures" },
+        "signed": { "$ref": "#/$defs/rootSigned" }
+      }
+    },
+    "metaBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hashes", "length", "version"],
+      "properties": {
+        "hashes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["sha256"],
+          "properties": { "sha256": { "$ref": "#/$defs/sha256" } }
+        },
+        "length": { "type": "integer", "minimum": 1, "maximum": 524288 },
+        "version": { "type": "integer", "minimum": 1, "maximum": 2147483647 }
+      }
+    },
+    "timestampSigned": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["_type", "expires", "meta", "spec_version", "version", "x-agent-context"],
+      "properties": {
+        "_type": { "const": "timestamp" },
+        "expires": { "$ref": "#/$defs/time" },
+        "meta": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["snapshot.json"],
+          "properties": { "snapshot.json": { "$ref": "#/$defs/metaBinding" } }
+        },
+        "spec_version": { "const": "1.0.35" },
+        "version": { "type": "integer", "minimum": 1, "maximum": 2147483647 },
+        "x-agent-context": { "$ref": "#/$defs/extension" }
+      }
+    },
+    "timestampEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["signatures", "signed"],
+      "properties": {
+        "signatures": { "$ref": "#/$defs/signatures" },
+        "signed": { "$ref": "#/$defs/timestampSigned" }
+      }
+    },
+    "snapshotSigned": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["_type", "expires", "meta", "spec_version", "version", "x-agent-context"],
+      "properties": {
+        "_type": { "const": "snapshot" },
+        "expires": { "$ref": "#/$defs/time" },
+        "meta": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["standards-preview.json", "standards-stable.json", "targets.json"],
+          "properties": {
+            "standards-preview.json": { "$ref": "#/$defs/metaBinding" },
+            "standards-stable.json": { "$ref": "#/$defs/metaBinding" },
+            "targets.json": { "$ref": "#/$defs/metaBinding" }
+          }
+        },
+        "spec_version": { "const": "1.0.35" },
+        "version": { "type": "integer", "minimum": 1, "maximum": 2147483647 },
+        "x-agent-context": { "$ref": "#/$defs/extension" }
+      }
+    },
+    "snapshotEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["signatures", "signed"],
+      "properties": {
+        "signatures": { "$ref": "#/$defs/signatures" },
+        "signed": { "$ref": "#/$defs/snapshotSigned" }
+      }
+    },
+    "delegatedRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["keyids", "name", "paths", "terminating", "threshold"],
+      "properties": {
+        "keyids": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/sha256" }
+        },
+        "name": { "enum": ["standards-preview", "standards-stable"] },
+        "paths": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": { "enum": ["knowledge/preview/*", "knowledge/stable/*"] }
+        },
+        "terminating": { "const": true },
+        "threshold": { "const": 2 }
+      }
+    },
+    "topTargetsSigned": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "_type",
+        "delegations",
+        "expires",
+        "spec_version",
+        "targets",
+        "version",
+        "x-agent-context"
+      ],
+      "properties": {
+        "_type": { "const": "targets" },
+        "delegations": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["keys", "roles"],
+          "properties": {
+            "keys": { "$ref": "#/$defs/keyMap" },
+            "roles": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": { "$ref": "#/$defs/delegatedRole" }
+            }
+          }
+        },
+        "expires": { "$ref": "#/$defs/time" },
+        "spec_version": { "const": "1.0.35" },
+        "targets": { "type": "object", "maxProperties": 0 },
+        "version": { "type": "integer", "minimum": 1, "maximum": 2147483647 },
+        "x-agent-context": { "$ref": "#/$defs/extension" }
+      }
+    },
+    "targetBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["custom", "hashes", "length"],
+      "properties": {
+        "custom": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["channel", "minEngineVersion", "packId", "packVersion", "schemaVersion"],
+          "properties": {
+            "channel": { "enum": ["preview", "stable"] },
+            "minEngineVersion": { "$ref": "#/$defs/semver" },
+            "packId": {
+              "type": "string",
+              "maxLength": 256,
+              "pattern": "^[A-Za-z0-9]+(?:[._/-][A-Za-z0-9]+)*$"
+            },
+            "packVersion": { "$ref": "#/$defs/semver" },
+            "schemaVersion": { "const": "0.1.0" }
+          }
+        },
+        "hashes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["sha256"],
+          "properties": { "sha256": { "$ref": "#/$defs/sha256" } }
+        },
+        "length": { "type": "integer", "minimum": 1, "maximum": 4194304 }
+      }
+    },
+    "delegatedTargetsSigned": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["_type", "expires", "spec_version", "targets", "version", "x-agent-context"],
+      "properties": {
+        "_type": { "const": "targets" },
+        "expires": { "$ref": "#/$defs/time" },
+        "spec_version": { "const": "1.0.35" },
+        "targets": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 1000,
+          "propertyNames": {
+            "maxLength": 1024,
+            "pattern": "^knowledge/(preview|stable)/[A-Za-z0-9]+(?:[._-][A-Za-z0-9]+)*\\.json$"
+          },
+          "additionalProperties": { "$ref": "#/$defs/targetBinding" }
+        },
+        "version": { "type": "integer", "minimum": 1, "maximum": 2147483647 },
+        "x-agent-context": { "$ref": "#/$defs/extension" }
+      }
+    },
+    "topTargetsEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["signatures", "signed"],
+      "properties": {
+        "signatures": { "$ref": "#/$defs/signatures" },
+        "signed": { "$ref": "#/$defs/topTargetsSigned" }
+      }
+    },
+    "delegatedTargetsEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["signatures", "signed"],
+      "properties": {
+        "signatures": { "$ref": "#/$defs/signatures" },
+        "signed": { "$ref": "#/$defs/delegatedTargetsSigned" }
+      }
+    }
+  }
+}

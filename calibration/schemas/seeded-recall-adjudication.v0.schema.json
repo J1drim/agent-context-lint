@@ -1,0 +1,175 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/seeded-recall-adjudication.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [{ "$ref": "#/$defs/review" }, { "$ref": "#/$defs/adjudication" }],
+  "$defs": {
+    "adjudication": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "summary": {
+                "properties": { "thirdReviewCount": { "const": 0 } },
+                "required": ["thirdReviewCount"],
+                "type": "object"
+              }
+            },
+            "required": ["summary"],
+            "type": "object"
+          },
+          "then": {
+            "properties": { "tieBreakerReviewerId": { "type": "null" } },
+            "type": "object"
+          },
+          "else": {
+            "properties": { "tieBreakerReviewerId": { "$ref": "#/$defs/identifier" } },
+            "type": "object"
+          }
+        }
+      ],
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "decisions": {
+          "items": { "$ref": "#/$defs/decision" },
+          "maxItems": 69,
+          "minItems": 69,
+          "type": "array"
+        },
+        "primaryReviewerIds": {
+          "items": { "$ref": "#/$defs/identifier" },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "recordKind": { "const": "agent-context-seeded-recall-adjudication" },
+        "reportSha256": { "$ref": "#/$defs/sha256" },
+        "summary": {
+          "additionalProperties": false,
+          "properties": {
+            "agreementCount": { "maximum": 69, "minimum": 0, "type": "integer" },
+            "resolvedCount": { "maximum": 69, "minimum": 0, "type": "integer" },
+            "thirdReviewCount": { "maximum": 69, "minimum": 0, "type": "integer" },
+            "unresolvedCount": { "maximum": 69, "minimum": 0, "type": "integer" }
+          },
+          "required": ["agreementCount", "resolvedCount", "thirdReviewCount", "unresolvedCount"],
+          "type": "object"
+        },
+        "tieBreakerReviewerId": {
+          "oneOf": [{ "$ref": "#/$defs/identifier" }, { "type": "null" }]
+        }
+      },
+      "required": [
+        "contractVersion",
+        "decisions",
+        "primaryReviewerIds",
+        "recordKind",
+        "reportSha256",
+        "summary",
+        "tieBreakerReviewerId"
+      ],
+      "type": "object"
+    },
+    "decision": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": { "resolution": { "const": "unresolved" } },
+            "type": "object"
+          },
+          "then": {
+            "properties": { "label": { "type": "null" }, "reason": { "type": "null" } },
+            "type": "object"
+          },
+          "else": {
+            "properties": {
+              "label": { "$ref": "#/$defs/label" },
+              "reason": { "$ref": "#/$defs/reason" }
+            },
+            "type": "object"
+          }
+        }
+      ],
+      "properties": {
+        "caseId": { "$ref": "#/$defs/identifier" },
+        "label": {
+          "oneOf": [{ "$ref": "#/$defs/label" }, { "type": "null" }]
+        },
+        "pathFingerprint": { "$ref": "#/$defs/sha256" },
+        "reason": {
+          "oneOf": [{ "$ref": "#/$defs/reason" }, { "type": "null" }]
+        },
+        "resolution": { "enum": ["agreement", "third-review", "unresolved"] },
+        "ruleId": { "$ref": "#/$defs/ruleId" },
+        "semanticFingerprint": { "$ref": "#/$defs/sha256" }
+      },
+      "required": [
+        "caseId",
+        "label",
+        "pathFingerprint",
+        "reason",
+        "resolution",
+        "ruleId",
+        "semanticFingerprint"
+      ],
+      "type": "object"
+    },
+    "identifier": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-z0-9](?:[a-z0-9._:-]{0,126}[a-z0-9])?$",
+      "type": "string"
+    },
+    "label": {
+      "enum": [
+        "false-positive",
+        "test-harness-defect",
+        "true-positive",
+        "uncertain-client-behavior"
+      ]
+    },
+    "reason": {
+      "enum": [
+        "documented-behavior-confirmed",
+        "expected-seed-not-proved",
+        "fixture-contract-defect",
+        "undocumented-or-version-dependent"
+      ]
+    },
+    "review": {
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "labels": {
+          "items": { "$ref": "#/$defs/reviewLabel" },
+          "maxItems": 69,
+          "minItems": 69,
+          "type": "array"
+        },
+        "recordKind": { "const": "agent-context-seeded-recall-review" },
+        "reportSha256": { "$ref": "#/$defs/sha256" },
+        "reviewerId": { "$ref": "#/$defs/identifier" },
+        "role": { "enum": ["primary", "tie-breaker"] }
+      },
+      "required": ["contractVersion", "labels", "recordKind", "reportSha256", "reviewerId", "role"],
+      "type": "object"
+    },
+    "reviewLabel": {
+      "additionalProperties": false,
+      "properties": {
+        "caseId": { "$ref": "#/$defs/identifier" },
+        "label": { "$ref": "#/$defs/label" },
+        "pathFingerprint": { "$ref": "#/$defs/sha256" },
+        "reason": { "$ref": "#/$defs/reason" },
+        "ruleId": { "$ref": "#/$defs/ruleId" },
+        "semanticFingerprint": { "$ref": "#/$defs/sha256" }
+      },
+      "required": ["caseId", "label", "pathFingerprint", "reason", "ruleId", "semanticFingerprint"],
+      "type": "object"
+    },
+    "ruleId": { "pattern": "^ACL[1-5][0-9]{2}$", "type": "string" },
+    "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "recordKind": "agent-context-efficiency-rule-precision-corpus",
+  "schemaVersion": "0.1.0",
+  "cases": [
+    {
+      "caseId": "acl550.complete-over-budget",
+      "evidenceState": "complete",
+      "expected": "finding",
+      "rationale": "Complete resolved always-on nearest-rank p95 exceeds the issued G06 budget.",
+      "ruleId": "ACL550"
+    },
+    {
+      "caseId": "acl550.partial-distribution",
+      "evidenceState": "partial",
+      "expected": "no-finding",
+      "rationale": "A partial profile distribution is uncertainty rather than favorable threshold evidence.",
+      "ruleId": "ACL550"
+    },
+    {
+      "caseId": "acl551.complete-effective-over-budget",
+      "evidenceState": "complete",
+      "expected": "finding",
+      "rationale": "Complete resolved effective p95 exceeds the issued G06 budget.",
+      "ruleId": "ACL551"
+    },
+    {
+      "caseId": "acl551.exact-budget",
+      "evidenceState": "threshold-boundary",
+      "expected": "no-finding",
+      "rationale": "An observation equal to the budget is not an overrun.",
+      "ruleId": "ACL551"
+    },
+    {
+      "caseId": "acl552.complete-exact-duplicate",
+      "evidenceState": "complete",
+      "expected": "finding",
+      "rationale": "A complete G05 exact-normalized cluster meets the redundant-token threshold.",
+      "ruleId": "ACL552"
+    },
+    {
+      "caseId": "acl552.near-only",
+      "evidenceState": "partial",
+      "expected": "no-finding",
+      "rationale": "Near-duplicate candidates cannot satisfy the high-confidence exact rule.",
+      "ruleId": "ACL552"
+    },
+    {
+      "caseId": "acl553.reconciled-scope",
+      "evidenceState": "complete",
+      "expected": "finding",
+      "rationale": "G08 proves an intended target byte-identical and quantifies all affected targets.",
+      "ruleId": "ACL553"
+    },
+    {
+      "caseId": "acl553.indeterminate-projection",
+      "evidenceState": "partial",
+      "expected": "no-finding",
+      "rationale": "Missing target or tokenizer evidence prevents a recommendation.",
+      "ruleId": "ACL553"
+    },
+    {
+      "caseId": "acl554.complete-amplification",
+      "evidenceState": "complete",
+      "expected": "finding",
+      "rationale": "Occurrence-aware effective tokens exceed unique tokens and the configured ratio.",
+      "ruleId": "ACL554"
+    },
+    {
+      "caseId": "acl554.ratio-one",
+      "evidenceState": "threshold-boundary",
+      "expected": "no-finding",
+      "rationale": "The 10000-basis-point identity ratio is not amplification.",
+      "ruleId": "ACL554"
+    },
+    {
+      "caseId": "acl555.reconciled-vendor-formats",
+      "evidenceState": "complete",
+      "expected": "finding",
+      "rationale": "Exact duplicates span multiple B03 vendor formats and every target retains unique content identities in an issued G08 projection.",
+      "ruleId": "ACL555"
+    },
+    {
+      "caseId": "acl555.content-loss",
+      "evidenceState": "partial",
+      "expected": "no-finding",
+      "rationale": "A failed or unknown unique-content proof blocks consolidation.",
+      "ruleId": "ACL555"
+    },
+    {
+      "caseId": "acl556.complete-low-density",
+      "evidenceState": "complete",
+      "expected": "finding",
+      "rationale": "A non-empty complete G05 document density is below the configured threshold.",
+      "ruleId": "ACL556"
+    },
+    {
+      "caseId": "acl556.empty-document",
+      "evidenceState": "threshold-boundary",
+      "expected": "no-finding",
+      "rationale": "F05 owns empty documents; F14 does not duplicate that diagnostic.",
+      "ruleId": "ACL556"
+    },
+    {
+      "caseId": "acl557.incompatible-issued-identities",
+      "evidenceState": "incompatible",
+      "expected": "finding",
+      "rationale": "Two issued G07 records use incompatible G01 identities.",
+      "ruleId": "ACL557"
+    },
+    {
+      "caseId": "acl557.identical-identity",
+      "evidenceState": "complete",
+      "expected": "no-finding",
+      "rationale": "Byte-identical tokenizer identities are comparison-compatible.",
+      "ruleId": "ACL557"
+    },
+    {
+      "caseId": "acl558.high-impact-unbenchmarked",
+      "evidenceState": "complete",
+      "expected": "finding",
+      "rationale": "A reconciled projection reaches the impact threshold and retains the no-quality-claim caveat.",
+      "ruleId": "ACL558"
+    },
+    {
+      "caseId": "acl558.below-both-thresholds",
+      "evidenceState": "threshold-boundary",
+      "expected": "no-finding",
+      "rationale": "A saving below both configured impact thresholds is not high impact.",
+      "ruleId": "ACL558"
+    }
+  ]
+}

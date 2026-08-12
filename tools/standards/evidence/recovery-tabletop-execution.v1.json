@@ -1,0 +1,494 @@
+{
+  "captureStatus": "supported",
+  "capturedAt": "2026-08-10T01:17:30.731Z",
+  "commands": [
+    {
+      "argv": [
+        "$NODE",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "packages/standards/test/tuf-trust.unit.test.ts",
+        "--reporter=json",
+        "--outputFile=$TEMP/vitest.json"
+      ],
+      "deadlineMs": 60000,
+      "durationMs": 3373,
+      "exitCode": 0,
+      "id": "tuf-trust",
+      "signal": null,
+      "tests": [
+        {
+          "identity": "H02 TUF trust model applies sequential root rotation under old and new thresholds and resets fast-forward state on online-key rotation",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model bootstraps only the self-threshold-verified 2-of-3 out-of-band root",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model bounds every request string before pattern work and preserves distinct resource failures",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model bounds string ingress before UTF-8 allocation and rejects surrogate replacement aliases",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model detects timestamp and snapshot rollback while preserving the trusted state",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model exports the schema while excluding all test key material from the private package payload",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model keeps stable and preview delegations isolated",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model never reflects hostile map keys or accessor names in bounded diagnostics",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model rejects an engine below the signed minimum while accepting exact and higher versions",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model rejects delegated policy and target bindings outside their exact authority",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model rejects expired, future-issued, and overlong online metadata using one explicit start time",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model rejects hostile byte containers, JSON values, bundles, root chains, and requests",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model rejects key-role reuse and wrong root policy identity",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model rejects malformed root policy, authority, time, and signature structures",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model rejects malformed, noncanonical, duplicate, BOM, deep, and oversized metadata before authority use",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model rejects mix-and-match metadata and target length or hash changes",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model rejects proxies, getters, sparse roots, exotic byte views, and extra byte authority",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model rejects skipped roots and candidates missing either old or new root threshold",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model rejects timestamp replay and snapshot rollback without changing prior trusted state",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model requires 2-of-3 delegated signatures and enforces delegated key revocation",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model retains an unchanged unselected delegation across a later channel update",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model ships a closed Draft 2020-12 schema for every supported role",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model validates every delegated target entry before selecting the requested binding",
+          "outcome": "passed"
+        },
+        {
+          "identity": "H02 TUF trust model verifies a complete stable update offline with exact parent bindings and returns defensive target bytes",
+          "outcome": "passed"
+        }
+      ],
+      "timedOut": false
+    },
+    {
+      "argv": [
+        "$NODE",
+        "--test",
+        "--test-reporter=tap",
+        "tools/standards/maintainer-review-bundle.test.mjs",
+        "tools/standards/upstream-review.test.mjs",
+        "tools/standards/upstream-snapshotter.test.mjs",
+        "tools/standards/validate-maintainer-workflow.test.mjs"
+      ],
+      "deadlineMs": 60000,
+      "durationMs": 3444,
+      "exitCode": 0,
+      "id": "standards-tools",
+      "signal": null,
+      "tests": [
+        {
+          "identity": "accepts the checked-in least-privilege workflow and environment policy",
+          "outcome": "passed"
+        },
+        {
+          "identity": "aliased root",
+          "outcome": "passed"
+        },
+        {
+          "identity": "argument and byte boundaries fail before filesystem or artifact mutation",
+          "outcome": "passed"
+        },
+        {
+          "identity": "artifact parser fails closed on malformed, deep, huge, and incomplete JSON",
+          "outcome": "passed"
+        },
+        {
+          "identity": "artifact writer creates a private new directory and refuses overwrite or symlink parents",
+          "outcome": "passed"
+        },
+        {
+          "identity": "artifact writer is private, exclusive, canonical-path-only, and locally contained",
+          "outcome": "passed"
+        },
+        {
+          "identity": "bounded line evidence caps work and escapes hostile Unicode deterministically",
+          "outcome": "passed"
+        },
+        {
+          "identity": "cancellation stops the bounded sequential acquisition",
+          "outcome": "passed"
+        },
+        {
+          "identity": "candidate chronology fails closed without reflecting hostile artifact text",
+          "outcome": "passed"
+        },
+        {
+          "identity": "capture rejects invalid dates, signals, media, bytes, headings, and transport failures",
+          "outcome": "passed"
+        },
+        {
+          "identity": "capture requests only the exact sorted allowlist and replay is byte deterministic",
+          "outcome": "passed"
+        },
+        {
+          "identity": "catalog validation rejects URL broadening, omissions, reordering, and unknown fields",
+          "outcome": "passed"
+        },
+        {
+          "identity": "CLI accepts only the fixed create and verify argument order",
+          "outcome": "passed"
+        },
+        {
+          "identity": "content",
+          "outcome": "passed"
+        },
+        {
+          "identity": "context",
+          "outcome": "passed"
+        },
+        {
+          "identity": "creates a canonical closed manifest and replays exact bytes",
+          "outcome": "passed"
+        },
+        {
+          "identity": "extra",
+          "outcome": "passed"
+        },
+        {
+          "identity": "fails closed on content, manifest, context, and inventory substitution",
+          "outcome": "passed"
+        },
+        {
+          "identity": "generated source and provenance artifacts satisfy their published schemas",
+          "outcome": "passed"
+        },
+        {
+          "identity": "golden six-source change produces a deterministic claim-free draft",
+          "outcome": "passed"
+        },
+        {
+          "identity": "hard link",
+          "outcome": "passed"
+        },
+        {
+          "identity": "insertions and deletions retain explicit zero-sided bounded evidence",
+          "outcome": "passed"
+        },
+        {
+          "identity": "invalid run metadata",
+          "outcome": "passed"
+        },
+        {
+          "identity": "maintainer CLI capture requires acknowledgement and verify is network-free",
+          "outcome": "passed"
+        },
+        {
+          "identity": "maintainer CLI generates and replays offline without socket or command capability",
+          "outcome": "passed"
+        },
+        {
+          "identity": "manifest",
+          "outcome": "passed"
+        },
+        {
+          "identity": "noncanonical manifest",
+          "outcome": "passed"
+        },
+        {
+          "identity": "normalization is section-bounded, NFC, LF-only, and strips HTML-only content",
+          "outcome": "passed"
+        },
+        {
+          "identity": "offline replay rejects raw, normalized, provenance, digest, and noncanonical tampering",
+          "outcome": "passed"
+        },
+        {
+          "identity": "offline replay rejects review, scaffold, Markdown, and snapshot tampering",
+          "outcome": "passed"
+        },
+        {
+          "identity": "production transport independently rejects requests outside its compiled allowlist",
+          "outcome": "passed"
+        },
+        {
+          "identity": "public-address and response-header policies reject SSRF and protocol ambiguity",
+          "outcome": "passed"
+        },
+        {
+          "identity": "raw-only and identical changes remain distinct from selected text changes",
+          "outcome": "passed"
+        },
+        {
+          "identity": "rejects aliases, hard links, invalid metadata, and noncanonical JSON",
+          "outcome": "passed"
+        },
+        {
+          "identity": "rejects duplicate YAML keys and weakened checked-in environment policy",
+          "outcome": "passed"
+        },
+        {
+          "identity": "rejects unsafe triggers, permissions, secrets, and mutable actions",
+          "outcome": "passed"
+        },
+        {
+          "identity": "rejects weakened approval, environment, artifact, and replay boundaries",
+          "outcome": "passed"
+        },
+        {
+          "identity": "review and fixture scaffold satisfy closed published schemas",
+          "outcome": "passed"
+        },
+        {
+          "identity": "safe reader bounds files and rejects symlink and hard-link aliases",
+          "outcome": "passed"
+        },
+        {
+          "identity": "symbolic link",
+          "outcome": "passed"
+        }
+      ],
+      "timedOut": false
+    },
+    {
+      "argv": [
+        "$NODE",
+        "scripts/check-packed-manifests.mjs"
+      ],
+      "deadlineMs": 180000,
+      "durationMs": 15050,
+      "exitCode": 0,
+      "id": "package-audit",
+      "signal": null,
+      "tests": [],
+      "timedOut": false
+    }
+  ],
+  "containment": {
+    "capabilityCheckedAt": "2026-08-10T01:16:59.214Z",
+    "configuration": {
+      "config": {
+        "attachStderr": true,
+        "attachStdin": false,
+        "attachStdout": true,
+        "command": [
+          "/opt/h13/runner.mjs",
+          "--command",
+          "$COMMAND"
+        ],
+        "domainname": "",
+        "entrypoint": [
+          "/usr/local/bin/node"
+        ],
+        "image": "agent-context-h13-runtime@sha256:1383c87bff20f22005f1293c750adef3f5d26ac1018dd8139888ca21769950bb",
+        "labels": [
+          "agent-context.h13.nonce",
+          "agent-context.h13.owner"
+        ],
+        "openStdin": false,
+        "stdinOnce": false,
+        "tty": false,
+        "user": "65532:65532",
+        "workingDirectory": "/opt/h13/repo"
+      },
+      "hostConfig": {
+        "autoRemove": false,
+        "capAdd": null,
+        "capDrop": [
+          "ALL"
+        ],
+        "cgroupNamespaceMode": "private",
+        "init": true,
+        "ipcMode": "none",
+        "memory": 4294967296,
+        "memorySwap": 4294967296,
+        "nanoCpus": 2000000000,
+        "networkMode": "none",
+        "pidMode": "private",
+        "pidsLimit": 128,
+        "privileged": false,
+        "publishAllPorts": false,
+        "readonlyRootFilesystem": true,
+        "restartPolicy": {
+          "maximumRetryCount": 0,
+          "name": "no"
+        },
+        "securityOptions": [
+          "no-new-privileges=true"
+        ],
+        "tmpfs": {
+          "/tmp": "rw,exec,nosuid,nodev,size=2147483648,mode=0700,uid=65532,gid=65532",
+          "/workspace": "rw,exec,nosuid,nodev,size=2147483648,mode=0700,uid=65532,gid=65532"
+        }
+      },
+      "imageConfigurationDigest": "sha256:c3565d64f5445ffc97c08949e27cc7efc47469d94f44b8876435d0c6e0caf4e9",
+      "imageManifestDigest": "sha256:1383c87bff20f22005f1293c750adef3f5d26ac1018dd8139888ca21769950bb",
+      "mounts": [
+        {
+          "destination": "/input",
+          "mode": "",
+          "propagation": "rprivate",
+          "readWrite": false,
+          "source": "$REPOSITORY_ROOT",
+          "type": "bind"
+        }
+      ],
+      "networkSettings": {
+        "networks": [
+          "none"
+        ],
+        "publishedPorts": []
+      },
+      "pullPolicy": "never"
+    },
+    "configurationSha256": "23f3bf393659b7aceef7575b64db19b1d8cd3dfc4c30dcb523df58d6d89a4e29",
+    "dockerClient": {
+      "gitCommit": "79eb04c7d8",
+      "sha256": "03a3ffd8b6966ca34a4c62f0479e61cbe2846900a2a14acdd557f8535a2f4b77",
+      "version": "29.5.2"
+    },
+    "dockerServer": {
+      "architecture": "arm64",
+      "gitCommit": "568f755",
+      "operatingSystem": "linux",
+      "version": "29.5.2"
+    },
+    "mechanism": "docker-linux-pid-namespace-v1",
+    "runtimeImage": {
+      "baseConfigurationDigest": "sha256:f02a2a490293095bd41ee3791d465a0865ce176c8dd0d068b58bdfda9081eaca",
+      "baseIndexDigest": "sha256:19cd848a0e073d34bd8cd5545a1b6b4d28489b3e3b607366621ced442bd5f6b4",
+      "basePlatformManifestDigest": "sha256:9b02ede55039f443ad57453a741813c6cd105873f0f66fee95d25529e1ba0533",
+      "buildInputManifestSha256": "f9679a97460b0100d5bd97db1d50162035d6c9508db4ad6ee06c7eaae4930156",
+      "buildLockSha256": "5ebbae912cf343c384dee079767f73cb5bea64512b6a2343b7118d003ae89fea",
+      "configurationDigest": "sha256:c3565d64f5445ffc97c08949e27cc7efc47469d94f44b8876435d0c6e0caf4e9",
+      "layerDiffIds": [
+        "sha256:03ba16bfa697d90f805315657aec416d0d167795be5c64d94a7c411cdfe7ea2d",
+        "sha256:fdc534eab0b9dbe19ae0e3659dc87dba661c42e74c1fc6c3c56901435aec15a7",
+        "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+      ],
+      "platformManifestDigest": "sha256:1383c87bff20f22005f1293c750adef3f5d26ac1018dd8139888ca21769950bb",
+      "repoDigest": "sha256:1383c87bff20f22005f1293c750adef3f5d26ac1018dd8139888ca21769950bb",
+      "repository": "agent-context-h13-runtime",
+      "sizeBytes": 456224883,
+      "sourceDateEpoch": 1786312800
+    },
+    "status": "supported"
+  },
+  "contractVersion": "1.3.0",
+  "durationMs": 31517,
+  "overallDeadlineMs": 300000,
+  "overallExitCode": 0,
+  "packageInventory": [
+    {
+      "files": 91,
+      "package": "@agent-context/core"
+    },
+    {
+      "files": 37,
+      "package": "@agent-context/lint"
+    },
+    {
+      "files": 64,
+      "package": "@agent-context/standards"
+    },
+    {
+      "files": 6,
+      "package": "@agent-context/tokenizer-utf8-byte"
+    }
+  ],
+  "recordKind": "agent-context-standards-recovery-execution",
+  "sourceClosure": {
+    "algorithm": "all-tracked-indexed-bytes-v2",
+    "excludedPaths": [
+      "IMPLEMENTATION_STATUS.md",
+      "tools/standards/evidence/recovery-tabletop-execution.v1.json",
+      "tools/standards/evidence/recovery-tabletop.v1.json"
+    ],
+    "gitHead": "c82c335eb52541aaaad57e239bfdb88c9272fa15",
+    "indexSha256": "70a5be606d45488cb346e3a02e571bd2095831888ea45b3d971021de96edfe59",
+    "sha256": "72e4c90a22b876414678bd1d5c6d73669045daedee04f1a6cc1a225d2f014158",
+    "totalBytes": 11307335,
+    "trackedFileCount": 959,
+    "trackedInventorySha256": "48f989ef908c3f6b241066b9b4c62e1d79cb3892d30adefdfec57e85a1dced70",
+    "untrackedFileCount": 0,
+    "workingMetadataSha256": "a77b3383616ed8faabef8b4ddd84a52900771957d99b5a78098d8b828b4bd5b9"
+  },
+  "startedAt": "2026-08-10T01:16:59.214Z",
+  "toolchain": {
+    "canonicalJson": "2.0.0",
+    "executables": {
+      "git": {
+        "path": "/usr/bin/git",
+        "sha256": "54af380ba6ca1b36305358e99427a31ae4b0af5dc5cb6d0198c6f2f16e97651d"
+      },
+      "node": {
+        "path": "/usr/local/bin/node",
+        "sha256": "a990a8ae388fc285ddbce280e63fca48cfd7695f632b66aec6ed581566eace99"
+      },
+      "pnpm": {
+        "path": "/usr/local/lib/node_modules/pnpm/bin/pnpm.cjs",
+        "sha256": "67b035e322203961795e8e34ca63a08c37a4386eda94107fb3d28f3246d882ad"
+      },
+      "shell": {
+        "path": "/bin/sh",
+        "sha256": "15fc4c72f49c86639a383121eec6fbdbcd32ec9d03db915cb3096928295e1a17"
+      },
+      "tar": {
+        "path": "/usr/bin/tar",
+        "sha256": "fa2df5eddc2295398bf869b103818b45184cfaa99ec66ae1af7ed3bdf4c94423"
+      }
+    },
+    "git": "git version 2.39.5",
+    "node": "24.18.1",
+    "packageManager": "pnpm@11.18.0",
+    "pnpm": "11.18.0",
+    "tufModels": "4.0.0",
+    "typescript": "6.0.2",
+    "vitest": "4.1.10"
+  }
+}

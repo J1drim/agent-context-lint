@@ -1,0 +1,563 @@
+{
+  "bundle": {
+    "contractVersion": "0.1.0",
+    "diagnostics": [
+      {
+        "fingerprintBasis": {
+          "path": {
+            "anchor": "resolved-profile-always-p95:9:codex-cli|30:codex-cli/local-cli-single-cwd|5:0.1.0|28:codex-cli/0.146.0/2026-08-01|7:0.146.0",
+            "profileIds": [
+              "codex-cli"
+            ]
+          },
+          "semantic": {
+            "components": [
+              {
+                "key": "budget-scope",
+                "value": "resolved-profile-always-p95"
+              },
+              {
+                "key": "budget-tokens",
+                "value": "1"
+              },
+              {
+                "key": "observed-tokens",
+                "value": "384"
+              },
+              {
+                "key": "profile-key",
+                "value": "9:codex-cli|30:codex-cli/local-cli-single-cwd|5:0.1.0|28:codex-cli/0.146.0/2026-08-01|7:0.146.0"
+              },
+              {
+                "key": "score-version",
+                "value": "1.0.0"
+              }
+            ],
+            "profileIds": [
+              "codex-cli"
+            ]
+          }
+        },
+        "fingerprints": {
+          "path": {
+            "method": "agent-context-lint/path/v1",
+            "value": "6c79f503c8e294ba17d43053151c52b6cf280601d2969c99d413509bac8531f7"
+          },
+          "semantic": {
+            "method": "agent-context-lint/semantic/v1",
+            "value": "30fcdbb887f3bc22efd632ae963b8f47eb85a7d6ef2c164932fa352c17f5ac0b"
+          }
+        },
+        "id": "diagnostic:acl550:30fcdbb887f3bc22efd632ae963b8f47",
+        "message": "Caveated (estimated tokens, caveated static score) resolved-profile-always-p95 is 384 tokens for codex-cli, exceeding the configured 1-token budget.",
+        "primary": {
+          "path": "AGENTS.md",
+          "range": {
+            "end": {
+              "byteOffset": 1536,
+              "line": 0,
+              "utf16Column": 1536,
+              "utf16Offset": 1536
+            },
+            "sourceId": "source:f14:931a7d874ede90d0b767f31b:0",
+            "start": {
+              "byteOffset": 0,
+              "line": 0,
+              "utf16Column": 0,
+              "utf16Offset": 0
+            }
+          },
+          "sourceDigest": "94dd911b5c9ecba5d7157e499431e96382472d0773b658307c5a41415904c267",
+          "sourceId": "source:f14:931a7d874ede90d0b767f31b:0"
+        },
+        "related": [
+          {
+            "collectorId": "builtin:context-efficiency",
+            "factId": "acl550:ba10cb701531b7bd0e8b",
+            "id": "evidence:bb452f89f2ab18aafee17cc77a9d772f",
+            "kind": "repository-fact",
+            "label": "resolved-profile-always-p95 evidence for codex-cli",
+            "locations": [
+              {
+                "path": "AGENTS.md",
+                "range": {
+                  "end": {
+                    "byteOffset": 1536,
+                    "line": 0,
+                    "utf16Column": 1536,
+                    "utf16Offset": 1536
+                  },
+                  "sourceId": "source:f14:931a7d874ede90d0b767f31b:0",
+                  "start": {
+                    "byteOffset": 0,
+                    "line": 0,
+                    "utf16Column": 0,
+                    "utf16Offset": 0
+                  }
+                },
+                "sourceDigest": "94dd911b5c9ecba5d7157e499431e96382472d0773b658307c5a41415904c267",
+                "sourceId": "source:f14:931a7d874ede90d0b767f31b:0"
+              }
+            ],
+            "subjectPath": "AGENTS.md",
+            "valueDigest": "b7f6250f709943828dd710542f7da141d412d630a9fb38bef2f5d6f67347939b"
+          }
+        ],
+        "ruleId": "ACL550",
+        "ruleVersion": "1.0.0",
+        "severity": "warning",
+        "suggestion": {
+          "fixPlan": null,
+          "message": "Review resolved profile context and use only a separately proved scope or exact-duplicate projection; no quality preservation is implied."
+        }
+      },
+      {
+        "fingerprintBasis": {
+          "path": {
+            "anchor": "resolved-profile-effective-p95:9:codex-cli|30:codex-cli/local-cli-single-cwd|5:0.1.0|28:codex-cli/0.146.0/2026-08-01|7:0.146.0",
+            "profileIds": [
+              "codex-cli"
+            ]
+          },
+          "semantic": {
+            "components": [
+              {
+                "key": "budget-scope",
+                "value": "resolved-profile-effective-p95"
+              },
+              {
+                "key": "budget-tokens",
+                "value": "1"
+              },
+              {
+                "key": "observed-tokens",
+                "value": "384"
+              },
+              {
+                "key": "profile-key",
+                "value": "9:codex-cli|30:codex-cli/local-cli-single-cwd|5:0.1.0|28:codex-cli/0.146.0/2026-08-01|7:0.146.0"
+              },
+              {
+                "key": "score-version",
+                "value": "1.0.0"
+              }
+            ],
+            "profileIds": [
+              "codex-cli"
+            ]
+          }
+        },
+        "fingerprints": {
+          "path": {
+            "method": "agent-context-lint/path/v1",
+            "value": "dfe9b222bc87f964f012ed8b4fb6466590aab93263ea9221507a1aee3e5d8eee"
+          },
+          "semantic": {
+            "method": "agent-context-lint/semantic/v1",
+            "value": "b237072fe2e2fb3ef00d39f1ecbd8b2acfbcced0f3623ca2579c2dfcfd094051"
+          }
+        },
+        "id": "diagnostic:acl551:b237072fe2e2fb3ef00d39f1ecbd8b2a",
+        "message": "Caveated (estimated tokens, caveated static score) resolved-profile-effective-p95 is 384 tokens for codex-cli, exceeding the configured 1-token budget.",
+        "primary": {
+          "path": "AGENTS.md",
+          "range": {
+            "end": {
+              "byteOffset": 1536,
+              "line": 0,
+              "utf16Column": 1536,
+              "utf16Offset": 1536
+            },
+            "sourceId": "source:f14:931a7d874ede90d0b767f31b:0",
+            "start": {
+              "byteOffset": 0,
+              "line": 0,
+              "utf16Column": 0,
+              "utf16Offset": 0
+            }
+          },
+          "sourceDigest": "94dd911b5c9ecba5d7157e499431e96382472d0773b658307c5a41415904c267",
+          "sourceId": "source:f14:931a7d874ede90d0b767f31b:0"
+        },
+        "related": [
+          {
+            "collectorId": "builtin:context-efficiency",
+            "factId": "acl551:ba10cb701531b7bd0e8b",
+            "id": "evidence:6665c9463e84d1f75e0f53119c1dfd17",
+            "kind": "repository-fact",
+            "label": "resolved-profile-effective-p95 evidence for codex-cli",
+            "locations": [
+              {
+                "path": "AGENTS.md",
+                "range": {
+                  "end": {
+                    "byteOffset": 1536,
+                    "line": 0,
+                    "utf16Column": 1536,
+                    "utf16Offset": 1536
+                  },
+                  "sourceId": "source:f14:931a7d874ede90d0b767f31b:0",
+                  "start": {
+                    "byteOffset": 0,
+                    "line": 0,
+                    "utf16Column": 0,
+                    "utf16Offset": 0
+                  }
+                },
+                "sourceDigest": "94dd911b5c9ecba5d7157e499431e96382472d0773b658307c5a41415904c267",
+                "sourceId": "source:f14:931a7d874ede90d0b767f31b:0"
+              }
+            ],
+            "subjectPath": "AGENTS.md",
+            "valueDigest": "b7f6250f709943828dd710542f7da141d412d630a9fb38bef2f5d6f67347939b"
+          }
+        ],
+        "ruleId": "ACL551",
+        "ruleVersion": "1.0.0",
+        "severity": "warning",
+        "suggestion": {
+          "fixPlan": null,
+          "message": "Review resolved profile context and use only a separately proved scope or exact-duplicate projection; no quality preservation is implied."
+        }
+      },
+      {
+        "fingerprintBasis": {
+          "path": {
+            "anchor": "scope-projection:recommendation:f14:scope",
+            "profileIds": [
+              "codex-cli"
+            ]
+          },
+          "semantic": {
+            "components": [
+              {
+                "key": "affected-paths",
+                "value": "10:src/api.ts|10:src/web.ts"
+              },
+              {
+                "key": "baseline-tokens",
+                "value": "768"
+              },
+              {
+                "key": "projected-tokens",
+                "value": "384"
+              },
+              {
+                "key": "projection-id",
+                "value": "recommendation:f14:scope"
+              },
+              {
+                "key": "quality-claim",
+                "value": "false"
+              }
+            ],
+            "profileIds": [
+              "codex-cli"
+            ]
+          }
+        },
+        "fingerprints": {
+          "path": {
+            "method": "agent-context-lint/path/v1",
+            "value": "8f025fbc4646b43a7adb10ee52165e3f7adb645386b5d7c251a7592ebe0671ec"
+          },
+          "semantic": {
+            "method": "agent-context-lint/semantic/v1",
+            "value": "a93b1a969813e8991048a7cd0bc94f74396973328c1a1bc6a91a232c37ae1b04"
+          }
+        },
+        "id": "diagnostic:acl553:a93b1a969813e8991048a7cd0bc94f74",
+        "message": "Specialized context has a fully reconciled scope-narrowing counterfactual. Caveated (estimated tokens, caveated static score) G08 projection reduces 768 to 384 tokens (384 tokens, 5000 basis points) across 2 affected target(s); semantic equivalence, necessity, and quality preservation are not claimed.",
+        "primary": {
+          "path": "AGENTS.md",
+          "range": {
+            "end": {
+              "byteOffset": 1536,
+              "line": 0,
+              "utf16Column": 1536,
+              "utf16Offset": 1536
+            },
+            "sourceId": "source:f14:931a7d874ede90d0b767f31b:0",
+            "start": {
+              "byteOffset": 0,
+              "line": 0,
+              "utf16Column": 0,
+              "utf16Offset": 0
+            }
+          },
+          "sourceDigest": "94dd911b5c9ecba5d7157e499431e96382472d0773b658307c5a41415904c267",
+          "sourceId": "source:f14:931a7d874ede90d0b767f31b:0"
+        },
+        "related": [
+          {
+            "collectorId": "builtin:context-efficiency",
+            "factId": "acl553:198ebd4c3ca166b053a8",
+            "id": "evidence:b1399022189f59d6e88491341275ab65",
+            "kind": "repository-fact",
+            "label": "G08 scope-narrowing projection with fixed-false quality claims",
+            "locations": [
+              {
+                "path": "AGENTS.md",
+                "range": {
+                  "end": {
+                    "byteOffset": 1536,
+                    "line": 0,
+                    "utf16Column": 1536,
+                    "utf16Offset": 1536
+                  },
+                  "sourceId": "source:f14:931a7d874ede90d0b767f31b:0",
+                  "start": {
+                    "byteOffset": 0,
+                    "line": 0,
+                    "utf16Column": 0,
+                    "utf16Offset": 0
+                  }
+                },
+                "sourceDigest": "94dd911b5c9ecba5d7157e499431e96382472d0773b658307c5a41415904c267",
+                "sourceId": "source:f14:931a7d874ede90d0b767f31b:0"
+              }
+            ],
+            "subjectPath": "AGENTS.md",
+            "valueDigest": "8bd8786d8c35da3af3567e675fe4de59fc37fb202bb82b5b7d5487b6ed7ef226"
+          }
+        ],
+        "ruleId": "ACL553",
+        "ruleVersion": "1.0.0",
+        "severity": "info",
+        "suggestion": {
+          "fixPlan": null,
+          "message": "Review the displayed affected targets and byte-identical intended-target proof before manually narrowing scope."
+        }
+      },
+      {
+        "fingerprintBasis": {
+          "path": {
+            "anchor": "instruction-density:document:agents:d630aaf9415e3837d44ae422d637deb3d0a7972e891a8dba953ce40c4557b705",
+            "profileIds": []
+          },
+          "semantic": {
+            "components": [
+              {
+                "key": "actionable-per-thousand-basis-points",
+                "value": "0"
+              },
+              {
+                "key": "actionable-statements",
+                "value": "0"
+              },
+              {
+                "key": "document-id",
+                "value": "document:agents:d630aaf9415e3837d44ae422d637deb3d0a7972e891a8dba953ce40c4557b705"
+              },
+              {
+                "key": "statement-count",
+                "value": "1"
+              },
+              {
+                "key": "tokens",
+                "value": "384"
+              }
+            ],
+            "profileIds": []
+          }
+        },
+        "fingerprints": {
+          "path": {
+            "method": "agent-context-lint/path/v1",
+            "value": "fda4b0fa477e2fc7b1332a5357ff8559ed80e2bdf61ae9ea5452b0aa1984912f"
+          },
+          "semantic": {
+            "method": "agent-context-lint/semantic/v1",
+            "value": "345cd364d341519c1bf88f210cf8eadc44780dcb54e5548ae2d873b3714e0ff4"
+          }
+        },
+        "id": "diagnostic:acl556:345cd364d341519c1bf88f210cf8eadc",
+        "message": "Caveated (estimated tokens, caveated static score) instruction density is 0 basis points (0 actionable statements across 384 tokens), below the configured 1 threshold.",
+        "primary": {
+          "path": "AGENTS.md",
+          "range": {
+            "end": {
+              "byteOffset": 1536,
+              "line": 0,
+              "utf16Column": 1536,
+              "utf16Offset": 1536
+            },
+            "sourceId": "source:f14:931a7d874ede90d0b767f31b:0",
+            "start": {
+              "byteOffset": 0,
+              "line": 0,
+              "utf16Column": 0,
+              "utf16Offset": 0
+            }
+          },
+          "sourceDigest": "94dd911b5c9ecba5d7157e499431e96382472d0773b658307c5a41415904c267",
+          "sourceId": "source:f14:931a7d874ede90d0b767f31b:0"
+        },
+        "related": [
+          {
+            "collectorId": "builtin:context-efficiency",
+            "factId": "acl556:0b269f69317ab0602a59",
+            "id": "evidence:93d05185ee8183bac5aa529306fb315b",
+            "kind": "repository-fact",
+            "label": "G05 instruction-density component evidence",
+            "locations": [
+              {
+                "path": "AGENTS.md",
+                "range": {
+                  "end": {
+                    "byteOffset": 1536,
+                    "line": 0,
+                    "utf16Column": 1536,
+                    "utf16Offset": 1536
+                  },
+                  "sourceId": "source:f14:931a7d874ede90d0b767f31b:0",
+                  "start": {
+                    "byteOffset": 0,
+                    "line": 0,
+                    "utf16Column": 0,
+                    "utf16Offset": 0
+                  }
+                },
+                "sourceDigest": "94dd911b5c9ecba5d7157e499431e96382472d0773b658307c5a41415904c267",
+                "sourceId": "source:f14:931a7d874ede90d0b767f31b:0"
+              }
+            ],
+            "subjectPath": "AGENTS.md",
+            "valueDigest": "6be0dff8497a85da59a1ecb3186388d4139addd62b8931874558a90eb399ac33"
+          }
+        ],
+        "ruleId": "ACL556",
+        "ruleVersion": "1.0.0",
+        "severity": "info",
+        "suggestion": {
+          "fixPlan": null,
+          "message": "Review descriptive prose for references or narrower scope; no content is declared unnecessary and no automatic rewrite is offered."
+        }
+      },
+      {
+        "fingerprintBasis": {
+          "path": {
+            "anchor": "unbenchmarked-projection:recommendation:f14:scope",
+            "profileIds": [
+              "codex-cli"
+            ]
+          },
+          "semantic": {
+            "components": [
+              {
+                "key": "projection-id",
+                "value": "recommendation:f14:scope"
+              },
+              {
+                "key": "quality-claim",
+                "value": "false"
+              },
+              {
+                "key": "saving-basis-points",
+                "value": "5000"
+              },
+              {
+                "key": "saving-tokens",
+                "value": "384"
+              }
+            ],
+            "profileIds": [
+              "codex-cli"
+            ]
+          }
+        },
+        "fingerprints": {
+          "path": {
+            "method": "agent-context-lint/path/v1",
+            "value": "3c21c3163cffa63286795ad4dade76883c8b1f588dbe138f341f5db67c97eb6e"
+          },
+          "semantic": {
+            "method": "agent-context-lint/semantic/v1",
+            "value": "49a08342f0ca2d01e2d7148b92ac089753c85552f21d037944825d53d27e47d6"
+          }
+        },
+        "id": "diagnostic:acl558:49a08342f0ca2d01e2d7148b92ac0897",
+        "message": "High-impact reduction is statically projected but not benchmarked. Caveated (estimated tokens, caveated static score) G08 projection reduces 768 to 384 tokens (384 tokens, 5000 basis points) across 2 affected target(s); semantic equivalence, necessity, and quality preservation are not claimed.",
+        "primary": {
+          "path": "AGENTS.md",
+          "range": {
+            "end": {
+              "byteOffset": 1536,
+              "line": 0,
+              "utf16Column": 1536,
+              "utf16Offset": 1536
+            },
+            "sourceId": "source:f14:931a7d874ede90d0b767f31b:0",
+            "start": {
+              "byteOffset": 0,
+              "line": 0,
+              "utf16Column": 0,
+              "utf16Offset": 0
+            }
+          },
+          "sourceDigest": "94dd911b5c9ecba5d7157e499431e96382472d0773b658307c5a41415904c267",
+          "sourceId": "source:f14:931a7d874ede90d0b767f31b:0"
+        },
+        "related": [
+          {
+            "collectorId": "builtin:context-efficiency",
+            "factId": "acl558:198ebd4c3ca166b053a8",
+            "id": "evidence:9aadc2c1e37e37ca1beb563fa55b739c",
+            "kind": "repository-fact",
+            "label": "G08 scope-narrowing projection with fixed-false quality claims",
+            "locations": [
+              {
+                "path": "AGENTS.md",
+                "range": {
+                  "end": {
+                    "byteOffset": 1536,
+                    "line": 0,
+                    "utf16Column": 1536,
+                    "utf16Offset": 1536
+                  },
+                  "sourceId": "source:f14:931a7d874ede90d0b767f31b:0",
+                  "start": {
+                    "byteOffset": 0,
+                    "line": 0,
+                    "utf16Column": 0,
+                    "utf16Offset": 0
+                  }
+                },
+                "sourceDigest": "94dd911b5c9ecba5d7157e499431e96382472d0773b658307c5a41415904c267",
+                "sourceId": "source:f14:931a7d874ede90d0b767f31b:0"
+              }
+            ],
+            "subjectPath": "AGENTS.md",
+            "valueDigest": "8bd8786d8c35da3af3567e675fe4de59fc37fb202bb82b5b7d5487b6ed7ef226"
+          }
+        ],
+        "ruleId": "ACL558",
+        "ruleVersion": "1.0.0",
+        "severity": "info",
+        "suggestion": {
+          "fixPlan": null,
+          "message": "Run an explicit sandboxed comparative benchmark before making any task-quality or quality-preservation claim."
+        }
+      }
+    ],
+    "recordKind": "agent-context-diagnostics",
+    "suppressions": []
+  },
+  "sources": [
+    {
+      "bom": "none",
+      "byteLength": 1536,
+      "encoding": "utf-8",
+      "id": "source:f14:931a7d874ede90d0b767f31b:0",
+      "lineEnding": "none",
+      "parseState": {
+        "state": "complete"
+      },
+      "path": "AGENTS.md",
+      "rootNodeId": "node:f14:931a7d874ede90d0b767f31b:0:root",
+      "sha256": "94dd911b5c9ecba5d7157e499431e96382472d0773b658307c5a41415904c267",
+      "text": "Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. Repository background and architecture details. ",
+      "utf16Length": 1536
+    }
+  ]
+}

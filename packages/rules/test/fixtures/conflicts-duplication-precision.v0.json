@@ -1,0 +1,264 @@
+{
+  "recordKind": "agent-context-conflicts-duplication-precision-corpus",
+  "contractVersion": "0.1.0",
+  "precisionThreshold": 0.95,
+  "minimumPositiveLabelsPerErrorRule": 8,
+  "cases": [
+    {
+      "id": "acl250-pnpm-npm",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Always use pnpm.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Always use npm.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL250"]
+    },
+    {
+      "id": "acl250-pnpm-yarn",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Use pnpm.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Use yarn.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL250"]
+    },
+    {
+      "id": "acl250-pnpm-bun",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Always use pnpm.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Always use bun.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL250"]
+    },
+    {
+      "id": "acl250-npm-yarn-command",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run npm test.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Run yarn test.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL250"]
+    },
+    {
+      "id": "acl250-npm-bun-command",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run npm test.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Run bun test.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL250"]
+    },
+    {
+      "id": "acl250-yarn-bun-command",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Execute yarn test.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Execute bun test.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL250"]
+    },
+    {
+      "id": "acl250-workflow-selection",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Package manager must be pnpm.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Package manager must be npm.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL250"]
+    },
+    {
+      "id": "acl250-install-selection",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Must use yarn.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Must use bun.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL250"]
+    },
+    {
+      "id": "acl251-pnpm-prohibited",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Use pnpm.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Do not use pnpm.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL251"]
+    },
+    {
+      "id": "acl251-npm-prohibited",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Always use npm.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Never use npm.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL251"]
+    },
+    {
+      "id": "acl251-yarn-command-prohibited",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run yarn test.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Do not run yarn test.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL251"]
+    },
+    {
+      "id": "acl251-bun-command-prohibited",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Execute bun test.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Never execute bun test.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL251"]
+    },
+    {
+      "id": "acl251-make-command-prohibited",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run make verify.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Do not run make verify.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL251"]
+    },
+    {
+      "id": "acl251-just-command-prohibited",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Invoke just check.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Never invoke just check.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL251"]
+    },
+    {
+      "id": "acl251-format-command-prohibited",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run prettier src.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Do not run prettier src.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL251"]
+    },
+    {
+      "id": "acl251-build-command-prohibited",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run make build.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Never run make build.\n" }
+      ],
+      "expectedErrorRuleIds": ["ACL251"]
+    },
+    {
+      "id": "negative-same-manager",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Always use pnpm.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Use pnpm.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-compatible-manager-prohibition",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Use pnpm.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Do not use npm.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-manager-preferences",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Prefer pnpm for local experiments.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Prefer npm for published examples.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-distinct-commands",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run make build.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Run make verify.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-distinct-tests",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run unit tests.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Run integration tests.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-conditional-language",
+      "files": [
+        { "path": "AGENTS.md", "text": "- The package manager may be pnpm.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Some examples use npm.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-prose-names",
+      "files": [
+        { "path": "AGENTS.md", "text": "- npm and pnpm are package managers.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- yarn and bun have lockfiles.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-different-command-prohibition",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run pnpm test.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Do not run pnpm publish.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-different-manager-prohibition",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run pnpm test.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Never run npm publish.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-information",
+      "files": [
+        { "path": "AGENTS.md", "text": "- This workspace contains packages.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- This package contains tests.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-separate-nonexclusive-tools",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run eslint src.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Run tsc --noEmit.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-distinct-scopes-compatible",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Do not edit generated files.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Only edit src.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-approval-composition",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Obtain approval from security-team.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Obtain approval from api-team.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-ownership-descriptions",
+      "files": [
+        { "path": "AGENTS.md", "text": "- src/api is maintained by platform-team.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- src/web is maintained by web-team.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-same-command",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Run pnpm test.\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Run pnpm test.\n" }
+      ],
+      "expectedErrorRuleIds": []
+    },
+    {
+      "id": "negative-question",
+      "files": [
+        { "path": "AGENTS.md", "text": "- Should contributors use pnpm?\n" },
+        { "path": "pkg/AGENTS.md", "text": "- Is npm available?\n" }
+      ],
+      "expectedErrorRuleIds": []
+    }
+  ]
+}

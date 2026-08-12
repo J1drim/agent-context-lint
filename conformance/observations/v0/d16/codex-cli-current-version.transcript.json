@@ -1,0 +1,74 @@
+{
+  "actualLoadedSourceSequence": [],
+  "capabilityPolicy": {
+    "allowed": ["pinned-client-version-metadata"],
+    "denied": [
+      "credential-read",
+      "external-network",
+      "model-request",
+      "repository-command",
+      "repository-write",
+      "user-config-read"
+    ]
+  },
+  "caseId": "d16-codex-cli-current-version",
+  "client": {
+    "executableIdentitySha256": "7182b2a5bb2f16d67a9b2f557643594e0b05e2bdaac707386f13a5e7ae4a2b8c",
+    "executableSha256": "ae1d3ffe6d48aec6a4dc3f50e7eb8e0d11962485a6a9406c5a7012139383da02",
+    "expectedVersion": "codex-cli 0.146.0"
+  },
+  "contractVersion": "0.1.0",
+  "environmentKeys": [
+    "CI",
+    "HOME",
+    "NO_COLOR",
+    "PATH",
+    "TEMP",
+    "TMP",
+    "TMPDIR",
+    "XDG_CACHE_HOME",
+    "XDG_CONFIG_HOME",
+    "XDG_DATA_HOME"
+  ],
+  "expectedLoadedSourceSequence": [],
+  "fixtureDigest": "d7fcca5d2637c6ca51a523fe14b77b2442ef480e0ab0456d12bdd1af000d2d3d",
+  "fixtureManifest": [
+    {
+      "markerId": "D15_CODEX_ROOT",
+      "path": "AGENTS.md",
+      "sha256": "f5d0edb6094bb2cba8f237dccefac9c6acd3407cbc43318b22559c980a0cb1cc"
+    }
+  ],
+  "invocation": {
+    "adapterId": "macos-sandboxed-literal-double-dash-version-v1",
+    "arguments": ["--version"],
+    "shell": false,
+    "stdin": "closed"
+  },
+  "observedAt": "2026-08-02T20:18:08Z",
+  "operation": "version-probe",
+  "planDigest": "529c831383e600abb5458f08e82172f05b2fbd8752ae66a81d8d76c5a05bb850",
+  "platform": {
+    "architecture": "arm64",
+    "operatingSystem": "darwin"
+  },
+  "profileId": "codex-cli",
+  "recordKind": "agent-context-real-client-observation-transcript",
+  "result": {
+    "blockedReason": null,
+    "exitCode": 0,
+    "signal": null,
+    "status": "observed",
+    "stderr": "WARNING: proceeding, even though we could not create PATH aliases: Operation not permitted (os error 1)\n",
+    "stdout": "codex-cli 0.146.0\n",
+    "versionMatched": true,
+    "workspaceUnchanged": true
+  },
+  "settingSources": ["isolated-home", "repository-fixture"],
+  "supervisor": {
+    "executableIdentitySha256": "e8e859e8ee414a51ca90b3524c3e6ec7753f6a8f0022935bd34f822b200eba61",
+    "executableSha256": "8290e4be7387a0df83cd1559e86afd880464f269450573d012795761fe298f16",
+    "kind": "macos-sandbox-exec-v1"
+  },
+  "surfaceId": "codex-cli/local-cli-single-cwd"
+}

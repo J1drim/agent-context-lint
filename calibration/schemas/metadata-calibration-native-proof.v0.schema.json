@@ -1,0 +1,316 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/metadata-calibration-native-proof.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "reason": { "const": "native release proof has not been captured" },
+        "recordKind": { "const": "agent-context-k03-native-release-proof" },
+        "status": { "const": "feature-unavailable" }
+      },
+      "required": ["contractVersion", "reason", "recordKind", "status"],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "capturedAt": { "format": "date-time", "type": "string" },
+        "buildTools": {
+          "additionalProperties": false,
+          "properties": {
+            "esbuildEntry": { "$ref": "#/$defs/tool" },
+            "esbuildLauncher": { "$ref": "#/$defs/tool" },
+            "esbuildPackageManifest": { "$ref": "#/$defs/tool" },
+            "esbuildPlatformBinary": { "$ref": "#/$defs/tool" },
+            "esbuildPlatformManifest": { "$ref": "#/$defs/tool" },
+            "pnpmBundle": { "$ref": "#/$defs/tool" },
+            "pnpmCompatibilityShim": { "$ref": "#/$defs/tool" },
+            "pnpmEntry": { "$ref": "#/$defs/tool" },
+            "pnpmLauncher": { "$ref": "#/$defs/tool" },
+            "pnpmPackageManifest": { "$ref": "#/$defs/tool" },
+            "pnpmRuntime": { "$ref": "#/$defs/tool" },
+            "typescriptCompiler": { "$ref": "#/$defs/tool" },
+            "typescriptEntry": { "$ref": "#/$defs/tool" },
+            "typescriptLauncher": { "$ref": "#/$defs/tool" },
+            "typescriptPackageManifest": { "$ref": "#/$defs/tool" },
+            "typescriptPlatformManifest": { "$ref": "#/$defs/tool" },
+            "typescriptResolver": { "$ref": "#/$defs/tool" },
+            "typescriptRuntimeEntry": { "$ref": "#/$defs/tool" }
+          },
+          "required": [
+            "esbuildEntry",
+            "esbuildLauncher",
+            "esbuildPackageManifest",
+            "esbuildPlatformBinary",
+            "esbuildPlatformManifest",
+            "pnpmBundle",
+            "pnpmCompatibilityShim",
+            "pnpmEntry",
+            "pnpmLauncher",
+            "pnpmPackageManifest",
+            "pnpmRuntime",
+            "typescriptCompiler",
+            "typescriptEntry",
+            "typescriptLauncher",
+            "typescriptPackageManifest",
+            "typescriptPlatformManifest",
+            "typescriptResolver",
+            "typescriptRuntimeEntry"
+          ],
+          "type": "object"
+        },
+        "confinement": {
+          "additionalProperties": false,
+          "properties": {
+            "arbitraryChildDenied": { "const": true },
+            "curlDenied": { "const": true },
+            "networkDenied": { "const": true },
+            "inventoryChildSha256": { "$ref": "#/$defs/sha256" },
+            "phasePolicySha256": {
+              "additionalProperties": false,
+              "properties": {
+                "extract": { "$ref": "#/$defs/sha256" },
+                "install": { "$ref": "#/$defs/sha256" },
+                "pack": { "$ref": "#/$defs/sha256" }
+              },
+              "required": ["extract", "install", "pack"],
+              "type": "object"
+            },
+            "writeEscapeDenied": { "const": true }
+          },
+          "required": [
+            "arbitraryChildDenied",
+            "curlDenied",
+            "networkDenied",
+            "inventoryChildSha256",
+            "phasePolicySha256",
+            "writeEscapeDenied"
+          ],
+          "type": "object"
+        },
+        "cleanup": {
+          "additionalProperties": false,
+          "properties": {
+            "devices": { "const": 0 },
+            "images": { "const": 0 },
+            "mounts": { "const": 0 },
+            "payloadRoots": { "const": 0 }
+          },
+          "required": ["devices", "images", "mounts", "payloadRoots"],
+          "type": "object"
+        },
+        "contractVersion": { "const": "0.1.0" },
+        "filesystem": {
+          "additionalProperties": false,
+          "properties": {
+            "blockCount": { "minimum": 1, "type": "integer" },
+            "blockSize": { "minimum": 1, "type": "integer" },
+            "format": { "const": "APFS" },
+            "name": { "const": "apfs" },
+            "type": { "minLength": 1, "type": "string" }
+          },
+          "required": ["blockCount", "blockSize", "format", "name", "type"],
+          "type": "object"
+        },
+        "proofSha256": { "$ref": "#/$defs/sha256" },
+        "quotaProofSha256": { "$ref": "#/$defs/sha256" },
+        "quotaProof": { "$ref": "#/$defs/quotaProof" },
+        "recordKind": { "const": "agent-context-k03-native-release-proof" },
+        "runner": {
+          "additionalProperties": false,
+          "properties": {
+            "architecture": { "enum": ["arm64", "x64"] },
+            "platform": { "const": "darwin" }
+          },
+          "required": ["architecture", "platform"],
+          "type": "object"
+        },
+        "sourcePolicy": {
+          "additionalProperties": false,
+          "properties": { "localPaths": { "const": false } },
+          "required": ["localPaths"],
+          "type": "object"
+        },
+        "status": { "const": "ready" },
+        "tools": {
+          "additionalProperties": false,
+          "properties": {
+            "bash": { "$ref": "#/$defs/bash" },
+            "hdiutil": { "$ref": "#/$defs/hdiutil" },
+            "cp": { "$ref": "#/$defs/cp" },
+            "dd": { "$ref": "#/$defs/dd" },
+            "df": { "$ref": "#/$defs/df" },
+            "dirname": { "$ref": "#/$defs/dirname" },
+            "env": { "$ref": "#/$defs/env" },
+            "node": { "$ref": "#/$defs/node" },
+            "pnpm": { "$ref": "#/$defs/pnpm" },
+            "sandboxExec": { "$ref": "#/$defs/sandboxExec" },
+            "sed": { "$ref": "#/$defs/sed" },
+            "sh": { "$ref": "#/$defs/sh" },
+            "tar": { "$ref": "#/$defs/tar" },
+            "uname": { "$ref": "#/$defs/uname" }
+          },
+          "required": [
+            "bash",
+            "cp",
+            "dd",
+            "df",
+            "dirname",
+            "env",
+            "hdiutil",
+            "node",
+            "pnpm",
+            "sandboxExec",
+            "sed",
+            "sh",
+            "tar",
+            "uname"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "capturedAt",
+        "buildTools",
+        "cleanup",
+        "confinement",
+        "contractVersion",
+        "filesystem",
+        "proofSha256",
+        "quotaProofSha256",
+        "quotaProof",
+        "recordKind",
+        "runner",
+        "sourcePolicy",
+        "status",
+        "tools"
+      ],
+      "type": "object"
+    }
+  ],
+  "$defs": {
+    "bash": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/bin/bash" } },
+      "type": "object"
+    },
+    "hdiutil": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/usr/bin/hdiutil" } },
+      "type": "object"
+    },
+    "env": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/usr/bin/env" } },
+      "type": "object"
+    },
+    "cp": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/bin/cp" } },
+      "type": "object"
+    },
+    "dd": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/bin/dd" } },
+      "type": "object"
+    },
+    "df": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/bin/df" } },
+      "type": "object"
+    },
+    "dirname": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/usr/bin/dirname" } },
+      "type": "object"
+    },
+    "node": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "pattern": "^/[^\\u0000]+", "type": "string" } },
+      "type": "object"
+    },
+    "pnpm": {
+      "$ref": "#/$defs/tool",
+      "properties": {
+        "path": { "pattern": "^/[^\\u0000]+", "type": "string" },
+        "version": { "const": "11.18.0" }
+      },
+      "type": "object"
+    },
+    "sandboxExec": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/usr/bin/sandbox-exec" } },
+      "type": "object"
+    },
+    "sed": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/usr/bin/sed" } },
+      "type": "object"
+    },
+    "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+    "sh": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/bin/sh" } },
+      "type": "object"
+    },
+    "quotaProof": {
+      "additionalProperties": false,
+      "properties": {
+        "allocatedResourceCeilingBytes": { "minimum": 1, "type": "integer" },
+        "blockCount": { "minimum": 1, "type": "integer" },
+        "blockSize": { "minimum": 1, "type": "integer" },
+        "contractVersion": { "const": "0.1.0" },
+        "filesystemName": { "const": "apfs" },
+        "filesystemType": { "minLength": 1, "type": "string" },
+        "hdiutil": { "$ref": "#/$defs/hdiutil" },
+        "logicalBudgetBytes": { "minimum": 1, "type": "integer" },
+        "oversizeFastCopyRejected": { "const": true },
+        "recordKind": { "const": "agent-context-k03-native-quota-proof" },
+        "reserveBytes": { "const": 201326592 },
+        "sourcePolicy": {
+          "additionalProperties": false,
+          "properties": { "localPaths": { "const": false } },
+          "required": ["localPaths"],
+          "type": "object"
+        }
+      },
+      "required": [
+        "allocatedResourceCeilingBytes",
+        "blockCount",
+        "blockSize",
+        "contractVersion",
+        "filesystemName",
+        "filesystemType",
+        "hdiutil",
+        "logicalBudgetBytes",
+        "oversizeFastCopyRejected",
+        "recordKind",
+        "reserveBytes",
+        "sourcePolicy"
+      ],
+      "type": "object"
+    },
+    "tar": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/usr/bin/bsdtar" } },
+      "type": "object"
+    },
+    "tool": {
+      "additionalProperties": false,
+      "properties": {
+        "path": { "minLength": 1, "type": "string" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "version": { "maxLength": 256, "minLength": 1, "type": "string" }
+      },
+      "required": ["path", "sha256", "version"],
+      "type": "object"
+    },
+    "uname": {
+      "$ref": "#/$defs/tool",
+      "properties": { "path": { "const": "/usr/bin/uname" } },
+      "type": "object"
+    }
+  }
+}

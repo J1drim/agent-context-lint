@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "flags": [
+    {
+      "id": "profile.cursor",
+      "kind": "profile",
+      "releaseScope": "ga",
+      "maturity": "experimental",
+      "defaultEnabled": false,
+      "owner": "@agent-context-lint/profile-reviewers",
+      "targetGate": "G2",
+      "tickets": ["D11", "D12", "D13", "D15", "D16"],
+      "rationale": "Cursor discovery research is complete, but implementation and version-pinned conformance evidence remain open."
+    },
+    {
+      "id": "profile.gemini-cli",
+      "kind": "profile",
+      "releaseScope": "ga",
+      "maturity": "experimental",
+      "defaultEnabled": false,
+      "owner": "@agent-context-lint/profile-reviewers",
+      "targetGate": "G2",
+      "tickets": ["D09", "D10", "D15", "D16"],
+      "rationale": "Gemini CLI semantics, adapter implementation, and version-pinned conformance evidence are not yet complete."
+    }
+  ]
+}

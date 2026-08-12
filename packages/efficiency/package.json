@@ -1,0 +1,44 @@
+{
+  "name": "@agent-context/efficiency",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Internal context-efficiency analysis package",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "schemas"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./report": {
+      "types": "./dist/context-efficiency-report.d.ts",
+      "import": "./dist/context-efficiency-report.js",
+      "default": "./dist/context-efficiency-report.js"
+    },
+    "./scan-runtime": {
+      "types": "./dist/scan-runtime.d.ts",
+      "import": "./dist/scan-runtime.js",
+      "default": "./dist/scan-runtime.js"
+    },
+    "./schemas/context-efficiency-score.v1.schema.json": "./schemas/context-efficiency-score.v1.schema.json",
+    "./schemas/context-efficiency-recommendations.v1.schema.json": "./schemas/context-efficiency-recommendations.v1.schema.json",
+    "./schemas/context-efficiency-report.v1.schema.json": "./schemas/context-efficiency-report.v1.schema.json",
+    "./schemas/context-efficiency-comparison.v1.schema.json": "./schemas/context-efficiency-comparison.v1.schema.json",
+    "./schemas/efficiency-score-specification.v1.schema.json": "./schemas/efficiency-score-specification.v1.schema.json",
+    "./schemas/tokenizer-identity.v1.schema.json": "./schemas/tokenizer-identity.v1.schema.json"
+  },
+  "engines": {
+    "node": "^24.11.0 || ^26.0.0"
+  },
+  "dependencies": {
+    "@agent-context/core": "workspace:*",
+    "@agent-context/evidence": "workspace:*",
+    "@agent-context/resolver": "workspace:*"
+  }
+}

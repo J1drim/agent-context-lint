@@ -1,0 +1,61 @@
+{
+  "actualLoadedSourceSequence": [],
+  "capabilityPolicy": {
+    "allowed": [],
+    "denied": [
+      "credential-read",
+      "external-network",
+      "model-request",
+      "repository-command",
+      "repository-write",
+      "user-config-read"
+    ]
+  },
+  "caseId": "d16-cursor-cli-no-safe-signal",
+  "client": null,
+  "contractVersion": "0.1.0",
+  "environmentKeys": [
+    "CI",
+    "HOME",
+    "NO_COLOR",
+    "PATH",
+    "TEMP",
+    "TMP",
+    "TMPDIR",
+    "XDG_CACHE_HOME",
+    "XDG_CONFIG_HOME",
+    "XDG_DATA_HOME"
+  ],
+  "expectedLoadedSourceSequence": ["AGENTS.md"],
+  "fixtureDigest": "e743275f58a9f5056187f82a34739633b9cc8687564af04c23c1ea78acb60c6d",
+  "fixtureManifest": [
+    {
+      "markerId": "D15_CURSOR_CLI_ROOT",
+      "path": "AGENTS.md",
+      "sha256": "9ffaadebfc36c25c9d099aa12ab2f80d4329213ba7909be710f566e031480e2a"
+    }
+  ],
+  "invocation": null,
+  "observedAt": "2026-08-02T20:18:08Z",
+  "operation": "blocked-paid-observation",
+  "planDigest": "075eb922dbfffb32e67b2ffc8b57b861861c73ffbddede58592c396bdfedd096",
+  "platform": {
+    "architecture": "arm64",
+    "operatingSystem": "darwin"
+  },
+  "profileId": "cursor-agent",
+  "recordKind": "agent-context-real-client-observation-transcript",
+  "result": {
+    "blockedReason": "no-safe-no-model-signal",
+    "exitCode": null,
+    "signal": null,
+    "status": "blocked",
+    "stderr": "",
+    "stdout": "",
+    "versionMatched": null,
+    "workspaceUnchanged": true
+  },
+  "settingSources": ["isolated-home", "repository-fixture"],
+  "supervisor": null,
+  "surfaceId": "cursor-agent/cli"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@agent-context/core",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "description": "Core contracts and composition primitives for Agent Context Linter",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "LICENSE",
+    "NOTICE",
+    "dist",
+    "policies",
+    "schemas"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./policies/compatibility-policy.v1.json": "./policies/compatibility-policy.v1.json",
+    "./schemas/agent-context-lint-config.v1.schema.json": "./schemas/agent-context-lint-config.v1.schema.json",
+    "./schemas/diagnostic-contract.v0.schema.json": "./schemas/diagnostic-contract.v0.schema.json",
+    "./schemas/diagnostic-baseline.v1.schema.json": "./schemas/diagnostic-baseline.v1.schema.json",
+    "./schemas/organization-policy-pack.v0.schema.json": "./schemas/organization-policy-pack.v0.schema.json",
+    "./schemas/output-contract.v1.schema.json": "./schemas/output-contract.v1.schema.json",
+    "./schemas/sarif-output.v2.1.0.schema.json": "./schemas/sarif-output.v2.1.0.schema.json",
+    "./schemas/sarif-output.v2.1.0-product-v2.schema.json": "./schemas/sarif-output.v2.1.0-product-v2.schema.json"
+  },
+  "engines": {
+    "node": "^24.11.0 || ^26.0.0"
+  },
+  "scripts": {
+    "prepack": "node ../../scripts/prepare-package-license.mjs .",
+    "postpack": "node ../../scripts/prepare-package-license.mjs . --clean"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

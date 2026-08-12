@@ -1,0 +1,207 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/ga-profile-observation-review.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "behavioralClaimsChanged": { "const": false },
+    "contractVersion": { "const": "0.1.0" },
+    "entries": {
+      "items": { "$ref": "#/$defs/entry" },
+      "maxItems": 7,
+      "minItems": 7,
+      "type": "array"
+    },
+    "inventory": { "$ref": "#/$defs/fileReference" },
+    "recordKind": { "const": "ga-profile-observation-review" },
+    "reviewedAt": {
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "behavioralClaimsChanged",
+    "contractVersion",
+    "entries",
+    "inventory",
+    "recordKind",
+    "reviewedAt"
+  ],
+  "type": "object",
+  "$defs": {
+    "clientPin": {
+      "additionalProperties": false,
+      "properties": {
+        "artifactSha256": { "$ref": "#/$defs/sha256OrNull" },
+        "publishedAt": {
+          "oneOf": [{ "format": "date-time", "type": "string" }, { "type": "null" }]
+        },
+        "retrievedAt": { "format": "date", "type": "string" },
+        "sourceKind": {
+          "enum": ["local-metadata", "official-release-metadata"]
+        },
+        "sourceRevision": {
+          "oneOf": [{ "maxLength": 128, "minLength": 1, "type": "string" }, { "type": "null" }]
+        },
+        "sourceUrl": { "format": "uri", "pattern": "^https://", "type": "string" },
+        "version": { "maxLength": 128, "minLength": 1, "type": "string" }
+      },
+      "required": [
+        "artifactSha256",
+        "publishedAt",
+        "retrievedAt",
+        "sourceKind",
+        "sourceRevision",
+        "sourceUrl",
+        "version"
+      ],
+      "type": "object"
+    },
+    "entry": {
+      "additionalProperties": false,
+      "properties": {
+        "behavioralState": {
+          "enum": ["explicit-unknown", "previously-observed-matching-fixture"]
+        },
+        "clientPin": { "$ref": "#/$defs/clientPin" },
+        "fixtureDisposition": {
+          "enum": ["added-explicit-unknown", "existing-explicit-unknown", "existing-matching"]
+        },
+        "fixtureVersionRelation": {
+          "enum": ["exact", "minimum-compatible", "unpinned"]
+        },
+        "fixtures": {
+          "items": { "$ref": "#/$defs/fileReference" },
+          "maxItems": 8,
+          "minItems": 1,
+          "type": "array"
+        },
+        "id": { "$ref": "#/$defs/identifier" },
+        "mismatches": {
+          "items": { "$ref": "#/$defs/mismatch" },
+          "maxItems": 16,
+          "type": "array"
+        },
+        "observationScope": { "enum": ["blocked-no-execution", "version-metadata-only"] },
+        "plan": { "$ref": "#/$defs/fileReference" },
+        "profileId": {
+          "enum": [
+            "claude-code",
+            "codex-cli",
+            "copilot-cli",
+            "copilot-vscode",
+            "cursor-agent",
+            "gemini-cli"
+          ]
+        },
+        "releaseClass": { "const": "ga-required" },
+        "safetyReview": { "$ref": "#/$defs/safetyReview" },
+        "supportingEvidence": {
+          "items": { "$ref": "#/$defs/fileReference" },
+          "maxItems": 8,
+          "minItems": 1,
+          "type": "array"
+        },
+        "surfaceId": {
+          "enum": [
+            "claude-code/local-session",
+            "codex-cli/local-cli-single-cwd",
+            "copilot-cli/local-terminal",
+            "copilot-vscode/local-chat",
+            "cursor-agent/cli",
+            "cursor-agent/ide",
+            "gemini-cli/local-terminal"
+          ]
+        },
+        "transcript": { "$ref": "#/$defs/fileReference" },
+        "unknownReason": { "maxLength": 1024, "minLength": 1, "type": "string" },
+        "unresolvedClaimIds": {
+          "items": { "$ref": "#/$defs/identifier" },
+          "maxItems": 128,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "behavioralState",
+        "clientPin",
+        "fixtureDisposition",
+        "fixtureVersionRelation",
+        "fixtures",
+        "id",
+        "mismatches",
+        "observationScope",
+        "plan",
+        "profileId",
+        "releaseClass",
+        "safetyReview",
+        "supportingEvidence",
+        "surfaceId",
+        "transcript",
+        "unknownReason",
+        "unresolvedClaimIds"
+      ],
+      "type": "object"
+    },
+    "fileReference": {
+      "additionalProperties": false,
+      "properties": {
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      },
+      "required": ["path", "sha256"],
+      "type": "object"
+    },
+    "identifier": {
+      "pattern": "^[a-z0-9](?:[a-z0-9._/-]{0,254}[a-z0-9])?$",
+      "type": "string"
+    },
+    "mismatch": {
+      "additionalProperties": false,
+      "properties": {
+        "explanation": { "maxLength": 1024, "minLength": 1, "type": "string" },
+        "id": { "$ref": "#/$defs/identifier" },
+        "kind": { "enum": ["fixture-version-drift", "fixture-version-unpinned"] },
+        "resolution": {
+          "enum": ["preserve-explicit-unknown", "retain-compatible-version-boundary"]
+        }
+      },
+      "required": ["explanation", "id", "kind", "resolution"],
+      "type": "object"
+    },
+    "repositoryPath": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$",
+      "type": "string"
+    },
+    "safetyReview": {
+      "additionalProperties": false,
+      "properties": {
+        "credentialsRead": { "const": false },
+        "externalNetworkDuringObservation": { "const": false },
+        "externalRepositoryMutation": { "const": false },
+        "modelRequested": { "const": false },
+        "repositoryCommandExecuted": { "const": false },
+        "repositoryWriteAttempted": { "const": false },
+        "transcriptReviewed": { "const": true },
+        "userConfigurationRead": { "const": false }
+      },
+      "required": [
+        "credentialsRead",
+        "externalNetworkDuringObservation",
+        "externalRepositoryMutation",
+        "modelRequested",
+        "repositoryCommandExecuted",
+        "repositoryWriteAttempted",
+        "transcriptReviewed",
+        "userConfigurationRead"
+      ],
+      "type": "object"
+    },
+    "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+    "sha256OrNull": {
+      "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+    }
+  }
+}

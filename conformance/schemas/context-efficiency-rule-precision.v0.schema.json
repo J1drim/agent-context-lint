@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context-lint.dev/conformance/context-efficiency-rule-precision/v0",
+  "title": "Context-efficiency rule precision labels v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["recordKind", "schemaVersion", "cases"],
+  "properties": {
+    "recordKind": { "const": "agent-context-efficiency-rule-precision-corpus" },
+    "schemaVersion": { "const": "0.1.0" },
+    "cases": {
+      "type": "array",
+      "minItems": 18,
+      "maxItems": 256,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["caseId", "evidenceState", "expected", "rationale", "ruleId"],
+        "properties": {
+          "caseId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9]+(?:[._:/-][A-Za-z0-9]+)*$",
+            "maxLength": 128
+          },
+          "evidenceState": {
+            "enum": ["complete", "incompatible", "partial", "threshold-boundary"]
+          },
+          "expected": { "enum": ["finding", "no-finding"] },
+          "rationale": { "type": "string", "minLength": 1, "maxLength": 512 },
+          "ruleId": {
+            "enum": [
+              "ACL550",
+              "ACL551",
+              "ACL552",
+              "ACL553",
+              "ACL554",
+              "ACL555",
+              "ACL556",
+              "ACL557",
+              "ACL558"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

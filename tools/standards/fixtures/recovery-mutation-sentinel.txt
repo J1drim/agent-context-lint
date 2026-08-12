@@ -1,0 +1,1 @@
+H13 tracked mutation sentinel. Tests must restore these exact bytes.

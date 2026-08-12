@@ -1,0 +1,68 @@
+{
+  "contractVersion": "0.1.0",
+  "qualityClaim": false,
+  "recommendation": [
+    {
+      "affectedPaths": ["src/api.ts", "src/web.ts"],
+      "baselineTokens": 14,
+      "caveatCodes": [
+        "estimated-tokenizer",
+        "quality-not-empirically-verified",
+        "semantic-equivalence-not-proven",
+        "source-score-caveated",
+        "target-necessity-not-inferred"
+      ],
+      "confidence": "medium",
+      "estimatedSavingBasisPoints": 5000,
+      "estimatedSavingTokens": 7,
+      "evidence": {
+        "documentIds": [
+          "document:agents:9fad1831144fc2c7453acebad3e0adef9e62a2ebe675e849dff9cff0ac36484e"
+        ],
+        "id": "document:agents:9fad1831144fc2c7453acebad3e0adef9e62a2ebe675e849dff9cff0ac36484e",
+        "measuredTokens": 14,
+        "state": "complete"
+      },
+      "id": "recommendation:scope:formatter",
+      "kind": "scope-narrowing",
+      "projectedTokens": 7,
+      "reasonCodes": [],
+      "state": "recommended",
+      "targets": [
+        {
+          "baselineTokens": 7,
+          "path": "src/api.ts",
+          "projectedTokens": 0,
+          "retention": {
+            "missingContentSha256s": [
+              "77099f3eff1db85f5e1bef0c3214362d54b3523d5aa6860d79e140eb03e9f2c5"
+            ],
+            "mode": "unique-content-identities",
+            "state": "failed"
+          },
+          "role": "saving"
+        },
+        {
+          "baselineTokens": 7,
+          "path": "src/web.ts",
+          "projectedTokens": 7,
+          "retention": {
+            "missingContentSha256s": [],
+            "mode": "byte-identical-assembly",
+            "state": "proved"
+          },
+          "role": "intended"
+        }
+      ]
+    }
+  ],
+  "recordKind": "agent-context-efficiency-recommendations",
+  "semanticQualityPreservationClaim": false,
+  "sourceScoreConfidence": "limited-static-evidence",
+  "state": "complete",
+  "tokenizer": {
+    "id": "agent-context-estimate",
+    "measurement": "estimate",
+    "version": "1.0.0"
+  }
+}

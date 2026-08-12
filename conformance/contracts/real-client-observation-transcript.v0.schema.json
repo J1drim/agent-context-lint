@@ -1,0 +1,270 @@
+{
+  "$id": "https://agent-context-lint.dev/schemas/real-client-observation-transcript.v0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": { "operation": { "const": "version-probe" } },
+        "required": ["operation"]
+      },
+      "then": {
+        "properties": {
+          "client": { "type": "object" },
+          "invocation": { "type": "object" },
+          "result": {
+            "type": "object",
+            "properties": {
+              "blockedReason": { "type": "null" },
+              "status": { "enum": ["failed", "observed"] },
+              "versionMatched": { "type": "boolean" }
+            }
+          },
+          "supervisor": { "type": "object" }
+        }
+      },
+      "else": {
+        "properties": {
+          "actualLoadedSourceSequence": { "const": [] },
+          "client": { "type": "null" },
+          "invocation": { "type": "null" },
+          "result": {
+            "type": "object",
+            "properties": {
+              "exitCode": { "type": "null" },
+              "signal": { "type": "null" },
+              "status": { "const": "blocked" },
+              "versionMatched": { "type": "null" },
+              "workspaceUnchanged": { "const": true }
+            }
+          },
+          "supervisor": { "type": "null" }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "actualLoadedSourceSequence": {
+      "items": { "$ref": "#/$defs/relativePath" },
+      "maxItems": 200,
+      "type": "array"
+    },
+    "capabilityPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed": {
+          "items": {
+            "enum": ["pinned-client-version-metadata"]
+          },
+          "maxItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "denied": {
+          "const": [
+            "credential-read",
+            "external-network",
+            "model-request",
+            "repository-command",
+            "repository-write",
+            "user-config-read"
+          ]
+        }
+      },
+      "required": ["allowed", "denied"],
+      "type": "object"
+    },
+    "caseId": { "$ref": "#/$defs/identifier" },
+    "client": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "executableIdentitySha256": { "$ref": "#/$defs/sha256" },
+            "executableSha256": { "$ref": "#/$defs/sha256" },
+            "expectedVersion": { "maxLength": 128, "minLength": 1, "type": "string" }
+          },
+          "required": ["executableIdentitySha256", "executableSha256", "expectedVersion"],
+          "type": "object"
+        },
+        { "type": "null" }
+      ]
+    },
+    "contractVersion": { "const": "0.1.0" },
+    "environmentKeys": {
+      "const": [
+        "CI",
+        "HOME",
+        "NO_COLOR",
+        "PATH",
+        "TEMP",
+        "TMP",
+        "TMPDIR",
+        "XDG_CACHE_HOME",
+        "XDG_CONFIG_HOME",
+        "XDG_DATA_HOME"
+      ]
+    },
+    "expectedLoadedSourceSequence": {
+      "items": { "$ref": "#/$defs/relativePath" },
+      "maxItems": 200,
+      "type": "array"
+    },
+    "fixtureDigest": { "$ref": "#/$defs/sha256" },
+    "fixtureManifest": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "markerId": {
+            "oneOf": [{ "pattern": "^D15_[A-Z0-9_]{1,64}$", "type": "string" }, { "type": "null" }]
+          },
+          "path": { "$ref": "#/$defs/relativePath" },
+          "sha256": { "$ref": "#/$defs/sha256" }
+        },
+        "required": ["markerId", "path", "sha256"],
+        "type": "object"
+      },
+      "maxItems": 200,
+      "type": "array"
+    },
+    "invocation": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "adapterId": {
+              "const": "macos-sandboxed-literal-double-dash-version-v1"
+            },
+            "arguments": { "const": ["--version"] },
+            "shell": { "const": false },
+            "stdin": { "const": "closed" }
+          },
+          "required": ["adapterId", "arguments", "shell", "stdin"],
+          "type": "object"
+        },
+        { "type": "null" }
+      ]
+    },
+    "observedAt": {
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+      "type": "string"
+    },
+    "operation": {
+      "enum": ["blocked-paid-observation", "version-probe"]
+    },
+    "planDigest": { "$ref": "#/$defs/sha256" },
+    "platform": {
+      "additionalProperties": false,
+      "properties": {
+        "architecture": { "maxLength": 64, "minLength": 1, "type": "string" },
+        "operatingSystem": { "maxLength": 64, "minLength": 1, "type": "string" }
+      },
+      "required": ["architecture", "operatingSystem"],
+      "type": "object"
+    },
+    "profileId": { "$ref": "#/$defs/identifier" },
+    "recordKind": { "const": "agent-context-real-client-observation-transcript" },
+    "result": {
+      "additionalProperties": false,
+      "properties": {
+        "blockedReason": {
+          "oneOf": [
+            {
+              "enum": [
+                "hosted-surface-not-locally-observable",
+                "ide-surface-needs-reviewed-manual-observation",
+                "no-safe-no-model-signal",
+                "paid-request-not-authorized"
+              ],
+              "type": "string"
+            },
+            { "type": "null" }
+          ]
+        },
+        "exitCode": {
+          "oneOf": [{ "type": "integer" }, { "type": "null" }]
+        },
+        "signal": {
+          "oneOf": [{ "maxLength": 64, "minLength": 1, "type": "string" }, { "type": "null" }]
+        },
+        "status": { "enum": ["blocked", "failed", "observed"] },
+        "stderr": { "maxLength": 65536, "type": "string" },
+        "stdout": { "maxLength": 65536, "type": "string" },
+        "versionMatched": {
+          "oneOf": [{ "type": "boolean" }, { "type": "null" }]
+        },
+        "workspaceUnchanged": { "type": "boolean" }
+      },
+      "required": [
+        "blockedReason",
+        "exitCode",
+        "signal",
+        "status",
+        "stderr",
+        "stdout",
+        "versionMatched",
+        "workspaceUnchanged"
+      ],
+      "type": "object"
+    },
+    "settingSources": {
+      "items": { "$ref": "#/$defs/identifier" },
+      "maxItems": 16,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "supervisor": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "executableIdentitySha256": { "$ref": "#/$defs/sha256" },
+            "executableSha256": { "$ref": "#/$defs/sha256" },
+            "kind": { "const": "macos-sandbox-exec-v1" }
+          },
+          "required": ["executableIdentitySha256", "executableSha256", "kind"],
+          "type": "object"
+        },
+        { "type": "null" }
+      ]
+    },
+    "surfaceId": { "maxLength": 256, "minLength": 1, "type": "string" }
+  },
+  "required": [
+    "actualLoadedSourceSequence",
+    "capabilityPolicy",
+    "caseId",
+    "client",
+    "contractVersion",
+    "environmentKeys",
+    "expectedLoadedSourceSequence",
+    "fixtureDigest",
+    "fixtureManifest",
+    "invocation",
+    "observedAt",
+    "operation",
+    "planDigest",
+    "platform",
+    "profileId",
+    "recordKind",
+    "result",
+    "settingSources",
+    "supervisor",
+    "surfaceId"
+  ],
+  "type": "object",
+  "$defs": {
+    "identifier": {
+      "pattern": "^[a-z0-9](?:[a-z0-9._-]{0,126}[a-z0-9])?$",
+      "type": "string"
+    },
+    "relativePath": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$",
+      "type": "string"
+    },
+    "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" }
+  }
+}

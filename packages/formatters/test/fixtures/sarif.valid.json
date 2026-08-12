@@ -1,0 +1,75 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "properties": {
+        "agentContextSchemaVersion": "2.0.0",
+        "profileVersions": {
+          "codex-cli": { "clientVersion": "0.146.0", "profileVersion": "1.0.0" }
+        }
+      },
+      "results": [
+        {
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": { "uri": "AGENTS.md" },
+                "region": { "endColumn": 16, "endLine": 3, "startColumn": 3, "startLine": 3 }
+              }
+            }
+          ],
+          "message": { "text": "Conflicting package-manager instruction." },
+          "partialFingerprints": {
+            "agentContextPath/v1": "dde482dcc539531e5e98bd71063388925f7f566e97a2cca924eb567a47072916",
+            "agentContextSemantic/v1": "6c049bc33df348a479d475fcc462b6f98e6d17c12846a284870e22bf8894ba02",
+            "primaryLocationLineHash": "9ac30a333ce4a531:1"
+          },
+          "properties": {
+            "agentContextRuleVersion": "1.0.0",
+            "profileIds": ["codex-cli"],
+            "specSnapshotIds": ["codex-cli/0.146.0/2026-08-01"],
+            "surfaceIds": ["codex-cli/local-cli-single-cwd"]
+          },
+          "relatedLocations": [],
+          "ruleId": "ACL250",
+          "ruleIndex": 0
+        }
+      ],
+      "tool": {
+        "driver": {
+          "informationUri": "https://agent-context-lint.dev/",
+          "name": "Agent Context Linter",
+          "rules": [
+            {
+              "defaultConfiguration": { "level": "error" },
+              "fullDescription": {
+                "text": "Conflicting package-manager requirements cannot both be followed safely."
+              },
+              "help": {
+                "markdown": "Conflicting package-manager requirements cannot both be followed safely. Rule documentation: https://agent-context-lint.dev/docs/rules/catalog.md#acl250",
+                "text": "Conflicting package-manager requirements cannot both be followed safely."
+              },
+              "helpUri": "https://agent-context-lint.dev/docs/rules/catalog.md#acl250",
+              "id": "ACL250",
+              "name": "ACL250",
+              "properties": {
+                "agentContextCategory": "conflicts-duplication",
+                "agentContextFixSafety": "none",
+                "agentContextOwner": "@agent-context-lint/rules-reviewers",
+                "agentContextPrecisionStatus": "seeded",
+                "problem.severity": "error",
+                "tags": ["agent-context", "conflicts-duplication"]
+              },
+              "shortDescription": {
+                "text": "Mutually exclusive package-manager commands apply to the same target"
+              }
+            }
+          ],
+          "semanticVersion": "1.2.3"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "capabilityPolicy": {
+    "allowed": [],
+    "denied": [
+      "credential-read",
+      "external-network",
+      "model-request",
+      "repository-command",
+      "repository-write",
+      "user-config-read"
+    ]
+  },
+  "caseId": "d16-cursor-ide-manual-review",
+  "client": "ide-surface-needs-reviewed-manual-observation",
+  "contractVersion": "0.1.0",
+  "expectedLoadedSourceSequence": [".cursor/rules/always.mdc"],
+  "fixtureFiles": [
+    {
+      "content": "D15_CURSOR_IDE_RULE\nSynthetic observation marker.\n",
+      "markerId": "D15_CURSOR_IDE_RULE",
+      "path": ".cursor/rules/always.mdc"
+    }
+  ],
+  "observedAt": "2026-08-02T20:18:08Z",
+  "operation": "blocked-paid-observation",
+  "profileId": "cursor-agent",
+  "recordKind": "agent-context-real-client-observation-plan",
+  "settingSources": ["ide-runtime", "repository-fixture"],
+  "supervisor": null,
+  "surfaceId": "cursor-agent/ide"
+}

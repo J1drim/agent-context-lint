@@ -1,0 +1,60 @@
+{
+  "recordKind": "explain-projection-conformance-golden",
+  "schemaVersion": "0.1.0",
+  "projection": {
+    "analysisStatus": "partial",
+    "clientVersion": "0.146.0",
+    "profileId": "codex-cli",
+    "profileVersion": "0.1.0",
+    "recordKind": "agent-context-explain-projection",
+    "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+    "surfaceId": "codex-cli/local-cli-single-cwd",
+    "targets": [
+      {
+        "accounting": {
+          "ambiguities": 1,
+          "conflicts": 1,
+          "documents": { "conditional": 0, "excluded": 0, "included": 2, "total": 2 },
+          "occurrences": { "conditional": 0, "excluded": 0, "included": 0, "total": 0 },
+          "reasons": 8,
+          "traceEvents": 2
+        },
+        "analysisStatus": "partial",
+        "documents": [
+          {
+            "disposition": "included",
+            "path": "AGENTS.md",
+            "reasons": [
+              "activation-active",
+              "state-effective",
+              "content-complete",
+              "ambiguity-semantic-precedence"
+            ]
+          },
+          {
+            "disposition": "included",
+            "path": "app/AGENTS.md",
+            "reasons": [
+              "activation-active",
+              "state-effective",
+              "content-complete",
+              "ambiguity-semantic-precedence"
+            ]
+          }
+        ],
+        "targetPath": "app/main.ts",
+        "traceEvents": [
+          { "kind": "launch", "scope": "session", "uncertainty": "known" },
+          { "kind": "reference-path", "scope": "target", "uncertainty": "known" }
+        ]
+      }
+    ],
+    "trace": {
+      "binding": "target-matched",
+      "eventCount": 2,
+      "mode": "provided",
+      "sha256": "2eb6099a9e7ed0ef8fc37111eb9f5fb314c5f08e0678bda2cf6db650d5515e2d",
+      "targetCount": 1
+    }
+  }
+}

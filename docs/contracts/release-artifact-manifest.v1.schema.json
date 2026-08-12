@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-context.invalid/schemas/release-artifact-manifest.v1.schema.json",
+  "title": "Agent Context Linter release artifact manifest",
+  "description": "Offline bundle inventory. It deliberately does not attest npm publication, provenance, or signatures.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "artifactFormat",
+    "claims",
+    "files",
+    "generatedBy",
+    "provenance",
+    "releaseVersion",
+    "schemaVersion",
+    "signature"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://agent-context.invalid/schemas/release-artifact-manifest.v1.schema.json"
+    },
+    "artifactFormat": { "const": "agent-context-release-bundle-v1" },
+    "schemaVersion": { "const": 1 },
+    "releaseVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "generatedBy": { "const": "agent-context-linter-release-artifacts/1" },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["bytes", "path", "sha256"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1, "maxLength": 4096 },
+          "bytes": { "type": "integer", "minimum": 0, "maximum": 134217728 },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "release-notes",
+              "upgrade-rollback",
+              "dependency-sbom",
+              "artifact-inventory-sbom"
+            ]
+          }
+        }
+      }
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "networkAccess",
+        "npmPublication",
+        "repositoryMutation",
+        "secretsRead",
+        "signature"
+      ],
+      "properties": {
+        "networkAccess": { "const": false },
+        "repositoryMutation": { "const": false },
+        "secretsRead": { "const": false },
+        "npmPublication": { "const": "not-performed" },
+        "signature": { "const": "not-produced" }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reason", "state"],
+      "properties": {
+        "state": { "const": "not-produced" },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reason", "state"],
+      "properties": {
+        "state": { "const": "not-published" },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

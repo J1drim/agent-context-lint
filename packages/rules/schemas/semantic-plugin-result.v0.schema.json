@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-context-lint.dev/schemas/semantic-plugin-result.v0.schema.json",
+  "title": "Agent Context Linter semantic plug-in result v0",
+  "oneOf": [{ "$ref": "#/$defs/success" }, { "$ref": "#/$defs/failure" }],
+  "$defs": {
+    "descriptor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["capabilities", "id", "module", "version"],
+      "properties": {
+        "capabilities": { "type": "array", "maxItems": 0 },
+        "id": { "const": "reference-contradiction-candidate-v1" },
+        "module": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["format", "importedFunctions", "maximumMemoryBytes", "sha256"],
+          "properties": {
+            "format": { "const": "webassembly-v1" },
+            "importedFunctions": { "const": 0 },
+            "maximumMemoryBytes": { "const": 0 },
+            "sha256": {
+              "const": "c0ee64588938369cf39b3422e47f1f33ea478c836c84c355ed3650c4cbb69afb"
+            }
+          }
+        },
+        "version": { "const": "1.0.0" }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "documentId", "line", "message", "path", "sourceDigest"],
+      "properties": {
+        "code": { "const": "contradiction-candidate" },
+        "documentId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9:._/-]{0,255}$"
+        },
+        "line": { "type": "integer", "minimum": 1, "maximum": 8388608 },
+        "message": {
+          "const": "Document contains both always and never directives; manual review is required."
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096,
+          "pattern": "^(?![A-Za-z]:)(?!.*[\\u0000-\\u001F\\u007F])(?!.*[\\uD800-\\uDFFF])(?!.*\\\\)(?!.*(?:^|/)\\.{1,2}(?:/|$))[^/]+(?:/[^/]+)*$"
+        },
+        "sourceDigest": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "success": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contractVersion",
+        "determinism",
+        "enabled",
+        "findings",
+        "networkAccess",
+        "ok",
+        "plugin",
+        "qualityClaim",
+        "recordKind"
+      ],
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "determinism": { "const": "non-deterministic" },
+        "enabled": { "type": "boolean" },
+        "findings": {
+          "type": "array",
+          "maxItems": 1024,
+          "items": { "$ref": "#/$defs/finding" }
+        },
+        "networkAccess": { "const": "denied" },
+        "ok": { "const": true },
+        "plugin": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/descriptor" }] },
+        "qualityClaim": { "const": false },
+        "recordKind": { "const": "agent-context-semantic-plugin-result" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "enabled": { "const": false } } },
+          "then": {
+            "properties": {
+              "findings": { "type": "array", "maxItems": 0 },
+              "plugin": { "type": "null" }
+            }
+          },
+          "else": { "properties": { "plugin": { "$ref": "#/$defs/descriptor" } } }
+        }
+      ]
+    },
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message", "path"],
+      "properties": {
+        "code": {
+          "enum": [
+            "cancelled",
+            "invalid-configuration",
+            "invalid-input",
+            "invalid-options",
+            "plugin-failure",
+            "resource-limit"
+          ]
+        },
+        "message": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "path": { "type": "string", "minLength": 1, "maxLength": 256 }
+      }
+    },
+    "failure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["issues", "ok"],
+      "properties": {
+        "issues": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": { "$ref": "#/$defs/issue" }
+        },
+        "ok": { "const": false }
+      }
+    }
+  }
+}

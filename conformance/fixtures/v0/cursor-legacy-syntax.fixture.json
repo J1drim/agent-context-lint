@@ -1,0 +1,24 @@
+{
+  "recordKind": "cursor-legacy-syntax-cases",
+  "schemaVersion": "0.1.0",
+  "cases": [
+    {
+      "id": "root",
+      "path": ".cursorrules",
+      "locationState": "supported",
+      "resultState": "complete"
+    },
+    {
+      "id": "nested",
+      "path": "service/.cursorrules",
+      "locationState": "unknown",
+      "resultState": "partial"
+    },
+    {
+      "id": "wrong-name",
+      "path": "service/cursorrules.md",
+      "locationState": "unsupported",
+      "resultState": "malformed"
+    }
+  ]
+}

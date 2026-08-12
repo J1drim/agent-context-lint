@@ -1,0 +1,53 @@
+{
+  "profiles": [
+    {
+      "alwaysOnTokens": { "maximum": 7, "minimum": 7, "p50": 7, "p95": 7 },
+      "completeSampleCount": 2,
+      "effectiveTokens": { "maximum": 7, "minimum": 7, "p50": 7, "p95": 7 },
+      "profileId": "codex-cli",
+      "profileVersion": "0.1.0",
+      "sampleCount": 2,
+      "samplingState": "complete",
+      "samplingStrategy": "exhaustive",
+      "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+      "state": "complete",
+      "surfaceId": "codex-cli/local-cli-single-cwd"
+    }
+  ],
+  "qualityClaim": false,
+  "recommendations": [
+    {
+      "baselineTokens": 14,
+      "caveatCodes": [
+        "estimated-tokenizer",
+        "quality-not-empirically-verified",
+        "semantic-equivalence-not-proven",
+        "source-score-caveated",
+        "target-necessity-not-inferred"
+      ],
+      "confidence": "medium",
+      "estimatedSavingBasisPoints": 5000,
+      "estimatedSavingTokens": 7,
+      "id": "recommendation:scope:formatter",
+      "projectedTokens": 7,
+      "reasonCodes": [],
+      "state": "recommended"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "score": {
+    "caveatCodes": ["estimated-tokenizer"],
+    "confidence": "limited-static-evidence",
+    "grade": "D",
+    "score": 65,
+    "state": "caveated",
+    "uncertaintyCodes": []
+  },
+  "semanticQualityPreservationClaim": false,
+  "state": "complete",
+  "tokenizer": {
+    "id": "agent-context-estimate",
+    "measurement": "estimate",
+    "version": "1.0.0"
+  }
+}

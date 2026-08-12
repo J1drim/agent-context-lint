@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-context.dev/standards-update.v0.schema.json",
+  "title": "Agent Context Standards Update v0",
+  "$defs": {
+    "digest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["device", "inode"],
+      "properties": {
+        "device": { "type": "string", "pattern": "^(0|[1-9][0-9]{0,63})$" },
+        "inode": { "type": "string", "pattern": "^(0|[1-9][0-9]{0,63})$" }
+      }
+    },
+    "plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidateLockSha256",
+        "checkedAt",
+        "contractVersion",
+        "diff",
+        "mode",
+        "noChanges",
+        "recordKind",
+        "signer"
+      ],
+      "properties": {
+        "candidateLockSha256": { "$ref": "#/$defs/digest" },
+        "checkedAt": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+        },
+        "contractVersion": { "const": "0.1.0" },
+        "diff": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["digest", "engineRequirement", "rules", "version"],
+          "properties": {
+            "digest": { "$ref": "#/$defs/pairDigest" },
+            "engineRequirement": { "$ref": "#/$defs/pairString" },
+            "rules": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["added", "removed"],
+              "properties": {
+                "added": { "$ref": "#/$defs/rules" },
+                "removed": { "$ref": "#/$defs/rules" }
+              }
+            },
+            "version": { "$ref": "#/$defs/pairString" }
+          }
+        },
+        "mode": { "enum": ["dry-run", "update"] },
+        "noChanges": { "type": "boolean" },
+        "recordKind": { "const": "agent-context-standards-update" },
+        "signer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["authorizedKeyCount", "metadataSha256", "role", "threshold"],
+          "properties": {
+            "authorizedKeyCount": { "const": 3 },
+            "metadataSha256": { "$ref": "#/$defs/digest" },
+            "role": { "enum": ["standards-preview", "standards-stable"] },
+            "threshold": { "const": 2 }
+          }
+        }
+      }
+    },
+    "pairDigest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate", "current"],
+      "properties": {
+        "candidate": { "$ref": "#/$defs/digest" },
+        "current": { "$ref": "#/$defs/digest" }
+      }
+    },
+    "pairString": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate", "current"],
+      "properties": {
+        "candidate": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "current": { "type": "string", "minLength": 1, "maxLength": 256 }
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "activatedLockSha256",
+        "activatedVersion",
+        "contractVersion",
+        "path",
+        "previousLockSha256",
+        "previousVersion",
+        "recordKind"
+      ],
+      "properties": {
+        "activatedLockSha256": { "$ref": "#/$defs/digest" },
+        "activatedVersion": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "contractVersion": { "const": "0.1.0" },
+        "path": { "type": "string", "minLength": 1, "maxLength": 1024 },
+        "previousLockSha256": { "$ref": "#/$defs/digest" },
+        "previousVersion": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "recordKind": { "const": "agent-context-standards-rollback-receipt" }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "maxItems": 900,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^ACL[1-9][0-9]{2}$" }
+    },
+    "write": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bytesWritten",
+        "contractVersion",
+        "directorySync",
+        "durability",
+        "identity",
+        "mode",
+        "path",
+        "previousSha256",
+        "sha256"
+      ],
+      "properties": {
+        "bytesWritten": { "type": "integer", "minimum": 0, "maximum": 65536 },
+        "contractVersion": { "const": "0.1.0" },
+        "directorySync": { "enum": ["synced", "unsupported"] },
+        "durability": { "enum": ["file-and-directory", "file-only"] },
+        "identity": { "$ref": "#/$defs/identity" },
+        "mode": { "type": "integer", "minimum": 0, "maximum": 511 },
+        "path": { "type": "string", "minLength": 1, "maxLength": 1024 },
+        "previousSha256": { "$ref": "#/$defs/digest" },
+        "sha256": { "$ref": "#/$defs/digest" }
+      }
+    }
+  },
+  "oneOf": [
+    { "$ref": "#/$defs/plan" },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["activation", "cache", "plan", "receipt", "write"],
+      "properties": {
+        "activation": { "enum": ["activated", "unchanged"] },
+        "cache": { "enum": ["not-needed", "reused", "stored"] },
+        "plan": { "$ref": "#/$defs/plan" },
+        "receipt": { "oneOf": [{ "$ref": "#/$defs/receipt" }, { "type": "null" }] },
+        "write": { "oneOf": [{ "$ref": "#/$defs/write" }, { "type": "null" }] }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contractVersion", "recordKind", "replacedVersion", "restoredVersion", "write"],
+      "properties": {
+        "contractVersion": { "const": "0.1.0" },
+        "recordKind": { "const": "agent-context-standards-rollback" },
+        "replacedVersion": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "restoredVersion": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "write": { "$ref": "#/$defs/write" }
+      }
+    }
+  ]
+}

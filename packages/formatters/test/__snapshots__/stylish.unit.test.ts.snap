@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`I04 stylish formatter > wraps CJK, combining marks, emoji graphemes, paths, and summaries within a narrow width 1`] = `
+"AGENTS.md:3:3
+  error ACL250
+  漢字 é 👩‍💻
+  a-very-long-unbrok
+  en-diagnostic-toke
+  n
+  related
+  Conflicting
+  instruction
+  source:
+  AGENTS.md:3:3
+  suggestion: Use
+  the workspace
+  package manager
+  consistently.
+
+1 problem (1 error,
+0 warnings, 0 infos,
+0 suppressed)
+"
+`;

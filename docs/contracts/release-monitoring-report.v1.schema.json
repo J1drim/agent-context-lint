@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-context.invalid/schemas/release-monitoring-report.v1.schema.json",
+  "title": "Agent Context Linter local post-release monitoring report",
+  "description": "Closed, redacted offline evidence for K12 smoke and rollback checks. It never proves publication or monitoring duration.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "artifactFormat",
+    "schemaVersion",
+    "mode",
+    "assessment",
+    "observedAt",
+    "release",
+    "checks",
+    "signals",
+    "rollback",
+    "policy",
+    "limits",
+    "reportSha256"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://agent-context.invalid/schemas/release-monitoring-report.v1.schema.json"
+    },
+    "artifactFormat": { "const": "agent-context-release-monitoring-v1" },
+    "schemaVersion": { "const": 1 },
+    "mode": { "const": "offline-local" },
+    "assessment": { "enum": ["preflight-ready", "pending-external", "blocked"] },
+    "observedAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?Z$"
+    },
+    "release": { "$ref": "#/$defs/release" },
+    "checks": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 32,
+      "items": { "$ref": "#/$defs/check" }
+    },
+    "signals": {
+      "type": "array",
+      "maxItems": 64,
+      "items": { "$ref": "#/$defs/signal" }
+    },
+    "rollback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["verified", "failed", "not-tested", "unknown"] },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "networkAccess",
+        "credentials",
+        "repositoryMutation",
+        "publicationVerification",
+        "monitoringDuration"
+      ],
+      "properties": {
+        "networkAccess": { "const": "not-used" },
+        "credentials": { "const": "none" },
+        "repositoryMutation": { "const": "not-observed" },
+        "publicationVerification": { "const": "pending-external" },
+        "monitoringDuration": { "const": "not-established" }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxInputBytes", "maxOutputBytes", "maxChecks", "maxSignals", "maxTextBytes"],
+      "properties": {
+        "maxInputBytes": { "const": 262144 },
+        "maxOutputBytes": { "const": 524288 },
+        "maxChecks": { "const": 32 },
+        "maxSignals": { "const": 64 },
+        "maxTextBytes": { "const": 32768 }
+      }
+    },
+    "reportSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$" },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bytes", "sha256"],
+      "properties": {
+        "bytes": { "type": "integer", "minimum": 0, "maximum": 32768 },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "artifactSha256", "previousVersion", "previousArtifactSha256"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+        },
+        "artifactSha256": { "$ref": "#/$defs/sha256" },
+        "previousVersion": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+        },
+        "previousArtifactSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "status", "durationMs"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "kind": { "enum": ["package-install", "registry", "docs", "action", "cli", "rollback"] },
+        "status": { "enum": ["pass", "fail", "unknown"] },
+        "durationMs": { "type": "integer", "minimum": 0, "maximum": 300000 },
+        "stdout": { "$ref": "#/$defs/evidence" },
+        "stderr": { "$ref": "#/$defs/evidence" },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "signal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "severity", "state", "count"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "severity": { "enum": ["P0", "P1", "P2", "P3"] },
+        "state": { "enum": ["clear", "triggered", "unknown"] },
+        "count": { "type": "integer", "minimum": 0, "maximum": 1000000000 },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      }
+    }
+  }
+}

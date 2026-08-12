@@ -1,0 +1,155 @@
+{
+  "assertions": [
+    {
+      "evidenceRefs": ["claude-code.local-session--claude-memory-markdown"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "selected", "supportStatus": "supported" },
+      "id": "assert-claude-memory-markdown-positive",
+      "predicate": "profile-format-capability-outcome"
+    },
+    {
+      "evidenceRefs": ["claude-code.local-session--claude-rule-markdown"],
+      "evidenceStatus": "documented",
+      "expected": { "selection": "selected", "supportStatus": "supported" },
+      "id": "assert-claude-rule-markdown-positive",
+      "predicate": "profile-format-capability-outcome"
+    }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "kind": "launch",
+      "path": ".",
+      "sequence": 0,
+      "targetId": "target-example"
+    },
+    {
+      "id": "event-reference",
+      "kind": "reference-path",
+      "path": "src/example.ts",
+      "sequence": 1,
+      "targetId": "target-example"
+    }
+  ],
+  "expectedGraph": {
+    "ambiguities": [],
+    "analysisStatus": "complete",
+    "edges": [
+      {
+        "evidenceRefs": ["claude-code.local-session--claude-memory-markdown"],
+        "from": "document-claude-memory-markdown",
+        "id": "edge-claude-memory-markdown",
+        "relation": "selects",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      },
+      {
+        "evidenceRefs": ["claude-code.local-session--claude-rule-markdown"],
+        "from": "document-claude-rule-markdown",
+        "id": "edge-claude-rule-markdown",
+        "relation": "selects",
+        "resolutionStatus": "documented",
+        "to": "target-example"
+      }
+    ],
+    "nodes": [
+      {
+        "evidenceRefs": ["k01-target"],
+        "id": "target-example",
+        "kind": "target",
+        "path": "src/example.ts",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["claude-code.local-session--claude-memory-markdown"],
+        "formatId": "claude-memory-markdown",
+        "id": "document-claude-memory-markdown",
+        "kind": "document",
+        "path": "CLAUDE.md",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["claude-code.local-session--claude-rule-markdown"],
+        "formatId": "claude-rule-markdown",
+        "id": "document-claude-rule-markdown",
+        "kind": "document",
+        "path": ".claude/rules/example.md",
+        "resolutionStatus": "documented"
+      }
+    ]
+  },
+  "extensions": {
+    "agent-context-lint.dev/k01": {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "polarity": "positive"
+    }
+  },
+  "externalContext": { "entries": [], "mode": "unavailable" },
+  "fixtureFormatVersion": "0.1.0",
+  "id": "official-claude-code-local-session-positive",
+  "invocation": {
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "launchCwd": ".",
+    "runtimeMode": "local-cli-and-integrated-session",
+    "settings": {},
+    "trustState": "trusted-synthetic",
+    "workspaceRoots": ["."]
+  },
+  "profile": {
+    "clientVersion": null,
+    "profileId": "claude-code",
+    "specSnapshotId": "claude-code/2026-08-01",
+    "surfaceId": "claude-code/local-session",
+    "versionStatus": "living-docs-pending-observation"
+  },
+  "provenance": {
+    "assumptions": [
+      "Example prose is replaced by short inert markers while retaining official locations, fields, and activation inputs.",
+      "The negative fixture changes only fixture-owned location or activation inputs and does not infer undocumented client behavior."
+    ],
+    "derivation": "official-example",
+    "observationIds": [],
+    "researchRecordIds": ["claude-code/2026-08-01"],
+    "sources": [
+      {
+        "id": "claude-code-2026-08-01-official-source",
+        "immutability": "retrieved-living-doc",
+        "retrievedAt": "2026-08-02",
+        "url": "https://code.claude.com/docs/en/memory",
+        "mutableSourceReason": "First-party documentation does not publish an immutable revision."
+      }
+    ]
+  },
+  "recordKind": "profile-conformance-fixture",
+  "repository": {
+    "directories": [".claude/", ".claude/rules/", "docs/", "src/"],
+    "files": [
+      {
+        "content": "# Project memory\n\nUse the repository test command.\n@docs/policy.md\n",
+        "formatId": "claude-memory-markdown",
+        "path": "CLAUDE.md"
+      },
+      {
+        "content": "---\npaths:\n  - src/**/*.ts\nunsupportedExampleField: inert\n---\nUse the TypeScript policy.\n@docs/policy.md\n",
+        "formatId": "claude-rule-markdown",
+        "path": ".claude/rules/example.md"
+      },
+      { "content": "Official-example target.\n", "formatId": null, "path": "src/example.ts" },
+      { "content": "Synthetic imported marker.\n", "formatId": null, "path": "docs/policy.md" }
+    ],
+    "root": ".",
+    "symlinks": []
+  },
+  "targets": [
+    { "id": "target-example", "path": "src/example.ts", "purpose": "resolve-effective-context" }
+  ],
+  "title": "claude-code/local-session official examples (positive)"
+}

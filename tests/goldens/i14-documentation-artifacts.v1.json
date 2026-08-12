@@ -1,0 +1,29 @@
+{
+  "artifacts": [
+    {
+      "path": "docs/api/command-reference.md",
+      "sha256": "3c73f7fcc8ac408082ee463253e15233c65601ba1448e0c3f8ec4b1f4fd1593f"
+    },
+    {
+      "path": "packages/cli/completions/_agent-context-lint",
+      "sha256": "9327d02eaf1bbfd976d386228afccc92fd9d4a42251edf63b219fc37ac28fe37"
+    },
+    {
+      "path": "packages/cli/completions/agent-context-lint.bash",
+      "sha256": "fbe87a557bfa70296ee43f3e62a1fcf1f9c842bcefa7af1297080c50d95749c6"
+    },
+    {
+      "path": "packages/cli/completions/agent-context-lint.fish",
+      "sha256": "4a62ada530674a46f75a2032142a60008864b2a4635c1b1a82e083d673d40501"
+    },
+    {
+      "path": "packages/cli/man/agent-context-lint.1",
+      "sha256": "e7511b236f9008fdf34072e6799a1584078d4b916644a35a0b2cf142ad238210"
+    },
+    {
+      "path": "packages/cli/reference/agent-context-lint-reference.v1.json",
+      "sha256": "e57de3d3f284b79ae6be55dc29a131ae159cc1a0f30e8b3197c3d66742d128bb"
+    }
+  ],
+  "schemaVersion": "1.0.0"
+}

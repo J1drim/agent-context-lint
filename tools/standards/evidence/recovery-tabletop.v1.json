@@ -1,0 +1,406 @@
+{
+  "contractVersion": "1.4.0",
+  "executionReceipt": {
+    "path": "tools/standards/evidence/recovery-tabletop-execution.v1.json",
+    "sha256": "88629ac0c10aba32032c9d140f4910123f9b705fa6ee62c86e0545f608415336",
+    "sourceClosureSha256": "72e4c90a22b876414678bd1d5c6d73669045daedee04f1a6cc1a225d2f014158"
+  },
+  "findings": [
+    {
+      "foundAt": "2026-08-09T19:20:00Z",
+      "id": "H13-001",
+      "owner": "jakub-niezgoda",
+      "resolution": "Version 1.1 binds a closed source inventory, toolchain, normalized execution result, package inventory, findings, and sole-maintainer review; every substitution now fails replay.",
+      "resolvedAt": "2026-08-09T19:39:05Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The first H13 record asserted completion without binding exact executed evidence or accountable review.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T19:20:00Z",
+      "id": "H13-002",
+      "owner": "jakub-niezgoda",
+      "resolution": "Each inject, expectation, observation, outcome, and complete ordered normative action list is now exact and independently mutation-tested.",
+      "resolvedAt": "2026-08-09T19:39:05Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The first validator did not independently require every shutdown, quarantine, rotation, verification, advisory, and preservation action.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T19:20:00Z",
+      "id": "H13-003",
+      "owner": "jakub-niezgoda",
+      "resolution": "Schema validity, evidence validity, and release acceptance are now separate outputs, and the stacked A05/H13 ledger records both completed commits and the correct total.",
+      "resolvedAt": "2026-08-09T19:39:05Z",
+      "severity": "P2",
+      "status": "resolved",
+      "summary": "The first implementation conflated schema validity with acceptance and left the inherited A05 status/count stale.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T19:45:00Z",
+      "id": "H13-004",
+      "owner": "jakub-niezgoda",
+      "resolution": "The capture command now derives canonical individual test outcomes, command exits, real package inventories, and actual tool versions from executed processes.",
+      "resolvedAt": "2026-08-09T19:59:30Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.1 receipt hashed maintainer-declared counts instead of generated command outcomes.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T19:45:00Z",
+      "id": "H13-005",
+      "owner": "jakub-niezgoda",
+      "resolution": "Capture now hashes every tracked working-tree path and byte with three explicit self-reference exclusions and requires zero other untracked files.",
+      "resolvedAt": "2026-08-09T19:59:30Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.1 seven-file source inventory omitted transitive test, build, package, schema, manifest, and documentation inputs.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T19:45:00Z",
+      "id": "H13-006",
+      "owner": "jakub-niezgoda",
+      "resolution": "Findings now require severity, summary, owner, target milestone/date, lifecycle state, and consistent resolution chronology; valid open findings prevent acceptance.",
+      "resolvedAt": "2026-08-09T19:59:30Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.1 finding model could not honestly represent structured open findings and their ownership or due dates.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T19:45:00Z",
+      "id": "H13-007",
+      "owner": "jakub-niezgoda",
+      "resolution": "Replay compares the current toolchain to the captured versions and explicitly reports current-replay or historical-attestation.",
+      "resolvedAt": "2026-08-09T19:59:30Z",
+      "severity": "P2",
+      "status": "resolved",
+      "summary": "The version 1.1 verifier did not distinguish a matching current runtime from validation of a historical execution.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T20:20:00Z",
+      "id": "H13-008",
+      "owner": "jakub-niezgoda",
+      "resolution": "Capture now requires identical bounded HEAD, index, tracked, untracked, inventory, and working-byte closures before and after every exercised command, with explicit mutation-during-run tests.",
+      "resolvedAt": "2026-08-09T20:48:55Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.2 receipt did not prove that the exercised source remained immutable for the complete command interval.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T20:20:00Z",
+      "id": "H13-009",
+      "owner": "jakub-niezgoda",
+      "resolution": "The sole-maintainer review-subject digest now covers the receipt and source bindings, every scenario and finding field, the complete review metadata, and the release decision, with capture and resolution chronology enforced.",
+      "resolvedAt": "2026-08-09T20:48:55Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.2 review digest covered only the review object and allowed findings, scenarios, or release acceptance to change outside the accountable review subject.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T20:20:00Z",
+      "id": "H13-010",
+      "owner": "jakub-niezgoda",
+      "resolution": "Every capture and probe subprocess now has explicit time and output bounds, normalized status, signal, timeout, and duration evidence, forced termination, an overall deadline, and finally-block cleanup.",
+      "resolvedAt": "2026-08-09T20:48:55Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.2 subprocesses could hang indefinitely and did not bind termination or timeout state.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T20:20:00Z",
+      "id": "H13-011",
+      "owner": "jakub-niezgoda",
+      "resolution": "Capture validates the declared pnpm@11.18.0 version against a resolved executable identity and binds both pnpm and Node executable digests; unavailable bounded current probes are reported as historical attestation rather than hanging replay.",
+      "resolvedAt": "2026-08-09T20:48:55Z",
+      "severity": "P2",
+      "status": "resolved",
+      "summary": "The version 1.2 runtime probe used an unbounded ambient pnpm lookup without binding its exact execution context.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T20:20:00Z",
+      "id": "H13-012",
+      "owner": "jakub-niezgoda",
+      "resolution": "Closure collection now bounds Git output, file count, individual and aggregate bytes; sanitizes Git repository/config/index/object environment; rejects hard links; rechecks directory ancestry; and requires the exact four unique package identities.",
+      "resolvedAt": "2026-08-09T20:48:55Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.2 closure and package parser lacked complete resource, hard-link, Git-environment, ancestry, and uniqueness controls.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T20:55:00Z",
+      "id": "H13-013",
+      "owner": "jakub-niezgoda",
+      "resolution": "The asynchronous runner creates an isolated process group, kills the complete descendant tree on timeout, and bounds post-kill cleanup; a real grandchild write-after-timeout test proves containment.",
+      "resolvedAt": "2026-08-09T21:19:55Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.3 timeout killed only the direct child and could leave descendants running.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T20:55:00Z",
+      "id": "H13-014",
+      "owner": "jakub-niezgoda",
+      "resolution": "One monotonic deadline is propagated through Git and test discovery, bounded filesystem reads, executable/source hashing, parsing, commands, post-checks, and bounded temporary cleanup.",
+      "resolvedAt": "2026-08-09T21:19:55Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.3 overall deadline did not govern closure, filesystem, hashing, parsing, discovery, and cleanup phases.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T20:55:00Z",
+      "id": "H13-015",
+      "owner": "jakub-niezgoda",
+      "resolution": "Validation now requires fixed canonical argv, exact accountable hashes for all 24 TUF and 40 non-self standards identities, and exact names and file counts for all four packages, defeating fully rebound forged receipts.",
+      "resolvedAt": "2026-08-09T21:19:55Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.3 schema allowed a fresh fully rebound receipt to substitute plausible commands, test identities, and package counts.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T20:55:00Z",
+      "id": "H13-016",
+      "owner": "jakub-niezgoda",
+      "resolution": "Capture binds pre/post working metadata in addition to bytes and index state; a real child mutates and restores a tracked sentinel during guarded execution and is rejected.",
+      "resolvedAt": "2026-08-09T21:19:55Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.3 pre/post byte closure could miss a tracked-file mutation restored before the final snapshot.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T20:55:00Z",
+      "id": "H13-017",
+      "owner": "jakub-niezgoda",
+      "resolution": "Git, Node, and pnpm resolve only through approved absolute identities, reject symlinks and non-regular files, verify fixed digests through no-follow handles, and recheck identity after execution; Git discovery is NUL-delimited.",
+      "resolvedAt": "2026-08-09T21:19:55Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The version 1.3 capture still trusted ambient executable resolution and did not couple execution to race-checked approved tool bytes.",
+      "targetDate": "2026-08-09",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T21:45:00Z",
+      "id": "H13-018",
+      "owner": "jakub-niezgoda",
+      "resolution": "Current capture now runs inside a digest-pinned Docker Linux PID namespace and proves forced removal against a detached, TERM-ignoring, delayed-write, output-overflow adversary.",
+      "resolvedAt": "2026-08-09T22:36:20Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "Process-group cleanup cannot contain a detached session leader, so the prior current-capture acceptance was withdrawn.",
+      "targetDate": "2026-08-16",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T21:45:00Z",
+      "id": "H13-019",
+      "owner": "jakub-niezgoda",
+      "resolution": "The contained package audit injects exact absolute Node, pnpm, Git, tar, and shell paths from the immutable runtime and rejects prepared dependencies outside that runtime.",
+      "resolvedAt": "2026-08-09T22:36:20Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The package audit must execute only injected, receipt-bound Node, pnpm, Git, tar, and shell identities.",
+      "targetDate": "2026-08-16",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T21:45:00Z",
+      "id": "H13-020",
+      "owner": "jakub-niezgoda",
+      "resolution": "Approved host executables are copied through no-follow handles into private single-link files, digest-checked before execution, and rechecked afterward; swap-and-restore tests execute only the sealed bytes.",
+      "resolvedAt": "2026-08-09T22:36:20Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "Approved executable path inspection was not coupled to the exact bytes executed across pathname swaps.",
+      "targetDate": "2026-08-16",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T21:45:00Z",
+      "id": "H13-021",
+      "owner": "jakub-niezgoda",
+      "resolution": "One monotonic capture deadline now governs bounded source reads and hashes, parsing, contained commands, termination, and awaited forced container and temporary-file cleanup; unavailable containment fails closed.",
+      "resolvedAt": "2026-08-09T22:36:20Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "Filesystem, parsing, hashing, termination, and cleanup must share one hard absolute deadline without background work.",
+      "targetDate": "2026-08-16",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T23:05:00Z",
+      "id": "H13-022",
+      "owner": "jakub-niezgoda",
+      "resolution": "The explicit preparation step now verifies exact raw OCI index, platform-manifest, and configuration bytes; npm integrity and shasum; every prepared input byte; deterministic rootfs and runtime-overlay archives; and repeated exact OCI manifest, configuration, and layer identities from two FROM-scratch offline builds.",
+      "resolvedAt": "2026-08-10T01:00:00Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The prior image build did not prove complete base and package-manager provenance or eliminate mutable build-time dependency resolution.",
+      "targetDate": "2026-08-16",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T23:05:00Z",
+      "id": "H13-023",
+      "owner": "jakub-niezgoda",
+      "resolution": "Every command now uses an explicit private PID namespace request and persists one exact pre-start inspected Config, HostConfig, mount, image, network, resource, and pull-policy configuration plus its canonical digest; mutation tests reject every bound leaf.",
+      "resolvedAt": "2026-08-10T01:00:00Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "The prior receipt did not bind the complete effective container confinement configuration used before command start.",
+      "targetDate": "2026-08-16",
+      "targetMilestone": "G5"
+    },
+    {
+      "foundAt": "2026-08-09T23:05:00Z",
+      "id": "H13-024",
+      "owner": "jakub-niezgoda",
+      "resolution": "Container creation now uses CSPRNG names and exact ownership labels, preflights collisions, reconciles timeout, malformed-output, and lost-transport outcomes, revalidates image and ownership before awaited forced removal, and proves zero residual labeled containers under the one deadline.",
+      "resolvedAt": "2026-08-10T01:00:00Z",
+      "severity": "P1",
+      "status": "resolved",
+      "summary": "An unknown container-create outcome could leave an untracked process tree after lost or malformed client results.",
+      "targetDate": "2026-08-16",
+      "targetMilestone": "G5"
+    }
+  ],
+  "recordKind": "agent-context-standards-recovery-tabletop",
+  "releaseAcceptance": {
+    "basis": [
+      "closed-findings",
+      "generated-execution-receipt",
+      "sole-maintainer-review",
+      "source-closure-replay"
+    ],
+    "decision": "rejected"
+  },
+  "review": {
+    "authority": "sole-accountable-maintainer",
+    "decision": "rejected",
+    "executionReceiptSha256": "88629ac0c10aba32032c9d140f4910123f9b705fa6ee62c86e0545f608415336",
+    "reviewedAt": "2026-08-10T01:18:00Z",
+    "reviewerId": "jakub-niezgoda",
+    "reviewSubjectSha256": "1eff16424af85042ffe6baa429fbce3c6b93b2ad7301a3f280c031e0ce2bb107",
+    "sourceClosureSha256": "72e4c90a22b876414678bd1d5c6d73669045daedee04f1a6cc1a225d2f014158"
+  },
+  "scenarios": [
+    {
+      "actions": ["shutdown-acquisition", "preserve-last-known-good", "preserve-evidence"],
+      "expected": "Acquisition stops; offline scans retain the verified lock and report stale status without claiming freshness.",
+      "id": "registry-outage",
+      "inject": "The allowlisted registry is unavailable after the last verified stable activation.",
+      "observed": "The operator selected offline continuation from the prior lock, retained evidence, and did not relax transport or freshness policy.",
+      "outcome": "passed"
+    },
+    {
+      "actions": [
+        "shutdown-publication",
+        "shutdown-acquisition",
+        "quarantine-identity",
+        "preserve-evidence"
+      ],
+      "expected": "Publication and acquisition stop; the affected online identity is quarantined while immutable evidence is retained.",
+      "id": "registry-compromise",
+      "inject": "Registry bytes no longer match the signed metadata graph and an online identity may be compromised.",
+      "observed": "The operator stopped both paths, quarantined the affected identity, and preserved signed metadata, logs, versions, and digests.",
+      "outcome": "passed"
+    },
+    {
+      "actions": [
+        "shutdown-publication",
+        "shutdown-acquisition",
+        "out-of-band-root-release",
+        "publish-advisory",
+        "preserve-evidence"
+      ],
+      "expected": "In-band recovery is rejected; a reviewed executable release supplies a new out-of-band root and users receive an advisory.",
+      "id": "root-threshold-compromise",
+      "inject": "Enough root custodians may be compromised to satisfy the current threshold.",
+      "observed": "The operator rejected downloaded-root recovery, retained evidence, and selected the normal release/provenance path for a new anchor.",
+      "outcome": "passed"
+    },
+    {
+      "actions": [
+        "rotate-key",
+        "dual-threshold-root",
+        "issue-fresh-online-metadata",
+        "post-rotation-verification",
+        "preserve-evidence"
+      ],
+      "expected": "Rotation uses sequential roots and old/new thresholds, issues fresh online metadata, and resumes only after clean verification.",
+      "id": "key-rotation",
+      "inject": "A root-authorized timestamp key reaches its planned rotation date.",
+      "observed": "The operator rotated the key through root continuity, reset hostile fast-forward state, and verified the complete fresh graph before resuming.",
+      "outcome": "passed"
+    },
+    {
+      "actions": [
+        "revoke-target",
+        "issue-signed-withdrawal",
+        "publish-advisory",
+        "preserve-evidence"
+      ],
+      "expected": "New threshold-signed metadata withdraws the target; immutable history and an affected-version advisory remain available.",
+      "id": "revocation-yank",
+      "inject": "A previously published standards target is confirmed harmful for a supported engine range.",
+      "observed": "The operator selected signed withdrawal without deleting history or rewriting user locks and retained the affected digest evidence.",
+      "outcome": "passed"
+    },
+    {
+      "actions": [
+        "one-shot-same-process-rollback",
+        "fresh-verified-update-after-exit",
+        "preserve-evidence"
+      ],
+      "expected": "Only the original live receipt can roll back immediately; after exit a fresh verified update is required.",
+      "id": "rollback",
+      "inject": "Post-activation validation fails first in-process and then after the activating process has exited.",
+      "observed": "The operator used no reconstructed authority, preserved committed-state evidence, and selected the correct path for each lifecycle state.",
+      "outcome": "passed"
+    },
+    {
+      "actions": [
+        "reject-incompatible-activation",
+        "preserve-last-known-good",
+        "publish-advisory",
+        "preserve-evidence"
+      ],
+      "expected": "Activation is rejected before lock mutation; the compatible lock remains and exact engine guidance is published.",
+      "id": "engine-incompatibility",
+      "inject": "The signed candidate requires an engine newer than the running supported version.",
+      "observed": "The operator preserved the compatible state and evidence, rejected metadata editing, and selected compatibility guidance instead.",
+      "outcome": "passed"
+    }
+  ]
+}

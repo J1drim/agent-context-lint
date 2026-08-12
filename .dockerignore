@@ -1,0 +1,13 @@
+.git
+**/.git
+node_modules
+**/node_modules
+artifacts
+coverage
+**/*.tsbuildinfo
+**/dist
+packages/cli/publish
+IMPLEMENTATION_STATUS.md
+tools/standards/container/runtime-lock.v1.json
+tools/standards/evidence
+!.h13-runtime-inputs-reviewed

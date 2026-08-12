@@ -1,0 +1,68 @@
+{
+  "contractVersion": "0.1.0",
+  "description": "Synthetic C11 workspace, language, and source-boundary evidence. No fixture content is executed.",
+  "files": [
+    {
+      "content": "{\n  \"name\": \"root-🧭\",\n  \"packageManager\": \"pnpm@11.18.0\",\n  \"workspaces\": {\"packages\": [\"packages/*\"]},\n  \"scripts\": {\"postinstall\": \"never execute this\"}\n}\n",
+      "path": "package.json"
+    },
+    {
+      "content": "packages:\n  - 'apps/*'\n  - '!apps/legacy'\n",
+      "path": "pnpm-workspace.yaml"
+    },
+    {
+      "content": "[workspace]\nmembers = [\n  \"crates/*\",\n]\nexclude = [\"crates/old\"]\n\n[package]\nname = \"rust-root\"\n",
+      "path": "Cargo.toml"
+    },
+    {
+      "content": "[project]\nname = \"python-root\"\n\n[tool.uv.workspace]\nmembers = [\"python-packages/*\"]\nexclude = [\"python-packages/old\"]\n",
+      "path": "pyproject.toml"
+    },
+    {
+      "content": "go 1.25\n\nuse (\n  ./services/api\n  ./services/worker\n)\n",
+      "path": "go.work"
+    },
+    {
+      "content": "module example.test/api\n\ngo 1.25\n",
+      "path": "services/api/go.mod"
+    },
+    {
+      "content": "{\"packages\": [\"modules/*\"], \"npmClient\": \"pnpm\", \"command\": {\"run\": {\"stream\": true}}}\n",
+      "path": "lerna.json"
+    },
+    {
+      "content": "{\"plugins\": [\"@nx/js/plugin\"], \"targetDefaults\": {\"build\": {}}}\n",
+      "path": "nx.json"
+    },
+    {
+      "content": "{\"$schema\": \"https://turborepo.com/schema.json\", \"tasks\": {\"build\": {\"dependsOn\": [\"^build\"]}}}\n",
+      "path": "turbo.json"
+    },
+    {
+      "content": "{\"projects\": [{\"packageName\": \"a\", \"projectFolder\": \"libraries/a\"}], \"eventHooks\": {\"postRushBuild\": [\"never execute\"]}}\n",
+      "path": "rush.json"
+    },
+    {
+      "content": "[metadata]\nname = legacy-python\n",
+      "path": "legacy/setup.cfg"
+    },
+    {
+      "content": "raise RuntimeError('must never execute')\n",
+      "path": "legacy/setup.py"
+    },
+    {
+      "content": "workspace(name = \"must_not_be_evaluated\")\n",
+      "path": "WORKSPACE"
+    },
+    {
+      "content": "module(name = \"must_not_be_evaluated\")\n",
+      "path": "MODULE.bazel"
+    },
+    {
+      "content": "genrule(name = \"must_not_be_evaluated\", cmd = \"false\")\n",
+      "path": "services/api/BUILD.bazel"
+    }
+  ],
+  "retrievedAt": "2026-08-02",
+  "synthetic": true
+}

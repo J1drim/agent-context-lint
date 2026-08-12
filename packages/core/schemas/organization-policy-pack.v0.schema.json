@@ -1,0 +1,442 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-context-lint.dev/schemas/organization-policy-pack.v0.schema.json",
+  "title": "Agent Context Linter local organization policy pack v0",
+  "description": "Closed data-only contract. Packs select or parameterize registered capabilities; they cannot define executable rules, commands, patterns, modules, network sources, fixes, or filesystem authority.",
+  "$comment": "The runtime additionally checks exact compatibility against the engine-owned rule registry, validates the external local path and exact-byte SHA-256 origin, applies aggregate resource limits, rejects non-JSON JavaScript authority, and returns immutable normalized data.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "recordKind",
+    "schemaVersion",
+    "packId",
+    "packVersion",
+    "compatibility",
+    "provenance",
+    "policies"
+  ],
+  "properties": {
+    "recordKind": { "const": "agent-context-organization-policy-pack" },
+    "schemaVersion": { "const": "0.1.0" },
+    "packId": { "$ref": "#/$defs/stableId" },
+    "packVersion": { "$ref": "#/$defs/semver" },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "configurationVersion",
+        "minimumEngineVersion",
+        "profileCatalogVersion",
+        "ruleRegistryVersion"
+      ],
+      "properties": {
+        "configurationVersion": { "const": 1 },
+        "minimumEngineVersion": { "$ref": "#/$defs/semver" },
+        "profileCatalogVersion": { "const": "0.1.0" },
+        "ruleRegistryVersion": { "$ref": "#/$defs/semver" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["approvedBy", "approvedSource", "reviewedAt", "revision"],
+      "properties": {
+        "approvedBy": { "$ref": "#/$defs/stableId" },
+        "approvedSource": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "sha256"],
+          "properties": {
+            "path": { "$ref": "#/$defs/repositoryPath" },
+            "sha256": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "reviewedAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])$"
+        },
+        "revision": {
+          "oneOf": [{ "type": "null" }, { "type": "string", "minLength": 1, "maxLength": 256 }]
+        }
+      }
+    },
+    "policies": {
+      "type": "array",
+      "maxItems": 512,
+      "items": {
+        "oneOf": [
+          { "$ref": "#/$defs/profilePolicy" },
+          { "$ref": "#/$defs/rulePolicy" },
+          { "$ref": "#/$defs/settingPolicy" },
+          { "$ref": "#/$defs/surfacePolicy" }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "authority": { "enum": ["default", "enforced"] },
+    "policyId": { "$ref": "#/$defs/stableId" },
+    "stableId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[A-Za-z0-9]+(?:[._:/-][A-Za-z0-9]+)*$"
+    },
+    "semver": {
+      "type": "string",
+      "maxLength": 256,
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-((?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*))?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024,
+      "pattern": "^(?=(?:[^\\uD800-\\uDFFF]|[\\uD800-\\uDBFF][\\uDC00-\\uDFFF])+$)(?!\\.?$)(?!/)(?![A-Za-z]:)(?!.*[\\u0000-\\u001f\\u007f])(?!.*\\\\)(?!.*//)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*\\/$).+$"
+    },
+    "profileId": {
+      "enum": [
+        "claude-code",
+        "codex-cli",
+        "copilot-cli",
+        "copilot-cloud-agent",
+        "copilot-code-review",
+        "copilot-vscode",
+        "cursor-agent",
+        "gemini-cli"
+      ]
+    },
+    "profilePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority", "id", "target", "value"],
+      "properties": {
+        "authority": { "$ref": "#/$defs/authority" },
+        "id": { "$ref": "#/$defs/policyId" },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "profileId"],
+          "properties": {
+            "kind": { "const": "profile" },
+            "profileId": { "$ref": "#/$defs/profileId" }
+          }
+        },
+        "value": { "type": "boolean" }
+      }
+    },
+    "rulePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority", "id", "target", "value"],
+      "properties": {
+        "authority": { "$ref": "#/$defs/authority" },
+        "id": { "$ref": "#/$defs/policyId" },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "ruleId"],
+          "properties": {
+            "kind": { "const": "rule" },
+            "ruleId": { "type": "string", "pattern": "^ACL[0-9]{3}$" }
+          }
+        },
+        "value": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["severity", "maxTokens"],
+          "properties": {
+            "severity": { "enum": ["error", "warning", "info", "off"] },
+            "maxTokens": {
+              "type": ["integer", "null"],
+              "minimum": 1,
+              "maximum": 10000000
+            }
+          }
+        }
+      }
+    },
+    "settingPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority", "id", "target", "value"],
+      "properties": {
+        "authority": { "$ref": "#/$defs/authority" },
+        "id": { "$ref": "#/$defs/policyId" },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "settingId"],
+          "properties": {
+            "kind": { "const": "setting" },
+            "settingId": {
+              "enum": [
+                "commands.packageManager",
+                "efficiency.budgets.alwaysOnTokens",
+                "efficiency.budgets.effectiveP95Tokens",
+                "efficiency.componentWeights.budgetFit",
+                "efficiency.componentWeights.crossAgentConsistency",
+                "efficiency.componentWeights.instructionDensity",
+                "efficiency.componentWeights.nonRedundancy",
+                "efficiency.componentWeights.reachability",
+                "efficiency.componentWeights.scopePrecision",
+                "efficiency.gradeThresholds.A",
+                "efficiency.gradeThresholds.B",
+                "efficiency.gradeThresholds.C",
+                "efficiency.gradeThresholds.D",
+                "efficiency.scoreVersion",
+                "efficiency.tokenizer",
+                "standards.channel",
+                "standards.maxAgeDays",
+                "standards.requireCurrentInCI"
+              ]
+            }
+          }
+        },
+        "value": {}
+      },
+      "allOf": [
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "object",
+                "properties": { "settingId": { "const": "efficiency.scoreVersion" } }
+              }
+            }
+          },
+          "then": { "type": "object", "properties": { "value": { "const": "1.0.0" } } }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "object",
+                "properties": { "settingId": { "const": "commands.packageManager" } }
+              }
+            }
+          },
+          "then": {
+            "type": "object",
+            "properties": { "value": { "enum": ["auto", "npm", "pnpm", "yarn", "bun"] } }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "object",
+                "properties": { "settingId": { "const": "efficiency.tokenizer" } }
+              }
+            }
+          },
+          "then": { "type": "object", "properties": { "value": { "const": "estimate" } } }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "object",
+                "properties": { "settingId": { "const": "standards.channel" } }
+              }
+            }
+          },
+          "then": {
+            "type": "object",
+            "properties": { "value": { "enum": ["stable", "preview"] } }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "object",
+                "properties": { "settingId": { "const": "standards.requireCurrentInCI" } }
+              }
+            }
+          },
+          "then": {
+            "type": "object",
+            "properties": { "value": { "type": "boolean" } }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "object",
+                "properties": { "settingId": { "const": "standards.maxAgeDays" } }
+              }
+            }
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "value": { "type": "integer", "minimum": 1, "maximum": 365 }
+            }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "object",
+                "properties": {
+                  "settingId": {
+                    "enum": [
+                      "efficiency.budgets.alwaysOnTokens",
+                      "efficiency.budgets.effectiveP95Tokens"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "type": "object",
+            "properties": { "value": { "type": "integer", "minimum": 0, "maximum": 10000000 } }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "object",
+                "properties": {
+                  "settingId": {
+                    "enum": [
+                      "efficiency.componentWeights.budgetFit",
+                      "efficiency.componentWeights.crossAgentConsistency",
+                      "efficiency.componentWeights.instructionDensity",
+                      "efficiency.componentWeights.nonRedundancy",
+                      "efficiency.componentWeights.reachability",
+                      "efficiency.componentWeights.scopePrecision",
+                      "efficiency.gradeThresholds.A",
+                      "efficiency.gradeThresholds.B",
+                      "efficiency.gradeThresholds.C",
+                      "efficiency.gradeThresholds.D"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "type": "object",
+            "properties": { "value": { "type": "integer", "minimum": 0, "maximum": 100 } }
+          }
+        }
+      ]
+    },
+    "surfacePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority", "id", "target", "value"],
+      "properties": {
+        "authority": { "$ref": "#/$defs/authority" },
+        "id": { "$ref": "#/$defs/policyId" },
+        "target": {
+          "oneOf": [
+            { "$ref": "#/$defs/claudeSurface" },
+            { "$ref": "#/$defs/codexSurface" },
+            { "$ref": "#/$defs/copilotCliSurface" },
+            { "$ref": "#/$defs/copilotCloudSurface" },
+            { "$ref": "#/$defs/copilotReviewSurface" },
+            { "$ref": "#/$defs/copilotVscodeSurface" },
+            { "$ref": "#/$defs/cursorSurface" },
+            { "$ref": "#/$defs/geminiSurface" }
+          ]
+        },
+        "value": { "type": "boolean" }
+      }
+    },
+    "claudeSurface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "profileId", "surfaceId"],
+      "properties": {
+        "kind": { "const": "surface" },
+        "profileId": { "const": "claude-code" },
+        "surfaceId": { "const": "claude-code/local-session" }
+      }
+    },
+    "codexSurface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "profileId", "surfaceId"],
+      "properties": {
+        "kind": { "const": "surface" },
+        "profileId": { "const": "codex-cli" },
+        "surfaceId": { "const": "codex-cli/local-cli-single-cwd" }
+      }
+    },
+    "copilotCliSurface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "profileId", "surfaceId"],
+      "properties": {
+        "kind": { "const": "surface" },
+        "profileId": { "const": "copilot-cli" },
+        "surfaceId": { "const": "copilot-cli/local-terminal" }
+      }
+    },
+    "copilotCloudSurface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "profileId", "surfaceId"],
+      "properties": {
+        "kind": { "const": "surface" },
+        "profileId": { "const": "copilot-cloud-agent" },
+        "surfaceId": { "const": "copilot-cloud-agent/github-hosted" }
+      }
+    },
+    "copilotReviewSurface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "profileId", "surfaceId"],
+      "properties": {
+        "kind": { "const": "surface" },
+        "profileId": { "const": "copilot-code-review" },
+        "surfaceId": { "const": "copilot-code-review/github-hosted" }
+      }
+    },
+    "copilotVscodeSurface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "profileId", "surfaceId"],
+      "properties": {
+        "kind": { "const": "surface" },
+        "profileId": { "const": "copilot-vscode" },
+        "surfaceId": { "const": "copilot-vscode/local-chat" }
+      }
+    },
+    "cursorSurface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "profileId", "surfaceId"],
+      "properties": {
+        "kind": { "const": "surface" },
+        "profileId": { "const": "cursor-agent" },
+        "surfaceId": { "enum": ["cursor-agent/cli", "cursor-agent/ide"] }
+      }
+    },
+    "geminiSurface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "profileId", "surfaceId"],
+      "properties": {
+        "kind": { "const": "surface" },
+        "profileId": { "const": "gemini-cli" },
+        "surfaceId": { "const": "gemini-cli/local-terminal" }
+      }
+    }
+  }
+}

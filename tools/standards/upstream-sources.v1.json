@@ -1,0 +1,70 @@
+{
+  "extractorVersion": "heading-v1",
+  "schemaVersion": "1.0.0",
+  "sources": [
+    {
+      "format": "html",
+      "id": "agents-format",
+      "sections": [
+        { "heading": "Why AGENTS.md?", "id": "purpose", "level": 2 },
+        { "heading": "How to use AGENTS.md?", "id": "usage", "level": 2 },
+        { "heading": "FAQ", "id": "faq", "level": 2 }
+      ],
+      "url": "https://agents.md/"
+    },
+    {
+      "format": "markdown",
+      "id": "claude-code-memory",
+      "sections": [
+        { "heading": "Choose where to put CLAUDE.md files", "id": "files", "level": 3 },
+        { "heading": "How CLAUDE.md files load", "id": "loading", "level": 3 },
+        { "heading": "Organize rules with `.claude/rules/`", "id": "rules", "level": 3 }
+      ],
+      "url": "https://code.claude.com/docs/en/memory.md"
+    },
+    {
+      "format": "markdown",
+      "id": "codex-agents",
+      "sections": [
+        { "heading": "How Codex discovers guidance", "id": "discovery", "level": 2 },
+        { "heading": "Layer project instructions", "id": "layers", "level": 2 },
+        { "heading": "Add code review rules", "id": "review", "level": 2 }
+      ],
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/agents-md.md"
+    },
+    {
+      "format": "markdown",
+      "id": "cursor-rules",
+      "sections": [
+        { "heading": "How rules work", "id": "behavior", "level": 2 },
+        { "heading": "Project rules", "id": "project-rules", "level": 2 },
+        { "heading": "AGENTS.md", "id": "agents-md", "level": 2 }
+      ],
+      "url": "https://cursor.com/docs/rules.md"
+    },
+    {
+      "format": "markdown",
+      "id": "gemini-context",
+      "sections": [
+        { "heading": "Understand the context hierarchy", "id": "hierarchy", "level": 2 },
+        { "heading": "Modularize context with imports", "id": "imports", "level": 2 },
+        { "heading": "Customize the context file name", "id": "filename", "level": 2 }
+      ],
+      "url": "https://geminicli.com/docs/cli/gemini-md.md"
+    },
+    {
+      "format": "markdown",
+      "id": "github-copilot-instructions",
+      "sections": [
+        { "heading": "Types of custom instructions", "id": "types", "level": 2 },
+        { "heading": "How multiple instruction files interact", "id": "combination", "level": 2 },
+        {
+          "heading": "Creating path-specific custom instructions",
+          "id": "path-scope",
+          "level": 2
+        }
+      ],
+      "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions.md"
+    }
+  ]
+}

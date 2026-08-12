@@ -1,0 +1,22 @@
+{
+  "baseImage": {
+    "configurationDigest": "sha256:f02a2a490293095bd41ee3791d465a0865ce176c8dd0d068b58bdfda9081eaca",
+    "indexDigest": "sha256:19cd848a0e073d34bd8cd5545a1b6b4d28489b3e3b607366621ced442bd5f6b4",
+    "platform": "linux/arm64/v8",
+    "platformManifestDigest": "sha256:9b02ede55039f443ad57453a741813c6cd105873f0f66fee95d25529e1ba0533",
+    "repository": "docker.io/library/node",
+    "version": "24.18.1-bookworm"
+  },
+  "buildInputs": {
+    "manifestSha256": "f9679a97460b0100d5bd97db1d50162035d6c9508db4ad6ee06c7eaae4930156",
+    "sourceDateEpoch": 1786312800
+  },
+  "contractVersion": "1.0.0",
+  "packageManager": {
+    "integrity": "sha512-M9g8d9qC9J+6g2klxvG4QRgewxMrZwY5vQEvcHX1x89jTF+HAUfBmq50ePrAHfCdiJLogEVIlu3SPumzN1dWPA==",
+    "name": "pnpm",
+    "shasum": "6eb0fa6a5dc5ddfa7b802e612a99d7e25ab564a4",
+    "version": "11.18.0"
+  },
+  "recordKind": "agent-context-h13-runtime-build-lock"
+}

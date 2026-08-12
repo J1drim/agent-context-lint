@@ -1,0 +1,20 @@
+{
+  "recordKind": "agent-context-diagnostics",
+  "contractVersion": "0.1.0",
+  "diagnostics": [
+    {
+      "id": "not a stable id",
+      "ruleId": "ACL250",
+      "ruleVersion": "1.0.0",
+      "severity": "fatal",
+      "message": "",
+      "primary": null,
+      "related": [],
+      "suggestion": null,
+      "fingerprintBasis": {},
+      "fingerprints": {},
+      "unexpected": true
+    }
+  ],
+  "suppressions": []
+}

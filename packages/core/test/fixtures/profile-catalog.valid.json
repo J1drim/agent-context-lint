@@ -1,0 +1,242 @@
+{
+  "recordKind": "agent-context-profile-catalog",
+  "contractVersion": "0.1.0",
+  "documentFormats": [
+    {
+      "id": "agents-markdown",
+      "syntaxFamily": "markdown-instructions",
+      "syntaxFeatures": ["markdown-body", "empty-content-state", "reference-token-candidates"]
+    },
+    {
+      "id": "copilot-path-instructions",
+      "syntaxFamily": "markdown-with-yaml-frontmatter",
+      "syntaxFeatures": ["markdown-body", "yaml-frontmatter", "applyTo-field", "description-field"]
+    },
+    {
+      "id": "cursor-legacy-rules",
+      "syntaxFamily": "legacy-plain-text-instructions",
+      "syntaxFeatures": ["plain-text-body", "legacy-migration-marker"]
+    }
+  ],
+  "clientProfiles": [
+    {
+      "id": "codex-cli",
+      "displayName": "OpenAI Codex CLI",
+      "releaseClass": "ga-required",
+      "surfaceIds": ["codex-cli/local-cli-single-cwd"]
+    },
+    {
+      "id": "copilot-vscode",
+      "displayName": "GitHub Copilot Chat in Visual Studio Code",
+      "releaseClass": "ga-required",
+      "surfaceIds": ["copilot-vscode/local-chat"]
+    },
+    {
+      "id": "cursor-agent",
+      "displayName": "Cursor",
+      "releaseClass": "ga-required",
+      "surfaceIds": ["cursor-agent/cli"]
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "codex-cli/local-cli-single-cwd",
+      "profileId": "codex-cli",
+      "kind": "local-cli",
+      "specSnapshotIds": ["codex-cli/0.146.0/2026-08-01"],
+      "capabilities": [
+        {
+          "capabilityId": "event-trace-resolution",
+          "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+          "support": "supported",
+          "evidence": ["documented-versioned", "source-derived"],
+          "evidenceRefs": ["codex-agents-source"],
+          "uncertainty": { "state": "known" }
+        }
+      ]
+    },
+    {
+      "id": "copilot-vscode/local-chat",
+      "profileId": "copilot-vscode",
+      "kind": "local-ide-chat",
+      "specSnapshotIds": ["copilot-surfaces/2026-08-01.0"],
+      "capabilities": []
+    },
+    {
+      "id": "cursor-agent/cli",
+      "profileId": "cursor-agent",
+      "kind": "local-cli",
+      "specSnapshotIds": ["cursor/2026-08-01"],
+      "capabilities": []
+    }
+  ],
+  "specSnapshots": [
+    {
+      "id": "codex-cli/0.146.0/2026-08-01",
+      "profileIds": ["codex-cli"],
+      "surfaceIds": ["codex-cli/local-cli-single-cwd"],
+      "clientVersion": "0.146.0",
+      "versionStatus": "pinned-release",
+      "retrievedAt": "2026-08-01",
+      "sources": [
+        {
+          "id": "codex-agents-source",
+          "immutability": "immutable",
+          "url": "https://github.com/openai/codex/blob/e363b08c9175ac1cbe5893615dd2cb9ddf95043b/codex-rs/core/src/agents_md.rs",
+          "artifactPath": null,
+          "retrievedAt": "2026-08-01",
+          "revision": "e363b08c9175ac1cbe5893615dd2cb9ddf95043b",
+          "mutableSourceReason": null
+        }
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "copilot-surfaces/2026-08-01.0",
+      "profileIds": ["copilot-vscode"],
+      "surfaceIds": ["copilot-vscode/local-chat"],
+      "clientVersion": null,
+      "versionStatus": "hosted-service-date",
+      "retrievedAt": "2026-08-01",
+      "sources": [
+        {
+          "id": "vscode-instructions-docs",
+          "immutability": "living",
+          "url": "https://code.visualstudio.com/docs/agent-customization/custom-instructions",
+          "artifactPath": null,
+          "retrievedAt": "2026-08-01",
+          "revision": null,
+          "mutableSourceReason": "The first-party page is a living service document."
+        }
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "cursor/2026-08-01",
+      "profileIds": ["cursor-agent"],
+      "surfaceIds": ["cursor-agent/cli"],
+      "clientVersion": null,
+      "versionStatus": "living-docs-pending-observation",
+      "retrievedAt": "2026-08-01",
+      "sources": [
+        {
+          "id": "cursor-cli-docs",
+          "immutability": "living",
+          "url": "https://cursor.com/docs/cli/using",
+          "artifactPath": null,
+          "retrievedAt": "2026-08-01",
+          "revision": null,
+          "mutableSourceReason": "The dynamically rendered documentation has no published revision."
+        }
+      ],
+      "assumptions": []
+    }
+  ],
+  "capabilityDefinitions": [
+    {
+      "id": "event-trace-resolution",
+      "description": "Resolves context against an explicit ordered event trace.",
+      "scope": "surface"
+    },
+    {
+      "id": "path-activation",
+      "description": "Determines whether a recognized document applies to a target path.",
+      "scope": "surface-format"
+    }
+  ],
+  "formatSupport": [
+    {
+      "surfaceId": "codex-cli/local-cli-single-cwd",
+      "formatId": "agents-markdown",
+      "specSnapshotId": "codex-cli/0.146.0/2026-08-01",
+      "recognition": {
+        "support": "supported",
+        "evidence": ["documented-versioned", "source-derived"],
+        "evidenceRefs": ["codex-agents-source"],
+        "uncertainty": { "state": "known" }
+      },
+      "capabilities": [
+        {
+          "capabilityId": "path-activation",
+          "support": "supported",
+          "evidence": ["source-derived"],
+          "evidenceRefs": ["codex-agents-source"],
+          "uncertainty": { "state": "known" }
+        }
+      ]
+    },
+    {
+      "surfaceId": "copilot-vscode/local-chat",
+      "formatId": "agents-markdown",
+      "specSnapshotId": "copilot-surfaces/2026-08-01.0",
+      "recognition": {
+        "support": "supported",
+        "evidence": ["documented", "conditional", "model-selected"],
+        "evidenceRefs": ["vscode-instructions-docs"],
+        "uncertainty": {
+          "state": "conditional",
+          "conditions": ["The model selects the file as context for the current request."]
+        }
+      },
+      "capabilities": []
+    },
+    {
+      "surfaceId": "copilot-vscode/local-chat",
+      "formatId": "copilot-path-instructions",
+      "specSnapshotId": "copilot-surfaces/2026-08-01.0",
+      "recognition": {
+        "support": "supported",
+        "evidence": ["documented", "conditional", "contradiction"],
+        "evidenceRefs": ["vscode-instructions-docs"],
+        "uncertainty": {
+          "state": "contradiction",
+          "reason": "The same first-party page gives conflicting description-only activation guidance.",
+          "alternatives": [
+            {
+              "id": "requires-apply-to",
+              "description": "A missing applyTo value prevents automatic activation."
+            },
+            {
+              "id": "description-relevance",
+              "description": "The model may activate the file from its description alone."
+            }
+          ]
+        }
+      },
+      "capabilities": [
+        {
+          "capabilityId": "path-activation",
+          "support": "conditional",
+          "evidence": ["documented", "conditional", "contradiction"],
+          "evidenceRefs": ["vscode-instructions-docs"],
+          "uncertainty": {
+            "state": "contradiction",
+            "reason": "Description-only activation is contradicted within the source.",
+            "alternatives": [
+              { "id": "inactive", "description": "The file remains inactive without applyTo." },
+              {
+                "id": "model-selected",
+                "description": "The model chooses relevance from description."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "surfaceId": "cursor-agent/cli",
+      "formatId": "cursor-legacy-rules",
+      "specSnapshotId": "cursor/2026-08-01",
+      "recognition": {
+        "support": "unknown",
+        "evidence": ["unknown"],
+        "evidenceRefs": ["cursor-cli-docs"],
+        "uncertainty": {
+          "state": "unknown",
+          "reason": "The reviewed CLI documentation does not establish legacy .cursorrules behavior."
+        }
+      },
+      "capabilities": []
+    }
+  ]
+}

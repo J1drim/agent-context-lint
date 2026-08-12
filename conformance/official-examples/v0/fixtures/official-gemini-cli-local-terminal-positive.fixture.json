@@ -1,0 +1,127 @@
+{
+  "assertions": [
+    {
+      "evidenceRefs": ["gemini-cli.local-terminal--gemini-context-markdown"],
+      "evidenceStatus": "source-derived",
+      "expected": { "selection": "selected", "supportStatus": "supported" },
+      "id": "assert-gemini-context-markdown-positive",
+      "predicate": "profile-format-capability-outcome"
+    }
+  ],
+  "eventTrace": [
+    {
+      "id": "event-launch",
+      "kind": "launch",
+      "path": ".",
+      "sequence": 0,
+      "targetId": "target-example"
+    },
+    {
+      "id": "event-reference",
+      "kind": "reference-path",
+      "path": "src/example.ts",
+      "sequence": 1,
+      "targetId": "target-example"
+    }
+  ],
+  "expectedGraph": {
+    "ambiguities": [],
+    "analysisStatus": "complete",
+    "edges": [
+      {
+        "evidenceRefs": ["gemini-cli.local-terminal--gemini-context-markdown"],
+        "from": "document-gemini-context-markdown",
+        "id": "edge-gemini-context-markdown",
+        "relation": "selects",
+        "resolutionStatus": "source-derived",
+        "to": "target-example"
+      }
+    ],
+    "nodes": [
+      {
+        "evidenceRefs": ["k01-target"],
+        "id": "target-example",
+        "kind": "target",
+        "path": "src/example.ts",
+        "resolutionStatus": "documented"
+      },
+      {
+        "evidenceRefs": ["gemini-cli.local-terminal--gemini-context-markdown"],
+        "formatId": "gemini-context-markdown",
+        "id": "document-gemini-context-markdown",
+        "kind": "document",
+        "path": "GEMINI.md",
+        "resolutionStatus": "source-derived"
+      }
+    ]
+  },
+  "extensions": {
+    "agent-context-lint.dev/k01": {
+      "coverageTags": [
+        "activation",
+        "ambiguity",
+        "glob-edge-case",
+        "import-behavior",
+        "nested-discovery",
+        "supported-location",
+        "unsupported-field"
+      ],
+      "polarity": "positive"
+    }
+  },
+  "externalContext": { "entries": [], "mode": "unavailable" },
+  "fixtureFormatVersion": "0.1.0",
+  "id": "official-gemini-cli-local-terminal-positive",
+  "invocation": {
+    "branchState": { "kind": "synthetic", "ref": "fixture" },
+    "launchCwd": ".",
+    "runtimeMode": "local-cli",
+    "settings": {},
+    "trustState": "trusted-synthetic",
+    "workspaceRoots": ["."]
+  },
+  "profile": {
+    "clientVersion": "0.53.1",
+    "profileId": "gemini-cli",
+    "specSnapshotId": "gemini-cli/2026-08-02.0",
+    "surfaceId": "gemini-cli/local-terminal",
+    "versionStatus": "pinned-package-and-source"
+  },
+  "provenance": {
+    "assumptions": [
+      "Example prose is replaced by short inert markers while retaining official locations, fields, and activation inputs.",
+      "The negative fixture changes only fixture-owned location or activation inputs and does not infer undocumented client behavior."
+    ],
+    "derivation": "official-example",
+    "observationIds": [],
+    "researchRecordIds": ["gemini-cli/2026-08-02.0"],
+    "sources": [
+      {
+        "id": "gemini-cli-2026-08-02.0-official-source",
+        "immutability": "immutable-revision",
+        "retrievedAt": "2026-08-02",
+        "url": "https://github.com/google-gemini/gemini-cli/blob/f47d6c6f7a1308d81f9f57acf7d279f0928c5249/docs/cli/gemini-md.md",
+        "revision": "f47d6c6f7a1308d81f9f57acf7d279f0928c5249"
+      }
+    ]
+  },
+  "recordKind": "profile-conformance-fixture",
+  "repository": {
+    "directories": ["docs/", "src/"],
+    "files": [
+      {
+        "content": "# Project context\n\nUse the repository test command.\n@docs/policy.md\n`@ignored/in-code.md`\n",
+        "formatId": "gemini-context-markdown",
+        "path": "GEMINI.md"
+      },
+      { "content": "Official-example target.\n", "formatId": null, "path": "src/example.ts" },
+      { "content": "Synthetic imported marker.\n", "formatId": null, "path": "docs/policy.md" }
+    ],
+    "root": ".",
+    "symlinks": []
+  },
+  "targets": [
+    { "id": "target-example", "path": "src/example.ts", "purpose": "resolve-effective-context" }
+  ],
+  "title": "gemini-cli/local-terminal official examples (positive)"
+}
