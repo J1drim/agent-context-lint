@@ -8,7 +8,7 @@ catalog:
   "@vitest/coverage-v8": 4.1.10
   ajv: 8.20.0
   eslint: 10.8.0
-  globals: 17.7.0
+  globals: 17.9.0
   prettier: 3.9.6
   spdx-expression-parse: 5.0.0
   typescript: npm:@typescript/typescript6@6.0.2
