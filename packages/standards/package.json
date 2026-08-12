@@ -43,6 +43,6 @@
     "@agent-context/core": "workspace:*",
     "@agent-context/profiles": "workspace:*",
     "@tufjs/canonical-json": "2.0.0",
-    "@tufjs/models": "4.0.0"
+    "@tufjs/models": "5.0.0"
   }
 }
